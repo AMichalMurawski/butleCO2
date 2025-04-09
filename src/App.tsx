@@ -1,16 +1,18 @@
 import React from "react";
-import { Contact, Hero, Home, Navbar, Orders, Services } from "./sections";
+import { Contact, Hero, Navbar, Orders, Services } from "./sections";
+import { AppWrapper, Main } from "./App.styled";
 
 const App = () => {
   return (
-    <>
+    <AppWrapper>
       <Navbar />
-      <Hero />
-      <Home />
-      <Services />
-      <Orders />
+      <Main>
+        <Hero />
+        <Services />
+        <Orders />
+      </Main>
       <Contact />
-    </>
+    </AppWrapper>
   );
 };
 

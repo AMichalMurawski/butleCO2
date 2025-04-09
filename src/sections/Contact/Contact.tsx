@@ -1,7 +1,8 @@
 import React from "react";
+import { Footer } from "./Contact.styled";
 
 const Contact: React.FC = () => {
-  return <section>Section Contact</section>;
+  return <Footer>Section Contact</Footer>;
 };
 
 export default Contact;

@@ -1,7 +1,8 @@
 import React from "react";
+import { HeroSection } from "./Hero.styled";
 
 const Hero: React.FC = () => {
-  return <section>Section Hero</section>;
+  return <HeroSection>Section Hero</HeroSection>;
 };
 
 export default Hero;
