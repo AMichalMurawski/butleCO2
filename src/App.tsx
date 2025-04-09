@@ -1,11 +1,18 @@
 import React from "react";
-import "./App.css";
+import { Contact, Hero, Navbar, Orders, Services } from "./sections";
+import { AppWrapper, Main } from "./App.styled";
 
 const App = () => {
   return (
-    <div>
-      <h1>Butle CO2</h1>
-    </div>
+    <AppWrapper>
+      <Navbar />
+      <Main>
+        <Hero />
+        <Services />
+        <Orders />
+      </Main>
+      <Contact />
+    </AppWrapper>
   );
 };
 
