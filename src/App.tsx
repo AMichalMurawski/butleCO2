@@ -1,11 +1,16 @@
 import React from "react";
-import "./App.css";
+import { Contact, Hero, Home, Navbar, Orders, Services } from "./sections";
 
 const App = () => {
   return (
-    <div>
-      <h1>Butle CO2</h1>
-    </div>
+    <>
+      <Navbar />
+      <Hero />
+      <Home />
+      <Services />
+      <Orders />
+      <Contact />
+    </>
   );
 };
 
