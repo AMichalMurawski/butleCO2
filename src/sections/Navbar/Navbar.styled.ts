@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 
-export const Header = styled.header``;
+export const Header = styled.header`
+  position: fixed;
+  top:0;
+  width: 100%;
+  display: flex;
+  justify-content: center
+`;
 
 export const HeaderBox = styled.div`
   position: relative;
   padding: 30px;
   max-width: 1280px;
+  width: 100%;
   display: flex;
   justify-content: center;
 `;

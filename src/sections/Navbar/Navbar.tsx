@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
         <LogoWraper>Logo</LogoWraper>
         <NavbarWraper>
           <Button type="button" text="O firmie" />
-          <Button type="button" text="Kontakt" />
+          <Button type="button" text="Kontakt" active />
           <Button type="button" text="Oferta" />
           <Button type="button" text="Zamówienia" />
         </NavbarWraper>

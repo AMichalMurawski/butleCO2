@@ -7,6 +7,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: React.FC<ButtonProps> = ({ text, active = false }) => {
+  
+
   return <ButtonWraper active={active}>{text}</ButtonWraper>;
 };
 
