@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   display: flex;
-  justify-content: center
+  justify-content: center;
+  z-index: 10;
 `;
 
 export const HeaderBox = styled.div`
