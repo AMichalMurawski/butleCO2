@@ -1,6 +1,6 @@
-import React from "react";
-import { Contact, Hero, Navbar, Orders, Services } from "./sections";
-import { AppWrapper, Main } from "./App.styled";
+import React from 'react';
+import { About, Contact, Hero, Navbar, Orders, Services } from './sections';
+import { AppWrapper, Main } from './App.styled';
 
 const App = () => {
   return (
@@ -8,6 +8,7 @@ const App = () => {
       <Navbar />
       <Main>
         <Hero />
+        <About />
         <Services />
         <Orders />
       </Main>

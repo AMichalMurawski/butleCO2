@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Header = styled.header`
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -24,7 +25,7 @@ export const NavbarWraper = styled.nav`
   display: flex;
   flex-direction: row;
   gap: 30px;
-  background-color: #1f2a3866;
+  background-color: #1f2a38aa;
   border-radius: 100px;
 `;
 
