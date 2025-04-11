@@ -1,14 +1,15 @@
 import React from 'react';
-import { HeroSection, Image, Title } from './Hero.styled';
+import { HeroSection, Image, Sentence, Subtitle, Title } from './Hero.styled';
 
 const Hero: React.FC = () => {
   return (
     <HeroSection>
       <Image />
-      <Title>
-        ButleCO2.pl - Twój niezawodny dostawca gazów technicznych i butli z dwutlenkiem węgla w
-        Warszawie i okolicach.
-      </Title>
+      <Sentence>
+        <Title>ButleCO2.pl</Title>
+        <Subtitle>Twój niezawodny dostawca <i>gazów technicznych</i></Subtitle>
+        <Subtitle>i <i>butli z dwutlenkiem węgla</i> w Warszawie i okolicach.</Subtitle>
+      </Sentence>
     </HeroSection>
   );
 };
