@@ -1,10 +1,10 @@
 import React from 'react';
-import { Header, HeaderBox, LogoWraper, NavbarWraper } from './Navbar.styled';
+import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
 import Button from '../../components/Button/Button';
 
-const Navbar: React.FC = () => {
+const Header: React.FC = () => {
   return (
-    <Header>
+    <HeaderWraper>
       <HeaderBox>
         <LogoWraper>Logo</LogoWraper>
         <NavbarWraper>
@@ -14,8 +14,8 @@ const Navbar: React.FC = () => {
           <Button type="button" text="Zamówienia" />
         </NavbarWraper>
       </HeaderBox>
-    </Header>
+    </HeaderWraper>
   );
 };
 
-export default Navbar;
+export default Header;

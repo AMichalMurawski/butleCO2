@@ -1,18 +1,20 @@
 import React from 'react';
-import { About, Contact, Hero, Navbar, Orders, Services } from './sections';
+import { About, ContactMe, Footer, Header, Hero, Orders, Products, Services } from './sections';
 import { AppWrapper, Main } from './App.styled';
 
 const App = () => {
   return (
     <AppWrapper>
-      <Navbar />
+      <Header />
       <Main>
         <Hero />
         <About />
         <Services />
+        <ContactMe />
+        <Products />
         <Orders />
       </Main>
-      <Contact />
+      <Footer />
     </AppWrapper>
   );
 };
