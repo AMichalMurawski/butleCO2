@@ -5,3 +5,12 @@ export const Section = styled.section`
   max-width: 1280px;
   width: 100%;
 `;
+
+export const H2 = styled.h2`
+  font-size: 32px;
+  margin-bottom: 60px;
+`;
+
+export const P = styled.p`
+  font-size: 24px;
+`;
