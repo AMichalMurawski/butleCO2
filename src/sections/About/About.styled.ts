@@ -24,6 +24,6 @@ export const Advanatage = styled.div`
 export const AdvantageDescription = styled(P)``;
 
 export const IconWraper = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 `;

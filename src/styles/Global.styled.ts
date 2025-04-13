@@ -7,10 +7,10 @@ export const Section = styled.section`
 `;
 
 export const H2 = styled.h2`
-  font-size: 32px;
+  font-size: 24px;
   margin-bottom: 60px;
 `;
 
 export const P = styled.p`
-  font-size: 24px;
+  font-size: 14px;
 `;
