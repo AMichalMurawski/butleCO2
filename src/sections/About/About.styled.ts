@@ -11,12 +11,11 @@ export const TextBlock = styled.div`
   flex-basis: calc((100% - 30px) / 2);
   display: flex;
   flex-direction: column;
-  gap:30px;
 `
 
 export const Title = styled(H2)`
   &:not(:first-child) {
-    margin-top: 30px;
+    margin-top: 60px;
   }`;
 
 export const Description = styled(P)``;
