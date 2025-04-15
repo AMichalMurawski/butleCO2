@@ -11,12 +11,13 @@ export const TextBlock = styled.div`
   flex-basis: calc((100% - 30px) / 2);
   display: flex;
   flex-direction: column;
-`
+`;
 
 export const Title = styled(H2)`
   &:not(:first-child) {
     margin-top: 60px;
-  }`;
+  }
+`;
 
 export const Description = styled(P)``;
 
@@ -25,7 +26,7 @@ export const ContentBlock = styled.div`
   display: flex;
   flex-direction: column;
   gap: 90px;
-`
+`;
 
 export const AdvantagesList = styled.div`
   display: flex;
@@ -39,11 +40,11 @@ export const Advanatage = styled.div`
   max-width: 200px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 15px;
 `;
 
-export const AdvantageDescription = styled(P)`
-`;
+export const AdvantageDescription = styled(P)``;
 
 export const IconWraper = styled.div`
   width: 36px;
@@ -55,9 +56,9 @@ export const ButtonsWraper = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-`
+`;
 export const ButtonWraper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-`
+`;
