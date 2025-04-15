@@ -4,27 +4,34 @@ import {
   Advanatage,
   AdvantageDescription,
   AdvantagesList,
+  ButtonsWraper,
+  ButtonWraper,
+  ContentBlock,
   Description,
   IconWraper,
   TextBlock,
   Title,
 } from './About.styled';
 import IconSvg from '../../components/Icon/IconSvg';
+import Button from '../../components/Button/Button';
+import { useTheme } from 'styled-components';
 
 const advantagesIcons = [
-  ['clock', 'Szybkość'],
-  ['coin-dollar', 'Cena'],
-  ['stats-dots', 'Doświadczenie'],
-  ['bubbles',"Obsługa"],
-  ['user-check', 'Zaufanie'],
-  ['checkmark', 'Bezpieczeństwo'],
+  ['clock', 'Szybka Dostawa'],
+  ['stats-dots', 'Duże Doświadczenie'],
+  ['coin-dollar', 'Niska Cena'],
+  ['user-check', 'Godne Zaufanie'],
+  ['bubbles',"Wykwalifikowana Obsługa"],
+  ['checkmark', 'Pewne Bezpieczeństwo'],
 ];
 
 const About: React.FC = () => {
+  const theme = useTheme();
+
   return (
     <AboutSection>
       <TextBlock>
-        <Title>Poznaj ButleCO2.pl - Ekspertów od CO2 w Warszawie.</Title>
+        <Title>Poznaj ButleCO2.pl - Ekspertów od CO2 w Warszawie</Title>
         <Description>
           Od ponad 15 lat dostarczamy butle z dwutlenkiem węgla na terenie Warszawy i okolic. Nasza
           firma powstała z pasji do wspierania lokalnych biznesów - od restauracji, biur i kawiarni po
@@ -32,17 +39,34 @@ const About: React.FC = () => {
           pełne zadowolenie klienta, co potwierdza stale rosnąca liczba naszych partnerów. Nasz cel?
           Dostarczać gaz tam, gdzie jest potrzebny - szybko i bez zbędnych formalności.
         </Description>
+        <Title>Gaz na czas</Title>
+        <Description>
+          Specjalizujemy się w dostarczaniu butli z CO2 dla gastronomii, akwarystyki, saturatorów wody,
+          przemysłu, biur i domu – wszystko z dostawą pod Twoje drzwi na terenie Warszawy i okolic.
+        </Description>
       </TextBlock>
-      <AdvantagesList>
-        {advantagesIcons.map(advantage => (
-          <Advanatage>
-            <IconWraper>
-              <IconSvg name={advantage[0]} fill="cyan" />
-            </IconWraper>
-            <AdvantageDescription>{advantage[1]}</AdvantageDescription>
-          </Advanatage>
-        ))}
-      </AdvantagesList>
+      <ContentBlock>
+        <AdvantagesList>
+          {advantagesIcons.map(advantage => (
+            <Advanatage>
+              <IconWraper>
+                <IconSvg name={advantage[0]} fill="cyan" />
+              </IconWraper>
+              <AdvantageDescription>{advantage[1]}</AdvantageDescription>
+            </Advanatage>
+          ))}
+        </AdvantagesList>
+        <ButtonsWraper >
+          <ButtonWraper>
+            <Description><b>Masz pytanie?</b></Description>
+            <Button type='button' text='Skontaktuj się z nami' background={theme.color.remarkable} color={theme.color.structural} />
+          </ButtonWraper>
+          <ButtonWraper>
+            <Description><b>Potrzebujesz butli?</b></Description>
+            <Button type='button' text='Złóż zamówienie' background={theme.color.remarkable} color={theme.color.structural} />
+          </ButtonWraper>
+        </ButtonsWraper>
+      </ContentBlock>
     </AboutSection>
   );
 };

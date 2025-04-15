@@ -9,17 +9,30 @@ export const AboutSection = styled(Section)`
 
 export const TextBlock = styled.div`
   flex-basis: calc((100% - 30px) / 2);
+  display: flex;
+  flex-direction: column;
+  gap:30px;
 `
 
-export const Title = styled(H2)``;
+export const Title = styled(H2)`
+  &:not(:first-child) {
+    margin-top: 30px;
+  }`;
 
 export const Description = styled(P)``;
 
-export const AdvantagesList = styled.div`
+export const ContentBlock = styled.div`
   flex-basis: calc((100% - 30px) / 2);
   display: flex;
+  flex-direction: column;
+  gap: 90px;
+`
+
+export const AdvantagesList = styled.div`
+  display: flex;
   flex-wrap: wrap;
-  gap: 90px 30px;
+  gap: 60px 30px;
+  max-height: min-content;
 `;
 
 export const Advanatage = styled.div`
@@ -30,9 +43,22 @@ export const Advanatage = styled.div`
   gap: 15px;
 `;
 
-export const AdvantageDescription = styled(P)``;
+export const AdvantageDescription = styled(P)`
+`;
 
 export const IconWraper = styled.div`
   width: 36px;
   height: 36px;
 `;
+
+export const ButtonsWraper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+`
+export const ButtonWraper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`
