@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Section } from '../../styles/Global.styled';
-import heroImage from '../../images/fk7rx5fk7rx5fk7r.jpg';
+import heroImage from '/images/fk7rx5fk7rx5fk7r.jpg';
 
 export const HeroSection = styled(Section)`
   position: relative;
