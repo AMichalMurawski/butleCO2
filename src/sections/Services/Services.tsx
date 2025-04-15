@@ -1,42 +1,62 @@
-import React from "react";
-import { ServiceDescription, ServiceImage, ServicesList, ServicesSection, ServiceTitle, ServiceWraper, Title } from "./Services.styled";
+import React from 'react';
+import {
+  ServiceDescription,
+  ServiceImage,
+  ServicesList,
+  ServicesSection,
+  ServiceTitle,
+  ServiceWraper,
+  Title,
+} from './Services.styled';
 
 const servList = [
-  ['/images/Jm84YtVxLqRZwEp1FbN2.jpg',
-    'Butle CO2',
-    'Oferujemy butle z CO2 w szerokim zakresie pojemności - od kompaktowych 0,3 kg idealnych do gazowania wody lub akwarystyki, po duże 50 kg dla przemysłu i gastronomii. Wszystkie nasze butle są atestowane i gotowe do użytku.'],
-  ['/images/fT7LmYq2ZpXvWKaE19Bu.jpg',
+  [
+    '/images/016ccedf-777e-4777-a525-3652016e41bf.jpg',
+    'Duży asortyment butli CO2',
+    'Oferujemy butle z CO2 w szerokim zakresie pojemności - od kompaktowych 0,3 kg idealnych do gazowania wody lub akwarystyki, po duże 50 kg dla przemysłu i gastronomii. Wszystkie nasze butle są atestowane i gotowe do użytku.',
+  ],
+  [
+    '/images/a39526cc-efcd-4efc-815a-341555e443be.jpg',
     'Napełnianie butli',
-    'Napełniamy butle CO2 na miejscu w naszym punkcie przy ul. Poprawnej 105A w Warszawie - najtaniej, najszybciej i od ręki! Gwarantujemy szybką obsługę, a dla zamówień hurtowych oferujemy rabaty i priorytetową realizację.'],
-  ['/images/N3ePzXtMwbqL7oAFK4vJ.jpg',
-    'Wynajem',
-    'Elastyczne opcje dzierżawy lub sprzedaży butli, gdy nie posiadasz swojej'],
-  ['/images/Jm84YtVxLqRZwEp1FbN2.jpg',
-    'Dostawa',
-    'Dostarczamy butle i gaz pod wskazany adres na terenie Warszawy i okolic. Zamówienia złożone do 10:00 realizujemy jeszcze tego samego dnia - sprawdź nas!'],
-  ['/images/fT7LmYq2ZpXvWKaE19Bu.jpg',
-    'Inne gazy',
-    'Dostarczamy również Argon, Argon+CO2, Azot, Azot+CO2 w butlach 8L.'],
-  ['/images/N3ePzXtMwbqL7oAFK4vJ.jpg',
+    'Napełniamy butle CO2 na miejscu w naszym punkcie przy ul. Poprawnej 105A w Warszawie - najtaniej, najszybciej i od ręki! Gwarantujemy szybką obsługę, a dla zamówień hurtowych oferujemy rabaty i priorytetową realizację.',
+  ],
+  [
+    '/images/2e066f5b-44d8-444d-836a-d4366a8f251e.jpg',
+    'Szybka dostawa',
+    'Dostarczamy butle i gaz pod wskazany adres na terenie Warszawy i okolic. Zamówienia złożone do 10:00 realizujemy jeszcze tego samego dnia - sprawdź nas!',
+  ],
+  [
+    '/images/4a2cbe5f-95f4-495f-960d-e1606fd83a2c.jpg',
+    'Wynajem butli CO2',
+    'Elastyczne opcje dzierżawy lub sprzedaży butli, gdy nie posiadasz swojej',
+  ],
+  [
+    '/images/32af38a1-371d-4371-8cf0-6ccf41e03ddf.jpg',
+    'Argon i Azot',
+    'Dostarczamy również Argon, Argon+CO2, Azot, Azot+CO2 w butlach 8L.',
+  ],
+  [
+    '/images/9bbbf2ad-c7b2-4c7b-bce4-f3ce86f7f5cb.jpg',
     'Saturatory wody',
-    'Oferujemy wymianę lub napełnianie butli do saturatorów wody - ciesz się świeżą wodą gazowaną w domu lub biurze!'
-  ]
-]
-
+    'Oferujemy wymianę lub napełnianie butli do saturatorów wody - ciesz się świeżą wodą gazowaną w domu lub biurze!',
+  ],
+];
 
 const Services: React.FC = () => {
-  return <ServicesSection>
-    <Title>Nasza oferta - Butle CO2 i usługi dopasowane do Twoich potrzeb</Title>
-    <ServicesList>
+  return (
+    <ServicesSection>
+      <Title>Nasza oferta - Butle CO2 i usługi dopasowane do Twoich potrzeb</Title>
+      <ServicesList>
         {servList.map(serv => (
           <ServiceWraper>
             <ServiceImage image={serv[0]} />
             <ServiceTitle>{serv[1]}</ServiceTitle>
             <ServiceDescription>{serv[2]}</ServiceDescription>
-          </ServiceWraper >
+          </ServiceWraper>
         ))}
-    </ServicesList>
-  </ServicesSection>;
+      </ServicesList>
+    </ServicesSection>
+  );
 };
 
 export default Services;
