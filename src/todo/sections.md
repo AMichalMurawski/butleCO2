@@ -12,10 +12,12 @@
 
 # Section Services
 
+# Section WyChooseUs
+
+# Section ContactMe
+
 # Section Products
 
 # Section Order
-
-# Section ContactMe
 
 # Section Footer
