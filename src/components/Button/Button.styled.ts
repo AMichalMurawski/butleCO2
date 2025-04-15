@@ -2,12 +2,14 @@ import styled from 'styled-components';
 
 interface ButtonWraper {
   active: true | false;
+  color: string;
+  background: string
 }
 
 export const ButtonWraper = styled.button<ButtonWraper>`
-  padding: 10px;
-  color: ${({ active, theme: { color } }) => (active ? color.hightlight : color.text)};
-  background-color: transparent;
+  padding: 15px;
+  color: ${({ active, color, theme }) => (active ? theme.color.hightlight : color)};
+  background-color: ${({ background, theme: { color } }) => background};
   border-radius: 100px;
   border: none;
   transition: scale 200ms;
