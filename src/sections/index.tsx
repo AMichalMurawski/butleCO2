@@ -1,5 +1,5 @@
 export { default as About } from './About/About';
-export { default as ContactMe } from './ContactMe/ContactMe';
+export { default as ContactUs } from './ContactUs/ContactUs';
 export { default as Footer } from './Footer/Footer';
 export { default as Header } from './Header/Header';
 export { default as Hero } from './Hero/Hero';

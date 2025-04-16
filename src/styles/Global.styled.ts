@@ -12,8 +12,7 @@ export const Section = styled.section`
     left: 0;
     top: 0;
     width: 100%;
-    height: 2px;
-    background-color: ${({theme}) => theme.color.remarkable};
+    box-shadow: 0 0 1px 1px ${({theme}) => theme.color.remarkable};
     z-index: 1;
   }
 `;
