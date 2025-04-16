@@ -12,6 +12,7 @@ import {
   WorkHours,
   WorkHoursConteiner,
 } from './ContactUs.styled';
+import ContactForm from '../../components/ContactForm/ContactForm';
 
 const ContactUs: React.FC = () => {
   return (
@@ -38,7 +39,9 @@ const ContactUs: React.FC = () => {
           <WorkHours>W pilnych sprawach dzwoń poza godzinami.</WorkHours>
           <WorkHours>Jeśli nie odbieramy - napisz SMS - postaramy się pomóc!</WorkHours>
         </WorkHoursConteiner>
-        <FormWraper>Form Wraper</FormWraper>
+        <FormWraper>
+          <ContactForm />
+        </FormWraper>
         <MapWraper>
           <Iframe
             title="Butle CO2"
