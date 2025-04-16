@@ -1,9 +1,21 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  padding: 60px 30px 30px;
+  position: relative;
+  padding: 60px 30px;
   max-width: 1280px;
   width: 100%;
+
+  &:not(:first-of-type)::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background-color: ${({theme}) => theme.color.remarkable};
+    z-index: 1;
+  }
 `;
 
 export const H2 = styled.h2`
