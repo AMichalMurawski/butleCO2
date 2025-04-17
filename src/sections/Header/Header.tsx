@@ -8,10 +8,11 @@ const Header: React.FC = () => {
       <HeaderBox>
         <LogoWraper>Logo</LogoWraper>
         <NavbarWraper>
-          <Button type="button" text="O firmie" />
-          <Button type="button" text="Kontakt" active />
-          <Button type="button" text="Oferta" />
-          <Button type="button" text="Zamówienia" />
+          <Button type="button" text="O firmie" idSection="about" />
+          <Button type="button" text="Dlaczego My?" idSection="whyChooseUs" />
+          <Button type="button" text="Kontakt" idSection="contactMe" active />
+          <Button type="button" text="Oferta" idSection="services" />
+          <Button type="button" text="Zamówienia" idSection="orders" />
         </NavbarWraper>
       </HeaderBox>
     </HeaderWraper>

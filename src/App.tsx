@@ -1,8 +1,8 @@
 import React from 'react';
-import { About, ContactMe, Footer, Header, Hero, Orders, Services, WyChooseUs } from './sections';
+import { About, ContactMe, Footer, Header, Hero, Orders, Services, WhyChooseUs } from './sections';
 import { AppWrapper, Main } from './App.styled';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <AppWrapper>
       <Header />
@@ -10,7 +10,7 @@ const App = () => {
         <Hero />
         <About />
         <Services />
-        <WyChooseUs />
+        <WhyChooseUs />
         <ContactMe />
         <Orders />
       </Main>
