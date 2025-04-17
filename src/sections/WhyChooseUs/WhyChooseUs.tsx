@@ -7,11 +7,11 @@ import {
   IconWraper,
   Subtitle,
   Title,
-  WyChooseUsSection,
-} from './WyChooseUs.styled';
+  WhyChooseUsSection,
+} from './WhyChooseUs.styled';
 import IconSvg from '../../components/Icon/IconSvg';
 
-const wyWeList = [
+const whyWeList = [
   [
     'clock',
     'Szybka Dostawa',
@@ -44,25 +44,25 @@ const wyWeList = [
   ],
 ];
 
-const WyChooseUs: React.FC = () => {
+const WhyChooseUs: React.FC = () => {
   return (
-    <WyChooseUsSection>
+    <WhyChooseUsSection id="whyChooseUs">
       <Title>Dlaczego ButleCO2.pl to Twój najlepszy wybór?</Title>
       <AdvantagesList>
-        {wyWeList.map((wywe, index) => (
+        {whyWeList.map((whywe, index) => (
           <AdvantageWraper key={index} direction={index % 2 == 0 ? 'left' : 'right'}>
             <IconWraper>
-              <IconSvg name={wywe[0]} size="90px" fill="cyan" />
+              <IconSvg name={whywe[0]} size="90px" fill="cyan" />
             </IconWraper>
             <AdvantageContent>
-              <Subtitle>{wywe[1]}</Subtitle>
-              <Description>{wywe[2]}</Description>
+              <Subtitle>{whywe[1]}</Subtitle>
+              <Description>{whywe[2]}</Description>
             </AdvantageContent>
           </AdvantageWraper>
         ))}
       </AdvantagesList>
-    </WyChooseUsSection>
+    </WhyChooseUsSection>
   );
 };
 
-export default WyChooseUs;
+export default WhyChooseUs;
