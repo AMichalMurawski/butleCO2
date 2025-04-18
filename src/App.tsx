@@ -1,5 +1,5 @@
 import React from 'react';
-import { About, ContactMe, Footer, Header, Hero, Orders, Services, WhyChooseUs } from './sections';
+import { About, ContactUs, Footer, Header, Hero, Orders, Services, WhyChooseUs } from './sections';
 import { AppWrapper, Main } from './App.styled';
 
 const App: React.FC = () => {
@@ -11,7 +11,7 @@ const App: React.FC = () => {
         <About />
         <Services />
         <WhyChooseUs />
-        <ContactMe />
+        <ContactUs />
         <Orders />
       </Main>
       <Footer />
