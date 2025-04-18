@@ -14,16 +14,16 @@ export const AdvantagesList = styled.div`
 `;
 
 interface AdvantagesWraperProps {
-  direction: 'left' | 'right';
+  $direction: 'left' | 'right';
 }
 
 export const AdvantageWraper = styled.div<AdvantagesWraperProps>`
   position: relative;
   padding: 60px;
   width: 80%;
-  align-self: ${({ direction }) => (direction === 'left' ? 'end' : 'start')};
+  align-self: ${({ $direction }) => ($direction === 'left' ? 'end' : 'start')};
   display: flex;
-  flex-direction: ${({ direction }) => (direction === 'left' ? 'row' : 'row-reverse')};
+  flex-direction: ${({ $direction }) => ($direction === 'left' ? 'row' : 'row-reverse')};
   align-items: center;
   gap: 30px;
 
@@ -33,9 +33,9 @@ export const AdvantageWraper = styled.div<AdvantagesWraperProps>`
     width: calc((100 / 80) * (100 / 80) * 100%);
     height: 100%;
     top: 0;
-    ${({ direction }) => (direction === 'left' ? 'right: calc((79 / 100) * (-20%));' : 'left: 0;')};
-    background-color: ${({ direction, theme }) =>
-      direction === 'left' ? theme.color.structural : 'null'};
+    ${({ $direction }) => ($direction === 'left' ? 'right: calc((79 / 100) * (-20%));' : 'left: 0;')};
+    background-color: ${({ $direction, theme }) =>
+      $direction === 'left' ? theme.color.structural : 'null'};
     z-index: -1;
   }
 `;

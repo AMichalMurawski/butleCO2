@@ -28,9 +28,9 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <ButtonWraper
-      active={active}
-      background={background}
-      color={color || theme.color.text}
+      $active={active}
+      $background={background}
+      $color={color || theme.color.text}
       onClick={scrollToSection}
     >
       {text}

@@ -49,7 +49,7 @@ const About: React.FC = () => {
       <ContentBlock>
         <AdvantagesList>
           {advantagesIcons.map(advantage => (
-            <Advanatage>
+            <Advanatage key={advantage[1]}>
               <IconWraper>
                 <IconSvg name={advantage[0]} fill="cyan" />
               </IconWraper>

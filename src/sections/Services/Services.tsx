@@ -48,8 +48,8 @@ const Services: React.FC = () => {
       <Title>Nasza oferta - Butle CO2 i usługi dopasowane do Twoich potrzeb</Title>
       <ServicesList>
         {servList.map(serv => (
-          <ServiceWraper>
-            <ServiceImage image={serv[0]} />
+          <ServiceWraper key={serv[1]}>
+            <ServiceImage $image={serv[0]} />
             <ServiceTitle>{serv[1]}</ServiceTitle>
             <ServiceDescription>{serv[2]}</ServiceDescription>
           </ServiceWraper>

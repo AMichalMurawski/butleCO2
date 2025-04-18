@@ -50,7 +50,7 @@ const WhyChooseUs: React.FC = () => {
       <Title>Dlaczego ButleCO2.pl to Twój najlepszy wybór?</Title>
       <AdvantagesList>
         {whyWeList.map((whywe, index) => (
-          <AdvantageWraper key={index} direction={index % 2 == 0 ? 'left' : 'right'}>
+          <AdvantageWraper key={whywe[1]} $direction={index % 2 == 0 ? 'left' : 'right'}>
             <IconWraper>
               <IconSvg name={whywe[0]} size="90px" fill="cyan" />
             </IconWraper>

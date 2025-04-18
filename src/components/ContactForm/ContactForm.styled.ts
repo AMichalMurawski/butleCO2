@@ -14,19 +14,19 @@ export const FormWraper = styled.div`
 `;
 
 interface GridCellProps {
-  gridColumn: string;
-  gridRow: string;
-  width?: string;
-  height?: string;
-  atr?: string[] | null;
+  $gridColumn: string;
+  $gridRow: string;
+  $width?: string;
+  $height?: string;
+  $atr?: string[] | null;
 }
 
 export const GridCell = styled.div<GridCellProps>`
-  grid-column: ${({ gridColumn }) => gridColumn};
-  grid-row: ${({ gridRow }) => gridRow};
-  width: ${({ width }) => width || 'auto'};
-  height: ${({ height }) => height || 'auto'};
-  ${({atr}) => atr?.join(";")}
+  grid-column: ${({ $gridColumn }) => $gridColumn};
+  grid-row: ${({ $gridRow }) => $gridRow};
+  width: ${({ $width }) => $width || 'auto'};
+  height: ${({ $height }) => $height || 'auto'};
+  ${({$atr}) => $atr?.join(";")}
 `;
 
 export const Placeholder = styled(P)``;
