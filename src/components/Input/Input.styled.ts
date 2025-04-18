@@ -9,7 +9,10 @@ export const InputWraper = styled.div`
 export const FieldStyled = styled(Field)`
   width: 100%;
   height: 100%;
+  padding: 5px 10px;
   border-radius: 15px;
+  resize: none;
+  vertical-align: top;
 
   &:focus {
     outline: none;

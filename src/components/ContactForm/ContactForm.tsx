@@ -2,6 +2,8 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from 'react';
 import { FormWraper, GridCell, InputStyled, Placeholder } from './ContactForm.styled';
 import Input from '../Input/Input';
+import Button from '../Button/Button';
+import { theme } from '../../styles/theme';
 
 interface FormValues {
   name: string;
@@ -34,10 +36,13 @@ const ContactForm: React.FC = () => {
             <Input name="email" type="email" />
           </GridCell>
           <GridCell gridColumn="1 / 3" gridRow="3">
-            <Placeholder>Twoja wiadomość</Placeholder>
+            <Placeholder>Twoja wiadomość:</Placeholder>
           </GridCell>
           <GridCell gridColumn="1 / 3" gridRow="4" width="100%" height="200px">
-            <Input name="message" type="textarea" />
+            <Input name="message" asType="textarea" />
+          </GridCell>
+          <GridCell gridColumn='1 / 3' gridRow='5' atr={['margin-left: auto','margin-right: auto']}>
+            <Button text="Wyślij zapytanie" background={theme.color.hightlight} />
           </GridCell>
         </FormWraper>
       </Form>

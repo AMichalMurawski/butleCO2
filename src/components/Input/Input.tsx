@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FieldStyled, InputWraper } from './Input.styled';
-import { ErrorMessage, Field } from 'formik';
+import { ErrorMessage, Field, FieldProps } from 'formik';
 
 interface InputProps {
   name: string;
-  type: string;
+  type?: string;
+  asType?: string;
   atr?: object;
 }
 
-const Input: React.FC<InputProps> = ({ name, type, atr }) => {
+const Input: React.FC<InputProps> = ({ name, type, asType, atr }) => {
+
   return (
     <InputWraper>
-      <Field as={FieldStyled} name={name} type={type} {...atr}></Field>
+      <FieldStyled name={name} type={type} as={asType} {...atr}>
+      </FieldStyled>
       <ErrorMessage name={name} component="div" />
     </InputWraper>
   );
