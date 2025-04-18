@@ -12,11 +12,7 @@ export const ServicesList = styled.div`
   gap: 30px;
 `;
 
-interface ServiceWraperProps {
-  image?: string;
-}
-
-export const ServiceWraper = styled.div<ServiceWraperProps>`
+export const ServiceWraper = styled.div`
   position: relative;
   flex-basis: calc((100% - 30px) / 2);
   height: 400px;
@@ -29,7 +25,7 @@ export const ServiceWraper = styled.div<ServiceWraperProps>`
 `;
 
 interface ServiceImageProps {
-  image?: string;
+  $image?: string;
 }
 
 export const ServiceImage = styled.div<ServiceImageProps>`
@@ -38,7 +34,7 @@ export const ServiceImage = styled.div<ServiceImageProps>`
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url(${({ image }) => image});
+  background-image: url(${({ $image }) => $image});
   background-size: cover;
   background-position: center;
   filter: brightness(35%) opacity(50%);
