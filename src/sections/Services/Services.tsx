@@ -44,7 +44,7 @@ const servList = [
 
 const Services: React.FC = () => {
   return (
-    <ServicesSection>
+    <ServicesSection id="services">
       <Title>Nasza oferta - Butle CO2 i usługi dopasowane do Twoich potrzeb</Title>
       <ServicesList>
         {servList.map(serv => (

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { H2, H3, P, Section } from '../../styles/Global.styled';
 
-export const WyChooseUsSection = styled(Section)``;
+export const WhyChooseUsSection = styled(Section)``;
 
 export const Title = styled(H2)``;
 

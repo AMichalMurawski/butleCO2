@@ -7,12 +7,35 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   active?: true | false;
   color?: string;
   background?: string;
+  idSection?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, active = false, color, background = 'transparent'}) => {
-  const theme = useTheme()
+const Button: React.FC<ButtonProps> = ({
+  text,
+  active = false,
+  color,
+  background = 'transparent',
+  idSection = '',
+}) => {
+  const theme = useTheme();
 
-  return <ButtonWraper active={active} background={background} color={color || theme.color.text}>{text}</ButtonWraper>;
+  const scrollToSection = () => {
+    console.log('bar');
+    const section = document.getElementById(idSection);
+    section?.scrollIntoView({ behavior: 'smooth' });
+    console.log('foo');
+  };
+
+  return (
+    <ButtonWraper
+      active={active}
+      background={background}
+      color={color || theme.color.text}
+      onClick={scrollToSection}
+    >
+      {text}
+    </ButtonWraper>
+  );
 };
 
 export default Button;
