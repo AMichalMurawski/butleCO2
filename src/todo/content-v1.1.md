@@ -37,3 +37,13 @@
   - "Godne Zaufanie (user-check) – Nasi klienci oceniają nas na 4,8/5 w Google – zajrzyj do opinii, by przekonać się, że warto nam zaufać."
   - "Wykwalifikowana Obsługa (bubbles) – Każdy klient jest dla nas ważny – doradzimy, dopasujemy ofertę i rozwiążemy Twój problem, niezależnie od skali zamówienia."
   - "Pewne Bezpieczeństwo (checkmark) – Posiadamy certyfikaty potwierdzające, że nasz CO2 jest przeznaczony do celów spożywczych."
+
+### Contact Section 
+- **Tytuł:** "Masz pytania? Skontaktuj się z nami już dziś!"
+- **Dane:**
+  - Telefon: "Zadzwoń: 500-612-755 – odbieramy od poniedziałku do soboty."
+  - Email: "Napisz: biuro@butleco2.pl – odpowiadamy w ciągu 24 godzin."
+  - Adres: "Odwiedź nas: ul. Poprawna 105A, 03-984 Warszawa."
+- **Godziny pracy:** "Jesteśmy dla Ciebie: Pn-Pt 10:00-17:00, Sb 10:00-14:00. W pilnych sprawach dzwoń poza godzinami, jeśli nie odbieramy – napisz SMS – postaramy się pomóc!"
+- **Formularz kontaktowy:** Formularz z polami: Imię, Email, Wiadomość – odpowiedzi kierować na biuro@butleco2.pl.
+- **Mapka:** Mapa Google z lokalizacją ul. Poprawna 105A, 03-984 Warszawa.
