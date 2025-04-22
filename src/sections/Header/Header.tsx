@@ -1,18 +1,25 @@
 import React from 'react';
 import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
 import Button from '../../components/Button/Button';
+import { useIdSection } from '../../Providers/IdSectionProvider';
+
+const navbarList = [
+  ["O firmie", "about"],
+  ["Dlaczego My?", "whyChooseUs"],
+  ["Kontakt", "contactUs"],
+  ["Oferta", "services"],
+  ["Zamówienia", "orders"]
+]
 
 const Header: React.FC = () => {
+  const { activeIdSection, scrollToSection } = useIdSection();
+
   return (
     <HeaderWraper>
       <HeaderBox>
         <LogoWraper>Logo</LogoWraper>
         <NavbarWraper>
-          <Button type="button" text="O firmie" idSection="about" />
-          <Button type="button" text="Dlaczego My?" idSection="whyChooseUs" />
-          <Button type="button" text="Kontakt" idSection="contactMe" active />
-          <Button type="button" text="Oferta" idSection="services" />
-          <Button type="button" text="Zamówienia" idSection="orders" />
+          {navbarList.map(option => <Button key={option[1]} type="button" text={option[0]} idSection={option[1]} active={activeIdSection === option[1]} onClick={() => scrollToSection(option[1])} />)}
         </NavbarWraper>
       </HeaderBox>
     </HeaderWraper>

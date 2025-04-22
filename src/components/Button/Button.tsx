@@ -8,6 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: string;
   background?: string;
   idSection?: string;
+  onClick?: any;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -16,14 +17,17 @@ const Button: React.FC<ButtonProps> = ({
   color,
   background = 'transparent',
   idSection = '',
+  onClick,
 }) => {
   const theme = useTheme();
 
   const scrollToSection = () => {
-    console.log('bar');
     const section = document.getElementById(idSection);
     section?.scrollIntoView({ behavior: 'smooth' });
-    console.log('foo');
+    if (section && idSection) {
+      window.history.pushState(null, '', `#${idSection}`)
+      onClick?.()
+    }
   };
 
   return (
