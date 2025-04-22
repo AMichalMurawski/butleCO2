@@ -4,13 +4,16 @@ import './index.css';
 import App from './App.js';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
+import { IdSectionProvider } from './Providers/IdSectionProvider';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 
 createRoot(rootElement).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <App />
+      <IdSectionProvider>
+        <App />
+      </IdSectionProvider>
     </ThemeProvider>
   </StrictMode>
 );
