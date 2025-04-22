@@ -28,6 +28,11 @@ export const H3 = styled.h3`
   margin-bottom: 30px;
 `;
 
+export const H4 = styled.h4`
+  font-size: 16px;
+  margin-bottom: 20px;
+`;
+
 export const P = styled.p`
   font-size: 14px;
 `;
