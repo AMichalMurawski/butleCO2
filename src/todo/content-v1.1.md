@@ -3,10 +3,12 @@
 - **Logo:** Logo firmy umieszczone w lewym krańcu sekcji
 - **Navbar:** Menu z przyciskami do poszczególnych sekcji
 
+
 ### Hero Section
 
 - **Nagłówek (H1):** "ButleCO2.pl – Twój niezawodny dostawca gazów technicznych i butli z dwutlenkiem węgla w Warszawie i okolicach."
 - **Przycisk (Złóż zamówienie):** Odsyłacz do sekcji złóż zamówienie
+
 
 ### About Section
 
@@ -17,6 +19,7 @@
 - **Ikony:** Szybka Dostawa (clock) / Duże Doświadczenie (stats-dots) / Niska Cena (coin-dollar) / Godne Zaufanie (user-check) / Wykwalifikowana Obsługa (bubbles) / Pewne Bezpieczeństwo (checkmark)
 - **Przyciski:** "Masz pytanie? >Skontaktuj się z nami< / Potrzebujesz butli >Złóż zamówienie<"
 
+
 ### Oferta (Services/Products)
 
 - **Tytuł:** "Nasza oferta – Butle CO2 i usługi dopasowane do Twoich potrzeb."
@@ -26,6 +29,7 @@
   - **Dostawa:** "Dostarczamy butle i gaz pod wskazany adres na terenie Warszawy i okolic. Zamówienia złożone do 10:00 realizujemy jeszcze tego samego dnia – sprawdź nas!"
   - **Inne gazy:** "Dostarczamy również Argon, Argon+CO2, Azot, Azot+CO2 w butlach 8L."
   - **Saturatory wody:** "Oferujemy wymianę lub napełnianie butli do saturatorów wody – ciesz się świeżą wodą gazowaną w domu lub biurze!"
+
 
 ### WhyChooseUs Section
 
@@ -38,7 +42,9 @@
   - "Wykwalifikowana Obsługa (bubbles) – Każdy klient jest dla nas ważny – doradzimy, dopasujemy ofertę i rozwiążemy Twój problem, niezależnie od skali zamówienia."
   - "Pewne Bezpieczeństwo (checkmark) – Posiadamy certyfikaty potwierdzające, że nasz CO2 jest przeznaczony do celów spożywczych."
 
-### Contact Section 
+
+### Contact Section
+
 - **Tytuł:** "Masz pytania? Skontaktuj się z nami już dziś!"
 - **Dane:**
   - Telefon: "Zadzwoń: 500-612-755 – odbieramy od poniedziałku do soboty."
@@ -47,3 +53,22 @@
 - **Godziny pracy:** "Jesteśmy dla Ciebie: Pn-Pt 10:00-17:00, Sb 10:00-14:00. W pilnych sprawach dzwoń poza godzinami, jeśli nie odbieramy – napisz SMS – postaramy się pomóc!"
 - **Formularz kontaktowy:** Formularz z polami: Imię, Email, Wiadomość – odpowiedzi kierować na biuro@butleco2.pl.
 - **Mapka:** Mapa Google z lokalizacją ul. Poprawna 105A, 03-984 Warszawa.
+
+
+### GoogleReviews Section
+
+- **Tytuł:** "Opinie naszych klientów"
+- **Dane:**
+  - widget google reviews
+
+
+### Orders Section
+
+
+### Footer
+
+**Treść:**  
+  - Dane firmy: "ORDA Mariusz Rembek, ul. Poprawna 105A, 03-984 Warszawa, NIP: 9521973371"
+  - Telefon i Email: "500-612-755", "biuro@butleco2.pl", "facebook", "instagram"
+  - Linki: "Polityka prywatności" (do przygotowania), "Regulamin" (do przygotowania), "Zasady ochrony danych" (do przygotowania), "FAQ" (do przygotowania).
+  - Prawa autorskie: "© 2025 ButleCO2.pl – Twój partner w dostawach CO2. Wszystkie prawa zastrzeżone. Projekt i realizacja: [twoje imię, jeśli chcesz]."
