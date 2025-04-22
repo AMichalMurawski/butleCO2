@@ -1,6 +1,7 @@
 import React from 'react';
 import { About, ContactUs, Footer, Header, Hero, Orders, Services, WhyChooseUs } from './sections';
 import { AppWrapper, Main } from './App.styled';
+import GoogleReviews from './sections/GoogleReviews/GoogleReviews';
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const App: React.FC = () => {
         <Services />
         <WhyChooseUs />
         <ContactUs />
+        <GoogleReviews />
         <Orders />
       </Main>
       <Footer />
