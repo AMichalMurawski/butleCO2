@@ -16,7 +16,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 
 const ContactUs: React.FC = () => {
   return (
-    <ContactSection>
+    <ContactSection id="contactUs">
       <Title>Masz pytania? Skontaktuj się z nami już dziś!</Title>
       <ContactsWraper>
         <AddressWraper>

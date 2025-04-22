@@ -20,10 +20,8 @@ const Button: React.FC<ButtonProps> = ({
   const theme = useTheme();
 
   const scrollToSection = () => {
-    console.log('bar');
     const section = document.getElementById(idSection);
     section?.scrollIntoView({ behavior: 'smooth' });
-    console.log('foo');
   };
 
   return (
