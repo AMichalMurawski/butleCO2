@@ -1,6 +1,7 @@
 import React from 'react';
 import icons from '/icons.svg';
 import { Svg } from './IconSvg.styled';
+import { theme } from '../../styles/theme';
 
 interface IconProps {
   name: string;
@@ -8,7 +9,7 @@ interface IconProps {
   fill?: string;
 }
 
-const IconSvg: React.FC<IconProps> = ({ name, size = '100%', fill }) => {
+const IconSvg: React.FC<IconProps> = ({ name, size = '100%', fill = theme.color.hightlight }) => {
   return (
     <Svg
       viewBox="0 0 32 32"

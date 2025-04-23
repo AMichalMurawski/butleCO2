@@ -53,7 +53,7 @@ const About: React.FC = () => {
           {advantagesIcons.map(advantage => (
             <Advanatage key={advantage[1]}>
               <IconWraper>
-                <IconSvg name={advantage[0]} fill="cyan" />
+                <IconSvg name={advantage[0]} />
               </IconWraper>
               <AdvantageDescription>{advantage[1]}</AdvantageDescription>
             </Advanatage>
@@ -67,7 +67,7 @@ const About: React.FC = () => {
             <Button
               type="button"
               text="Skontaktuj się z nami"
-              background={theme.color.remarkable}
+              background={theme.color.hightlight}
               color={theme.color.structural}
               idSection="contactUs"
               onClick={() => scrollToSection("contactUs")}
@@ -80,7 +80,7 @@ const About: React.FC = () => {
             <Button
               type="button"
               text="Złóż zamówienie"
-              background={theme.color.remarkable}
+              background={theme.color.hightlight}
               color={theme.color.structural}
               idSection="orders"
               onClick={() => scrollToSection("orders")}

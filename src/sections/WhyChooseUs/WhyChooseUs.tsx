@@ -10,6 +10,7 @@ import {
   WhyChooseUsSection,
 } from './WhyChooseUs.styled';
 import IconSvg from '../../components/Icon/IconSvg';
+import { theme } from '../../styles/theme';
 
 const whyWeList = [
   [
@@ -52,7 +53,7 @@ const WhyChooseUs: React.FC = () => {
         {whyWeList.map((whywe, index) => (
           <AdvantageWraper key={whywe[1]} $direction={index % 2 == 0 ? 'left' : 'right'}>
             <IconWraper>
-              <IconSvg name={whywe[0]} size="90px" fill="cyan" />
+              <IconSvg name={whywe[0]} size="90px" fill={theme.color.hightlight} />
             </IconWraper>
             <AdvantageContent>
               <Subtitle>{whywe[1]}</Subtitle>

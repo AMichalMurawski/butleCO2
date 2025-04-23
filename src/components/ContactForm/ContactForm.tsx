@@ -42,7 +42,7 @@ const ContactForm: React.FC = () => {
             <Input name="message" asType="textarea" />
           </GridCell>
           <GridCell $gridColumn='1 / 3' $gridRow='5' $atr={['margin-left: auto','margin-right: auto']}>
-            <Button text="Wyślij zapytanie" background={theme.color.hightlight} />
+            <Button text="Wyślij zapytanie" background={theme.color.hightlight} color={theme.color.structural} />
           </GridCell>
         </FormWraper>
       </Form>
