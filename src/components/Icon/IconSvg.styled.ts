@@ -8,5 +8,5 @@ interface SvgProps {
 export const Svg = styled.svg<SvgProps>`
   width: ${({ $size }) => $size};
   height: ${({ $size }) => $size};
-  fill: ${({ $fill }) => $fill || 'currentColor'};
+  fill: ${({ $fill }) => $fill};
 `;

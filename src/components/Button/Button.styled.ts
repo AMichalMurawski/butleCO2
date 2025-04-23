@@ -9,7 +9,7 @@ interface ButtonWraper {
 export const ButtonWraper = styled.button<ButtonWraper>`
   padding: 15px;
   color: ${({ $active, $color, theme }) => ($active ? theme.color.hightlight : $color)};
-  background-color: ${({ $background, theme: { color } }) => $background};
+  background-color: ${({ $background }) => $background};
   border-radius: 100px;
   border: none;
   transition: scale 200ms;
