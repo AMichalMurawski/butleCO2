@@ -21,21 +21,12 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const theme = useTheme();
 
-  const scrollToSection = () => {
-    const section = document.getElementById(idSection);
-    section?.scrollIntoView({ behavior: 'smooth' });
-    if (section && idSection) {
-      window.history.pushState(null, '', `#${idSection}`)
-      onClick?.()
-    }
-  };
-
   return (
     <ButtonWraper
       $active={active}
       $background={background}
       $color={color || theme.color.text}
-      onClick={scrollToSection}
+      onClick={onClick}
     >
       {text}
     </ButtonWraper>
