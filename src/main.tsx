@@ -5,15 +5,18 @@ import App from './App.js';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import { IdSectionProvider } from './providers/IdSectionProvider';
+import { BrowserRouter } from 'react-router-dom';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 
 createRoot(rootElement).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <IdSectionProvider>
-        <App />
-      </IdSectionProvider>
+      <BrowserRouter>
+        <IdSectionProvider>
+          <App />
+        </IdSectionProvider>
+      </BrowserRouter>
     </ThemeProvider>
   </StrictMode>
 );

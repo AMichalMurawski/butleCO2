@@ -2,12 +2,13 @@ import React from 'react';
 import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
 import Button from '../../components/Button/Button';
 import { useIdSection } from '../../providers/IdSectionProvider';
+import { useNavigate } from 'react-router-dom';
 
 const navbarList = [
-  ["O firmie", "about"],
-  ["Dlaczego My?", "whyChooseUs"],
-  ["Kontakt", "contactUs"],
-  ["Oferta", "services"],
+  ["O firmie", "#about"],
+  ["Dlaczego My?", "#whyChooseUs"],
+  ["Kontakt", "#contactUs"],
+  ["Oferta", "#services"],
   ["Zamówienia", "orders"]
 ]
 
