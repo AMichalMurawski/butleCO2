@@ -21,33 +21,18 @@ export const IdSectionProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleHashChange = (hash?: string) => {
-    const currentHash = hash || window.location.hash.replace('#', '');
-    setActiveIdSection(currentHash);
-  };
-    
   const scrollToSection = (id: string) => {
-    navigate(`/${id}`)
+    navigate(`${id}`);
     setActiveIdSection(id);
   };
 
   useEffect(() => {
-    const onHashChange = () => handleHashChange();
-    window.addEventListener('hashchange', onHashChange);
+    const currentUrl = location.pathname + location.hash;
+    const onReload = () => setActiveIdSection(currentUrl);
 
-    handleHashChange(window.location.hash);
+    window.addEventListener('load', onReload);
 
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
-
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+    return () => window.removeEventListener('load', onReload);
   }, [location]);
 
   return (
