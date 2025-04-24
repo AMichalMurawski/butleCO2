@@ -15,7 +15,7 @@ import {
 import IconSvg from '../../components/Icon/IconSvg';
 import Button from '../../components/Button/Button';
 import { useTheme } from 'styled-components';
-import { useIdSection } from '../../provider/IdSectionProvider';
+import { useIdSection } from '../../providers/IdSectionProvider';
 
 const advantagesIcons = [
   ['clock', 'Szybka Dostawa'],

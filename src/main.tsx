@@ -4,7 +4,7 @@ import './index.css';
 import App from './App.js';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
-import { IdSectionProvider } from './provider/IdSectionProvider';
+import { IdSectionProvider } from './providers/IdSectionProvider';
 import { BrowserRouter } from 'react-router-dom';
 
 const rootElement = document.getElementById('root') as HTMLElement;
