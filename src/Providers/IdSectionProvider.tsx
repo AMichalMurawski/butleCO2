@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface IdSectionContextType {
   activeIdSection: string | null;
@@ -17,26 +18,22 @@ export const useIdSection = () => useContext(IdSectionContext);
 export const IdSectionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [activeIdSection, setActiveIdSection] = useState<string | null>(null);
 
-  const handleHashChange = (hash?: string) => {
-    const currentHash = hash || window.location.hash.replace('#', '');
-    setActiveIdSection(currentHash);
-  };
-    
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    section?.scrollIntoView({ behavior: 'smooth' });
-    history.pushState(null, '', `#${id}`);
+    navigate(`${id}`);
     setActiveIdSection(id);
   };
 
   useEffect(() => {
-    const onHashChange = () => handleHashChange();
-    window.addEventListener('hashchange', onHashChange);
+    const currentUrl = location.pathname + location.hash;
+    const onReload = () => setActiveIdSection(currentUrl);
 
-    handleHashChange();
+    window.addEventListener('load', onReload);
 
-    return () => window.removeEventListener('hashchange', onHashChange);
-  }, []);
+    return () => window.removeEventListener('load', onReload);
+  }, [location]);
 
   return (
     <IdSectionContext.Provider value={{ activeIdSection, setActiveIdSection, scrollToSection }}>

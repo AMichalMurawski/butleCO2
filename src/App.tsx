@@ -1,24 +1,15 @@
-import React from 'react';
-import { About, ContactUs, Footer, Header, Hero, Orders, Services, WhyChooseUs } from './sections';
-import { AppWrapper, Main } from './App.styled';
-import GoogleReviews from './sections/GoogleReviews/GoogleReviews';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './layout/Layout';
+import { HomePage, OrdersPage } from './pages';
 
-const App: React.FC = () => {
-  return (
-    <AppWrapper>
-      <Header />
-      <Main>
-        <Hero />
-        <About />
-        <Services />
-        <WhyChooseUs />
-        <ContactUs />
-        <GoogleReviews />
-        <Orders />
-      </Main>
-      <Footer />
-    </AppWrapper>
-  );
+
+const App = () => {
+  return <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="orders" element={<OrdersPage />} />
+      </Route>
+    </Routes>
 };
 
 export default App;
