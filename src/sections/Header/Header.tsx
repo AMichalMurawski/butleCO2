@@ -1,7 +1,11 @@
 import React from 'react';
 import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
 import Button from '../../components/Button/Button';
+<<<<<<< Updated upstream
 import { useIdSection } from '../../providers/IdSectionProvider';
+=======
+import { useIdSection } from '../../provider/IdSectionProvider';
+>>>>>>> Stashed changes
 
 const navbarList = [
   ["O firmie", "about"],
