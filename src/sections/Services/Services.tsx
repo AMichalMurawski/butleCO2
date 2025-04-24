@@ -62,7 +62,7 @@ const Services: React.FC = () => {
             <ServicePanel>
               <ServiceTitle>{serv[1]}</ServiceTitle>
               <ServiceDescription>{serv[2]}</ServiceDescription>
-              <Button text={serv[3]} background={theme.color.hightlight} color={theme.color.main} />
+              <Button text={serv[3]} background={theme.color.remarkable} color={theme.color.main} />
             </ServicePanel>
           </ServiceWraper>
         ))}

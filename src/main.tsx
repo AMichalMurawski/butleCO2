@@ -4,7 +4,7 @@ import './index.css';
 import App from './App.js';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
-import { IdSectionProvider } from './Providers/IdSectionProvider';
+import { IdSectionProvider } from './providers/IdSectionProvider';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 

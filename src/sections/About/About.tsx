@@ -15,7 +15,7 @@ import {
 import IconSvg from '../../components/Icon/IconSvg';
 import Button from '../../components/Button/Button';
 import { useTheme } from 'styled-components';
-import { useIdSection } from '../../Providers/IdSectionProvider';
+import { useIdSection } from '../../providers/IdSectionProvider';
 
 const advantagesIcons = [
   ['clock', 'Szybka Dostawa'],
@@ -67,7 +67,7 @@ const About: React.FC = () => {
             <Button
               type="button"
               text="Skontaktuj się z nami"
-              background={theme.color.hightlight}
+              background={theme.color.remarkable}
               color={theme.color.structural}
               idSection="contactUs"
               onClick={() => scrollToSection("contactUs")}
@@ -80,7 +80,7 @@ const About: React.FC = () => {
             <Button
               type="button"
               text="Złóż zamówienie"
-              background={theme.color.hightlight}
+              background={theme.color.remarkable}
               color={theme.color.structural}
               idSection="orders"
               onClick={() => scrollToSection("orders")}

@@ -13,7 +13,7 @@ export const ButtonWraper = styled.button<ButtonWraper>`
   border-radius: 100px;
   border: none;
   transition: scale 200ms;
-  text-shadow: 0 0 15px ${({ $active, theme: { color } }) => ($active ? color.hightlight : 'null')};
+  text-shadow: 0 0 15px ${({ $active, theme: { color } }) => ($active ? color.remarkable : 'null')};
 
   &:hover {
     scale: 1.1;
