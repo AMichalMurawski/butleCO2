@@ -70,7 +70,7 @@ const About: React.FC = () => {
               background={theme.color.remarkable}
               color={theme.color.structural}
               idSection="contactUs"
-              onClick={() => scrollToSection("contactUs")}
+              onClick={() => scrollToSection('/#contactUs')}
             />
           </ButtonWraper>
           <ButtonWraper>
@@ -83,7 +83,7 @@ const About: React.FC = () => {
               background={theme.color.remarkable}
               color={theme.color.structural}
               idSection="orders"
-              onClick={() => scrollToSection("orders")}
+              onClick={() => scrollToSection('/orders')}
             />
           </ButtonWraper>
         </ButtonsWraper>

@@ -1,19 +1,15 @@
 import React from 'react';
 import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
 import Button from '../../components/Button/Button';
-<<<<<<< Updated upstream
-import { useIdSection } from '../../providers/IdSectionProvider';
-=======
 import { useIdSection } from '../../provider/IdSectionProvider';
->>>>>>> Stashed changes
 
 const navbarList = [
-  ["O firmie", "about"],
-  ["Dlaczego My?", "whyChooseUs"],
-  ["Kontakt", "contactUs"],
-  ["Oferta", "services"],
-  ["Zamówienia", "orders"]
-]
+  ['O firmie', '/#about'],
+  ['Dlaczego My?', '/#whyChooseUs'],
+  ['Kontakt', '/#contactUs'],
+  ['Oferta', '/#services'],
+  ['Zamówienia', '/orders'],
+];
 
 const Header: React.FC = () => {
   const { activeIdSection, scrollToSection } = useIdSection();
@@ -23,7 +19,16 @@ const Header: React.FC = () => {
       <HeaderBox>
         <LogoWraper>Logo</LogoWraper>
         <NavbarWraper>
-          {navbarList.map(option => <Button key={option[1]} type="button" text={option[0]} idSection={option[1]} active={activeIdSection === option[1]} onClick={() => scrollToSection(option[1])} />)}
+          {navbarList.map(option => (
+            <Button
+              key={option[1]}
+              type="button"
+              text={option[0]}
+              idSection={option[1]}
+              active={activeIdSection === option[1]}
+              onClick={() => scrollToSection(option[1])}
+            />
+          ))}
         </NavbarWraper>
       </HeaderBox>
     </HeaderWraper>
