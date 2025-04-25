@@ -8,10 +8,10 @@ const Footer: React.FC = () => {
       <DataWraper>
         <DataBox>
           <Subtitle>Dane firmy:</Subtitle>
-          <Text>ORDA Mariusz Rembek1</Text>
+          <Text>ButleCO2.PL Artur Rembek</Text>
           <Text>ul. Poprawna 105A</Text>
           <Text>03-984 Warszawa</Text>
-          <Text>NIP: 9521973371</Text>
+          <Text>NIP: 9522030252</Text>
         </DataBox>
         <DataBox>
           <Subtitle>Kontakt:</Subtitle>

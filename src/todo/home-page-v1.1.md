@@ -61,10 +61,6 @@
 - **Dane:**
   - widget google reviews
 
-
-### Orders Section
-
-
 ### Footer
 
 **Treść:**  
