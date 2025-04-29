@@ -6,7 +6,7 @@ interface FormWraperProps {
 }
 
 export const FormWraper = styled.div<FormWraperProps>`
-  padding: 30px 60px;
+  padding-inline: 60px;
   ${({ $autoMargin }) => ($autoMargin === 'right' ? 'margin-right' : 'margin-left')}: auto;
   min-width: 50%;
   max-width: 75%;

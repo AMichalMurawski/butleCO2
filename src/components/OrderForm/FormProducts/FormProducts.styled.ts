@@ -3,7 +3,7 @@ import { P } from '../../../styles/Global.styled';
 
 export const InvoiceProducts = styled.div`
   width: 100%;
-  padding: 0 60px 30px;
+  padding-inline: 60px;
 `;
 
 export const ProductsTable = styled.table`
