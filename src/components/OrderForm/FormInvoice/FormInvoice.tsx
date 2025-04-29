@@ -16,24 +16,8 @@ const FormInvoice: React.FC = () => {
         <DataValue>JanKow Piwa</DataValue>
       </DataWraper>
       <DataWraper>
-        <DataName $width="120px">Ulica:</DataName>
-        <DataValue>Warszawska</DataValue>
-      </DataWraper>
-      <DataWraper>
-        <DataName $width="120px">Nr:</DataName>
-        <DataValue>11</DataValue>
-      </DataWraper>
-      <DataWraper>
-        <DataName $width="120px">Lokal:</DataName>
-        <DataValue>11</DataValue>
-      </DataWraper>
-      <DataWraper>
-        <DataName $width="120px">Kod pocztowy:</DataName>
-        <DataValue>11-111</DataValue>
-      </DataWraper>
-      <DataWraper>
-        <DataName $width="120px">Miasto:</DataName>
-        <DataValue>Warszawa</DataValue>
+        <DataName $width="120px">Adres:</DataName>
+        <DataValue>Warszawska 11 lok. 11, 11-111 Warszawa</DataValue>
       </DataWraper>
       <DataWraper>
         <DataName $width="120px">NIP:</DataName>

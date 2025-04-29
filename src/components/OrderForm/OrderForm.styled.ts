@@ -22,4 +22,8 @@ export const InformationsWraper = styled.div`
   background-color: ${({ theme }) => theme.color.structural};
 `;
 
-export const Informations = styled(P)``;
+export const Informations = styled(P)`
+  &:not(:first-of-type) {
+    margin-top: 5px;
+  }
+`;

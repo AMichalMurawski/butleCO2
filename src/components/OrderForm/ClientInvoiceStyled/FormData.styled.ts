@@ -24,6 +24,7 @@ export const DataWraper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 15px;
+  border-bottom: 2px dotted black;
 `;
 
 interface DataNameProps {
@@ -39,6 +40,6 @@ export const DataName = styled(P)<DataNameProps>`
 // only for visualization before create fields
 export const DataValue = styled(P)`
   font-style: italic;
-  text-decoration: underline dotted;
+  // text-decoration: underline dotted;
   color: ${({ theme }) => theme.color.main};
 `;

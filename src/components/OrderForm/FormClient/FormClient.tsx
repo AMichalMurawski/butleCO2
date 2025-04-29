@@ -29,10 +29,7 @@ const FormClient: React.FC = () => {
       </DataWraper>
       <DataWraper>
         <DataName $width="200px">Dodatkowe informacje odnośnie dostawy:</DataName>
-        <DataValue>
-          Wejście od zaplecza, od ulicy WrocławskiejWejście od zaplecza, od ulicy Wrocławskiej
-          Wejście od zaplecza, od ulicy Wrocławskiej Wejście od zaplecza, od ulicy Wrocławskiej
-        </DataValue>
+        <DataValue>Wejście od zaplecza, od ulicy Wrocławskiej</DataValue>
       </DataWraper>
     </FormWraper>
   );

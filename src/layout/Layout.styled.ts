@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const LayoutWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  // min-height: 100dvh;
+  min-height: 100dvh;
 `;
 
 export const Main = styled.main`
