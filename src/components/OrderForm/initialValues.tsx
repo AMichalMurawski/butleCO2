@@ -36,7 +36,7 @@ const initialCompany: CompanyProps = {
   NIP: null,
 };
 
-interface OrderProps {
+interface ProductsProps {
   bottleType: string;
   bottleSize: string;
   amount: number;
@@ -44,7 +44,7 @@ interface OrderProps {
   cost: number;
 }
 
-const initialOrder: OrderProps = {
+const initialProducts: ProductsProps = {
   bottleType: '',
   bottleSize: '',
   amount: 0,
@@ -55,9 +55,11 @@ const initialOrder: OrderProps = {
 interface FormValues {
   client: ClientProps;
   company: CompanyProps;
+  products: ProductsProps[];
 }
 
 export const initialValues: FormValues = {
   client: initialClient,
   company: initialCompany,
+  products: [],
 };

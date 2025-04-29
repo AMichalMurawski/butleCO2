@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { P } from '../../styles/Global.styled';
+import { P } from '../../../styles/Global.styled';
 
 export const InvoiceProducts = styled.div`
   width: 100%;
@@ -38,7 +38,7 @@ export const TableHeaderCell = styled.th`
       background-color: ${({ theme }) => theme.color.structural};
     }
     &::after {
-  color: ${({theme}) => theme.color.text};
+      color: ${({ theme }) => theme.color.text};
       background-color: ${({ theme }) => theme.color.structural};
     }
   }
@@ -102,7 +102,7 @@ export const TableBodyRow = styled.tr`
 
 export const TableBodyCell = styled.td`
   padding: 15px;
-  
+
   &:first-of-type {
     color: ${({ theme }) => theme.color.text};
     background-color: ${({ theme }) => theme.color.structural};
@@ -122,7 +122,7 @@ interface TableFooterCellProps {
 
 export const TableFooterCell = styled.td<TableFooterCellProps>`
   padding: 15px;
-  color: ${({theme}) => theme.color.text};
+  color: ${({ theme }) => theme.color.text};
   font-weight: ${({ $sum }) => ($sum ? '700' : null)};
   background-color: ${({ theme, $sum }) => ($sum ? theme.color.structural : null)};
 `;

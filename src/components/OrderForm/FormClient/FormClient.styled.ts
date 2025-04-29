@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H3, P } from '../../styles/Global.styled';
+import { H3, P } from '../../../styles/Global.styled';
 
 export const InvoiceClient = styled.div`
   padding: 60px;
@@ -28,11 +28,11 @@ export const ClientData = styled.div`
   flex-direction: column;
 `;
 
-export const ClientName = styled(P)``
+export const ClientName = styled(P)``;
 
 // only for visualization before create fields
 export const ViualText = styled(P)`
   margin-left: 30px;
   font-style: italic;
   text-decoration: underline dotted;
-`
+`;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H2, P } from '../../styles/Global.styled';
+import { H2, P } from '../../../styles/Global.styled';
 
 export const InvoiceHeader = styled.div`
   display: flex;
@@ -50,7 +50,7 @@ export const Title = styled(H2)`
   top: 50px;
   left: 60px;
   text-align: left;
-  color: ${({theme}) => theme.color.text};
+  color: ${({ theme }) => theme.color.text};
 
   &::before {
     content: '';
