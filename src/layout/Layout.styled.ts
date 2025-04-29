@@ -8,11 +8,9 @@ export const LayoutWrapper = styled.div`
 `;
 
 export const Main = styled.main`
-  // position: relative;
   margin-top: 120px;
   margin-inline: auto;
   padding: 0;
-  // max-width: 1280px;
-  // width: 100%;
-  // flex: 1;
+  max-width: 1280px;
+  width: 100%;
 `;
