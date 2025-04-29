@@ -18,13 +18,6 @@ export const TableRow = styled.tr``;
 
 export const TableHeaderCell = styled.th`
   position: relative;
-  //   &:nth-child(even) {
-  //     color: ${({ theme }) => theme.color.main};
-  //     background-color: ${({ theme }) => theme.color.remarkable};
-  //   }
-  //   &:nth-child(odd) {
-  //     background-color: ${({ theme }) => theme.color.main};
-  //   }
   z-index: 1;
 
   &::before,
@@ -33,18 +26,20 @@ export const TableHeaderCell = styled.th`
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(100% + 20px);
+    width: calc(100% + 15px);
     height: 100%;
     z-index: -1;
   }
 
   &:nth-child(1),
   &:nth-child(2) {
+    color: ${({ theme }) => theme.color.text};
     &::before {
-      background-color: ${({ theme }) => theme.color.main};
+      background-color: ${({ theme }) => theme.color.structural};
     }
     &::after {
-      background-color: ${({ theme }) => theme.color.main};
+  color: ${({theme}) => theme.color.text};
+      background-color: ${({ theme }) => theme.color.structural};
     }
   }
 
@@ -63,13 +58,13 @@ export const TableHeaderCell = styled.th`
   &:last-of-type {
     &::before {
       width: calc(100% + 30px);
-      clip-path: polygon(50% 0, calc(100% - 30px) 0, calc(100% - 30px) 100%, 50% 100%);
+      clip-path: polygon(30% 0, calc(100% - 30px) 0, calc(100% - 30px) 100%, 30% 100%);
     }
   }
 
   &:not(:last-of-type) {
     &::before {
-      clip-path: polygon(50% 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 50% 100%);
+      clip-path: polygon(30% 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 30% 100%);
     }
   }
 
@@ -84,13 +79,15 @@ export const TableHeaderCell = styled.th`
       left: -10px;
       clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%, 30px 50%);
     }
+    border-left: 5px solid ${({ theme }) => theme.color.text};
   }
 
   padding: 15px;
-  border: 5px solid ${({ theme }) => theme.color.structural};
+  border-bottom: 5px solid ${({ theme }) => theme.color.text};
 `;
 
 export const CellContent = styled(P)`
+  color: inherit;
   z-index: 1;
 `;
 
@@ -105,11 +102,16 @@ export const TableBodyRow = styled.tr`
 
 export const TableBodyCell = styled.td`
   padding: 15px;
+  
   &:first-of-type {
     color: ${({ theme }) => theme.color.text};
-    background-color: ${({ theme }) => theme.color.main};
+    background-color: ${({ theme }) => theme.color.structural};
+    border-bottom: 5px solid ${({ theme }) => theme.color.text};
   }
-  border: 5px solid ${({ theme }) => theme.color.structural};
+
+  &:not(:first-of-type) {
+    border-bottom: 5px solid ${({ theme }) => theme.color.structural};
+  }
 `;
 
 export const TableFooter = styled.tfoot``;
@@ -120,6 +122,7 @@ interface TableFooterCellProps {
 
 export const TableFooterCell = styled.td<TableFooterCellProps>`
   padding: 15px;
+  color: ${({theme}) => theme.color.text};
   font-weight: ${({ $sum }) => ($sum ? '700' : null)};
-  background-color: ${({ theme, $sum }) => ($sum ? theme.color.main : null)};
+  background-color: ${({ theme, $sum }) => ($sum ? theme.color.structural : null)};
 `;

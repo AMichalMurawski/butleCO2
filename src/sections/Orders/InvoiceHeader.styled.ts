@@ -50,6 +50,7 @@ export const Title = styled(H2)`
   top: 50px;
   left: 60px;
   text-align: left;
+  color: ${({theme}) => theme.color.text};
 
   &::before {
     content: '';
@@ -58,7 +59,7 @@ export const Title = styled(H2)`
     left: -100%;
     width: 1200px;
     height: 300%;
-    background-color: ${({ theme }) => theme.color.main};
+    background-color: ${({ theme }) => theme.color.structural};
     z-index: -1;
   }
 `;
