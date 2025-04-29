@@ -9,9 +9,7 @@ import { Formik } from 'formik';
 import { initialValues } from './initialValues';
 import Button from '../../components/Button/Button';
 import { theme } from '../../styles/theme';
-import FormHeader from './FormHeader/FormHeader';
-import FormClient from './FormClient/FormClient';
-import FormProducts from './FormProducts/FormProducts';
+import { FormHeader, FormClient, FormProducts, FormInvoice } from '.';
 
 const OrderForm: React.FC = () => {
   const handleSubmit = () => {
@@ -23,6 +21,7 @@ const OrderForm: React.FC = () => {
       <InvoiceWraper>
         <FormHeader />
         <FormClient />
+        <FormInvoice />
         <FormProducts />
         <SubmitButtonWraper>
           <Button
