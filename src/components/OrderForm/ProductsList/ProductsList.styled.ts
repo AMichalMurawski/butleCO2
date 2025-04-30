@@ -32,7 +32,8 @@ export const TableHeaderCell = styled.th`
   }
 
   &:nth-child(1),
-  &:nth-child(2) {
+  &:nth-child(3),
+  &:nth-child(5) {
     color: ${({ theme }) => theme.color.text};
     &::before {
       background-color: ${({ theme }) => theme.color.structural};
@@ -43,9 +44,10 @@ export const TableHeaderCell = styled.th`
     }
   }
 
-  &:nth-child(3),
+  &:nth-child(2),
   &:nth-child(4),
-  &:nth-child(5) {
+  &:nth-child(6),
+  &:nth-child(7) {
     color: ${({ theme }) => theme.color.main};
     &::before {
       background-color: ${({ theme }) => theme.color.remarkable};
@@ -125,4 +127,22 @@ export const TableFooterCell = styled.td<TableFooterCellProps>`
   color: ${({ theme }) => theme.color.text};
   font-weight: ${({ $sum }) => ($sum ? '700' : null)};
   background-color: ${({ theme, $sum }) => ($sum ? theme.color.structural : null)};
+`;
+
+interface IconWraperProps {
+  $rotate?: number;
+}
+
+export const IconWraper = styled.div<IconWraperProps>`
+  margin-inline: auto;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  ${({ $rotate }) =>
+    $rotate ? `transform-origin: center; transform: rotate(${$rotate}deg);` : null}
+
+  &:hover {
+    scale: 1.2;
+  }
 `;

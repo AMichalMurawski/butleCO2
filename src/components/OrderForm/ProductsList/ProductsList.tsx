@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   CellContent,
+  IconWraper,
   ProductsListWraper,
   ProductsTable,
   TableBody,
@@ -13,11 +14,13 @@ import {
   TableRow,
 } from './ProductsList.styled';
 import Button from '../../Button/Button';
+import IconSvg from '../../Icon/IconSvg';
+import { theme } from '../../../styles/theme';
 
 const products = [
-  { position: 1, name: 'Butla CO2 - 25l', quantity: 2, unitPrice: 100 },
-  { position: 2, name: 'Butla CO2 - 10l', quantity: 1, unitPrice: 50 },
-  { position: 3, name: 'Butla Argon - 8l', quantity: 5, unitPrice: 80 },
+  { name: 'Butla CO2 - 25l', quantity: 2, unitPrice: 100 },
+  { name: 'Butla CO2 - 10l', quantity: 1, unitPrice: 50 },
+  { name: 'Butla Argon - 8l', quantity: 5, unitPrice: 80 },
 ];
 
 const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
@@ -32,6 +35,10 @@ const FormProducts: React.FC = () => {
     window.alert('Dodaj produkt');
   };
 
+  const deleteProduct = () => {
+    window.alert('Usuń produkt');
+  };
+
   return (
     <ProductsListWraper>
       <ProductsTable>
@@ -42,28 +49,40 @@ const FormProducts: React.FC = () => {
                 <CellContent>{title}</CellContent>
               </TableHeaderCell>
             ))}
+            <TableHeaderCell></TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.map(product => (
-            <TableBodyRow key={product.position}>
-              <TableBodyCell>{product.position}</TableBodyCell>
+          {products.map((product, i) => (
+            <TableBodyRow key={i}>
+              <TableBodyCell>{i + 1}</TableBodyCell>
               <TableBodyCell>{product.name}</TableBodyCell>
               <TableBodyCell>{product.unitPrice.toFixed(2)} PLN</TableBodyCell>
               <TableBodyCell>{product.quantity}</TableBodyCell>
               <TableBodyCell>{(product.quantity * product.unitPrice).toFixed(2)} PLN</TableBodyCell>
+              <TableBodyCell>
+                <IconWraper onClick={deleteProduct}>
+                  <IconSvg name="cross" fill="red" />
+                </IconWraper>
+              </TableBodyCell>
             </TableBodyRow>
           ))}
           <TableBodyRow style={{ cursor: 'pointer' }} onClick={addProduct}>
-            <TableBodyCell>+</TableBodyCell>
-            <TableBodyCell colSpan={4}>...</TableBodyCell>
+            <TableBodyCell>
+              <IconWraper $rotate={45}>
+                <IconSvg name="cross" fill="green" />
+              </IconWraper>
+            </TableBodyCell>
+            <TableBodyCell colSpan={5}>...</TableBodyCell>
           </TableBodyRow>
         </TableBody>
         <TableFooter>
           <TableRow>
             <TableFooterCell colSpan={3} />
             <TableFooterCell $sum>Suma:</TableFooterCell>
-            <TableFooterCell $sum>{totalCost.toFixed(2)} PLN *</TableFooterCell>
+            <TableFooterCell $sum colSpan={2}>
+              {totalCost.toFixed(2)} PLN *
+            </TableFooterCell>
           </TableRow>
         </TableFooter>
       </ProductsTable>

@@ -1,5 +1,4 @@
 import React from 'react';
-import icons from '/icons.svg';
 import { Svg } from './IconSvg.styled';
 import { theme } from '../../styles/theme';
 
