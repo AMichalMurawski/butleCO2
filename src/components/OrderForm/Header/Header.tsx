@@ -3,15 +3,15 @@ import {
   Address,
   AddressWraper,
   HeaderTitle,
+  HeaderWraper,
   InvoiceAddress,
-  InvoiceHeader,
   OrderNumber,
   Title,
-} from './FormHeader.styled';
+} from './Header.styled';
 
-const FormHeader: React.FC = () => {
+const Header: React.FC = () => {
   return (
-    <InvoiceHeader>
+    <HeaderWraper>
       <HeaderTitle>
         <Title>Zamówienie</Title>
         <OrderNumber>nr: 542455789</OrderNumber>
@@ -24,8 +24,8 @@ const FormHeader: React.FC = () => {
           <Address>NIP: 9522030252</Address>
         </AddressWraper>
       </InvoiceAddress>
-    </InvoiceHeader>
+    </HeaderWraper>
   );
 };
 
-export default FormHeader;
+export default Header;

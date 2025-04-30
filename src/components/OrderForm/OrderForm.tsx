@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-  Informations,
-  InformationsWraper,
-  InvoiceWraper,
-  SubmitButtonWraper,
-} from './OrderForm.styled';
+import { InvoiceWraper, SubmitButtonWraper } from './OrderForm.styled';
 import { Formik } from 'formik';
 import { initialValues } from './initialValues';
 import Button from '../../components/Button/Button';
 import { theme } from '../../styles/theme';
-import { FormHeader, FormClient, FormProducts, FormInvoice } from '.';
+import { ClientInfo, ClientInvoice, Header, Informations, ProductsList } from '.';
 
 const OrderForm: React.FC = () => {
   const handleSubmit = () => {
@@ -19,10 +14,10 @@ const OrderForm: React.FC = () => {
   return (
     <Formik as={InvoiceWraper} initialValues={initialValues} onSubmit={handleSubmit}>
       <InvoiceWraper>
-        <FormHeader />
-        <FormClient />
-        <FormInvoice />
-        <FormProducts />
+        <Header />
+        <ClientInfo />
+        <ClientInvoice />
+        <ProductsList />
         <SubmitButtonWraper>
           <Button
             type="submit"
@@ -32,15 +27,7 @@ const OrderForm: React.FC = () => {
             color={theme.color.structural}
           />
         </SubmitButtonWraper>
-        <InformationsWraper>
-          <Informations>
-            * Do ceny mogą być doliczone koszta za dostawę poza rejonem, jak również rabaty dla
-            stałych klientów lub dużych zamówień.
-          </Informations>
-          <Informations>
-            * Ostateczna cena zostanie przesłana drogą mailową wraz z potwierdzeniem zamówienia.
-          </Informations>
-        </InformationsWraper>
+        <Informations />
       </InvoiceWraper>
     </Formik>
   );

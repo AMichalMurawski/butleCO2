@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { H2, P } from '../../../styles/Global.styled';
 
-export const InvoiceHeader = styled.div`
+export const HeaderWraper = styled.div`
   display: flex;
   height: 150px;
   width: 100%;

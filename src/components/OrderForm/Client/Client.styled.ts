@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { H3, P } from '../../../styles/Global.styled';
 
-interface FormWraperProps {
+interface ClientWraperProps {
   $autoMargin: 'left' | 'right';
 }
 
-export const FormWraper = styled.div<FormWraperProps>`
+export const ClientWraper = styled.div<ClientWraperProps>`
   padding-inline: 60px;
   ${({ $autoMargin }) => ($autoMargin === 'right' ? 'margin-right' : 'margin-left')}: auto;
   min-width: 50%;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { P } from '../../../styles/Global.styled';
 
-export const InvoiceProducts = styled.div`
+export const ProductsListWraper = styled.div`
   width: 100%;
   padding-inline: 60px;
 `;

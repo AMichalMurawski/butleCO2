@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  Subtitle,
-  FormWraper,
-  DataWraper,
-  DataName,
-  DataValue,
-} from '../ClientInvoiceStyled/FormData.styled';
+import { Subtitle, DataWraper, DataName, DataValue, ClientWraper } from './Client.styled';
 
-const FormInvoice: React.FC = () => {
+const ClientInvoice: React.FC = () => {
   return (
-    <FormWraper $autoMargin="left">
+    <ClientWraper $autoMargin="left">
       <Subtitle>Dane do faktury:</Subtitle>
       <DataWraper>
         <DataName $width="120px">Nazwa firmy:</DataName>
@@ -23,8 +17,8 @@ const FormInvoice: React.FC = () => {
         <DataName $width="120px">NIP:</DataName>
         <DataValue>123456789</DataValue>
       </DataWraper>
-    </FormWraper>
+    </ClientWraper>
   );
 };
 
-export default FormInvoice;
+export default ClientInvoice;

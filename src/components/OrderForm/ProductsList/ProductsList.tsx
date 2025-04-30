@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   CellContent,
-  InvoiceProducts,
+  ProductsListWraper,
   ProductsTable,
   TableBody,
   TableBodyCell,
@@ -11,7 +11,7 @@ import {
   TableHead,
   TableHeaderCell,
   TableRow,
-} from './FormProducts.styled';
+} from './ProductsList.styled';
 
 const products = [
   { position: 1, name: 'Butla CO2 - 25l', quantity: 2, unitPrice: 100 },
@@ -26,7 +26,7 @@ const FormProducts: React.FC = () => {
   );
 
   return (
-    <InvoiceProducts>
+    <ProductsListWraper>
       <ProductsTable>
         <TableHead>
           <TableRow>
@@ -66,7 +66,7 @@ const FormProducts: React.FC = () => {
           </TableRow>
         </TableFooter>
       </ProductsTable>
-    </InvoiceProducts>
+    </ProductsListWraper>
   );
 };
 
