@@ -6,6 +6,7 @@ interface ClientWraperProps {
 }
 
 export const ClientWraper = styled.div<ClientWraperProps>`
+  position: relative;
   padding-inline: 60px;
   ${({ $autoMargin }) => ($autoMargin === 'right' ? 'margin-right' : 'margin-left')}: auto;
   min-width: 50%;
@@ -37,9 +38,28 @@ export const DataName = styled(P)<DataNameProps>`
   min-width: ${({ $width }) => $width};
 `;
 
-// only for visualization before create fields
 export const DataValue = styled(P)`
   font-style: italic;
   // text-decoration: underline dotted;
   color: ${({ theme }) => theme.color.main};
+`;
+
+export const EditIconWraper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 55px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  // background-color: ${({ theme }) => theme.color.remarkable};
+  border: 3px solid ${({ theme }) => theme.color.structural};
+  cursor: pointer;
+
+  & svg {
+    transform: translate(3px, 2px);
+  }
+
+  &:hover {
+    scale: 1.2;
+  }
 `;
