@@ -12,6 +12,7 @@ import {
   TableHeaderCell,
   TableRow,
 } from './ProductsList.styled';
+import Button from '../../Button/Button';
 
 const products = [
   { position: 1, name: 'Butla CO2 - 25l', quantity: 2, unitPrice: 100 },
@@ -19,32 +20,28 @@ const products = [
   { position: 3, name: 'Butla Argon - 8l', quantity: 5, unitPrice: 80 },
 ];
 
+const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
+
 const FormProducts: React.FC = () => {
   const totalCost = products.reduce(
     (sum, product) => sum + product.quantity * product.unitPrice,
     0
   );
 
+  const addProduct = () => {
+    window.alert('Dodaj produkt');
+  };
+
   return (
     <ProductsListWraper>
       <ProductsTable>
         <TableHead>
           <TableRow>
-            <TableHeaderCell>
-              <CellContent>Poz.</CellContent>
-            </TableHeaderCell>
-            <TableHeaderCell>
-              <CellContent>Produkt</CellContent>
-            </TableHeaderCell>
-            <TableHeaderCell>
-              <CellContent>Koszt jedn.</CellContent>
-            </TableHeaderCell>
-            <TableHeaderCell>
-              <CellContent>Ilość</CellContent>
-            </TableHeaderCell>
-            <TableHeaderCell>
-              <CellContent>Koszt</CellContent>
-            </TableHeaderCell>
+            {tableTitles.map(title => (
+              <TableHeaderCell>
+                <CellContent>{title}</CellContent>
+              </TableHeaderCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -57,6 +54,10 @@ const FormProducts: React.FC = () => {
               <TableBodyCell>{(product.quantity * product.unitPrice).toFixed(2)} PLN</TableBodyCell>
             </TableBodyRow>
           ))}
+          <TableBodyRow style={{ cursor: 'pointer' }} onClick={addProduct}>
+            <TableBodyCell>+</TableBodyCell>
+            <TableBodyCell colSpan={4}>...</TableBodyCell>
+          </TableBodyRow>
         </TableBody>
         <TableFooter>
           <TableRow>
