@@ -19,8 +19,12 @@ const clientInvoiceData = [
 ];
 
 const ClientInvoice: React.FC = () => {
+  const enterData = () => {
+    window.alert('Podaj dane do faktury');
+  };
+
   return (
-    <ClientWraper $autoMargin="left">
+    <ClientWraper $autoMargin="left" onClick={enterData}>
       <IconEdit />
       <Subtitle>Dane do faktury:</Subtitle>
       <DataList width="100px" dataList={clientInvoiceData} />
