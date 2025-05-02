@@ -21,9 +21,7 @@ const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
 }) => {
   return (
     <ModalWraper $visible={visible} onClick={onClick}>
-      <ModalBox $width={width} $height={height} $color={color} $backgroundColor={backgroundColor}>
-        {children}
-      </ModalBox>
+      {children}
     </ModalWraper>
   );
 };

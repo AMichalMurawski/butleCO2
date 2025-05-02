@@ -32,10 +32,7 @@ export const ModalBox = styled.div<ModalBoxProps>`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: ${({ $width }) => $width || 'auto'};
-  height: ${({ $height }) => $height || 'auto'};
-  padding: 30px;
+  // width: ${({ $width }) => $width || 'auto'};
+  // height: ${({ $height }) => $height || 'auto'};
   transform: translate(-50%, -50%);
-  color: ${({ theme, $color }) => $color || theme.color.text};
-  background-color: ${({ theme, $backgroundColor }) => $backgroundColor || theme.color.main};
 `;

@@ -6,6 +6,8 @@ import Button from '../../components/Button/Button';
 import { theme } from '../../styles/theme';
 import { ClientInfo, ClientInvoice, Header, Informations, ProductsList } from '.';
 import ModalConteiner from '../ModalConteiner/ModalConteiner';
+import ModalClientInfo from './ModalClient/ModalClientInfo';
+import ModalClientInvoice from './ModalClient/ModalClientInvoice';
 
 const OrderForm: React.FC = () => {
   const [infoModal, setInfoModal] = useState<boolean>(false);
@@ -41,11 +43,21 @@ const OrderForm: React.FC = () => {
             />
           </SubmitButtonWraper>
           <Informations />
-          <ModalConteiner visible={infoModal} onClick={closeInfo}>
-            Client Info Modal
+          <ModalConteiner
+            color={theme.color.structural}
+            backgroundColor={theme.color.text}
+            visible={infoModal}
+            onClick={closeInfo}
+          >
+            <ModalClientInfo exitClick={() => setInfoModal(false)} />
           </ModalConteiner>
-          <ModalConteiner visible={invoiceModal} onClick={closeInvoice}>
-            Client Invoice Modal
+          <ModalConteiner
+            color={theme.color.structural}
+            backgroundColor={theme.color.text}
+            visible={invoiceModal}
+            onClick={closeInvoice}
+          >
+            <ModalClientInvoice exitClick={() => setInvoiceModal(false)} />
           </ModalConteiner>
         </InvoiceWraper>
       </Formik>
