@@ -4,18 +4,24 @@ import { ModalBox, ModalWraper } from './ModalConteiner.styled';
 interface ModalConteinerProps {
   width?: string;
   height?: string;
+  color?: string;
   backgroundColor?: string;
+  visible: boolean;
+  onClick?: (e: any) => void;
 }
 
 const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
   children,
   width,
   height,
+  color,
   backgroundColor,
+  visible,
+  onClick,
 }) => {
   return (
-    <ModalWraper>
-      <ModalBox $width={width} $height={height} $backgroundColor={backgroundColor}>
+    <ModalWraper $visible={visible} onClick={onClick}>
+      <ModalBox $width={width} $height={height} $color={color} $backgroundColor={backgroundColor}>
         {children}
       </ModalBox>
     </ModalWraper>

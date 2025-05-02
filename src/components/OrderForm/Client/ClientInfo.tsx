@@ -26,13 +26,13 @@ const clientInfoData = [
   },
 ];
 
-const ClientInfo: React.FC = () => {
-  const enterData = () => {
-    window.alert('Podaj dane zamawiającego');
-  };
+interface ClientInfoProps {
+  onClick?: () => void;
+}
 
+const ClientInfo: React.FC<ClientInfoProps> = ({ onClick }) => {
   return (
-    <ClientWraper $autoMargin="right" onClick={enterData}>
+    <ClientWraper $autoMargin="right" onClick={onClick}>
       <IconEdit />
       <Subtitle>Zamawiający:</Subtitle>
       <DataList width="200px" dataList={clientInfoData} />
