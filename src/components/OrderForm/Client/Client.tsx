@@ -11,12 +11,12 @@ interface ModalClientProps<T> {
     labelWidth?: string;
 }
 
-const Client: React.FC<ModalClientProps<any>> = ({ labels, initialValues, onClick, autoMargin= 'right', labelWidth }) => {
+const Client: React.FC<ModalClientProps<any>> = ({ title, labels, initialValues, onClick, autoMargin= 'right', labelWidth }) => {
 
   return (
     <ClientWraper $autoMargin={autoMargin} onClick={onClick}>
       <IconEdit />
-      <Subtitle>Zamawiający:</Subtitle>
+      <Subtitle>{title}:</Subtitle>
       {Object.keys(initialValues).map((key) => {
         const label = labels[key as keyof typeof labels]; // Pobieramy label z labels
           const value = initialValues[key as keyof typeof initialValues]; // Pobieramy wartość z initialValues

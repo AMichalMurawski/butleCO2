@@ -54,7 +54,7 @@ const OrderForm: React.FC = () => {
             <InvoiceWraper>
               <Header />
               <Client title="Zamawiający" labels={clientLabels} initialValues={values.client} onClick={() => setInfoModal(true)} autoMargin='right' labelWidth='200px'/>
-              <Client title="Zamawiający" labels={companyLabels} initialValues={values.company} onClick={() => setInvoiceModal(true)} autoMargin='left' labelWidth='100px'/>
+              <Client title="Faktura" labels={companyLabels} initialValues={values.company} onClick={() => setInvoiceModal(true)} autoMargin='left' labelWidth='100px'/>
               <ProductsList />
               <SubmitButtonWraper>
                 <Button
