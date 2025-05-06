@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { InvoiceWraper, SubmitButtonWraper } from './OrderForm.styled';
+import { ClientInvoiceWraper, InvoiceWraper, SubmitButtonWraper } from './OrderForm.styled';
 import { Formik, Form } from 'formik';
 import { clientLabels, clientTypes, companyLabels, companyTypes, initialClient, initialCompany, initialValues } from './initialValues';
 import Button from '../../components/Button/Button';
 import { theme } from '../../styles/theme';
-import { ClientInfo, ClientInvoice, Header, Informations, ProductsList } from '.';
+import { Header, Informations, ProductsList } from '.';
 import ModalConteiner from '../ModalConteiner/ModalConteiner';
 import ModalAddProduct from './ModalAddProduct/ModalAddProduct';
 import ModalClient from './ModalClient/ModalClient';
@@ -54,7 +54,9 @@ const OrderForm: React.FC = () => {
             <InvoiceWraper>
               <Header />
               <Client title="Zamawiający" labels={clientLabels} initialValues={values.client} onClick={() => setInfoModal(true)} autoMargin='right' labelWidth='200px'/>
-              <Client title="Faktura" labels={companyLabels} initialValues={values.company} onClick={() => setInvoiceModal(true)} autoMargin='left' labelWidth='100px'/>
+              <ClientInvoiceWraper $isInvoice={values.client.invoice}>
+                <Client title="Faktura" labels={companyLabels} initialValues={values.company} onClick={() => setInvoiceModal(true)} autoMargin='left' labelWidth='100px' />
+              </ClientInvoiceWraper>
               <ProductsList />
               <SubmitButtonWraper>
                 <Button

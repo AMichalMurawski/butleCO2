@@ -24,7 +24,7 @@ const Client: React.FC<ModalClientProps<any>> = ({ title, labels, initialValues,
         return (
           <DataWraper key={key}>
             <DataName $width={labelWidth}>{label}:</DataName>
-            <DataValue>{value}</DataValue>
+            <DataValue>{typeof value === 'boolean' ? (value ? 'Tak' : 'Nie') : value}</DataValue>
           </DataWraper>
         );
       })}
