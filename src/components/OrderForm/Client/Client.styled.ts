@@ -30,13 +30,13 @@ export const DataWraper = styled.div`
 `;
 
 interface DataNameProps {
-  $width: string;
+  $width?: string;
 }
 
 export const DataName = styled(P)<DataNameProps>`
   color: ${({ theme }) => theme.color.structural};
-  width: ${({ $width }) => $width};
-  min-width: ${({ $width }) => $width};
+  width: ${({ $width }) => $width ? $width : 'auto'};
+  min-width: ${({ $width }) => $width ? $width : 'auto'};
 `;
 
 export const DataValue = styled(P)`

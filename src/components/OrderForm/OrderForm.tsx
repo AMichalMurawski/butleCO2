@@ -8,6 +8,7 @@ import { ClientInfo, ClientInvoice, Header, Informations, ProductsList } from '.
 import ModalConteiner from '../ModalConteiner/ModalConteiner';
 import ModalAddProduct from './ModalAddProduct/ModalAddProduct';
 import ModalClient from './ModalClient/ModalClient';
+import Client from './Client/Client';
 
 const OrderForm: React.FC = () => {
   const [infoModal, setInfoModal] = useState<boolean>(false);
@@ -39,63 +40,72 @@ const OrderForm: React.FC = () => {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      <Form>
-        <InvoiceWraper>
-          <Header />
-          <ClientInfo onClick={() => setInfoModal(true)} />
-          <ClientInvoice onClick={() => setInvoiceModal(true)} />
-          <ProductsList />
-          <SubmitButtonWraper>
-            <Button
-              type="submit"
-              onClick={handleSubmit}
-              text="Złóż zamówienie"
-              background={theme.color.remarkable}
-              color={theme.color.structural}
-            />
-          </SubmitButtonWraper>
-          <Informations />
-          <ModalConteiner
-            width='min(600px, 75%)'
-            color={theme.color.structural}
-            backgroundColor={theme.color.text}
-            visible={infoModal}
-            onClick={() => closeModal( "info")}
-          >
-            <ModalClient
-              title="Zamawiający"
-              labels={clientLabels}
-              types={clientTypes}
-              initialValues={initialClient}
-              onSubmit={(values) => {
-                setInfoModal(false); window.alert(JSON.stringify(values))
-              }
-              } />
-          </ModalConteiner>
-          <ModalConteiner
-            width='min(600px, 75%)'
-            color={theme.color.structural}
-            backgroundColor={theme.color.text}
-            visible={invoiceModal}
-            onClick={() => closeModal( "invoice")}
-          >
-            <ModalClient
-              title="Faktura"
-              labels={companyLabels}
-              types={companyTypes}
-              initialValues={initialCompany}
-              onSubmit={() => setInvoiceModal(false)} />
-          </ModalConteiner>
-          <ModalConteiner 
-            width='min(600px, 75%)'
-            color={theme.color.structural}
-            backgroundColor={theme.color.text}
-            visible={orderModal}
-            onClick={() => closeModal("order")}>
-            <ModalAddProduct />
-          </ModalConteiner>
-        </InvoiceWraper>
-      </Form>
+      {({ values, setFieldValue }) => {
+
+        const onModal = (object: 'client' | 'company' | 'products', modalValues: any, setModal: any) => {
+          Object.entries(modalValues).forEach(([key, value]) => {
+            setFieldValue(`${object}.${key}`, value); // ← dopasuj do struktury initialValues
+          });
+          setModal(false);
+        }
+
+        return (
+          <Form>
+            <InvoiceWraper>
+              <Header />
+              <Client title="Zamawiający" labels={clientLabels} initialValues={values.client} onClick={() => setInfoModal(true)} autoMargin='right' labelWidth='200px'/>
+              <Client title="Zamawiający" labels={companyLabels} initialValues={values.company} onClick={() => setInvoiceModal(true)} autoMargin='left' labelWidth='100px'/>
+              <ProductsList />
+              <SubmitButtonWraper>
+                <Button
+                  type="submit"
+                  onClick={handleSubmit}
+                  text="Złóż zamówienie"
+                  background={theme.color.remarkable}
+                  color={theme.color.structural}
+                />
+              </SubmitButtonWraper>
+              <Informations />
+              <ModalConteiner
+                width='min(600px, 75%)'
+                color={theme.color.structural}
+                backgroundColor={theme.color.text}
+                visible={infoModal}
+                onClick={() => closeModal("info")}
+              >
+                <ModalClient
+                  title="Zamawiający"
+                  labels={clientLabels}
+                  types={clientTypes}
+                  initialValues={values.client}
+                  onSubmit={(modalValues) => onModal('client', modalValues, setInfoModal)} />
+              </ModalConteiner>
+              <ModalConteiner
+                width='min(600px, 75%)'
+                color={theme.color.structural}
+                backgroundColor={theme.color.text}
+                visible={invoiceModal}
+                onClick={() => closeModal("invoice")}
+              >
+                <ModalClient
+                  title="Faktura"
+                  labels={companyLabels}
+                  types={companyTypes}
+                  initialValues={values.company}
+                  onSubmit={(modalValues) => onModal('company', modalValues, setInvoiceModal)} />
+              </ModalConteiner>
+              <ModalConteiner
+                width='min(600px, 75%)'
+                color={theme.color.structural}
+                backgroundColor={theme.color.text}
+                visible={orderModal}
+                onClick={() => closeModal("order")}>
+                <ModalAddProduct />
+              </ModalConteiner>
+            </InvoiceWraper>
+          </Form>
+        )
+      }}
     </Formik>
   );
 };

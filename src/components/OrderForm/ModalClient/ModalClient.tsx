@@ -15,8 +15,7 @@ import {
 } from './ModalClient.styled';
 import Button from '../../Button/Button';
 import { theme } from '../../../styles/theme';
-import { Field, Formik, Form, useFormikContext } from 'formik';
-import { ClientProps } from '../initialValues';
+import { Field, Formik, Form } from 'formik';
 
 const typeComponentMap = {
   text: TextValue,
