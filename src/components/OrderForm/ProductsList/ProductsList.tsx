@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   CellContent,
+  IconAdd,
   IconWraper,
   ProductsListWraper,
   ProductsTable,
@@ -13,7 +14,6 @@ import {
   TableHeaderCell,
   TableRow,
 } from './ProductsList.styled';
-import Button from '../../Button/Button';
 import IconSvg from '../../Icon/IconSvg';
 import { theme } from '../../../styles/theme';
 
@@ -69,9 +69,9 @@ const FormProducts: React.FC = () => {
           ))}
           <TableBodyRow style={{ cursor: 'pointer' }} onClick={addProduct}>
             <TableBodyCell>
-              <IconWraper $rotate={45}>
-                <IconSvg name="cross" fill="green" />
-              </IconWraper>
+              <IconAdd>
+                <IconSvg name="cross" fill={theme.color.accent} />
+              </IconAdd>
             </TableBodyCell>
             <TableBodyCell colSpan={5}>...</TableBodyCell>
           </TableBodyRow>

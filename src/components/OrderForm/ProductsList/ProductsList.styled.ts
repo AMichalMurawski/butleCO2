@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { P } from '../../../styles/Global.styled';
 
+// >>>>>> Table <<<<<<
+
 export const ProductsListWraper = styled.div`
   width: 100%;
   padding-inline: 60px;
@@ -12,7 +14,11 @@ export const ProductsTable = styled.table`
   text-aling: left;
 `;
 
+// >>>>>> Head & Footer <<<<<<
+
 export const TableHead = styled.thead``;
+
+export const TableFooter = styled.tfoot``;
 
 export const TableRow = styled.tr``;
 
@@ -88,10 +94,23 @@ export const TableHeaderCell = styled.th`
   border-bottom: 5px solid ${({ theme }) => theme.color.text};
 `;
 
+interface TableFooterCellProps {
+  $sum?: boolean;
+}
+
+export const TableFooterCell = styled.td<TableFooterCellProps>`
+  padding: 15px;
+  color: ${({ theme }) => theme.color.text};
+  font-weight: ${({ $sum }) => ($sum ? '700' : null)};
+  background-color: ${({ theme, $sum }) => ($sum ? theme.color.structural : null)};
+`;
+
 export const CellContent = styled(P)`
   color: inherit;
   z-index: 1;
 `;
+
+// >>>>>> Body <<<<<<
 
 export const TableBody = styled.tbody``;
 
@@ -116,18 +135,7 @@ export const TableBodyCell = styled.td`
   }
 `;
 
-export const TableFooter = styled.tfoot``;
-
-interface TableFooterCellProps {
-  $sum?: boolean;
-}
-
-export const TableFooterCell = styled.td<TableFooterCellProps>`
-  padding: 15px;
-  color: ${({ theme }) => theme.color.text};
-  font-weight: ${({ $sum }) => ($sum ? '700' : null)};
-  background-color: ${({ theme, $sum }) => ($sum ? theme.color.structural : null)};
-`;
+// >>>>>> Icons <<<<<<
 
 interface IconWraperProps {
   $rotate?: number;
@@ -139,10 +147,16 @@ export const IconWraper = styled.div<IconWraperProps>`
   height: 15px;
   border-radius: 15px;
   cursor: pointer;
-  ${({ $rotate }) =>
-    $rotate ? `transform-origin: center; transform: rotate(${$rotate}deg);` : null}
 
-  &:hover {
+  ${TableBodyCell}:hover & {
+    scale: 1.2;
+  }
+`;
+
+export const IconAdd = styled(IconWraper)`
+  transform-origin: center; transform: rotate(45deg);
+
+  ${TableBodyRow}:hover & {
     scale: 1.2;
   }
 `;
