@@ -42,6 +42,7 @@ const ModalClient = <T extends Record<string, any>>({
     const handleSubmit = (values: T) => {
         onSubmit(values);
     }
+    
   return (
     <Formik
       initialValues={initialValues}
@@ -67,15 +68,19 @@ const ModalClient = <T extends Record<string, any>>({
 
                   return (
                     <DataWraper key={String(name)}>
-                      <DataName>{label}:</DataName>
-                      {Component === CheckboxValue ? (
-                        <CheckboxValueWraper>
-                          <Field as={CheckboxValue} name={String(name)} type="checkbox" />
-                          <CheckboxHandleValue checked={Boolean(values[name])} />
-                        </CheckboxValueWraper>
-                      ) : (
-                        <Field as={Component} name={String(name)} type={type} />
-                      )}
+                      <DataName>{label}:</DataName>   
+                        {Component === TextValue && (
+                          <Field as={Component} name={String(name)} type='text' />
+                        )}   
+                        {Component === TextareaValue && (
+                          <Field as={Component} name={String(name)} maxLength='250' rows='5' />
+                        )}
+                        {Component === CheckboxValue && (
+                          <CheckboxValueWraper>
+                            <Field as={CheckboxValue} name={String(name)} type="checkbox" />
+                            <CheckboxHandleValue checked={Boolean(values[name])} />
+                          </CheckboxValueWraper>
+                        )}
                     </DataWraper>
                   );
                 })}

@@ -62,7 +62,7 @@ export const DataValue = styled.input`
 export const TextValue = styled(DataValue)`
 `;
 
-export const TextareaValue = styled(DataValue)`
+export const TextareaValue = styled(DataValue).attrs({as: 'textarea'})`
 `;
 
 export const CheckboxValueWraper = styled.label`

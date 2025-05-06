@@ -80,7 +80,8 @@ const OrderForm: React.FC = () => {
                   labels={clientLabels}
                   types={clientTypes}
                   initialValues={values.client}
-                  onSubmit={(modalValues) => onModal('client', modalValues, setInfoModal)} />
+                  onSubmit={(modalValues) => onModal('client', modalValues, setInfoModal)}
+                  key={infoModal ? 'open' : 'closed'} />
               </ModalConteiner>
               <ModalConteiner
                 width='min(600px, 75%)'
@@ -94,7 +95,8 @@ const OrderForm: React.FC = () => {
                   labels={companyLabels}
                   types={companyTypes}
                   initialValues={values.company}
-                  onSubmit={(modalValues) => onModal('company', modalValues, setInvoiceModal)} />
+                  onSubmit={(modalValues) => onModal('company', modalValues, setInvoiceModal)}
+                  key={invoiceModal ? 'open' : 'closed'} />
               </ModalConteiner>
               <ModalConteiner
                 width='min(600px, 75%)'

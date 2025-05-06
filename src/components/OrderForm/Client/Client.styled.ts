@@ -11,6 +11,7 @@ export const ClientWraper = styled.div<ClientWraperProps>`
   ${({ $autoMargin }) => ($autoMargin === 'right' ? 'margin-right' : 'margin-left')}: auto;
   min-width: 50%;
   max-width: 75%;
+  width: fit-content;
   text-align: left;
   display: flex;
   flex-direction: column;
