@@ -29,6 +29,7 @@ export const DataWraper = styled.div`
 
 export const DataName = styled(P)`
   min-width: max-content;
+  padding-top: 2px;
 `;
 
 export const ValueConteiner = styled.div`
@@ -38,16 +39,22 @@ export const ValueConteiner = styled.div`
 export const DataValue = styled(P)`
   position: relative;
   width: 100%;
-  //   text-decoration: underline dotted;
+  padding: 2px 7px;
   text-align: left;
+  box-shadow: inset 0 -1px 3px 1px ${({ theme }) => theme.color.structural};
+  
+  &:focus, &:hover {
+    box-shadow: inset 0 -1px 3px 1px ${({ theme }) => theme.color.structural}, 
+      inset 0 -1px 6px 2px ${({ theme }) => theme.color.remarkable};
+  }
 
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 1.4em,
-    ${({ theme }) => theme.color.structuralTrans} 1.4em,
-    ${({ theme }) => theme.color.textTrans} 1.5em
-  );
+  // background-image: repeating-linear-gradient(
+  //   to bottom,
+  //   transparent,
+  //   transparent 1.4em,
+  //   ${({ theme }) => theme.color.structuralTrans} 1.4em,
+  //   ${({ theme }) => theme.color.textTrans} 1.5em
+  // );
 
   //   &::after {
   //     content: '';

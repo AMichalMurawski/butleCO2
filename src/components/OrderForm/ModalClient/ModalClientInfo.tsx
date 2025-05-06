@@ -20,7 +20,7 @@ export const clientInfoDataName = [
   ['Kod pocztowy', '11-111'],
   ['Miasto', 'Warszawa'],
   ['Telefon kontaktowy', '(11) 111 11 11'],
-  ['E-mail', 'jan.kowalski@em'],
+  ['E-mail', 'jan.kowalski@email.com'],
   ['Dodatkowe informacje', 'Wejście od zaplecza, od ulicy Wrocławskiej'],
 ];
 
