@@ -133,6 +133,10 @@ export const TableBodyCell = styled.td`
   &:not(:first-of-type) {
     border-bottom: 5px solid ${({ theme }) => theme.color.structural};
   }
+
+  &:hover:has(svg) {
+    cursor: pointer;
+  }
 `;
 
 // >>>>>> Icons <<<<<<
@@ -146,7 +150,6 @@ export const IconWraper = styled.div<IconWraperProps>`
   width: 15px;
   height: 15px;
   border-radius: 15px;
-  cursor: pointer;
 
   ${TableBodyCell}:hover & {
     scale: 1.2;

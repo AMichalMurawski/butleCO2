@@ -60,8 +60,8 @@ const FormProducts: React.FC = () => {
               <TableBodyCell>{product.unitPrice.toFixed(2)} PLN</TableBodyCell>
               <TableBodyCell>{product.quantity}</TableBodyCell>
               <TableBodyCell>{(product.quantity * product.unitPrice).toFixed(2)} PLN</TableBodyCell>
-              <TableBodyCell>
-                <IconWraper onClick={deleteProduct}>
+              <TableBodyCell onClick={deleteProduct}>
+                <IconWraper>
                   <IconSvg name="cross" fill="red" />
                 </IconWraper>
               </TableBodyCell>
