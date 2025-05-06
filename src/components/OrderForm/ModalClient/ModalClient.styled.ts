@@ -43,37 +43,69 @@ export const ValueConteiner = styled.div`
   width: 100%;
 `;
 
-export const DataValue = styled(P)`
+export const DataValue = styled.input`
   position: relative;
   width: 100%;
   padding: 2px 7px;
   text-align: left;
+  border: none;
+  outline: none;
+  background-color: transparent;
   box-shadow: inset 0 -1px 3px 1px ${({ theme }) => theme.color.structural};
   
   &:focus, &:hover {
     box-shadow: inset 0 -1px 3px 1px ${({ theme }) => theme.color.structural}, 
       inset 0 -1px 6px 2px ${({ theme }) => theme.color.remarkable};
   }
-
-  // background-image: repeating-linear-gradient(
-  //   to bottom,
-  //   transparent,
-  //   transparent 1.4em,
-  //   ${({ theme }) => theme.color.structuralTrans} 1.4em,
-  //   ${({ theme }) => theme.color.textTrans} 1.5em
-  // );
-
-  //   &::after {
-  //     content: '';
-  //     position: absolute;
-  //     bottom: 0;
-  //     left: 0;
-  //     width: 100%;
-  //     height: 1px;
-  //     border-bottom: 1px dotted ${({ theme }) => theme.color.structural};
-  //     pointer-events: none;
-  //   }
 `;
+
+export const TextValue = styled(DataValue)`
+`;
+
+export const TextareaValue = styled(DataValue)`
+`;
+
+export const CheckboxValueWraper = styled.label`
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  position: relative;
+`
+export const CheckboxValue = styled(DataValue)`
+  border: 0;
+  clip: rect(0 0 0 0);
+  clippath: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+`;
+
+export const CheckboxHandleValue = styled.div<{checked: boolean}>`
+  width: 20px;
+  height: 20px;
+  background: ${(props) => (props.checked ? '#0d6efd' : 'white')};
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: all 150ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:after {
+    content: '';
+    display: ${(props) => (props.checked ? 'block' : 'none')};
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+`
 
 export const ExitButtonConteiner = styled.div`
   position: absolute;

@@ -9,6 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   background?: string;
   idSection?: string;
   onClick?: any;
+  type: 'button' | 'submit';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,6 +19,7 @@ const Button: React.FC<ButtonProps> = ({
   background = 'transparent',
   idSection = '',
   onClick,
+  type,
 }) => {
   const theme = useTheme();
 
@@ -27,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       $background={background}
       $color={color || theme.color.text}
       onClick={onClick}
+      type={type}
     >
       {text}
     </ButtonWraper>

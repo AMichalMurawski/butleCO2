@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { InvoiceWraper, SubmitButtonWraper } from './OrderForm.styled';
-import { Formik } from 'formik';
-import { initialValues } from './initialValues';
+import { Formik, Form } from 'formik';
+import { clientLabels, clientTypes, companyLabels, companyTypes, initialClient, initialCompany, initialValues } from './initialValues';
 import Button from '../../components/Button/Button';
 import { theme } from '../../styles/theme';
 import { ClientInfo, ClientInvoice, Header, Informations, ProductsList } from '.';
 import ModalConteiner from '../ModalConteiner/ModalConteiner';
-import ModalClientInfo from './ModalClient/ModalClientInfo';
-import ModalClientInvoice from './ModalClient/ModalClientInvoice';
 import ModalAddProduct from './ModalAddProduct/ModalAddProduct';
+import ModalClient from './ModalClient/ModalClient';
 
 const OrderForm: React.FC = () => {
   const [infoModal, setInfoModal] = useState<boolean>(false);
@@ -34,12 +33,13 @@ const OrderForm: React.FC = () => {
   }
 
   const handleSubmit = () => {
+    
     setOrderModal(true)
   };
 
   return (
-    <InvoiceWraper>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Form>
         <InvoiceWraper>
           <Header />
           <ClientInfo onClick={() => setInfoModal(true)} />
@@ -62,7 +62,15 @@ const OrderForm: React.FC = () => {
             visible={infoModal}
             onClick={() => closeModal( "info")}
           >
-            <ModalClientInfo exitClick={() => setInfoModal(false)} />
+            <ModalClient
+              title="Zamawiający"
+              labels={clientLabels}
+              types={clientTypes}
+              initialValues={initialClient}
+              onSubmit={(values) => {
+                setInfoModal(false); window.alert(JSON.stringify(values))
+              }
+              } />
           </ModalConteiner>
           <ModalConteiner
             width='min(600px, 75%)'
@@ -71,9 +79,15 @@ const OrderForm: React.FC = () => {
             visible={invoiceModal}
             onClick={() => closeModal( "invoice")}
           >
-            <ModalClientInvoice exitClick={() => setInvoiceModal(false)} />
+            <ModalClient
+              title="Faktura"
+              labels={companyLabels}
+              types={companyTypes}
+              initialValues={initialCompany}
+              onSubmit={() => setInvoiceModal(false)} />
           </ModalConteiner>
           <ModalConteiner 
+            width='min(600px, 75%)'
             color={theme.color.structural}
             backgroundColor={theme.color.text}
             visible={orderModal}
@@ -81,8 +95,8 @@ const OrderForm: React.FC = () => {
             <ModalAddProduct />
           </ModalConteiner>
         </InvoiceWraper>
-      </Formik>
-    </InvoiceWraper>
+      </Form>
+    </Formik>
   );
 };
 
