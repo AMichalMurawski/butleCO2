@@ -14,7 +14,7 @@ const DataList: React.FC<DataListProps> = ({ width, dataList }) => {
   return (
     <>
       {dataList.map(data => (
-        <DataWraper>
+        <DataWraper key={data.name}>
           <DataName $width={width}>{data.name}:</DataName>
           <DataValue>{data.value}</DataValue>
         </DataWraper>

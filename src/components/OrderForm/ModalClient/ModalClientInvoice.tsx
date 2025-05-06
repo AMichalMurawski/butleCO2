@@ -1,12 +1,14 @@
 import React from 'react';
 import {
   ClientInfoWraper,
+  DataList,
   DataName,
   DataValue,
   DataWraper,
   ExitButtonConteiner,
   SubmitButtonConteiner,
   Subtitle,
+  SubtitleWraper,
 } from './ModalClient.styled';
 import IconSvg from '../../Icon/IconSvg';
 import Button from '../../Button/Button';
@@ -29,25 +31,26 @@ interface ModalClientInvoiceProps {
 const ModalClientInvoice: React.FC<ModalClientInvoiceProps> = ({ exitClick }) => {
   return (
     <ClientInfoWraper>
-      <ExitButtonConteiner onClick={exitClick}>
-        <IconSvg name="cross" fill="red" />
-      </ExitButtonConteiner>
-      <Subtitle>Dane do zamówienia</Subtitle>
-      {clientInfoDataName.map(data => (
-        <DataWraper>
-          <DataName>{data[0]}:</DataName>
-          <DataValue>{data[1]}</DataValue>
-        </DataWraper>
-      ))}
-      <SubmitButtonConteiner>
-        <Button
-          type="button"
-          text="wprowadź dane"
-          color={theme.color.structural}
-          background={theme.color.remarkable}
-          onClick={exitClick}
-        />
-      </SubmitButtonConteiner>
+      <SubtitleWraper>
+        <Subtitle>Faktura</Subtitle>
+      </SubtitleWraper>
+      <DataList >
+        {clientInfoDataName.map((data, i) => (
+          <DataWraper key={i}>
+            <DataName>{data[0]}:</DataName>
+            <DataValue>{data[1]}</DataValue>
+          </DataWraper>
+        ))}
+        <SubmitButtonConteiner>
+          <Button
+            type="button"
+            text="wprowadź dane"
+            color={theme.color.structural}
+            background={theme.color.remarkable}
+            onClick={exitClick}
+          />
+        </SubmitButtonConteiner>
+      </DataList>
     </ClientInfoWraper>
   );
 };

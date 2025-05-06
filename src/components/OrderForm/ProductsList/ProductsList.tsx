@@ -44,8 +44,8 @@ const FormProducts: React.FC = () => {
       <ProductsTable>
         <TableHead>
           <TableRow>
-            {tableTitles.map(title => (
-              <TableHeaderCell>
+            {tableTitles.map((title, i) => (
+              <TableHeaderCell key={i}>
                 <CellContent>{title}</CellContent>
               </TableHeaderCell>
             ))}

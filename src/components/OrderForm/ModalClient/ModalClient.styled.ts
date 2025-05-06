@@ -2,24 +2,31 @@ import styled from 'styled-components';
 import { H3, P } from '../../../styles/Global.styled';
 
 export const ClientInfoWraper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 30px;
-  width: min(600px, 75%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  color: ${({ theme }) => theme.color.structural};
-  background-color: ${({ theme }) => theme.color.text};
+  position: relative;
 `;
 
 export const SubtitleWraper = styled.div`
   width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.color.structural};
+  color: ${({theme}) => theme.color.text};
 `;
 
-export const Subtitle = styled(H3)``;
+export const Subtitle = styled(H3)`
+  margin: 0;
+`;
+
+export const DataList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px;
+  color: ${({ theme }) => theme.color.structural};
+  background-color: ${({ theme }) => theme.color.text};
+`
 
 export const DataWraper = styled.div`
   display: flex;

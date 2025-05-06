@@ -32,7 +32,22 @@ export const ModalBox = styled.div<ModalBoxProps>`
   position: absolute;
   top: 50%;
   left: 50%;
-  // width: ${({ $width }) => $width || 'auto'};
-  // height: ${({ $height }) => $height || 'auto'};
+  width: ${({ $width }) => $width || '75%'};
+  height: ${({ $height }) => $height || null};
+  background: red;
   transform: translate(-50%, -50%);
+`;
+
+export const ExitButtonConteiner = styled.div`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  z-index: 10;
+
+  &:hover {
+    scale: 1.2;
+  }
 `;

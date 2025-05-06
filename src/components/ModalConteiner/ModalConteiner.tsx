@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from 'react';
-import { ModalBox, ModalWraper } from './ModalConteiner.styled';
+import { ExitButtonConteiner, ModalBox, ModalWraper } from './ModalConteiner.styled';
+import IconSvg from '../Icon/IconSvg';
 
 interface ModalConteinerProps {
   width?: string;
@@ -7,21 +8,30 @@ interface ModalConteinerProps {
   color?: string;
   backgroundColor?: string;
   visible: boolean;
-  onClick?: (e: any) => void;
+  onClick?: () => void;
 }
 
 const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
   children,
-  width,
-  height,
-  color,
-  backgroundColor,
   visible,
   onClick,
+  width
 }) => {
+
+  const handleClick = (e: any) => {
+    if (e.currentTarget === e.target && onClick) {
+      onClick()
+    }
+  }
+
   return (
-    <ModalWraper $visible={visible} onClick={onClick}>
-      {children}
+    <ModalWraper $visible={visible} onClick={handleClick}>
+      <ModalBox $width={width}>
+        {children}
+        <ExitButtonConteiner onClick={handleClick}>
+          <IconSvg name="cross" fill="red" onClick={handleClick}/>
+        </ExitButtonConteiner>
+      </ModalBox>
     </ModalWraper>
   );
 };

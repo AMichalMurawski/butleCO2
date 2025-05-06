@@ -8,21 +8,33 @@ import { ClientInfo, ClientInvoice, Header, Informations, ProductsList } from '.
 import ModalConteiner from '../ModalConteiner/ModalConteiner';
 import ModalClientInfo from './ModalClient/ModalClientInfo';
 import ModalClientInvoice from './ModalClient/ModalClientInvoice';
+import ModalAddProduct from './ModalAddProduct/ModalAddProduct';
 
 const OrderForm: React.FC = () => {
   const [infoModal, setInfoModal] = useState<boolean>(false);
   const [invoiceModal, setInvoiceModal] = useState<boolean>(false);
+  const [orderModal, setOrderModal] = useState<boolean>(false);
 
-  const closeInfo = (e: any) => {
-    e.currentTarget === e.target ? setInfoModal(false) : null;
-  };
-
-  const closeInvoice = (e: any) => {
-    e.currentTarget === e.target ? setInvoiceModal(false) : null;
-  };
+  const closeModal = (modal: "info" | "invoice" | "order") => {
+    
+    if (modal === "info") {
+      setInfoModal(false)
+      return
+    }
+    
+    if (modal === "invoice") {
+      setInvoiceModal(false)
+      return
+    }
+    
+    if (modal === "order") {
+      setOrderModal(false)
+      return
+    }
+  }
 
   const handleSubmit = () => {
-    window.alert('Zamówienie złożone');
+    setOrderModal(true)
   };
 
   return (
@@ -44,20 +56,29 @@ const OrderForm: React.FC = () => {
           </SubmitButtonWraper>
           <Informations />
           <ModalConteiner
+            width='min(600px, 75%)'
             color={theme.color.structural}
             backgroundColor={theme.color.text}
             visible={infoModal}
-            onClick={closeInfo}
+            onClick={() => closeModal( "info")}
           >
             <ModalClientInfo exitClick={() => setInfoModal(false)} />
           </ModalConteiner>
           <ModalConteiner
+            width='min(600px, 75%)'
             color={theme.color.structural}
             backgroundColor={theme.color.text}
             visible={invoiceModal}
-            onClick={closeInvoice}
+            onClick={() => closeModal( "invoice")}
           >
             <ModalClientInvoice exitClick={() => setInvoiceModal(false)} />
+          </ModalConteiner>
+          <ModalConteiner 
+            color={theme.color.structural}
+            backgroundColor={theme.color.text}
+            visible={orderModal}
+            onClick={() => closeModal("order")}>
+            <ModalAddProduct />
           </ModalConteiner>
         </InvoiceWraper>
       </Formik>
