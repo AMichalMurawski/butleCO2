@@ -18,7 +18,8 @@
     - * NIP
 
 - **Zamówienie:**
-    - rodzaj butli
+    - rodzaj butli (gaz + pojemność)
+    - wymiana / zakup
     - ilość
     - >cena jedn.
     - >koszt
