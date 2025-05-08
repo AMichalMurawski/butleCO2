@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ClientInvoiceWraper, InvoiceWraper, SubmitButtonWraper } from './OrderForm.styled';
 import { Formik, Form } from 'formik';
-import { clientLabels, clientTypes, companyLabels, companyTypes, initialClient, initialCompany, initialValues } from './initialValues';
+import { clientLabels, clientTypes, companyLabels, companyTypes, initialValues } from './initialValues';
 import Button from '../../components/Button/Button';
 import { theme } from '../../styles/theme';
 import { Header, Informations, ProductsList } from '.';
@@ -15,27 +15,12 @@ const OrderForm: React.FC = () => {
   const [invoiceModal, setInvoiceModal] = useState<boolean>(false);
   const [orderModal, setOrderModal] = useState<boolean>(false);
 
-  const closeModal = (modal: "info" | "invoice" | "order") => {
-    
-    if (modal === "info") {
-      setInfoModal(false)
-      return
-    }
-    
-    if (modal === "invoice") {
-      setInvoiceModal(false)
-      return
-    }
-    
-    if (modal === "order") {
-      setOrderModal(false)
-      return
-    }
+  const closeModal = (setModal: any) => {
+    setModal(false);
   }
 
-  const handleSubmit = () => {
-    
-    setOrderModal(true)
+  const handleSubmit = (e: any) => {
+    setOrderModal(true);
   };
 
   return (
@@ -57,7 +42,7 @@ const OrderForm: React.FC = () => {
               <ClientInvoiceWraper $isInvoice={values.client.invoice}>
                 <Client title="Faktura" labels={companyLabels} initialValues={values.company} onClick={() => setInvoiceModal(true)} autoMargin='left' labelWidth='100px' />
               </ClientInvoiceWraper>
-              <ProductsList />
+              <ProductsList addProduct={() => setOrderModal(true)}/>
               <SubmitButtonWraper>
                 <Button
                   type="submit"
@@ -73,7 +58,7 @@ const OrderForm: React.FC = () => {
                 color={theme.color.structural}
                 backgroundColor={theme.color.text}
                 visible={infoModal}
-                onClick={() => closeModal("info")}
+                onClick={() => closeModal(setInfoModal)}
               >
                 <ModalClient
                   title="Zamawiający"
@@ -88,7 +73,7 @@ const OrderForm: React.FC = () => {
                 color={theme.color.structural}
                 backgroundColor={theme.color.text}
                 visible={invoiceModal}
-                onClick={() => closeModal("invoice")}
+                onClick={() => closeModal(setInvoiceModal)}
               >
                 <ModalClient
                   title="Faktura"
@@ -103,8 +88,8 @@ const OrderForm: React.FC = () => {
                 color={theme.color.structural}
                 backgroundColor={theme.color.text}
                 visible={orderModal}
-                onClick={() => closeModal("order")}>
-                <ModalAddProduct />
+                onClick={() => closeModal(setOrderModal)}>
+                <ModalAddProduct onSubmit={(modalValues) => onModal('products',modalValues, setOrderModal)} />
               </ModalConteiner>
             </InvoiceWraper>
           </Form>

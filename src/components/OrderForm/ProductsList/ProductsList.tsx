@@ -25,15 +25,15 @@ const products = [
 
 const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
 
-const FormProducts: React.FC = () => {
+interface FormProductsProps {
+  addProduct: () => void;
+}
+
+const FormProducts: React.FC<FormProductsProps> = ({addProduct}) => {
   const totalCost = products.reduce(
     (sum, product) => sum + product.quantity * product.unitPrice,
     0
   );
-
-  const addProduct = () => {
-    window.alert('Dodaj produkt');
-  };
 
   const deleteProduct = () => {
     window.alert('Usuń produkt');

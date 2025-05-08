@@ -6,15 +6,15 @@
     - >10 butli - cena ustalana indywidualnie
 
 ### Ceny jednostkowe:
-    - 1,5kg - 20,00 zł
-    - 2kg - 25,00 zł
-    - 3,7kg - 35,00 zł
-    - 5kg - 40,00 zł
-    - 6kg - 50,00 zł
-    - 7,5kg - 55,00 zł
-    - 10kg - 65,00 zł
-    - 18kg - 90,00 zł (dostawa + 10 zł)
-    - 26kg - 140,00 zł (dostawa + 10 zł)
+    - CO2 1,5kg - 20,00 zł
+    - CO2 2kg - 25,00 zł
+    - CO2 3,7kg - 35,00 zł
+    - CO2 5kg - 40,00 zł
+    - CO2 6kg - 50,00 zł
+    - CO2 7,5kg - 55,00 zł
+    - CO2 10kg - 65,00 zł
+    - CO2 18kg - 90,00 zł (dostawa + 10 zł)
+    - CO2 26kg - 140,00 zł (dostawa + 10 zł)
     - Propan 10l - 100,00 zł
     - Azot 8l - 60,00 zł
     - Azot + CO2 8l - 60,00 zł
