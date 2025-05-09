@@ -27,7 +27,6 @@ export const DataWraper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 15px;
-  border-bottom: 2px dotted black;
 `;
 
 interface DataNameProps {
@@ -36,14 +35,17 @@ interface DataNameProps {
 
 export const DataName = styled(P)<DataNameProps>`
   color: ${({ theme }) => theme.color.structural};
-  width: ${({ $width }) => $width ? $width : 'auto'};
-  min-width: ${({ $width }) => $width ? $width : 'auto'};
+  width: ${({ $width }) => ($width ? $width : 'auto')};
+  min-width: ${({ $width }) => ($width ? $width : 'auto')};
 `;
 
 export const DataValue = styled(P)`
+  display: inline-block;
+  width: 100%;
   font-style: italic;
   // text-decoration: underline dotted;
   color: ${({ theme }) => theme.color.main};
+  border-bottom: 2px dotted black;
 `;
 
 const write = keyframes`
