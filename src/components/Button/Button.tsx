@@ -9,6 +9,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   background?: string;
   idSection?: string;
   onClick?: any;
+<<<<<<< Updated upstream
+=======
+  type?: 'button' | 'submit';
+>>>>>>> Stashed changes
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -18,6 +22,10 @@ const Button: React.FC<ButtonProps> = ({
   background = 'transparent',
   idSection = '',
   onClick,
+<<<<<<< Updated upstream
+=======
+  type = 'button',
+>>>>>>> Stashed changes
 }) => {
   const theme = useTheme();
 
