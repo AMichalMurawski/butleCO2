@@ -56,7 +56,7 @@ export const clientTypes: Record<keyof ClientProps, FieldType> = {
 
 // >>>>>> Company <<<<<<
 
-interface CompanyProps {
+export interface CompanyProps {
   name: string;
   street: string;
   number: string;
@@ -98,48 +98,52 @@ export const companyTypes: Record<keyof CompanyProps, FieldType> = {
 
 // >>>>>> PRODUCTS <<<<<<
 
-export interface BaseProductProps {
+interface BaseProductProps {
   type: 'CO2' | 'Propan' | 'Azot' | 'Azot + CO2' | 'Argon' | 'Argon + CO2' | '';
   unitPrice: number;
 }
 
-
-type RequireAtLeastOneProductProps<T, Keys extends keyof T = keyof T> = 
-  Pick<T, Exclude<keyof T, Keys>> & {
-    [K in Keys]-?: Required<Pick<T, K>> & Partial<Omit<Pick<T, Keys>, K>>
+type RequireAtLeastOneProductProps<T, Keys extends keyof T = keyof T> = Pick<
+  T,
+  Exclude<keyof T, Keys>
+> &
+  {
+    [K in Keys]-?: Required<Pick<T, K>> & Partial<Omit<Pick<T, Keys>, K>>;
   }[Keys];
 
-export type ProductProps = RequireAtLeastOneProductProps<{
-  weight?: number;
-  litr?: number;
-} & BaseProductProps, 'weight' | 'litr'>;
-
+export type ProductProps = RequireAtLeastOneProductProps<
+  {
+    weight?: number;
+    litr?: number;
+  } & BaseProductProps,
+  'weight' | 'litr'
+>;
 
 export type OrderProductProps = ProductProps & {
   isPurchased: boolean;
   amount: number;
   cost: number;
-}
+};
 
 export const initialOrderProduct: OrderProductProps = {
-  type: "",
+  type: '',
   unitPrice: 0,
   weight: 0,
   litr: 0,
   isPurchased: false,
   amount: 1,
   cost: 0,
-}
+};
 
 // >>>>>> Form <<<<<<
 
-interface FormValues {
+export interface OrderProps {
   client: ClientProps;
   company: CompanyProps;
   products: ProductProps[];
 }
 
-export const initialValues: FormValues = {
+export const initialValues: OrderProps = {
   client: initialClient,
   company: initialCompany,
   products: [],
