@@ -38,20 +38,15 @@ const ClientForm = <T extends Record<string, any>>({
   initialValues,
   onSubmit,
 }: ModalClientProps<T>) => {
-
-    const handleSubmit = (values: T) => {
-        onSubmit(values);
-    }
     
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={(values, { resetForm }) => {
+      onSubmit={(values) => {
         onSubmit(values);
-        resetForm();
       }}
     >
-      {({values}) => {
+      {({ values }) => {
 
         return (
           <Form>
@@ -68,29 +63,28 @@ const ClientForm = <T extends Record<string, any>>({
 
                   return (
                     <DataWraper key={String(name)}>
-                      <DataName>{label}:</DataName>   
-                        {Component === TextValue && (
-                          <Field as={Component} name={String(name)} type='text' />
-                        )}   
-                        {Component === TextareaValue && (
-                          <Field as={Component} name={String(name)} maxLength='250' rows='5' />
-                        )}
-                        {Component === CheckboxValue && (
-                          <CheckboxValueWraper>
-                            <Field as={CheckboxValue} name={String(name)} type="checkbox" />
-                            <CheckboxHandleValue checked={Boolean(values[name])} />
-                          </CheckboxValueWraper>
-                        )}
+                      <DataName>{label}:</DataName>
+                      {Component === TextValue && (
+                        <Field as={Component} name={String(name)} type='text' />
+                      )}
+                      {Component === TextareaValue && (
+                        <Field as={Component} name={String(name)} maxLength='250' rows='5' />
+                      )}
+                      {Component === CheckboxValue && (
+                        <CheckboxValueWraper>
+                          <Field as={CheckboxValue} name={String(name)} type="checkbox" />
+                          <CheckboxHandleValue checked={Boolean(values[name])} />
+                        </CheckboxValueWraper>
+                      )}
                     </DataWraper>
                   );
                 })}
                 <SubmitButtonConteiner>
                   <Button
-                    type="button"
-                    text="wprowadź dane"
+                    type="submit"
+                    text="Zatwierdź"
                     color={theme.color.structural}
-                                background={theme.color.remarkable}
-                                onClick={() => handleSubmit(values)}
+                    background={theme.color.remarkable}
                   />
                 </SubmitButtonConteiner>
               </DataList>

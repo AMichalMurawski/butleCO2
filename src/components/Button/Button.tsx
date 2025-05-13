@@ -17,7 +17,6 @@ const Button: React.FC<ButtonProps> = ({
   active = false,
   color,
   background = 'transparent',
-  idSection = '',
   onClick,
   type,
 }) => {

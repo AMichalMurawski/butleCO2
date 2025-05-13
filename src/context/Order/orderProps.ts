@@ -30,7 +30,7 @@ export interface CompanyProps {
 
 // >>>>>> PRODUCT <<<<<<
 
-interface BaseProductProps {
+export interface BaseProductProps {
   type: 'CO2' | 'Propan' | 'Azot' | 'Azot + CO2' | 'Argon' | 'Argon + CO2' | '';
   unitPrice: number;
 }
