@@ -1,6 +1,6 @@
 import React from 'react';
 import { EditIconWraper } from './Client.styled';
-import IconSvg from '../../Icon/IconSvg';
+import IconSvg from '../../Icons/IconSvg';
 import { theme } from '../../../styles/theme';
 
 const IconEdit: React.FC = () => {

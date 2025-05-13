@@ -12,7 +12,7 @@ import {
   SubtitleWraper,
   TextareaValue,
   TextValue,
-} from './ModalClient.styled';
+} from './ClientForm.styled';
 import Button from '../../Button/Button';
 import { theme } from '../../../styles/theme';
 import { Field, Formik, Form } from 'formik';
@@ -31,7 +31,7 @@ interface ModalClientProps<T> {
   onSubmit: (values: T) => void;
 }
 
-const ModalClient = <T extends Record<string, any>>({
+const ClientForm = <T extends Record<string, any>>({
   title,
   labels,
   types,
@@ -102,4 +102,4 @@ const ModalClient = <T extends Record<string, any>>({
   );
 };
 
-export default ModalClient;
+export default ClientForm;

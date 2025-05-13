@@ -12,10 +12,10 @@ import {
   TextBlock,
   Title,
 } from './About.styled';
-import IconSvg from '../../components/Icon/IconSvg';
+import IconSvg from '../../components/Icons/IconSvg';
 import Button from '../../components/Button/Button';
 import { useTheme } from 'styled-components';
-import { useIdSection } from '../../providers/IdSectionProvider';
+import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const advantagesIcons = [
   ['clock', 'Szybka Dostawa'],

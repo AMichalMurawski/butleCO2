@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
-import { P } from '../../styles/Global.styled';
+import { P } from '../../../styles/Global.styled';
 
 export const InputStyled = styled(Field)``;
 

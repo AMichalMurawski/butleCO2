@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, PropsWithChildren } from 'react';
-import { OrderProps, initialValues } from './initialValues';
+import { initialValues } from './initialValues';
+import { OrderProps } from './orderProps';
 
 type OrderKeys = keyof OrderProps;
 

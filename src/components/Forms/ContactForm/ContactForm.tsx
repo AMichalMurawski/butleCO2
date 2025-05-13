@@ -1,9 +1,9 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import React from 'react';
-import { FormWraper, GridCell, InputStyled, Placeholder } from './ContactForm.styled';
+import { FormWraper, GridCell,  Placeholder } from './ContactForm.styled';
 import Input from './Input/Input';
-import Button from '../Button/Button';
-import { theme } from '../../styles/theme';
+import { Button } from '../../';
+import { theme } from '../../../styles/theme';
 
 interface FormValues {
   name: string;
@@ -47,6 +47,7 @@ const ContactForm: React.FC = () => {
             $atr={['margin-left: auto', 'margin-right: auto']}
           >
             <Button
+              type="submit"
               text="Wyślij zapytanie"
               background={theme.color.remarkable}
               color={theme.color.structural}

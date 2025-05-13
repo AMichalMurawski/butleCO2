@@ -32,9 +32,10 @@ export const ModalBox = styled.div<ModalBoxProps>`
   position: absolute;
   top: 50%;
   left: 50%;
-  width: ${({ $width }) => $width || '75%'};
+  width: ${({ $width }) => $width || 'min(600px, 75%)'};
   height: ${({ $height }) => $height || null};
-  background: red;
+  color: ${({$color, theme}) => $color ? $color : theme.color.structural};
+  background-color: ${({$backgroundColor, theme}) => $backgroundColor ? $backgroundColor : theme.color.text};
   transform: translate(-50%, -50%);
 `;
 

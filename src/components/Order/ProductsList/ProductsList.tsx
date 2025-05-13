@@ -14,7 +14,7 @@ import {
   TableHeaderCell,
   TableRow,
 } from './ProductsList.styled';
-import IconSvg from '../../Icon/IconSvg';
+import IconSvg from '../../Icons/IconSvg';
 import { theme } from '../../../styles/theme';
 
 const products = [
