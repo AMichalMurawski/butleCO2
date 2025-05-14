@@ -1,5 +1,5 @@
 export { default as Button } from './Button/Button';
-export { default as AddProductForm } from './Forms/AddProductForm/AddProductForm';
+export { default as AddProductForm } from './AddProduct/AddProductForm';
 export { default as ClientForm } from './Forms/ClientForm/ClientForm';
 export { default as ContactForm } from './Forms/ContactForm/ContactForm';
 export { default as IconSvg } from './Icons/IconSvg';

@@ -16,12 +16,8 @@ import {
 } from './ProductsList.styled';
 import IconSvg from '../../Icons/IconSvg';
 import { theme } from '../../../styles/theme';
-
-const products = [
-  { name: 'Butla CO2 - 25l', quantity: 2, unitPrice: 100 },
-  { name: 'Butla CO2 - 10l', quantity: 1, unitPrice: 50 },
-  { name: 'Butla Argon - 8l', quantity: 5, unitPrice: 80 },
-];
+import { useOrder } from '../../../context/Order/OrderContext';
+import { OrderProductProps } from '../../../context/Order/orderProps';
 
 const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
 
@@ -29,11 +25,15 @@ interface FormProductsProps {
   addProduct: () => void;
 }
 
-const FormProducts: React.FC<FormProductsProps> = ({addProduct}) => {
-  const totalCost = products.reduce(
-    (sum, product) => sum + product.quantity * product.unitPrice,
-    0
-  );
+const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
+  const { order } = useOrder();
+
+  const totalCost = (): string => {
+    return order.products.reduce(
+      (sum: any, product: any) => sum + product.amount * product.unitPrice,
+      0
+    ).toFixed(2)
+  }
 
   const deleteProduct = () => {
     window.alert('Usuń produkt');
@@ -53,13 +53,13 @@ const FormProducts: React.FC<FormProductsProps> = ({addProduct}) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {products.map((product, i) => (
+          {order.products.map((product, i) => (
             <TableBodyRow key={i}>
               <TableBodyCell>{i + 1}</TableBodyCell>
-              <TableBodyCell>{product.name}</TableBodyCell>
+              <TableBodyCell>{product.type} - {product.weight ? (product.weight + ' kg') : ""}{product.litr ? (product.litr + " l") : ""}</TableBodyCell>
               <TableBodyCell>{product.unitPrice.toFixed(2)} PLN</TableBodyCell>
-              <TableBodyCell>{product.quantity}</TableBodyCell>
-              <TableBodyCell>{(product.quantity * product.unitPrice).toFixed(2)} PLN</TableBodyCell>
+              <TableBodyCell>{product.amount}</TableBodyCell>
+              <TableBodyCell>{(product.amount * product.unitPrice).toFixed(2)} PLN</TableBodyCell>
               <TableBodyCell onClick={deleteProduct}>
                 <IconWraper>
                   <IconSvg name="cross" fill="red" />
@@ -81,7 +81,7 @@ const FormProducts: React.FC<FormProductsProps> = ({addProduct}) => {
             <TableFooterCell colSpan={3} />
             <TableFooterCell $sum>Suma:</TableFooterCell>
             <TableFooterCell $sum colSpan={2}>
-              {totalCost.toFixed(2)} PLN *
+              {totalCost()} PLN *
             </TableFooterCell>
           </TableRow>
         </TableFooter>

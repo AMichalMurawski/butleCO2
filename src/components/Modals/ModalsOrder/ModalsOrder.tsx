@@ -45,6 +45,7 @@ const ModalsOrder: React.FC = () => {
     >
       <AddProductForm
         onSubmit={modalValues => {
+          console.log(modalValues);
           modalState('products');
           updateSection('products', modalValues);
         }}

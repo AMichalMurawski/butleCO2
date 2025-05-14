@@ -62,5 +62,5 @@ export type OrderProductProps = ProductProps & {
 export interface OrderProps {
   client: ClientProps;
   company: CompanyProps;
-  products: ProductProps[];
+  products: OrderProductProps[];
 }
