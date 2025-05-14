@@ -2,18 +2,37 @@ import styled from "styled-components";
 import { H3, P } from "../../styles/Global.styled";
 
 export const AddProductWraper = styled.div`
-    padding: 15px;
     height: 75vh;
-    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+`
+export const TitleWraper = styled.div`
+    padding: 30px;
+    background-color: ${({ theme }) => theme.color.structural};
+    color: ${({theme}) => theme.color.text};
 `
 
-export const Title = styled(H3)``
+export const Title = styled(H3)`
+    margin: 0;
+`
 
-export const ProductsList = styled.div`
+export const TransactionToggle = styled.div`
+    padding: 15px;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: 30px;
     justify-content: center;
+`
+
+export const ProductsList = styled.div`
+    padding: 15px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    gap: 30px;
+    justify-content: center;
+    overflow-y: scroll;
 `
 
 export const ProductWraper = styled.div`
