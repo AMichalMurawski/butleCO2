@@ -26,20 +26,24 @@ interface FormProductsProps {
 }
 
 const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
-  const { order } = useOrder();
+  const { order, updateSection } = useOrder();
 
   const totalCost = (): string => {
     let sum: number = order.products.reduce(
-      (sum: any, product: any) => sum + product.amount * (product.unitPrice + (product.transaction ? 250 : 0)),
+      (sum: any, product: any) =>
+        sum + product.amount * (product.unitPrice + (product.transaction ? 250 : 0)),
       0
-    )
-    if (sum < 100) { sum = 100 }
-    sum = sum + 20
-    return sum.toFixed(2)
+    );
+    if (sum === 0) return '-';
+    if (sum < 100) return '120';
+    sum = sum + 20;
+    return sum.toFixed(2);
   };
 
-  const deleteProduct = () => {
-    window.alert('Usuń produkt');
+  const deleteProduct = (i: number) => {
+    const products = order.products;
+    products.splice(i, 1);
+    updateSection('products', products);
   };
 
   return (
@@ -59,11 +63,21 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
           {order.products.map((product, i) => (
             <TableBodyRow key={i}>
               <TableBodyCell>{i + 1}</TableBodyCell>
-              <TableBodyCell $transaction={product.transaction}>{product.type} - {product.weight ? (product.weight + ' kg') : ""}{product.litr ? (product.litr + " l") : ""}</TableBodyCell>
-              <TableBodyCell>{(product.unitPrice + (product.transaction ? 250 : 0)).toFixed(2)} PLN</TableBodyCell>
+              <TableBodyCell $transaction={product.transaction}>
+                {product.type} - {product.weight ? product.weight + ' kg' : ''}
+                {product.litr ? product.litr + ' l' : ''}
+              </TableBodyCell>
+              <TableBodyCell>
+                {(product.unitPrice + (product.transaction ? 250 : 0)).toFixed(2)} PLN
+              </TableBodyCell>
               <TableBodyCell>{product.amount}</TableBodyCell>
-              <TableBodyCell>{(product.amount * (product.unitPrice + (product.transaction ? 250 : 0))).toFixed(2)} PLN</TableBodyCell>
-              <TableBodyCell onClick={deleteProduct}>
+              <TableBodyCell>
+                {(product.amount * (product.unitPrice + (product.transaction ? 250 : 0))).toFixed(
+                  2
+                )}{' '}
+                PLN
+              </TableBodyCell>
+              <TableBodyCell onClick={() => deleteProduct(i)}>
                 <IconWraper>
                   <IconSvg name="cross" fill="red" />
                 </IconWraper>
