@@ -121,7 +121,12 @@ export const TableBodyRow = styled.tr`
   }
 `;
 
-export const TableBodyCell = styled.td`
+interface TableBodyCellProps {
+  $transaction?: boolean;
+}
+  
+export const TableBodyCell = styled.td<TableBodyCellProps>`
+  position: relative;
   padding: 15px;
 
   &:first-of-type {
@@ -137,6 +142,22 @@ export const TableBodyCell = styled.td`
   &:hover:has(svg) {
     cursor: pointer;
   }
+
+  &::before {
+    ${({ $transaction }) => {
+      if ($transaction === undefined || $transaction === null) {return}
+      return ($transaction ? 'content: "Zakup"' : 'content: "Wymiana"');
+    }};
+    // content: 'wymiana';
+    content: ${({ $transaction }) => $transaction ? 'Zakup' : 'Wymiana'};
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    color: black;
+    // background-color: red;
+    z-index: 100;
+    scale: 0.8;
+  };
 `;
 
 // >>>>>> Icons <<<<<<

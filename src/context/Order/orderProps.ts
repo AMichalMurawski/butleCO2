@@ -52,7 +52,7 @@ export type ProductProps = RequireAtLeastOneProductProps<
 >;
 
 export type OrderProductProps = ProductProps & {
-  isPurchased: boolean;
+  transaction: boolean;
   amount: number;
   cost: number;
 };

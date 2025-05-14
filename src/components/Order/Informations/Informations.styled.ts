@@ -14,3 +14,7 @@ export const Informations = styled(P)`
     margin-top: 5px;
   }
 `;
+
+export const Reference = styled.div`
+  margin-bottom: 30px;
+`

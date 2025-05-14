@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProductProps } from '../../context/Order/orderProps';
+import { OrderProductProps, ProductProps } from '../../context/Order/orderProps';
 import { productsList } from './productsList';
 import IconSvg from '../Icons/IconSvg';
 import { AddProductWraper, Description, DescriptionWraper, IconSvgWraper, ProductsList, ProductWraper, Title, TitleWraper, TransactionToggle } from './AddProductForm.styled';
@@ -9,17 +9,17 @@ import { initialOrderProduct } from '../../context/Order/initialValues';
 import Button from '../Button/Button';
 
 interface ModalAddProductProps {
-  onSubmit: (values: ProductProps[]) => void;
+  onSubmit: (values: OrderProductProps[]) => void;
 }
 
 const ModalAddProduct: React.FC<ModalAddProductProps> = ({ onSubmit }) => {
   const theme = useTheme();
   const { order } = useOrder();
-  const [buy, setBuy] = useState<boolean>(false)
+  const [transaction, setTransaction] = useState<boolean>(false)
 
   const handleClick = (value: ProductProps) => {
     const products = order.products;
-    products.push({ ...initialOrderProduct, ...value, ...{ transaction: buy } });
+    products.push({ ...initialOrderProduct, ...value, ...{ transaction } });
     onSubmit(products);
   };
 
@@ -32,15 +32,15 @@ const ModalAddProduct: React.FC<ModalAddProductProps> = ({ onSubmit }) => {
         <Button
           type='button'
           text='Wymiana'
-          background={!buy ? theme.color.remarkable : theme.color.remarkableTrans}
-          color={!buy ? theme.color.structural : theme.color.text}
-          onClick={() => {setBuy(false)}} />
+          background={!transaction ? theme.color.remarkable : theme.color.remarkableTrans}
+          color={!transaction ? theme.color.structural : theme.color.text}
+          onClick={() => {setTransaction(false)}} />
         <Button
           type='button'
           text='Zakup'
-          background={buy ? theme.color.remarkable : theme.color.remarkableTrans}
-          color={buy ? theme.color.structural : theme.color.text}
-          onClick={() => {setBuy(true)}} />
+          background={transaction ? theme.color.remarkable : theme.color.remarkableTrans}
+          color={transaction ? theme.color.structural : theme.color.text}
+          onClick={() => {setTransaction(true)}} />
       </TransactionToggle>
       <ProductsList>
         {productsList.map(product => {

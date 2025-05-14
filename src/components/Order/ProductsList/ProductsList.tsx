@@ -29,11 +29,14 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
   const { order } = useOrder();
 
   const totalCost = (): string => {
-    return order.products.reduce(
-      (sum: any, product: any) => sum + product.amount * product.unitPrice,
+    let sum: number = order.products.reduce(
+      (sum: any, product: any) => sum + product.amount * (product.unitPrice + (product.transaction ? 250 : 0)),
       0
-    ).toFixed(2)
-  }
+    )
+    if (sum < 100) { sum = 100 }
+    sum = sum + 20
+    return sum.toFixed(2)
+  };
 
   const deleteProduct = () => {
     window.alert('Usuń produkt');
@@ -56,10 +59,10 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
           {order.products.map((product, i) => (
             <TableBodyRow key={i}>
               <TableBodyCell>{i + 1}</TableBodyCell>
-              <TableBodyCell>{product.type} - {product.weight ? (product.weight + ' kg') : ""}{product.litr ? (product.litr + " l") : ""}</TableBodyCell>
-              <TableBodyCell>{product.unitPrice.toFixed(2)} PLN</TableBodyCell>
+              <TableBodyCell $transaction={product.transaction}>{product.type} - {product.weight ? (product.weight + ' kg') : ""}{product.litr ? (product.litr + " l") : ""}</TableBodyCell>
+              <TableBodyCell>{(product.unitPrice + (product.transaction ? 250 : 0)).toFixed(2)} PLN</TableBodyCell>
               <TableBodyCell>{product.amount}</TableBodyCell>
-              <TableBodyCell>{(product.amount * product.unitPrice).toFixed(2)} PLN</TableBodyCell>
+              <TableBodyCell>{(product.amount * (product.unitPrice + (product.transaction ? 250 : 0))).toFixed(2)} PLN</TableBodyCell>
               <TableBodyCell onClick={deleteProduct}>
                 <IconWraper>
                   <IconSvg name="cross" fill="red" />

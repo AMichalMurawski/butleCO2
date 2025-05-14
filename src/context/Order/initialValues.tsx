@@ -34,7 +34,7 @@ export const initialOrderProduct: OrderProductProps = {
   unitPrice: 0,
   weight: 0,
   litr: 0,
-  isPurchased: false,
+  transaction: false,
   amount: 1,
   cost: 0,
 };
