@@ -160,6 +160,26 @@ export const TableBodyCell = styled.td<TableBodyCellProps>`
   };
 `;
 
+export const AmountInput = styled.input`
+    width: 60px;
+  text-align: center;
+  padding: 4px 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    margin: 0;
+    scale: 1 1.2;
+  }
+`
+
 // >>>>>> Icons <<<<<<
 
 interface IconWraperProps {

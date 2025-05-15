@@ -18,6 +18,7 @@ const initialModals: Record<OrderKeys, boolean> = {
   client: false,
   company: false,
   products: false,
+  summary: false,
 };
 
 const OrderContext = createContext<OrderContextProps | undefined>(undefined);

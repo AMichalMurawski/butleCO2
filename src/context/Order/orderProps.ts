@@ -54,13 +54,21 @@ export type ProductProps = RequireAtLeastOneProductProps<
 export type OrderProductProps = ProductProps & {
   transaction: boolean;
   amount: number;
-  cost: number;
+  price: number;
 };
 
 // >>>>>> ORDER <<<<<<
+
+export interface SummaryProps {
+  productsCost: number;
+  deliveryCost: number;
+  discount: number;
+  summary: number;
+}
 
 export interface OrderProps {
   client: ClientProps;
   company: CompanyProps;
   products: OrderProductProps[];
+  summary: SummaryProps;
 }

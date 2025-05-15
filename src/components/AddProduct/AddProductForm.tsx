@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { OrderProductProps, ProductProps } from '../../context/Order/orderProps';
 import { productsList } from './productsList';
 import IconSvg from '../Icons/IconSvg';
@@ -14,14 +14,22 @@ interface ModalAddProductProps {
 
 const ModalAddProduct: React.FC<ModalAddProductProps> = ({ onSubmit }) => {
   const theme = useTheme();
-  const { order } = useOrder();
+  const { order, modals } = useOrder();
   const [transaction, setTransaction] = useState<boolean>(false)
 
   const handleClick = (value: ProductProps) => {
+    value.unitPrice = value.unitPrice + +transaction * 250;
+
     const products = order.products;
-    products.push({ ...initialOrderProduct, ...value, ...{ transaction } });
+    const price = value.unitPrice;
+    
+    products.push({ ...initialOrderProduct, ...value, ...{ transaction, price } });
     onSubmit(products);
   };
+
+  useEffect(() => {
+    setTransaction(false)
+  },[modals.products])
 
   return (
     <AddProductWraper>

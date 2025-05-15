@@ -1,4 +1,4 @@
-import { ClientProps, CompanyProps, FieldType, OrderProductProps, OrderProps, ProductProps } from "./orderProps";
+import { ClientProps, CompanyProps, OrderProductProps, OrderProps, SummaryProps } from "./orderProps";
 
 // >>>>>> CLIENT <<<<<<
 
@@ -36,8 +36,17 @@ export const initialOrderProduct: OrderProductProps = {
   litr: 0,
   transaction: false,
   amount: 1,
-  cost: 0,
+  price: 0,
 };
+
+// >>>>>> Order <<<<<<
+
+export const initialSummary: SummaryProps = {
+  productsCost: 0,
+  deliveryCost: 20,
+  discount: 0,
+  summary: 0,
+}
 
 // >>>>>> Form <<<<<<
 
@@ -45,4 +54,5 @@ export const initialValues: OrderProps = {
   client: initialClient,
   company: initialCompany,
   products: [],
+  summary: initialSummary,
 };

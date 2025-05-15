@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  AmountInput,
   CellContent,
   IconAdd,
   IconWraper,
@@ -17,6 +18,7 @@ import {
 import IconSvg from '../../Icons/IconSvg';
 import { theme } from '../../../styles/theme';
 import { useOrder } from '../../../context/Order/OrderContext';
+import AmountCounter from './AmountCounter';
 import { OrderProductProps } from '../../../context/Order/orderProps';
 
 const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
@@ -26,19 +28,21 @@ interface FormProductsProps {
 }
 
 const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
-  const { order, updateSection } = useOrder();
+  const { order, updateSection } = useOrder();  
 
-  const totalCost = (): string => {
-    let sum: number = order.products.reduce(
-      (sum: any, product: any) =>
-        sum + product.amount * (product.unitPrice + (product.transaction ? 250 : 0)),
-      0
-    );
-    if (sum === 0) return '-';
-    if (sum < 100) return '120';
-    sum = sum + 20;
-    return sum.toFixed(2);
+  const summaryProducts = (products: OrderProductProps[]) => {
+    const productsCost = products.reduce((sum, product) => sum = sum + product.price, 0);
+    const summary = productsCost + order.summary.deliveryCost;
+    updateSection('summary', { ...order.summary, productsCost, summary });
   };
+
+  const handleAmountChange = (newAmount: number, index: number) => {
+    const products = [...order.products];
+    products[index].amount = newAmount;
+    products[index].price = newAmount * products[index].unitPrice;
+    updateSection('products', products);
+    summaryProducts(products);
+  }
 
   const deleteProduct = (i: number) => {
     const products = order.products;
@@ -68,14 +72,13 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
                 {product.litr ? product.litr + ' l' : ''}
               </TableBodyCell>
               <TableBodyCell>
-                {(product.unitPrice + (product.transaction ? 250 : 0)).toFixed(2)} PLN
+                {product.unitPrice.toFixed(2)} PLN
               </TableBodyCell>
-              <TableBodyCell>{product.amount}</TableBodyCell>
               <TableBodyCell>
-                {(product.amount * (product.unitPrice + (product.transaction ? 250 : 0))).toFixed(
-                  2
-                )}{' '}
-                PLN
+                <AmountCounter min={1} max={60} value={product.amount} onChange={value => handleAmountChange(value, i)} />
+              </TableBodyCell>
+              <TableBodyCell>
+                {product.price} PLN
               </TableBodyCell>
               <TableBodyCell onClick={() => deleteProduct(i)}>
                 <IconWraper>
@@ -98,7 +101,7 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
             <TableFooterCell colSpan={3} />
             <TableFooterCell $sum>Suma:</TableFooterCell>
             <TableFooterCell $sum colSpan={2}>
-              {totalCost()} PLN *
+              {order.summary.summary} PLN *
             </TableFooterCell>
           </TableRow>
         </TableFooter>
