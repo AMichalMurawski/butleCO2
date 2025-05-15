@@ -41,6 +41,15 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   }
 
   const addProduct = (product: OrderProductProps) => {
+    const isExist = order.products.some(p =>
+      p.type === product.type &&
+      p.weight === product.weight &&
+      p.litr === product.litr &&
+      p.transaction === product.transaction
+    );
+
+    if (isExist) return
+    
     const products = [...order.products, product];
     const sortedProducts = products.slice()
       .sort((a, b) => {
