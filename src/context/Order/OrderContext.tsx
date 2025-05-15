@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, PropsWithChildren } from 'r
 import { initialValues } from './initialValues';
 import { ClientProps, OrderProductProps, OrderProps } from './orderProps';
 
+const customTypeOrder = ['CO2', 'Argon', 'Argon + CO2', 'Azot', 'Azot + CO2', 'Propan'];
+
 type OrderKeys = keyof OrderProps;
 
 type updateInvoiceProps = <K extends 'client' | 'company'>(section: K, value: OrderProps[K]) => void;
@@ -40,8 +42,20 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const addProduct = (product: OrderProductProps) => {
     const products = [...order.products, product];
-    
-    changeProductsList(products)
+    const sortedProducts = products.slice()
+      .sort((a, b) => {
+        const aValue = a.weight ?? a.litr ?? 0;
+        const bValue = b.weight ?? b.litr ?? 0;
+        return aValue - bValue;
+      })
+      .sort((a, b) => {
+        const aIndex = customTypeOrder.indexOf(a.type);
+        const bIndex = customTypeOrder.indexOf(b.type);
+        return aIndex - bIndex;
+      })
+      .sort((a, b) => Number(a.transaction) - Number(b.transaction));
+
+    changeProductsList(sortedProducts)
   }
 
   const productAmountChange = (index: number, amount: number) => {
