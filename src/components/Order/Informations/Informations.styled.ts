@@ -9,10 +9,23 @@ export const InformationsWraper = styled.div`
   background-color: ${({ theme }) => theme.color.structural};
 `;
 
-export const Informations = styled(P)`
+interface InformationsProps {
+  $reference?: number;
+}
+
+export const Informations = styled(P) <InformationsProps>`
+  position: relative;
+  padding-left: ${({$reference}) => $reference ? `${$reference * 6 + 5}px` : 0 };
   &:not(:first-of-type) {
     margin-top: 5px;
   }
+
+   &::before {
+      ${({$reference}) => $reference ? `content: "${"*".repeat($reference)}";` : ""}
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
 `;
 
 export const Reference = styled.div`

@@ -9,8 +9,8 @@ const OrderForm: React.FC = () => {
   return (
     <InformationsWraper>
       <Reference>
-        <Informations>
-          * Całkowity koszt zamówienia zawiera w sobie opłatę przewozową w wysokości 20 zł.
+        <Informations $reference={1}>
+          Całkowity koszt zamówienia zawiera w sobie opłatę przewozową w wysokości 20 zł.<br />Minimalna wartość zamówienia wynosi 100 zł + opłata przewozowa.
         </Informations>
       </Reference>
       <Informations>
