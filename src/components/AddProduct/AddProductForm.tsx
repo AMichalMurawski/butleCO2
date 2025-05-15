@@ -9,22 +9,21 @@ import { initialOrderProduct } from '../../context/Order/initialValues';
 import Button from '../Button/Button';
 
 interface ModalAddProductProps {
-  onSubmit: (values: OrderProductProps[]) => void;
+  onSubmit: (values: OrderProductProps) => void;
 }
 
 const ModalAddProduct: React.FC<ModalAddProductProps> = ({ onSubmit }) => {
   const theme = useTheme();
-  const { order, modals } = useOrder();
+  const { modals } = useOrder();
   const [transaction, setTransaction] = useState<boolean>(false)
 
   const handleClick = (value: ProductProps) => {
-    value.unitPrice = value.unitPrice + +transaction * 250;
-
-    const products = order.products;
+    const unitPrice = value.unitPrice + +transaction * 250;
     const price = value.unitPrice;
+
+    const product = { ...initialOrderProduct, ...value, ...{ transaction, unitPrice, price } }
     
-    products.push({ ...initialOrderProduct, ...value, ...{ transaction, price } });
-    onSubmit(products);
+    onSubmit(product);
   };
 
   useEffect(() => {

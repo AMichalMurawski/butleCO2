@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  AmountInput,
   CellContent,
   IconAdd,
   IconWraper,
@@ -9,6 +8,8 @@ import {
   TableBody,
   TableBodyCell,
   TableBodyRow,
+  TableColGroup,
+  TableColumn,
   TableFooter,
   TableFooterCell,
   TableHead,
@@ -28,31 +29,25 @@ interface FormProductsProps {
 }
 
 const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
-  const { order, updateSection } = useOrder();  
-
-  const summaryProducts = (products: OrderProductProps[]) => {
-    const productsCost = products.reduce((sum, product) => sum = sum + product.price, 0);
-    const summary = productsCost + order.summary.deliveryCost;
-    updateSection('summary', { ...order.summary, productsCost, summary });
-  };
+  const { deleteProduct, order, productAmountChange } = useOrder();  
 
   const handleAmountChange = (newAmount: number, index: number) => {
     const products = [...order.products];
     products[index].amount = newAmount;
     products[index].price = newAmount * products[index].unitPrice;
-    updateSection('products', products);
-    summaryProducts(products);
+    
+    productAmountChange(index, newAmount);
   }
-
-  const deleteProduct = (i: number) => {
-    const products = order.products;
-    products.splice(i, 1);
-    updateSection('products', products);
-  };
 
   return (
     <ProductsListWraper>
       <ProductsTable>
+        <TableColGroup>
+          {tableTitles.map((t, i) => (
+              <TableColumn key={i} />
+          ))}
+          <TableColumn />
+        </TableColGroup>
         <TableHead>
           <TableRow>
             {tableTitles.map((title, i) => (
@@ -78,7 +73,7 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
                 <AmountCounter min={1} max={60} value={product.amount} onChange={value => handleAmountChange(value, i)} />
               </TableBodyCell>
               <TableBodyCell>
-                {product.price} PLN
+                {product.price.toFixed(2)} PLN
               </TableBodyCell>
               <TableBodyCell onClick={() => deleteProduct(i)}>
                 <IconWraper>
@@ -101,7 +96,7 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
             <TableFooterCell colSpan={3} />
             <TableFooterCell $sum>Suma:</TableFooterCell>
             <TableFooterCell $sum colSpan={2}>
-              {order.summary.summary} PLN *
+              {order.summary.summaryCost.toFixed(2)} PLN *
             </TableFooterCell>
           </TableRow>
         </TableFooter>

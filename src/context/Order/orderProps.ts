@@ -63,7 +63,7 @@ export interface SummaryProps {
   productsCost: number;
   deliveryCost: number;
   discount: number;
-  summary: number;
+  summaryCost: number;
 }
 
 export interface OrderProps {

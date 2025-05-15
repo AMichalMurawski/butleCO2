@@ -14,6 +14,24 @@ export const ProductsTable = styled.table`
   text-aling: left;
 `;
 
+export const TableColGroup = styled.colgroup`
+
+`
+
+export const TableColumn = styled.col`
+  &:nth-of-type(1) {
+    width: 60px;
+  }
+
+  &:nth-of-type(4) {
+    width: 115px;
+  }
+
+  &:last-of-type {
+    width: 50px;
+  }
+`
+
 // >>>>>> Head & Footer <<<<<<
 
 export const TableHead = styled.thead``;
@@ -52,8 +70,7 @@ export const TableHeaderCell = styled.th`
 
   &:nth-child(2),
   &:nth-child(4),
-  &:nth-child(6),
-  &:nth-child(7) {
+  &:nth-child(6) {
     color: ${({ theme }) => theme.color.main};
     &::before {
       background-color: ${({ theme }) => theme.color.remarkable};
@@ -159,26 +176,6 @@ export const TableBodyCell = styled.td<TableBodyCellProps>`
     scale: 0.8;
   };
 `;
-
-export const AmountInput = styled.input`
-    width: 60px;
-  text-align: center;
-  padding: 4px 6px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-
-  &:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    margin: 0;
-    scale: 1 1.2;
-  }
-`
 
 // >>>>>> Icons <<<<<<
 

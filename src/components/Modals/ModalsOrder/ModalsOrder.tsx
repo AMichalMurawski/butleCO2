@@ -2,9 +2,10 @@ import React from "react";
 import { useOrder } from '../../../context/Order/OrderContext';
 import { AddProductForm, ClientForm, ModalConteiner } from '../..';
 import { clientLabels, clientTypes, companyLabels, companyTypes } from '../../../context/Order/orderKeyof';
+import { OrderProductProps, SummaryProps } from "../../../context/Order/orderProps";
 
 const ModalsOrder: React.FC = () => {
-  const { modals, modalState, order, updateSection } = useOrder();
+  const { addProduct, modals, modalState, order, updateInvoice } = useOrder();
 
   return (<>
     <ModalConteiner
@@ -17,7 +18,7 @@ const ModalsOrder: React.FC = () => {
         types={clientTypes}
         initialValues={order.client}
         onSubmit={modalValues => {
-          updateSection('client', modalValues);
+          updateInvoice('client', modalValues);
           modalState('client');
         }}
         key={modals.client ? 'open' : 'closed'}
@@ -33,7 +34,7 @@ const ModalsOrder: React.FC = () => {
         types={companyTypes}
         initialValues={order.company}
         onSubmit={modalValues => {
-          updateSection('company', modalValues);
+          updateInvoice('company', modalValues);
           modalState('company');
         }}
         key={modals.company ? 'open' : 'closed'}
@@ -45,9 +46,10 @@ const ModalsOrder: React.FC = () => {
     >
       <AddProductForm
         onSubmit={modalValues => {
+          addProduct(modalValues);
           modalState('products');
-          updateSection('products', modalValues);
         }}
+        key={modals.products ? 'open' : 'closed'}
       />
     </ModalConteiner>
   </>);

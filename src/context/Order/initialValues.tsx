@@ -45,7 +45,7 @@ export const initialSummary: SummaryProps = {
   productsCost: 0,
   deliveryCost: 20,
   discount: 0,
-  summary: 0,
+  summaryCost: 0,
 }
 
 // >>>>>> Form <<<<<<
