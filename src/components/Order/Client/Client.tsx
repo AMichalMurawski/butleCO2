@@ -1,6 +1,8 @@
 import React from 'react';
 import { Subtitle, DataWraper, DataName, DataValue, ClientWraper } from './Client.styled';
 import IconEdit from './IconEdit';
+import { AddressProps } from '../../../context/Order/orderProps';
+import { clientAddress } from './clientAddress';
 
 interface ModalClientProps<T> {
   title: string;
@@ -24,8 +26,12 @@ const Client: React.FC<ModalClientProps<any>> = ({
       <IconEdit />
       <Subtitle>{title}:</Subtitle>
       {Object.keys(initialValues).map(key => {
-        const label = labels[key as keyof typeof labels]; // Pobieramy label z labels
-        const value = initialValues[key as keyof typeof initialValues]; // Pobieramy wartość z initialValues
+        const label = labels[key as keyof typeof labels];
+        let value = initialValues[key as keyof typeof initialValues];
+
+        if (key === "address") {
+          value = clientAddress(initialValues)
+        }
 
         return (
           <DataWraper key={key}>

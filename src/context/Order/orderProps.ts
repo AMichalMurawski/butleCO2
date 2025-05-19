@@ -1,15 +1,19 @@
 
 export type FieldType = 'text' | 'textarea' | 'checkbox';
 
-// >>>>>> CLIENT <<<<<<
-
-export interface ClientProps {
-  name: string;
+export interface AddressProps {
   street: string;
   number: string;
   local: number | '';
   postalCode: number | '';
   city: string;
+}
+
+// >>>>>> CLIENT <<<<<<
+
+export interface ClientProps {
+  name: string;
+  address: AddressProps;
   phone: number | '';
   email: string;
   message: string;
@@ -20,11 +24,7 @@ export interface ClientProps {
 
 export interface CompanyProps {
   name: string;
-  street: string;
-  number: string;
-  local: number | '';
-  postalCode: number | '';
-  city: string;
+  address: AddressProps;
   NIP: number | '';
 }
 

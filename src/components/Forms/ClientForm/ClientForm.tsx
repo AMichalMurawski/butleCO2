@@ -16,6 +16,9 @@ import {
 import Button from '../../Button/Button';
 import { theme } from '../../../styles/theme';
 import { Field, Formik, Form } from 'formik';
+import { initialAddress } from '../../../context/Order/initialValues';
+import { addressLabels, addressTypes } from '../../../context/Order/orderKeyof';
+import { AddressProps } from '../../../context/Order/orderProps';
 
 const typeComponentMap = {
   text: TextValue,
@@ -60,6 +63,33 @@ const ClientForm = <T extends Record<string, any>>({
                   const label = labels[name];
                   const type = types[name];
                   const Component = typeComponentMap[type] || TextValue;
+                  
+                  if (key === "address") {
+                    return Object.keys(initialAddress).map((key2) => {
+                      const name2 = key2 as keyof AddressProps;
+                      const label2 = addressLabels[name2];
+                      const type2 = addressTypes[name2];
+                      const Component2 = typeComponentMap[type2] || TextValue;
+
+                      return (
+                        <DataWraper key={`address.${String(name2)}`}>
+                          <DataName>{label2}:</DataName>
+                          {Component2 === TextValue && (
+                            <Field as={Component2} name={ `address.${String(name2)}` } type='text' />
+                          )}
+                          {Component2 === TextareaValue && (
+                            <Field as={Component2} name={String(name2)} maxLength='250' rows='5' />
+                          )}
+                          {Component2 === CheckboxValue && (
+                            <CheckboxValueWraper>
+                              <Field as={CheckboxValue} name={String(name2)} type="checkbox" />
+                              <CheckboxHandleValue checked={Boolean(values[name2])} />
+                            </CheckboxValueWraper>
+                          )}
+                        </DataWraper>
+                      );
+                    });
+                  };
 
                   return (
                     <DataWraper key={String(name)}>

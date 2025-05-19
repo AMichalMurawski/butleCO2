@@ -2,7 +2,6 @@ import React from "react";
 import { useOrder } from '../../../context/Order/OrderContext';
 import { AddProductForm, ClientForm, ModalConteiner } from '../..';
 import { clientLabels, clientTypes, companyLabels, companyTypes } from '../../../context/Order/orderKeyof';
-import { OrderProductProps, SummaryProps } from "../../../context/Order/orderProps";
 
 const ModalsOrder: React.FC = () => {
   const { addProduct, modals, modalState, order, updateInvoice } = useOrder();

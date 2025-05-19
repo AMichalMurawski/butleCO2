@@ -1,14 +1,27 @@
-import { ClientProps, CompanyProps, FieldType } from './orderProps'
+import { AddressProps, ClientProps, CompanyProps, FieldType } from './orderProps'
 
-// >>>>>> CLIENT <<<<<<
-
-export const clientLabels: Record<keyof ClientProps, string> = {
-  name: 'Imię i nazwisko / Nazwa firmy',
+// >>>>>> ADDRESS <<<<<<
+export const addressLabels: Record<keyof AddressProps, string> = {
   street: 'Ulica',
   number: 'Nr',
   local: 'Lokal',
   postalCode: 'Kod pocztowy',
   city: 'Miasto',
+}
+
+export const addressTypes: Record<keyof AddressProps, FieldType> = {
+  street: 'text',
+  number: 'text',
+  local: 'text',
+  postalCode: 'text',
+  city: 'text',
+}
+
+// >>>>>> CLIENT <<<<<<
+
+export const clientLabels: Record<keyof ClientProps, string> = {
+  name: 'Imię i nazwisko / Nazwa firmy',
+  address: 'Adres',
   phone: 'Telefon kontaktowy',
   email: 'E-mail',
   message: 'Dodatkowe informacje',
@@ -17,11 +30,7 @@ export const clientLabels: Record<keyof ClientProps, string> = {
 
 export const clientTypes: Record<keyof ClientProps, FieldType> = {
   name: 'text',
-  street: 'text',
-  number: 'text',
-  local: 'text',
-  postalCode: 'text',
-  city: 'text',
+  address: 'text',
   phone: 'text',
   email: 'text',
   message: 'textarea',
@@ -32,20 +41,12 @@ export const clientTypes: Record<keyof ClientProps, FieldType> = {
 
 export const companyLabels: Record<keyof CompanyProps, string> = {
   name: 'Nazwa firmy',
-  street: 'Ulica',
-  number: 'Nr',
-  local: 'Lokal',
-  postalCode: 'Kod pocztowy',
-  city: 'Miasto',
+  address: 'Adres',
   NIP: 'NIP',
 };
 
 export const companyTypes: Record<keyof CompanyProps, FieldType> = {
   name: 'text',
-  street: 'text',
-  number: 'text',
-  local: 'text',
-  postalCode: 'text',
-  city: 'text',
+  address: 'text',
   NIP: 'text',
 };

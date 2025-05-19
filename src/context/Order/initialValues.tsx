@@ -1,14 +1,20 @@
-import { ClientProps, CompanyProps, OrderProductProps, OrderProps, SummaryProps } from "./orderProps";
+import { AddressProps, ClientProps, CompanyProps, OrderProductProps, OrderProps, SummaryProps } from "./orderProps";
 
-// >>>>>> CLIENT <<<<<<
+// >>>>>> ADDRESS <<<<<<
 
-export const initialClient: ClientProps = {
-  name: '',
+export const initialAddress: AddressProps = {
   street: '',
   number: '',
   local: '',
   postalCode: '',
   city: '',
+}
+
+// >>>>>> CLIENT <<<<<<
+
+export const initialClient: ClientProps = {
+  name: '',
+  address: initialAddress,
   phone: '',
   email: '',
   message: '',
@@ -19,11 +25,7 @@ export const initialClient: ClientProps = {
 
 export const initialCompany: CompanyProps = {
   name: '',
-  street: '',
-  number: '',
-  local: '',
-  postalCode: '',
-  city: '',
+  address: initialAddress,
   NIP: '',
 };
 
