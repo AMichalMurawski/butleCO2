@@ -19,7 +19,7 @@ const ModalAddProduct: React.FC<ModalAddProductProps> = ({ onSubmit }) => {
 
   const handleClick = (value: ProductProps) => {
     const unitPrice = value.unitPrice + +transaction * 250;
-    const price = value.unitPrice;
+    const price = unitPrice;
 
     const product = { ...initialOrderProduct, ...value, ...{ transaction, unitPrice, price } }
     
