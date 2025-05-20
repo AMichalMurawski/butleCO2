@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, PropsWithChildren } from 'react';
 import { initialValues } from './initialValues';
-import { ClientProps, OrderProductProps, OrderProps } from './orderProps';
+import { OrderProductProps, OrderProps } from './orderProps';
 
 const customTypeOrder = ['CO2', 'Argon', 'Argon + CO2', 'Azot', 'Azot + CO2', 'Propan'];
 
@@ -11,28 +11,29 @@ type updateInvoiceProps = <K extends 'client' | 'company'>(section: K, value: Or
 interface OrderContextProps {
   addProduct: (product: OrderProductProps) => void;
   deleteProduct: (index: number) => void;
-  modals: Record<OrderKeys, boolean>;
-  modalState: (modal: OrderKeys) => void;
+  modals: Record<OrderKeys | 'submit', boolean>;
+  modalState: (modal: OrderKeys | 'submit') => void;
   order: OrderProps;
   productAmountChange: (index: number, amount: number) => void;
   submitOrder: () => void;
   updateInvoice: updateInvoiceProps;
 }
 
-const initialModals: Record<OrderKeys, boolean> = {
+const initialModals: Record<OrderKeys | 'submit', boolean> = {
   client: false,
   company: false,
   products: false,
   summary: false,
+  submit: false,
 };
 
 const OrderContext = createContext<OrderContextProps | undefined>(undefined);
 
 export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [order, setOrder] = useState<OrderProps>(initialValues);
-  const [modals, setModals] = useState<Record<OrderKeys, boolean>>(initialModals);
+  const [modals, setModals] = useState<Record<OrderKeys | 'submit', boolean>>(initialModals);
 
-  const modalState = (modal: OrderKeys) => {
+  const modalState = (modal: OrderKeys | 'submit') => {
     setModals(prev => ({ ...prev, [modal]: !prev[modal] }));
   };
 
@@ -92,7 +93,8 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   }
 
   const submitOrder = () => {
-    window.alert('Wysłano zamówienie: ' + JSON.stringify(order, null, 2));
+    // window.alert('Wysłano zamówienie: ' + JSON.stringify(order, null, 2));
+    modalState('submit');
   };
 
   return (
