@@ -8,8 +8,8 @@ export const ModalWraper = styled.div<ModalWraperProps>`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: ${({ theme }) => theme.color.mainTrans};
   scroll: false;
   z-index: 900;

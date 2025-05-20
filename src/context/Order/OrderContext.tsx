@@ -91,10 +91,6 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setOrder(prev => ({ ...prev, products, summary }));
   }
 
-  // const updateSection: updateSectionProps = (section, value) => {
-  //   setOrder(prev => ({ ...prev, [section]: value }));
-  // };
-
   const submitOrder = () => {
     window.alert('Wysłano zamówienie: ' + JSON.stringify(order, null, 2));
   };

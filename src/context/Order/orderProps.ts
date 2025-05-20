@@ -4,7 +4,7 @@ export type FieldType = 'text' | 'textarea' | 'checkbox';
 export interface AddressProps {
   street: string;
   number: string;
-  local: number | '';
+  local: string;
   postalCode: number | '';
   city: string;
 }

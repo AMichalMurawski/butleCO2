@@ -1,11 +1,11 @@
 import React from 'react';
 import { OrderSection } from './Orders.styled';
-import OrderForm from '../../components/Order/Order';
+import Order from '../../components/Order/Order';
 
 const Orders: React.FC = () => {
   return (
     <OrderSection id="orders">
-      <OrderForm />
+      <Order />
     </OrderSection>
   );
 };
