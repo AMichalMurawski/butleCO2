@@ -16,12 +16,12 @@ import { initialAddress } from '../../../context/Order/initialValues';
 import { addressLabels, addressTypes } from '../../../context/Order/orderKeyof';
 import { AddressProps } from '../../../context/Order/orderProps';
 import Input from './Input/Input';
-import ModalConteiner from '../../Modals/ModalConteiner/ModalConteiner';
 
 const typeComponentMap = {
   text: TextValue,
   textarea: TextareaValue,
   checkbox: CheckboxValue,
+  time: TextValue,
 } as const;
 
 interface ModalClientProps<T> {
@@ -71,6 +71,10 @@ const ClientForm = <T extends Record<string, any>>({
                         const name2 = key2 as keyof AddressProps;
                         const label2 = addressLabels[name2];
                         const type2 = addressTypes[name2];
+
+                        // if (key2 === 'deliveryTime') {
+                        //   return <></>
+                        // }
 
                         return (
                           <Input key={`address.${name2}`} name={`address.${name2}`} label={label2} componentType={type2} />

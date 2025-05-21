@@ -56,8 +56,8 @@ const ModalsOrder: React.FC = () => {
       />
     </ModalConteiner>
     <ModalConteiner
-      visible={modals.submit}
-      onExit={() => modalState('submit')}
+      visible={modals.confirm}
+      onExit={() => modalState('confirm')}
     >
       <ModalConfirmOrder />
     </ModalConteiner>

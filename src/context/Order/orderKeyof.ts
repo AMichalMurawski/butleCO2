@@ -21,18 +21,20 @@ export const addressTypes: Record<keyof AddressProps, FieldType> = {
 
 export const clientLabels: Record<keyof ClientProps, string> = {
   name: 'Imię i nazwisko / Nazwa firmy',
-  address: 'Adres',
   phone: 'Telefon kontaktowy',
   email: 'E-mail',
+  address: 'Adres',
+  deliveryTime: 'Czas dostawy',
   message: 'Dodatkowe informacje',
   invoice: 'Faktura',
 };
 
 export const clientTypes: Record<keyof ClientProps, FieldType> = {
   name: 'text',
-  address: 'text',
   phone: 'text',
   email: 'text',
+  address: 'text',
+  deliveryTime: 'time',
   message: 'textarea',
   invoice: 'checkbox',
 };

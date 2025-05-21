@@ -1,4 +1,4 @@
-import { AddressProps, ClientProps, CompanyProps, OrderProductProps, OrderProps, SummaryProps } from "./orderProps";
+import { AddressProps, ClientProps, CompanyProps, DayProps, OrderProductProps, OrderProps, SummaryProps } from "./orderProps";
 
 // >>>>>> ADDRESS <<<<<<
 
@@ -12,11 +12,106 @@ export const initialAddress: AddressProps = {
 
 // >>>>>> CLIENT <<<<<<
 
+const deliveryTime: DayProps = {
+  monday: {
+    isCheck: false,
+    time: [
+      {
+        hour: 8,
+        minute: 0,
+      },
+      {
+        hour: 8,
+        minute: 0,
+      },
+    ]
+  },
+  tuesday: {
+    isCheck: false,
+    time: [
+      {
+        hour: 8,
+        minute: 0,
+      },
+      {
+        hour: 8,
+        minute: 0,
+      },
+    ]
+  },
+  wednesday: {
+    isCheck: false,
+    time: [
+      {
+        hour: 8,
+        minute: 0,
+      },
+      {
+        hour: 8,
+        minute: 0,
+      },
+    ]
+  },
+  thursday: {
+    isCheck: false,
+    time: [
+      {
+        hour: 8,
+        minute: 0,
+      },
+      {
+        hour: 8,
+        minute: 0,
+      },
+    ]
+  },
+  friday: {
+    isCheck: false,
+    time: [
+      {
+        hour: 8,
+        minute: 0,
+      },
+      {
+        hour: 8,
+        minute: 0,
+      },
+    ]
+  },
+  saturday: {
+    isCheck: false,
+    time: [
+      {
+        hour: 8,
+        minute: 0,
+      },
+      {
+        hour: 8,
+        minute: 0,
+      },
+    ]
+  },
+  sunday: {
+    isCheck: false,
+    time: [
+      {
+        hour: 8,
+        minute: 0,
+      },
+      {
+        hour: 8,
+        minute: 0,
+      },
+    ]
+  },
+};
+
 export const initialClient: ClientProps = {
   name: '',
-  address: initialAddress,
   phone: '',
   email: '',
+  address: initialAddress,
+  deliveryTime: deliveryTime,
   message: '',
   invoice: false,
 };

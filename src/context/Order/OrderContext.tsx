@@ -4,36 +4,37 @@ import { OrderProductProps, OrderProps } from './orderProps';
 
 const customTypeOrder = ['CO2', 'Argon', 'Argon + CO2', 'Azot', 'Azot + CO2', 'Propan'];
 
-type OrderKeys = keyof OrderProps;
+type OrderKeys = keyof OrderProps | 'confirm';
 
 type updateInvoiceProps = <K extends 'client' | 'company'>(section: K, value: OrderProps[K]) => void;
 
 interface OrderContextProps {
   addProduct: (product: OrderProductProps) => void;
   deleteProduct: (index: number) => void;
-  modals: Record<OrderKeys | 'submit', boolean>;
-  modalState: (modal: OrderKeys | 'submit') => void;
+  modals: Record<OrderKeys, boolean>;
+  modalState: (modal: OrderKeys) => void;
   order: OrderProps;
   productAmountChange: (index: number, amount: number) => void;
+  confirmOrder: () => void;
   submitOrder: () => void;
   updateInvoice: updateInvoiceProps;
 }
 
-const initialModals: Record<OrderKeys | 'submit', boolean> = {
+const initialModals: Record<OrderKeys, boolean> = {
   client: false,
   company: false,
   products: false,
   summary: false,
-  submit: false,
+  confirm: false,
 };
 
 const OrderContext = createContext<OrderContextProps | undefined>(undefined);
 
 export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [order, setOrder] = useState<OrderProps>(initialValues);
-  const [modals, setModals] = useState<Record<OrderKeys | 'submit', boolean>>(initialModals);
+  const [modals, setModals] = useState<Record<OrderKeys, boolean>>(initialModals);
 
-  const modalState = (modal: OrderKeys | 'submit') => {
+  const modalState = (modal: OrderKeys) => {
     setModals(prev => ({ ...prev, [modal]: !prev[modal] }));
   };
 
@@ -92,13 +93,16 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setOrder(prev => ({ ...prev, products, summary }));
   }
 
+  const confirmOrder = () => {
+    modalState('confirm');
+  }
+
   const submitOrder = () => {
-    // window.alert('Wysłano zamówienie: ' + JSON.stringify(order, null, 2));
-    modalState('submit');
+    window.alert('Zamówienie wysłane');
   };
 
   return (
-    <OrderContext.Provider value={{ addProduct, deleteProduct, modals, modalState, order, productAmountChange, submitOrder, updateInvoice, }}>
+    <OrderContext.Provider value={{ addProduct, deleteProduct, modals, modalState, order, productAmountChange, confirmOrder, submitOrder, updateInvoice, }}>
       {children}
     </OrderContext.Provider>
   );

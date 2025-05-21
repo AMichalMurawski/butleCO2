@@ -6,11 +6,10 @@ interface InputProps {
     label: string;
     name: string;
     value?: boolean;
-    componentType: 'text' | 'textarea' | 'checkbox';
+    componentType: 'text' | 'textarea' | 'checkbox' | 'time';
 }
 
 const Input: React.FC<InputProps> = ({ label, name, value, componentType }) => {
-    console.log(name, componentType);
 
     return (
         <DataWraper>

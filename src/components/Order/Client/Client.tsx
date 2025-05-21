@@ -33,6 +33,10 @@ const Client: React.FC<ModalClientProps<any>> = ({
           value = clientAddress(initialValues)
         }
 
+        if (key === 'deliveryTime') {
+          return <></>
+        }
+
         return (
           <DataWraper key={key}>
             <DataName $width={labelWidth}>{label}:</DataName>

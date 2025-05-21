@@ -7,7 +7,7 @@ import { Button, } from '../';
 import { useOrder } from '../../context/Order/OrderContext';
 
 const Order: React.FC = () => {
-  const { order, submitOrder, modalState } = useOrder();
+  const { order, confirmOrder, modalState } = useOrder();
 
   return (
     <InvoiceWraper>
@@ -37,7 +37,7 @@ const Order: React.FC = () => {
           text="Złóż zamówienie"
           background={theme.color.remarkable}
           color={theme.color.structural}
-          onClick={submitOrder}
+          onClick={confirmOrder}
         />
       </SubmitButtonWraper>
       <Informations />
