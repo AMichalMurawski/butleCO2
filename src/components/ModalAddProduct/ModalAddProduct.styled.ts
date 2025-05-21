@@ -8,7 +8,7 @@ export const AddProductWraper = styled.div`
 `
 export const TitleWraper = styled.div`
     padding: 30px;
-    background-color: ${({ theme }) => theme.color.structural};
+    background-color: ${({ theme }) => theme.color.main};
     color: ${({theme}) => theme.color.text};
 `
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { OrderProductProps, ProductProps } from '../../context/Order/orderProps';
+import { OrderProductProps, ProductProps } from '../../../context/Order/orderProps';
 import { productsList } from './productsList';
-import IconSvg from '../Icons/IconSvg';
-import { AddProductWraper, Description, DescriptionWraper, IconSvgWraper, ProductsList, ProductWraper, Title, TitleWraper, TransactionToggle } from './AddProductForm.styled';
+import IconSvg from '../../Icons/IconSvg';
+import { AddProductWraper, Description, DescriptionWraper, IconSvgWraper, ProductsList, ProductWraper, Title, TitleWraper, TransactionToggle } from './ModalAddProduct.styled';
 import { useTheme } from 'styled-components';
-import { useOrder } from '../../context/Order/OrderContext';
-import { initialOrderProduct } from '../../context/Order/initialValues';
-import Button from '../Button/Button';
+import { useOrder } from '../../../context/Order/OrderContext';
+import { initialOrderProduct } from '../../../context/Order/initialValues';
+import Button from '../../Button/Button';
 
 interface ModalAddProductProps {
   onSubmit: (values: OrderProductProps) => void;
