@@ -24,6 +24,7 @@ export const ModalWraper = styled.div<ModalWraperProps>`
 interface ModalBoxProps {
   $width?: string;
   $height?: string;
+  $maxHeight?: string;
   $color?: string;
   $backgroundColor?: string;
 }
@@ -34,9 +35,11 @@ export const ModalBox = styled.div<ModalBoxProps>`
   left: 50%;
   width: ${({ $width }) => $width || 'min(600px, 75%)'};
   height: ${({ $height }) => $height || null};
+  max-height: ${({ $maxHeight }) => $maxHeight || '90%'};
   color: ${({$color, theme}) => $color ? $color : theme.color.structural};
   background-color: ${({$backgroundColor, theme}) => $backgroundColor ? $backgroundColor : theme.color.text};
   transform: translate(-50%, -50%);
+  overflow-Y: hidden;
 `;
 
 export const ExitButtonConteiner = styled.div`

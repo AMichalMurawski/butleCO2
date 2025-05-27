@@ -15,7 +15,7 @@ import { Formik, Form } from 'formik';
 import { initialAddress } from '../../../context/Order/initialValues';
 import { addressLabels, addressTypes } from '../../../context/Order/orderKeyof';
 import { AddressProps } from '../../../context/Order/orderProps';
-import Input from './Input/Input';
+import Input from '../Input/Input';
 
 const typeComponentMap = {
   text: TextValue,
@@ -49,6 +49,7 @@ const ClientForm = <T extends Record<string, any>>({
         onSubmit={(values) => {
           onSubmit(values);
         }}
+        validateOnMount={true}
         validateOnBlur={true}
         validateOnChange={false}
       >

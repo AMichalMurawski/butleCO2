@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useEffect } from 'react';
 import { ExitButtonConteiner, ModalBox, ModalWraper } from './ModalConteiner.styled';
 import IconSvg from '../../Icons/IconSvg';
 
@@ -23,6 +23,18 @@ const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
       onExit()
     }
   }
+
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    };
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [visible])
 
   return (
     <ModalWraper $visible={visible} onClick={handleClick}>

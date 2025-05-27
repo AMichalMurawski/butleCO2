@@ -1,6 +1,8 @@
 import React from 'react';
-import { CheckboxHandleValue, CheckboxValue, CheckboxValueWraper, DataName, DataWraper, ErrorValue, TextareaValue, TextValue, ValueConteiner } from './Input.styled';
+import { CheckboxHandleValue, CheckboxValue, CheckboxValueWraper, DataName, DataWraper, ErrorValue, SvgWraper, TextareaValue, TextValue, ValueConteiner } from './Input.styled';
 import { ErrorMessage, Field } from 'formik';
+import IconSvg from '../../Icons/IconSvg';
+import { useTheme } from 'styled-components';
 
 interface InputProps {
     label: string;
@@ -10,6 +12,7 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({ label, name, value, componentType }) => {
+    const theme = useTheme();
 
     return (
         <DataWraper>
@@ -24,7 +27,14 @@ const Input: React.FC<InputProps> = ({ label, name, value, componentType }) => {
                 {componentType === 'checkbox' && (
                     <CheckboxValueWraper>
                         <Field as={CheckboxValue} name={String(name)} type="checkbox" />
-                        <CheckboxHandleValue checked={Boolean(value)} />
+                        <CheckboxHandleValue checked={Boolean(value)}>
+                            <SvgWraper $visible={Boolean(value)}>
+                                <IconSvg name='checkmark' fill={theme.color.accent} />
+                            </SvgWraper>
+                            <SvgWraper $visible={!Boolean(value)}>
+                                <IconSvg name='cross' fill={theme.color.danger} />
+                            </SvgWraper>
+                        </CheckboxHandleValue>
                     </CheckboxValueWraper>
                 )}
                 <ErrorMessage component={ErrorValue} name={String(name)} />

@@ -1,32 +1,22 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
-import { P } from '../../../styles/Global.styled';
 
 export const InputStyled = styled(Field)``;
 
 export const FormWraper = styled.div`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: repeat(5 auto);
-  gap: 10px;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-items: start;
-  align-items: center;
+  align-items: start;
 `;
 
-interface GridCellProps {
-  $gridColumn: string;
-  $gridRow: string;
-  $width?: string;
-  $height?: string;
-  $atr?: string[] | null;
+interface ButtonWraperProps {
+  $disabled?: boolean;
 }
 
-export const GridCell = styled.div<GridCellProps>`
-  grid-column: ${({ $gridColumn }) => $gridColumn};
-  grid-row: ${({ $gridRow }) => $gridRow};
-  width: ${({ $width }) => $width || 'auto'};
-  height: ${({ $height }) => $height || 'auto'};
-  ${({$atr}) => $atr?.join(";")}
-`;
-
-export const Placeholder = styled(P)``;
+export const ButtonWraper = styled.div<ButtonWraperProps>`
+  align-self: end;
+  pointer-events: ${({$disabled}) => $disabled ? 'none' : ''};
+`

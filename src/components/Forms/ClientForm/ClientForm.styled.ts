@@ -3,6 +3,8 @@ import { H3, P } from '../../../styles/Global.styled';
 
 export const ClientInfoWraper = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const SubtitleWraper = styled.div`
@@ -22,10 +24,13 @@ export const Subtitle = styled(H3)`
 export const DataList = styled.div`
   display: flex;
   flex-direction: column;
+  max-height: calc(90vh - 100px);
+  flex-grow: 1;
   gap: 15px;
   padding: 30px;
   color: ${({ theme }) => theme.color.structural};
   background-color: ${({ theme }) => theme.color.text};
+  overflow-Y: scroll;
 `
 
 export const DataWraper = styled.div`

@@ -1,9 +1,18 @@
 import { Form, Formik } from 'formik';
-import React from 'react';
-import { FormWraper, GridCell,  Placeholder } from './ContactForm.styled';
-import Input from './Input/Input';
+import React, { useEffect } from 'react';
+import { ButtonWraper, FormWraper } from './ContactForm.styled';
 import { Button } from '../../';
 import { theme } from '../../../styles/theme';
+import Input from '../Input/Input';
+import * as Yup from 'yup';
+
+const requiredField = 'Pole wymagane';
+
+export const contactUsSchema = Yup.object({
+    name: Yup.string().min(2, 'Min 2 znaki').required(requiredField),
+    email: Yup.string().email('Niepoprawny adres email').required(requiredField),
+    message: Yup.string().max(150, 'Max 150 znaków').required(requiredField),
+});
 
 interface FormValues {
   name: string;
@@ -18,43 +27,43 @@ const initialValues: FormValues = {
 };
 
 const ContactForm: React.FC = () => {
-  const handleSubmit = () => {};
+  const handleSubmit = (values: FormValues) => {
+    window.alert(JSON.stringify(values, null, " "));
+  };
+  
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      <Form>
-        <FormWraper>
-          <GridCell $gridColumn="1" $gridRow="1">
-            <Placeholder>Imię:</Placeholder>
-          </GridCell>
-          <GridCell $gridColumn="2" $gridRow="1" $width="50%">
-            <Input name="name" type="text" />
-          </GridCell>
-          <GridCell $gridColumn="1" $gridRow="2">
-            <Placeholder>E-mail:</Placeholder>
-          </GridCell>
-          <GridCell $gridColumn="2" $gridRow="2" $width="50%">
-            <Input name="email" type="email" />
-          </GridCell>
-          <GridCell $gridColumn="1 / 3" $gridRow="3">
-            <Placeholder>Twoja wiadomość:</Placeholder>
-          </GridCell>
-          <GridCell $gridColumn="1 / 3" $gridRow="4" $width="100%" $height="150px">
-            <Input name="message" asType="textarea" />
-          </GridCell>
-          <GridCell
-            $gridColumn="1 / 3"
-            $gridRow="5"
-            $atr={['margin-left: auto', 'margin-right: auto']}
-          >
-            <Button
-              type="submit"
-              text="Wyślij zapytanie"
-              background={theme.color.remarkable}
-              color={theme.color.structural}
-            />
-          </GridCell>
-        </FormWraper>
-      </Form>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={contactUsSchema}
+      onSubmit={(values, { resetForm, validateForm }) => {
+        handleSubmit(values);
+        resetForm();
+        validateForm(initialValues);
+      }}
+      validateOnMount={true}
+      validateOnBlur={true}
+      validateOnChange={true}>
+      {({ isValid, values }) => {
+        
+        useEffect(() => {}, [values])
+
+        return (
+        <Form>
+          <FormWraper>
+            <Input name='name' label='Imię i nazwisko / Nazwa firmy' componentType={'text'} />
+            <Input name='email' label='E-mail' componentType={'text'} />
+            <Input name='message' label='Zadaj nam pytanie' componentType={'textarea'} />
+            <ButtonWraper $disabled={!isValid}>
+              <Button
+                type="submit"
+                text="Wyślij zapytanie"
+                background={!isValid ? theme.color.structural : theme.color.remarkable}
+                color={!isValid ? theme.color.remarkable : theme.color.structural}
+              />
+            </ButtonWraper>
+          </FormWraper>
+        </Form>
+      )}}
     </Formik>
   );
 };
