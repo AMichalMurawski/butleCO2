@@ -38,7 +38,7 @@ const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
 
   return (
     <ModalWraper $visible={visible} onClick={handleClick}>
-      <ModalBox $width={width}>
+      <ModalBox $width={width} $visible={visible}>
         {children}
         <ExitButtonConteiner onClick={handleClick}>
           <IconSvg name="cross" fill="red" onClick={handleClick}/>

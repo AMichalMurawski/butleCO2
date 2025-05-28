@@ -20,7 +20,6 @@ import IconSvg from '../../Icons/IconSvg';
 import { theme } from '../../../styles/theme';
 import { useOrder } from '../../../context/Order/OrderContext';
 import AmountCounter from './AmountCounter';
-import { OrderProductProps } from '../../../context/Order/orderProps';
 
 const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
 
@@ -94,9 +93,23 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
         <TableFooter>
           <TableRow>
             <TableFooterCell colSpan={3} />
+            <TableFooterCell $sum>Butle:</TableFooterCell>
+            <TableFooterCell $sum colSpan={2}>
+              {order.summary.productsCost.toFixed(2)} PLN *
+            </TableFooterCell>
+          </TableRow>
+          <TableRow>
+            <TableFooterCell colSpan={3} />
+            <TableFooterCell $sum>Dostawa:</TableFooterCell>
+            <TableFooterCell $sum colSpan={2}>
+              {order.summary.deliveryCost.toFixed(2)} PLN
+            </TableFooterCell>
+          </TableRow>
+          <TableRow>
+            <TableFooterCell colSpan={3} />
             <TableFooterCell $sum>Suma:</TableFooterCell>
             <TableFooterCell $sum colSpan={2}>
-              {order.summary.summaryCost.toFixed(2)} PLN *
+              {order.summary.summaryCost.toFixed(2)} PLN
             </TableFooterCell>
           </TableRow>
         </TableFooter>

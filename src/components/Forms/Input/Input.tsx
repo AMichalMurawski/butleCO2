@@ -29,10 +29,10 @@ const Input: React.FC<InputProps> = ({ label, name, value, componentType }) => {
                         <Field as={CheckboxValue} name={String(name)} type="checkbox" />
                         <CheckboxHandleValue checked={Boolean(value)}>
                             <SvgWraper $visible={Boolean(value)}>
-                                <IconSvg name='checkmark' fill={theme.color.accent} />
+                                <IconSvg name='checkmark' fill={theme.color.text} />
                             </SvgWraper>
                             <SvgWraper $visible={!Boolean(value)}>
-                                <IconSvg name='cross' fill={theme.color.danger} />
+                                <IconSvg name='cross' fill={theme.color.text} />
                             </SvgWraper>
                         </CheckboxHandleValue>
                     </CheckboxValueWraper>

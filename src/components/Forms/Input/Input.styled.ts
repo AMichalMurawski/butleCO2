@@ -65,11 +65,11 @@ export const CheckboxHandleValue = styled.div<{ checked: boolean }>`
   width: 20px;
   height: 20px;
   margin-left: 10px;
-  // background-color: ${({ theme, checked }) => checked ? theme.color.accent : theme.color.danger};
-  background-color: white;
+  background-color: ${({ theme, checked }) => checked ? theme.color.accent : theme.color.danger};
+  // background-color: white;
   border: 1px solid ${({theme}) => theme.color.structural};
   border-radius: 4px;
-  transition: all 150ms;
+  transition: background-color ease-in-out 300ms;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,6 +97,7 @@ export const SvgWraper = styled.div<SvgWraperProps>`
   top: 50%;
   transform: translate(-50%, -12px);
   opacity: ${({ $visible }) => $visible ? 1 : 0};
+  transition: opacity ease-in-out 300ms;
 `;
 
 export const ErrorValue = styled.p`

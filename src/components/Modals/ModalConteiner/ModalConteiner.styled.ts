@@ -27,11 +27,12 @@ interface ModalBoxProps {
   $maxHeight?: string;
   $color?: string;
   $backgroundColor?: string;
+  $visible?: boolean;
 }
 
 export const ModalBox = styled.div<ModalBoxProps>`
   position: absolute;
-  top: 50%;
+  top: ${({$visible}) => $visible ? '50%' : '100vh'};
   left: 50%;
   width: ${({ $width }) => $width || 'min(600px, 75%)'};
   height: ${({ $height }) => $height || null};
@@ -40,6 +41,7 @@ export const ModalBox = styled.div<ModalBoxProps>`
   background-color: ${({$backgroundColor, theme}) => $backgroundColor ? $backgroundColor : theme.color.text};
   transform: translate(-50%, -50%);
   overflow-Y: hidden;
+  transition: top ease-in-out 300ms;
 `;
 
 export const ExitButtonConteiner = styled.div`

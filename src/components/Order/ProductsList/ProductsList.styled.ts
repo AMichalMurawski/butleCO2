@@ -36,13 +36,26 @@ export const TableColumn = styled.col`
 
 export const TableHead = styled.thead``;
 
-export const TableFooter = styled.tfoot``;
+export const TableFooter = styled.tfoot`
+
+  & tr:not(:last-of-type) {
+    background-color: ${({ theme }) => theme.color.structural};
+    color: ${({ theme }) => theme.color.text};
+  }
+
+  & tr:last-of-type {
+    background-color: ${({ theme }) => theme.color.remarkable};
+    color: ${({ theme }) => theme.color.structural};
+  }
+`;
 
 export const TableRow = styled.tr``;
 
 export const TableHeaderCell = styled.th`
   position: relative;
   z-index: 1;
+  padding: 15px;
+  border-bottom: 5px solid ${({ theme }) => theme.color.text};
 
   &::before,
   &::after {
@@ -107,8 +120,6 @@ export const TableHeaderCell = styled.th`
     border-left: 5px solid ${({ theme }) => theme.color.text};
   }
 
-  padding: 15px;
-  border-bottom: 5px solid ${({ theme }) => theme.color.text};
 `;
 
 interface TableFooterCellProps {
@@ -117,9 +128,11 @@ interface TableFooterCellProps {
 
 export const TableFooterCell = styled.td<TableFooterCellProps>`
   padding: 15px;
-  color: ${({ theme }) => theme.color.text};
   font-weight: ${({ $sum }) => ($sum ? '700' : null)};
-  background-color: ${({ theme, $sum }) => ($sum ? theme.color.structural : null)};
+
+  &:nth-child(1) {
+    background-color: ${({ theme }) => theme.color.text};
+  }
 `;
 
 export const CellContent = styled(P)`
@@ -132,6 +145,7 @@ export const CellContent = styled(P)`
 export const TableBody = styled.tbody``;
 
 export const TableBodyRow = styled.tr`
+  height: 60px;
   &:nth-child(even) {
     color: ${({ theme }) => theme.color.main};
     background-color: ${({ theme }) => theme.color.remarkable};
