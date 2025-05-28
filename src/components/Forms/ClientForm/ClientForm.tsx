@@ -21,7 +21,7 @@ const typeComponentMap = {
   text: TextValue,
   textarea: TextareaValue,
   checkbox: CheckboxValue,
-  time: TextValue,
+  weekTime: TextValue,
 } as const;
 
 interface ModalClientProps<T> {
@@ -73,10 +73,6 @@ const ClientForm = <T extends Record<string, any>>({
                         const label2 = addressLabels[name2];
                         const type2 = addressTypes[name2];
 
-                        // if (key2 === 'deliveryTime') {
-                        //   return <></>
-                        // }
-
                         return (
                           <Input key={`address.${name2}`} name={`address.${name2}`} label={label2} componentType={type2} />
                         );
@@ -84,7 +80,7 @@ const ClientForm = <T extends Record<string, any>>({
                     };
 
                     return (
-                      <Input key={`${name}`} name={`${name}`} label={label} componentType={type} value={Boolean(values[name])} />
+                      <Input key={`${name}`} name={`${name}`} label={label} componentType={type} value={values[name]} />
                     );
                   })}
                   <SubmitButtonConteiner>

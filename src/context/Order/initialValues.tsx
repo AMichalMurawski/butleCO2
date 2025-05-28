@@ -1,4 +1,4 @@
-import { AddressProps, ClientProps, CompanyProps, DayProps, OrderProductProps, OrderProps, SummaryProps } from "./orderProps";
+import { AddressProps, ClientProps, CompanyProps, DayProps, OrderProductProps, OrderProps, SummaryProps, WeekProps } from "./orderProps";
 
 // >>>>>> ADDRESS <<<<<<
 
@@ -12,98 +12,28 @@ export const initialAddress: AddressProps = {
 
 // >>>>>> CLIENT <<<<<<
 
-const deliveryTime: DayProps = {
-  monday: {
-    isCheck: false,
-    time: [
-      {
-        hour: 8,
-        minute: 0,
-      },
-      {
-        hour: 8,
-        minute: 0,
-      },
-    ]
-  },
-  tuesday: {
-    isCheck: false,
-    time: [
-      {
-        hour: 8,
-        minute: 0,
-      },
-      {
-        hour: 8,
-        minute: 0,
-      },
-    ]
-  },
-  wednesday: {
-    isCheck: false,
-    time: [
-      {
-        hour: 8,
-        minute: 0,
-      },
-      {
-        hour: 8,
-        minute: 0,
-      },
-    ]
-  },
-  thursday: {
-    isCheck: false,
-    time: [
-      {
-        hour: 8,
-        minute: 0,
-      },
-      {
-        hour: 8,
-        minute: 0,
-      },
-    ]
-  },
-  friday: {
-    isCheck: false,
-    time: [
-      {
-        hour: 8,
-        minute: 0,
-      },
-      {
-        hour: 8,
-        minute: 0,
-      },
-    ]
-  },
-  saturday: {
-    isCheck: false,
-    time: [
-      {
-        hour: 8,
-        minute: 0,
-      },
-      {
-        hour: 8,
-        minute: 0,
-      },
-    ]
-  },
-  sunday: {
-    isCheck: false,
-    time: [
-      {
-        hour: 8,
-        minute: 0,
-      },
-      {
-        hour: 8,
-        minute: 0,
-      },
-    ]
-  },
+const initialDayTime: DayProps = {
+  isCheck: false,
+  time: [
+    {
+      hour: 10,
+      minute: 0,
+    },
+    {
+      hour: 20,
+      minute: 0,
+    }
+  ]
+};
+
+const initialDeliveryTime: WeekProps = {
+  monday: initialDayTime,
+  tuesday: initialDayTime,
+  wednesday: initialDayTime,
+  thursday: initialDayTime,
+  friday: initialDayTime,
+  saturday: initialDayTime,
+  sunday: initialDayTime,
 };
 
 export const initialClient: ClientProps = {
@@ -111,7 +41,7 @@ export const initialClient: ClientProps = {
   phone: '',
   email: '',
   address: initialAddress,
-  deliveryTime: deliveryTime,
+  deliveryTime: initialDeliveryTime,
   message: '',
   invoice: false,
 };

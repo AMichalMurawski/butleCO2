@@ -3,12 +3,14 @@ import { CheckboxHandleValue, CheckboxValue, CheckboxValueWraper, DataName, Data
 import { ErrorMessage, Field } from 'formik';
 import IconSvg from '../../Icons/IconSvg';
 import { useTheme } from 'styled-components';
+import { FieldType } from '../../../context/Order/orderProps';
+import WeekTime from './WeekTime';
 
 interface InputProps {
     label: string;
     name: string;
-    value?: boolean;
-    componentType: 'text' | 'textarea' | 'checkbox' | 'time';
+    value?: any;
+    componentType: keyof FieldType;
 }
 
 const Input: React.FC<InputProps> = ({ label, name, value, componentType }) => {
@@ -18,13 +20,13 @@ const Input: React.FC<InputProps> = ({ label, name, value, componentType }) => {
         <DataWraper>
             <DataName>{label}:</DataName>
             <ValueConteiner>
-                {componentType === 'text' && (
+                {String(componentType) === 'text' && (
                     <Field as={TextValue} name={String(name)} type='text' />
                 )}
-                {componentType === 'textarea' && (
+                {String(componentType) === 'textarea' && (
                     <Field as={TextareaValue} name={String(name)} maxLength='250' rows='5' />
                 )}
-                {componentType === 'checkbox' && (
+                {String(componentType) === 'checkbox' && (
                     <CheckboxValueWraper>
                         <Field as={CheckboxValue} name={String(name)} type="checkbox" />
                         <CheckboxHandleValue checked={Boolean(value)}>
@@ -36,6 +38,9 @@ const Input: React.FC<InputProps> = ({ label, name, value, componentType }) => {
                             </SvgWraper>
                         </CheckboxHandleValue>
                     </CheckboxValueWraper>
+                )}
+                {String(componentType) === 'weekTime' && (
+                    <WeekTime name={String(name)} value={value} />
                 )}
                 <ErrorMessage component={ErrorValue} name={String(name)} />
             </ValueConteiner>
