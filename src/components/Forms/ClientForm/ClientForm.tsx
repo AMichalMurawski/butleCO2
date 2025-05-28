@@ -41,62 +41,71 @@ const ClientForm = <T extends Record<string, any>>({
   onSubmit,
   validationSchema,
 }: ModalClientProps<T>) => {
-    
   return (
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={(values) => {
-          onSubmit(values);
-        }}
-        validateOnMount={true}
-        validateOnBlur={true}
-        validateOnChange={false}
-      >
-        {({ values }) => {
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={values => {
+        onSubmit(values);
+      }}
+      validateOnMount={true}
+      validateOnBlur={true}
+      validateOnChange={false}
+    >
+      {({ values }) => {
+        return (
+          <Form>
+            <ClientInfoWraper>
+              <SubtitleWraper>
+                <Subtitle>{title}</Subtitle>
+              </SubtitleWraper>
+              <DataList>
+                {Object.keys(initialValues).map(key => {
+                  const name = String(key as keyof T);
+                  const label = labels[name];
+                  const type = types[name];
 
-          return (
-            <Form>
-              <ClientInfoWraper>
-                <SubtitleWraper>
-                  <Subtitle>{title}</Subtitle>
-                </SubtitleWraper>
-                <DataList>
-                  {Object.keys(initialValues).map((key) => {
-                    const name = String(key as keyof T);
-                    const label = labels[name];
-                    const type = types[name];
-                  
-                    if (key === "address") {
-                      return Object.keys(initialAddress).map((key2) => {
-                        const name2 = key2 as keyof AddressProps;
-                        const label2 = addressLabels[name2];
-                        const type2 = addressTypes[name2];
+                  if (key === 'address') {
+                    return Object.keys(initialAddress).map(key2 => {
+                      const name2 = key2 as keyof AddressProps;
+                      const label2 = addressLabels[name2];
+                      const type2 = addressTypes[name2];
 
-                        return (
-                          <Input key={`address.${name2}`} name={`address.${name2}`} label={label2} componentType={type2} />
-                        );
-                      });
-                    };
+                      return (
+                        <Input
+                          key={`address.${name2}`}
+                          name={`address.${name2}`}
+                          label={label2}
+                          componentType={type2}
+                        />
+                      );
+                    });
+                  }
 
-                    return (
-                      <Input key={`${name}`} name={`${name}`} label={label} componentType={type} value={values[name]} />
-                    );
-                  })}
-                  <SubmitButtonConteiner>
-                    <Button
-                      type="submit"
-                      text="Zatwierdź"
-                      color={theme.color.structural}
-                      background={theme.color.remarkable}
+                  return (
+                    <Input
+                      key={`${name}`}
+                      name={`${name}`}
+                      label={label}
+                      componentType={type}
+                      value={values[name]}
                     />
-                  </SubmitButtonConteiner>
-                </DataList>
-              </ClientInfoWraper>
-            </Form>
-          );
-        }}
-      </Formik>
+                  );
+                })}
+                <SubmitButtonConteiner>
+                  <Button
+                    type="submit"
+                    text="Zatwierdź"
+                    color={theme.color.structural}
+                    background={theme.color.remarkable}
+                  />
+                </SubmitButtonConteiner>
+              </DataList>
+            </ClientInfoWraper>
+          </Form>
+        );
+      }}
+    </Formik>
   );
 };
 

@@ -13,6 +13,8 @@ export const DataName = styled(P)`
   min-width: max-content;
   padding-left: 10px;
   font-size: 0.75rem;
+  min-width: 80px;
+  text-align: left;
 `;
 
 export const ValueConteiner = styled.div`
@@ -25,24 +27,25 @@ export const DataValue = styled.input`
   width: 100%;
   padding: 5px 10px;
   text-align: left;
-  border: 1px solid ${({theme}) => theme.color.structural};
+  border: 1px solid ${({ theme }) => theme.color.structural};
   border-radius: 10px;
   outline: none;
   background-color: white;
-  
+
   &:hover {
-    box-shadow: inset 0 0 1px 1px ${({ theme }) => theme.color.accentTrans}, 
+    box-shadow:
+      inset 0 0 1px 1px ${({ theme }) => theme.color.accentTrans},
       inset 0 0 2px 2px ${({ theme }) => theme.color.remarkableTrans};
   }
 
   &:focus {
-    box-shadow: inset 0 0 1px 1px ${({ theme }) => theme.color.structuralTrans}, 
+    box-shadow:
+      inset 0 0 1px 1px ${({ theme }) => theme.color.structuralTrans},
       inset 0 0 2px 2px ${({ theme }) => theme.color.accent};
   }
 `;
 
-export const TextValue = styled(DataValue)`
-`;
+export const TextValue = styled(DataValue)``;
 
 export const TextareaValue = styled(DataValue).attrs({ as: 'textarea' })`
   resize: none;
@@ -65,9 +68,9 @@ export const CheckboxHandleValue = styled.div<{ checked: boolean }>`
   width: 20px;
   height: 20px;
   margin-left: 10px;
-  background-color: ${({ theme, checked }) => checked ? theme.color.accent : theme.color.danger};
+  background-color: ${({ theme, checked }) => (checked ? theme.color.accent : theme.color.danger)};
   // background-color: white;
-  border: 1px solid ${({theme}) => theme.color.structural};
+  border: 1px solid ${({ theme }) => theme.color.structural};
   border-radius: 4px;
   transition: background-color ease-in-out 300ms;
   display: flex;
@@ -76,7 +79,7 @@ export const CheckboxHandleValue = styled.div<{ checked: boolean }>`
 
   // &:after {
   //   content: '';
-  //   display: ${(props) => (props.checked ? 'block' : 'none')};
+  //   display: ${props => (props.checked ? 'block' : 'none')};
   //   width: 6px;
   //   height: 10px;
   //   border: solid white;
@@ -85,20 +88,18 @@ export const CheckboxHandleValue = styled.div<{ checked: boolean }>`
   // }
 `;
 
-
-
 interface SvgWraperProps {
   $visible: boolean;
 }
 
 export const SvgWraper = styled.div<SvgWraperProps>`
-  position: absolute;  
+  position: absolute;
   width: 13px;
   height: 13px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -12px);
-  opacity: ${({ $visible }) => $visible ? 1 : 0};
+  opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transition: opacity ease-in-out 300ms;
 `;
 
@@ -110,4 +111,4 @@ export const ErrorValue = styled.p`
   color: ${({ theme }) => theme.color.danger};
   text-align: left;
   font-size: 0.6rem;
-`
+`;
