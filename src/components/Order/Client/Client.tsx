@@ -22,6 +22,31 @@ const Client: React.FC<ModalClientProps<any>> = ({
   autoMargin = 'right',
   labelWidth,
 }) => {
+
+  const deliveryArray = () => {
+    let delivery: string[] = [];
+
+    if (!initialValues.deliveryTime) {
+      return [];
+    };
+
+    delivery = Object.keys(initialValues.deliveryTime).reduce((acc: any, key) => {
+      const day = initialValues.deliveryTime[key];
+
+      if (!day.isCheck) return acc
+
+      const time = (pos: number) => `${day.time[pos].hour.toString().padStart(2, '0')}:${day.time[pos].minute.toString().padStart(2, '0')}`;
+      const label = `${weekTimeLabels[key as keyof typeof weekTimeLabels]} ${time(0)} - ${time(1)}`;
+
+      acc?.push(label)
+
+      return acc
+    }, [])
+
+    return delivery
+  };
+
+
   return (
     <ClientWraper $autoMargin={autoMargin} onClick={onClick}>
       <IconEdit />
@@ -38,21 +63,12 @@ const Client: React.FC<ModalClientProps<any>> = ({
           return (
             <DataWraper key={key}>
               <DataName $width={labelWidth}>{label}:</DataName>
-              <DataValueBox>
-              {Object.keys(initialValues[key]).reduce((acc: any, next: string) => {
-                const day = initialValues[key][next];
-
-                if (!day.isCheck) return acc
-
-                const time = (pos: number) => `${day.time[pos].hour.toString().padStart(2, '0')}:${day.time[pos].minute.toString().padStart(2, '0')}`;
-                const label = `${weekTimeLabels[next as keyof typeof weekTimeLabels]} ${time(0)} - ${time(1)}`;
-                
-                return acc ? (<>{acc}<DataValue>{label}</DataValue></>) : (<DataValue>{label}</DataValue>)
-              }, '')}
-                </DataValueBox>
+              {deliveryArray().length
+                ? (<DataValueBox>{deliveryArray().map((key: string) => <DataValue>{key}</DataValue>)}</DataValueBox>)
+                : (<DataValue></DataValue>)}
             </DataWraper>
           );
-        }
+        };
 
         return (
           <DataWraper key={key}>

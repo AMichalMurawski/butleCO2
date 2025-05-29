@@ -41,16 +41,16 @@ export const DataName = styled(P)<DataNameProps>`
 
 export const DataValueBox = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 5px;
-`
+`;
 
 export const DataValue = styled(P)`
   display: inline-block;
   width: 100%;
   font-style: italic;
-  // text-decoration: underline dotted;
   color: ${({ theme }) => theme.color.main};
   border-bottom: 2px dotted black;
   whiteSpace: 'pre-line';
