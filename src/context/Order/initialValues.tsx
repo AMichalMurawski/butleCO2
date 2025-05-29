@@ -69,11 +69,13 @@ export const initialOrderProduct: OrderProductProps = {
 // >>>>>> Order <<<<<<
 
 export const initialSummary: SummaryProps = {
-  productsCost: 0,
+  productsCost: 100,
   deliveryCost: 20,
   discount: 0,
   summaryCost: 0,
 }
+
+initialSummary.summaryCost = initialSummary.productsCost + initialSummary.deliveryCost;
 
 // >>>>>> Form <<<<<<
 
