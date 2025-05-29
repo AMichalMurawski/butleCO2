@@ -39,6 +39,13 @@ export const DataName = styled(P)<DataNameProps>`
   min-width: ${({ $width }) => ($width ? $width : 'auto')};
 `;
 
+export const DataValueBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`
+
 export const DataValue = styled(P)`
   display: inline-block;
   width: 100%;
@@ -46,6 +53,7 @@ export const DataValue = styled(P)`
   // text-decoration: underline dotted;
   color: ${({ theme }) => theme.color.main};
   border-bottom: 2px dotted black;
+  whiteSpace: 'pre-line';
 `;
 
 const write = keyframes`
