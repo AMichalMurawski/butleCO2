@@ -15,7 +15,7 @@ import { Formik, Form } from 'formik';
 import { initialAddress } from '../../../context/Order/initialValues';
 import { addressLabels, addressTypes } from '../../../context/Order/orderKeyof';
 import { AddressProps } from '../../../context/Order/orderProps';
-import Input from '../Input/Input';
+import Input from '../InputField/InputField';
 
 const typeComponentMap = {
   text: TextValue,

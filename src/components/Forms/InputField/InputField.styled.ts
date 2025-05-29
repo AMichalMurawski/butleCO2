@@ -1,25 +1,33 @@
 import styled from 'styled-components';
 import { P } from '../../../styles/Global.styled';
 
-export const DataWraper = styled.div`
+interface DataWraperProps {
+  $flexDirection?: 'column' | 'row' | 'column-reverse' | 'row-reverse';
+}
+
+export const DataWraper = styled.div<DataWraperProps>`
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({$flexDirection}) => $flexDirection || 'column'};
   gap: 2px;
   align-items: start;
 `;
 
-export const DataName = styled(P)`
+export const DataName = styled.label`
   min-width: max-content;
-  padding-left: 10px;
+  padding-inline: 10px;
   font-size: 0.75rem;
-  min-width: 80px;
   text-align: left;
+  margin-right: auto;
 `;
 
-export const ValueConteiner = styled.div`
+interface ValueConteinerProps {
+  $width?: string
+}
+
+export const ValueConteiner = styled.div<ValueConteinerProps>`
   position: relative;
-  width: 100%;
+  width: ${({$width}) => $width || '100%' };
 `;
 
 export const DataValue = styled.input`
@@ -52,11 +60,11 @@ export const TextareaValue = styled(DataValue).attrs({ as: 'textarea' })`
 `;
 
 export const CheckboxValueWraper = styled.label`
-  cursor: pointer;
   width: 25px;
   height: 25px;
-  background-color: yellow;
-  // z-index: 100;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 `;
 
 export const CheckboxValue = styled(DataValue)`
@@ -67,25 +75,14 @@ export const CheckboxHandleValue = styled.div<{ checked: boolean }>`
   position: relative;
   width: 20px;
   height: 20px;
-  margin-left: 10px;
   background-color: ${({ theme, checked }) => (checked ? theme.color.accent : theme.color.danger)};
-  // background-color: white;
   border: 1px solid ${({ theme }) => theme.color.structural};
   border-radius: 4px;
   transition: background-color ease-in-out 300ms;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  // &:after {
-  //   content: '';
-  //   display: ${props => (props.checked ? 'block' : 'none')};
-  //   width: 6px;
-  //   height: 10px;
-  //   border: solid white;
-  //   border-width: 0 2px 2px 0;
-  //   transform: rotate(45deg);
-  // }
+  cursor: pointer;
 `;
 
 interface SvgWraperProps {
@@ -111,4 +108,34 @@ export const ErrorValue = styled.p`
   color: ${({ theme }) => theme.color.danger};
   text-align: left;
   font-size: 0.6rem;
+`;
+
+export const WeekWraper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px 15px 0;
+`;
+
+export const DayWraper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+`;
+
+export const TimeWraper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  transform: translateY(-3px);
+`;
+
+export const TimeInput = styled.input`
+  width: 45px;
+  height: 20px;
+  text-align: center;
+`;
+
+export const Label = styled.label`
+  height: 20px;
 `;

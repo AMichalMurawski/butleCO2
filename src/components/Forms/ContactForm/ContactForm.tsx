@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { ButtonWraper, FormWraper } from './ContactForm.styled';
 import { Button } from '../../';
 import { theme } from '../../../styles/theme';
-import Input from '../Input/Input';
+import Input from '../InputField/InputField';
 import * as Yup from 'yup';
 
 const requiredField = 'Pole wymagane';
