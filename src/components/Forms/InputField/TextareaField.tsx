@@ -1,22 +1,37 @@
-import React from "react";
-import { DataName, DataWraper, ErrorValue, TextareaValue, ValueConteiner } from "./InputField.styled";
-import { ErrorMessage, Field } from "formik";
+import React from 'react';
+import {
+  DataName,
+  DataWraper,
+  ErrorValue,
+  TextareaValue,
+  ValueConteiner,
+} from './InputField.styled';
+import { ErrorMessage, useField } from 'formik';
 
 interface TextareaFieldProps {
-    name: string;
-    label: string;
-    maxLength?: number;
-    rows?: number;
+  name: string;
+  label: string;
+  maxLength?: number;
+  rows?: number;
 }
 
-const TextareaField: React.FC<TextareaFieldProps> = ({ name, label, maxLength = 250, rows = 5 }) => {
-    return <DataWraper>
-        <DataName>{label}:</DataName>
-        <ValueConteiner>
-            <Field as={TextareaValue} name={String(name)} maxLength={maxLength} rows={rows} />
-            <ErrorMessage component={ErrorValue} name={String(name)} />
-        </ValueConteiner>
-    </DataWraper>         
+const TextareaField: React.FC<TextareaFieldProps> = ({
+  name,
+  label,
+  maxLength = 250,
+  rows = 5,
+}) => {
+  const [field] = useField(name);
+
+  return (
+    <DataWraper>
+      <DataName>{label}:</DataName>
+      <ValueConteiner>
+        <TextareaValue {...field} maxLength={maxLength} rows={rows} />
+        <ErrorMessage component={ErrorValue} name={String(name)} />
+      </ValueConteiner>
+    </DataWraper>
+  );
 };
 
 export default TextareaField;

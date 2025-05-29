@@ -1,4 +1,3 @@
-
 export type FieldType = 'text' | 'textarea' | 'checkbox' | 'weekTime';
 
 export interface AddressProps {
@@ -14,21 +13,21 @@ export interface AddressProps {
 export type TimeProps = {
   hour: number;
   minute: number;
-}
+};
+
+export type DayOfWeek =
+  | 'monday'
+  | 'tuesday'
+  | 'wednesday'
+  | 'thursday'
+  | 'friday'
+  | 'saturday'
+  | 'sunday';
 
 export interface DayProps {
-  isCheck: boolean;
+  day: DayOfWeek;
+  enabled: boolean;
   time: [TimeProps, TimeProps];
-}
-
-export type WeekProps = {
-  monday: DayProps;
-  tuesday: DayProps;
-  wednesday: DayProps;
-  thursday: DayProps;
-  friday: DayProps;
-  saturday: DayProps;
-  sunday: DayProps;
 }
 
 export interface ClientProps {
@@ -36,7 +35,7 @@ export interface ClientProps {
   phone: number | '';
   email: string;
   address: AddressProps;
-  deliveryTime: WeekProps;
+  deliveryTime: DayProps[];
   message: string;
   invoice: boolean;
 }

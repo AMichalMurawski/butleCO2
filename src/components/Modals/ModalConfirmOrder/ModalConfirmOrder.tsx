@@ -11,7 +11,6 @@ import {
   Title,
   TitleWraper,
 } from './ModalConfirmOrder.styled';
-import { WeekProps } from '../../../context/Order/orderProps';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
 
 const ModalConfirmOrder: React.FC = () => {
@@ -48,35 +47,14 @@ const ModalConfirmOrder: React.FC = () => {
           <TextLine>
             <TextTitle>Godziny dostawy:</TextTitle>
             <TextValue>
-              {Object.keys(order.client.deliveryTime).reduce((acc, dayKey) => {
-                const day = String(dayKey) as keyof WeekProps;
-                const dayTime = order.client.deliveryTime[day];
-
-                if (dayTime.isCheck) {
-                  const startTime = `${dayTime.time[0].hour.toString().padStart(2, '0')}:${dayTime.time[0].minute.toString().padStart(2, '0')}`;
-                  const endTime = `${dayTime.time[1].hour.toString().padStart(2, '0')}:${dayTime.time[1].minute.toString().padStart(2, '0')}`;
-                  const label = `${weekTimeLabels[day]} ${startTime} - ${endTime}`;
-
-                  return acc ? `${acc} | ${label}` : label;
-                }
-
-                return acc;
-              }, '')}
+              {order.client.deliveryTime
+                .map(day => {
+                  const startTime = `${day.time[0].hour.toString().padStart(2, '0')}:${day.time[0].minute.toString().padStart(2, '0')}`;
+                  const endTime = `${day.time[1].hour.toString().padStart(2, '0')}:${day.time[1].minute.toString().padStart(2, '0')}`;
+                  return `${weekTimeLabels[day.day]} ${startTime} - ${endTime}`;
+                })
+                .join(' | ')}
             </TextValue>
-            {/* {Object.keys(order.client.deliveryTime).map(dayKey => {
-              const day = String(dayKey) as keyof WeekProps;
-              const dayTime = order.client.deliveryTime[day];
-
-              if (dayTime.isCheck) {
-                const startTime = `${dayTime.time[0].hour.toString().padStart(2, '0')}:${dayTime.time[0].minute.toString().padStart(2, '0')}`;
-                const endTime = `${dayTime.time[1].hour.toString().padStart(2, '0')}:${dayTime.time[1].minute.toString().padStart(2, '0')}`;
-                const label = `${weekTimeLabels[day]} ${startTime} - ${endTime}`;
-
-                return <TextValue>{label}</TextValue>;
-              }
-
-              return <></>;
-            }, '')} */}
           </TextLine>
           <TextLine>
             <TextTitle>Informacje do dostawy:</TextTitle>

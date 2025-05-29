@@ -1,4 +1,13 @@
-import { AddressProps, ClientProps, CompanyProps, DayProps, OrderProductProps, OrderProps, SummaryProps, WeekProps } from "./orderProps";
+import {
+  AddressProps,
+  ClientProps,
+  CompanyProps,
+  DayProps,
+  OrderProductProps,
+  OrderProps,
+  SummaryProps,
+  TimeProps,
+} from './orderProps';
 
 // >>>>>> ADDRESS <<<<<<
 
@@ -8,32 +17,24 @@ export const initialAddress: AddressProps = {
   local: '',
   postalCode: '',
   city: '',
-}
+};
 
 // >>>>>> CLIENT <<<<<<
 
-const initialDayTime: DayProps = {
-  isCheck: false,
-  time: [
-    {
-      hour: 10,
-      minute: 0,
-    },
-    {
-      hour: 20,
-      minute: 0,
-    }
-  ]
+const initialTimeStart: TimeProps = {
+  hour: 10,
+  minute: 0,
 };
 
-const initialDeliveryTime: WeekProps = {
-  monday: initialDayTime,
-  tuesday: initialDayTime,
-  wednesday: initialDayTime,
-  thursday: initialDayTime,
-  friday: initialDayTime,
-  saturday: initialDayTime,
-  sunday: initialDayTime,
+const initialTimeEnd: TimeProps = {
+  hour: 18,
+  minute: 0,
+};
+
+export const initialDay: DayProps = {
+  day: 'monday',
+  enabled: false,
+  time: [initialTimeStart, initialTimeEnd],
 };
 
 export const initialClient: ClientProps = {
@@ -41,7 +42,7 @@ export const initialClient: ClientProps = {
   phone: '',
   email: '',
   address: initialAddress,
-  deliveryTime: initialDeliveryTime,
+  deliveryTime: [],
   message: '',
   invoice: false,
 };
@@ -73,7 +74,7 @@ export const initialSummary: SummaryProps = {
   deliveryCost: 20,
   discount: 0,
   summaryCost: 0,
-}
+};
 
 initialSummary.summaryCost = initialSummary.productsCost + initialSummary.deliveryCost;
 

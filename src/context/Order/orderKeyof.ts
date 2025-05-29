@@ -1,7 +1,7 @@
-import { AddressProps, ClientProps, CompanyProps, FieldType, WeekProps } from './orderProps'
+import { AddressProps, ClientProps, CompanyProps, DayOfWeek, FieldType } from './orderProps';
 
 // >>>>>> WEEKTIME <<<<<<
-export const weekTimeLabels: Record<keyof WeekProps, string> = {
+export const weekTimeLabels: Record<DayOfWeek, string> = {
   monday: 'Poniedziałek',
   tuesday: 'Wtorek',
   wednesday: 'Środa',
@@ -18,7 +18,7 @@ export const addressLabels: Record<keyof AddressProps, string> = {
   local: 'Lokal',
   postalCode: 'Kod pocztowy',
   city: 'Miasto',
-}
+};
 
 export const addressTypes: Record<keyof AddressProps, FieldType> = {
   street: 'text',
@@ -26,7 +26,7 @@ export const addressTypes: Record<keyof AddressProps, FieldType> = {
   local: 'text',
   postalCode: 'text',
   city: 'text',
-}
+};
 
 // >>>>>> CLIENT <<<<<<
 

@@ -13,9 +13,33 @@ import Button from '../../Button/Button';
 import { theme } from '../../../styles/theme';
 import { Formik, Form } from 'formik';
 import { initialAddress } from '../../../context/Order/initialValues';
-import { addressLabels, addressTypes } from '../../../context/Order/orderKeyof';
-import { AddressProps } from '../../../context/Order/orderProps';
+import { addressLabels, addressTypes, weekTimeLabels } from '../../../context/Order/orderKeyof';
+import { AddressProps, DayOfWeek, DayProps } from '../../../context/Order/orderProps';
 import Input from '../InputField/InputField';
+
+const DaysOfWeekList: DayOfWeek[] = Object.keys(weekTimeLabels) as DayOfWeek[];
+
+const expandDeliveryTime = (selectedDays: DayProps[]) => {
+  return DaysOfWeekList.map(day => {
+    const found = selectedDays.find(d => d.day === day);
+
+    if (found) {
+      return {
+        ...found,
+        enabled: true,
+      };
+    }
+
+    return {
+      day,
+      enabled: false,
+      time: [
+        { hour: 9, minute: 0 },
+        { hour: 17, minute: 0 },
+      ],
+    };
+  });
+};
 
 const typeComponentMap = {
   text: TextValue,
@@ -41,12 +65,25 @@ const ClientForm = <T extends Record<string, any>>({
   onSubmit,
   validationSchema,
 }: ModalClientProps<T>) => {
+  const initialDeliveryTime = initialValues.deliveryTime
+    ? expandDeliveryTime(initialValues.deliveryTime)
+    : [];
+
+  const extendedInitialValues = {
+    ...initialValues,
+    deliveryTime: initialDeliveryTime,
+  };
+
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={extendedInitialValues}
       validationSchema={validationSchema}
       onSubmit={values => {
-        onSubmit(values);
+        const filteredDeliveryTime = values.deliveryTime
+          .filter((day: any) => day.enabled)
+          .map(({ enabled, ...rest }: any) => rest);
+
+        onSubmit({ ...values, deliveryTime: filteredDeliveryTime });
       }}
       validateOnMount={true}
       validateOnBlur={true}
@@ -83,13 +120,7 @@ const ClientForm = <T extends Record<string, any>>({
                   }
 
                   return (
-                    <Input
-                      key={`${name}`}
-                      name={`${name}`}
-                      label={label}
-                      componentType={type}
-                      value={values[name]}
-                    />
+                    <Input key={`${name}`} name={`${name}`} label={label} componentType={type} />
                   );
                 })}
                 <SubmitButtonConteiner>

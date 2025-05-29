@@ -6,30 +6,24 @@ import TextareaField from './TextareaField';
 import CheckboxField from './CheckboxField';
 
 interface InputProps {
-    label: string;
-    name: string;
-    value?: any;
-    componentType: keyof FieldType;
+  label: string;
+  name: string;
+  componentType: FieldType;
 }
 
-const Input: React.FC<InputProps> = ({ label, name, value, componentType }) => {
-
-    return (
-        <>
-            {String(componentType) === 'text' && (
-                <TextField name={name} label={label} />
-            )}
-            {String(componentType) === 'textarea' && (
-                <TextareaField name={name} label={label} />
-            )}
-            {String(componentType) === 'checkbox' && (
-                <CheckboxField name={name} value={value} label={label} />
-            )}
-            {String(componentType) === 'weekTime' && (
-                <WeekList name={String(name)} label={label} />
-            )}
-        </>
-    );
+const Input: React.FC<InputProps> = ({ label, name, componentType }) => {
+  switch (componentType) {
+    case 'text':
+      return <TextField name={name} label={label} />;
+    case 'textarea':
+      return <TextareaField name={name} label={label} />;
+    case 'checkbox':
+      return <CheckboxField name={name} label={label} />;
+    case 'weekTime':
+      return <WeekList name={name} label={label} />;
+    default:
+      return null;
+  }
 };
 
-export default Input
+export default Input;

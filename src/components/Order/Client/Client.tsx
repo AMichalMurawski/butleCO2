@@ -1,9 +1,16 @@
 import React from 'react';
-import { Subtitle, DataWraper, DataName, DataValue, ClientWraper, DataValueBox } from './Client.styled';
+import {
+  Subtitle,
+  DataWraper,
+  DataName,
+  DataValue,
+  ClientWraper,
+  DataValueBox,
+} from './Client.styled';
 import IconEdit from './IconEdit';
 import { clientAddress } from './clientAddress';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
-import { WeekProps } from '../../../context/Order/orderProps';
+import { DayOfWeek, DayProps } from '../../../context/Order/orderProps';
 
 interface ModalClientProps<T> {
   title: string;
@@ -22,30 +29,21 @@ const Client: React.FC<ModalClientProps<any>> = ({
   autoMargin = 'right',
   labelWidth,
 }) => {
-
   const deliveryArray = () => {
-    let delivery: string[] = [];
-
-    if (!initialValues.deliveryTime) {
+    if (!initialValues.deliveryTime || !Array.isArray(initialValues.deliveryTime)) {
       return [];
-    };
+    }
 
-    delivery = Object.keys(initialValues.deliveryTime).reduce((acc: any, key) => {
-      const day = initialValues.deliveryTime[key];
+    const delivery: string[] = initialValues.deliveryTime.map((day: DayProps) => {
+      const time = (pos: number) =>
+        `${day.time[pos].hour.toString().padStart(2, '0')}:${day.time[pos].minute.toString().padStart(2, '0')}`;
+      const label = `${weekTimeLabels[day.day]} ${time(0)} - ${time(1)}`;
 
-      if (!day.isCheck) return acc
+      return label;
+    }, []);
 
-      const time = (pos: number) => `${day.time[pos].hour.toString().padStart(2, '0')}:${day.time[pos].minute.toString().padStart(2, '0')}`;
-      const label = `${weekTimeLabels[key as keyof typeof weekTimeLabels]} ${time(0)} - ${time(1)}`;
-
-      acc?.push(label)
-
-      return acc
-    }, [])
-
-    return delivery
+    return delivery;
   };
-
 
   return (
     <ClientWraper $autoMargin={autoMargin} onClick={onClick}>
@@ -54,21 +52,27 @@ const Client: React.FC<ModalClientProps<any>> = ({
       {Object.keys(initialValues).map(key => {
         const label = labels[key as keyof typeof labels];
         let value = initialValues[key as keyof typeof initialValues];
-        
-        if (key === "address") {
-          value = clientAddress(initialValues)
+
+        if (key === 'address') {
+          value = clientAddress(initialValues);
         }
 
         if (key === 'deliveryTime') {
           return (
             <DataWraper key={key}>
               <DataName $width={labelWidth}>{label}:</DataName>
-              {deliveryArray().length
-                ? (<DataValueBox>{deliveryArray().map((key: string) => <DataValue>{key}</DataValue>)}</DataValueBox>)
-                : (<DataValue></DataValue>)}
+              {deliveryArray().length ? (
+                <DataValueBox>
+                  {deliveryArray().map((day: string, index) => (
+                    <DataValue key={index}>{day}</DataValue>
+                  ))}
+                </DataValueBox>
+              ) : (
+                <DataValue></DataValue>
+              )}
             </DataWraper>
           );
-        };
+        }
 
         return (
           <DataWraper key={key}>
