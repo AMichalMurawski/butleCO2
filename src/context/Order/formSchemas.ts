@@ -21,36 +21,16 @@ const daySchema = Yup.object({
     enabled: Yup.boolean().required(),
     time: Yup.array().of(timeSchema).length(2).required(),
 });
-  
-// const deliveryTimeSchema = Yup.array()
-//     .of(daySchema)
-//     .test(
-//       'at-least-one-enabled',
-//       'Przynajmniej jeden dzień musi być zaznaczony',
-//       value => Array.isArray(value) ? value.some(day => day.enabled) : false
-// );
 
 const deliveryTimeSchema = Yup.array()
-    .of(
-        Yup.object().shape({
-            day: Yup.string().required(),
-            enabled: Yup.boolean().required(),
-            time: Yup.array()
-                .of(
-                    Yup.object().shape({
-                        hour: Yup.number().min(0).max(23).required(),
-                        minute: Yup.number().min(0).max(59).required(),
-                    })
-                )
-                .length(2)
-                .required(),
-        })
-    )
-    .test(
-        'at-least-one-enabled',
-        'Przynajmniej jeden dzień musi być zaznaczony',
-        value => Array.isArray(value) && value.some(day => day.enabled)
-    );
+  .of(daySchema)
+  .required(requiredField)
+  .min(1, 'Musisz dodać przynajmniej jeden dzień') 
+  .test(
+    'at-least-one-enabled',
+    'Przynajmniej jeden dzień musi być zaznaczony',
+    value => Array.isArray(value) && value.some(day => day.enabled)
+  );
 
 export const clientSchema = Yup.object({
     name: Yup.string().min(2, 'Min 2 znaki').required(requiredField),

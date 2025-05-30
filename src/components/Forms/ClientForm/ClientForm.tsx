@@ -17,6 +17,32 @@ import { addressLabels, addressTypes, weekTimeLabels } from '../../../context/Or
 import { AddressProps, DayOfWeek, DayProps } from '../../../context/Order/orderProps';
 import Input from '../InputField/InputField';
 
+const isFieldRequired = (schema: Yup.ObjectSchema<any>, path: string): boolean => {
+  const parts = path.replace(/\[(\d+)\]/g, '.$1').split('.');
+  let current: any = schema.describe();
+
+  let isRequired = false
+
+  for (const part of parts) {
+    if (current.type === 'array' && current.innerType) {
+      current = current.innerType;
+      if (!isNaN(Number(part))) {
+        continue;
+      }
+      isRequired = !current.optional;
+    }
+
+    if (current.fields?.[part]) {
+      current = current.fields[part];
+      isRequired = !current.optional;
+    } else {
+      return false;
+    }
+  }
+
+  return isRequired
+} 
+
 const DaysOfWeekList: DayOfWeek[] = Object.keys(weekTimeLabels) as DayOfWeek[];
 
 const expandDeliveryTime = (selectedDays: DayProps[]) => {
@@ -99,13 +125,15 @@ const ClientForm = <T extends Record<string, any>>({
               <DataList>
                 {Object.keys(initialValues).map(key => {
                   const name = String(key as keyof T);
-                  const label = labels[name];
+                  const required = isFieldRequired(validationSchema, name);
+                  const label = required ? labels[name] : `${labels[name]} (opcjonalnie)`;
                   const type = types[name];
 
                   if (key === 'address') {
                     return Object.keys(initialAddress).map(key2 => {
                       const name2 = key2 as keyof AddressProps;
-                      const label2 = addressLabels[name2];
+                      const required2 = isFieldRequired(validationSchema, `address.${name2}`);
+                      const label2 = required2 ? addressLabels[name2] : `${addressLabels[name2]} (opcjonalnie)`;
                       const type2 = addressTypes[name2];
 
                       return (
