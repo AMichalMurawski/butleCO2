@@ -6,6 +6,7 @@ interface DataWraperProps {
 }
 
 export const DataWraper = styled.div<DataWraperProps>`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: ${({$flexDirection}) => $flexDirection || 'column'};
@@ -108,6 +109,7 @@ export const ErrorValue = styled.p`
   color: ${({ theme }) => theme.color.danger};
   text-align: left;
   font-size: 0.6rem;
+  z-index: 100;
 `;
 
 export const WeekWraper = styled.div`

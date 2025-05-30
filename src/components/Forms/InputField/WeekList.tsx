@@ -1,8 +1,8 @@
 import React from 'react';
-import { DataName, DataWraper, DayWraper, TimeWraper, WeekWraper } from './InputField.styled';
-import { useFormikContext } from 'formik';
+import { DataName, DataWraper, DayWraper, ErrorValue, TimeWraper, WeekWraper } from './InputField.styled';
+import { ErrorMessage, useFormikContext } from 'formik';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
-import CheckboxInput from './CheckboxField';
+import CheckboxField from './CheckboxField';
 import TimeField from './TimeField';
 import { DayOfWeek, DayProps } from '../../../context/Order/orderProps';
 
@@ -45,7 +45,7 @@ const WeekList: React.FC<WeekListProps> = ({ name, label }) => {
 
           return (
             <DayWraper key={day}>
-              <CheckboxInput
+              <CheckboxField
                 name={`${name}[${index}].enabled`}
                 label={label}
                 flexDirection="row-reverse"
@@ -64,6 +64,7 @@ const WeekList: React.FC<WeekListProps> = ({ name, label }) => {
           );
         })}
       </WeekWraper>
+      <ErrorMessage component={ErrorValue} name={name} />
     </DataWraper>
   );
 };

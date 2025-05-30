@@ -9,7 +9,7 @@ import {
   SvgWraper,
   ValueConteiner,
 } from './InputField.styled';
-import { ErrorMessage, useField } from 'formik';
+import { ErrorMessage, useField, useFormikContext } from 'formik';
 import IconSvg from '../../Icons/IconSvg';
 import { useTheme } from 'styled-components';
 
@@ -27,14 +27,33 @@ const CheckboxField: React.FC<CheckboxFieldProps> = ({
   valueWidth = '100%',
 }) => {
   const theme = useTheme();
+  const { values, setFieldValue, validateField, setFieldTouched } = useFormikContext<any>();
   const [field] = useField({ name, type: 'checkbox' });
+
+  const getValueFromPath = (obj: any, path: string): any => {
+    const parts = path.replace(/\[(\d+)\]/g, '.$1').split('.');
+    return parts.reduce((acc, key) => (acc ? acc[key] : undefined), obj);
+  };
+
+  const checked = getValueFromPath(values, name);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const isChecked = e.target.checked;
+
+    setFieldValue(name, isChecked, true);
+    setFieldTouched(name, true, false);
+
+    setTimeout(() => {
+      validateField(name);
+    }, 0);
+  };
 
   return (
     <DataWraper $flexDirection={flexDirection}>
       <DataName>{label}:</DataName>
       <ValueConteiner $width={valueWidth}>
         <CheckboxValueWraper>
-          <CheckboxValue {...field} type="checkbox" />
+          <CheckboxValue {...field} type="checkbox" checked={checked} onChange={handleChange}  />
           <CheckboxHandleValue checked={field.value}>
             <SvgWraper $visible={field.value}>
               <IconSvg name="checkmark" fill={theme.color.text} />

@@ -10,6 +10,48 @@ export const addressSchema = Yup.object({
     city: Yup.string().min(2, 'Min 2 znaki').required(requiredField),
 });
 
+
+const timeSchema = Yup.object({
+    hour: Yup.number().min(0).max(23).required(),
+    minute: Yup.number().min(0).max(59).required(),
+});
+  
+const daySchema = Yup.object({
+    day: Yup.string().required(),
+    enabled: Yup.boolean().required(),
+    time: Yup.array().of(timeSchema).length(2).required(),
+});
+  
+// const deliveryTimeSchema = Yup.array()
+//     .of(daySchema)
+//     .test(
+//       'at-least-one-enabled',
+//       'Przynajmniej jeden dzień musi być zaznaczony',
+//       value => Array.isArray(value) ? value.some(day => day.enabled) : false
+// );
+
+const deliveryTimeSchema = Yup.array()
+    .of(
+        Yup.object().shape({
+            day: Yup.string().required(),
+            enabled: Yup.boolean().required(),
+            time: Yup.array()
+                .of(
+                    Yup.object().shape({
+                        hour: Yup.number().min(0).max(23).required(),
+                        minute: Yup.number().min(0).max(59).required(),
+                    })
+                )
+                .length(2)
+                .required(),
+        })
+    )
+    .test(
+        'at-least-one-enabled',
+        'Przynajmniej jeden dzień musi być zaznaczony',
+        value => Array.isArray(value) && value.some(day => day.enabled)
+    );
+
 export const clientSchema = Yup.object({
     name: Yup.string().min(2, 'Min 2 znaki').required(requiredField),
     address: addressSchema,
@@ -17,6 +59,7 @@ export const clientSchema = Yup.object({
     email: Yup.string().email('Niepoprawny adres email').required(requiredField),
     message: Yup.string().max(150, 'Max 150 znaków').notRequired(),
     invoice: Yup.boolean(),
+    deliveryTime: deliveryTimeSchema,
 });
 
 export const companySchema = Yup.object({
