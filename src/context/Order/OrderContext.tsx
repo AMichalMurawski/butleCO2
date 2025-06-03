@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, PropsWithChildren } from 'react';
 import { initialValues } from './initialValues';
 import { OrderProductProps, OrderProps } from './orderProps';
+import { orderSchema } from './schema';
 
 const customTypeOrder = ['CO2', 'Argon', 'Argon + CO2', 'Azot', 'Azot + CO2', 'Propan'];
 
@@ -93,8 +94,22 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setOrder(prev => ({ ...prev, products, summary }));
   }
 
-  const confirmOrder = () => {
-    modalState('confirm');
+  const confirmOrder = async () => {
+    
+    try {
+      await orderSchema.validate(order, { abortEarly: false });
+      modalState('confirm');
+    } catch ( err: any ) {
+      if (err.inner) {
+        const errors = err.inner.map((e: any) => `${e.path}: ${e.message}`);
+        window.alert(`Walidacja nie powiodła się: ${errors}`);
+        console.warn('Walidacja nie powiodła się:', errors);
+      } else {
+        window.alert(`Błąd walidacji: ${err.message}`);
+        console.warn('Błąd walidacji:', err.message);
+      }
+    }
+
   }
 
   const submitOrder = () => {

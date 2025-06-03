@@ -106,8 +106,7 @@ const ClientForm = <T extends Record<string, any>>({
       validationSchema={validationSchema}
       onSubmit={values => {
         const filteredDeliveryTime = values.deliveryTime
-          .filter((day: any) => day.enabled)
-          .map(({ enabled, ...rest }: any) => rest);
+          .filter((day: any) => day.enabled);
 
         onSubmit({ ...values, deliveryTime: filteredDeliveryTime });
       }}

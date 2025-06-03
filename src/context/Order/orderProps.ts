@@ -50,8 +50,11 @@ export interface CompanyProps {
 
 // >>>>>> PRODUCT <<<<<<
 
+export const gasTypes = ['CO2', 'Propan', 'Azot', 'Azot + CO2', 'Argon', 'Argon + CO2'] as const;
+export type GasType = typeof gasTypes[number];
+
 export interface BaseProductProps {
-  type: 'CO2' | 'Propan' | 'Azot' | 'Azot + CO2' | 'Argon' | 'Argon + CO2' | '';
+  type: GasType | '';
   unitPrice: number;
 }
 
@@ -65,11 +68,12 @@ type RequireAtLeastOneProductProps<T, Keys extends keyof T = keyof T> = Pick<
 
 export type ProductProps = RequireAtLeastOneProductProps<
   {
-    weight?: number;
-    litr?: number;
+    weight: number;
+    litr: number;
   } & BaseProductProps,
   'weight' | 'litr'
 >;
+
 
 export type OrderProductProps = ProductProps & {
   transaction: boolean;

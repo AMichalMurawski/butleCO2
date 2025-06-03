@@ -2,7 +2,7 @@ import React from "react";
 import { useOrder } from '../../../context/Order/OrderContext';
 import { ClientForm, ModalAddProduct, ModalConteiner } from '../..';
 import { clientLabels, clientTypes, companyLabels, companyTypes } from '../../../context/Order/orderKeyof';
-import { clientSchema, companySchema } from "../../../context/Order/formSchemas";
+import { clientSchema, companySchema } from "../../../context/Order/schema";
 import ModalConfirmOrder from "../ModalConfirmOrder/ModalConfirmOrder";
 
 const ModalsOrder: React.FC = () => {

@@ -88,7 +88,7 @@ const ModalConfirmOrder: React.FC = () => {
           {order.products.map(product => {
             if (product.transaction !== false) return <></>;
             return (
-              <TextLine>
+              <TextLine key={product.type + " " + product.weight + product.litr}>
                 <TextTitle>
                   {product.type} - {product.weight ? `${product.weight} kg` : `${product.litr} l`}:
                 </TextTitle>
