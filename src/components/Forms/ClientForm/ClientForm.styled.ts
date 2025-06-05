@@ -1,30 +1,10 @@
 import styled from 'styled-components';
-import { H3, P } from '../../../styles/Global.styled';
-
-export const ClientInfoWraper = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const SubtitleWraper = styled.div`
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ theme }) => theme.color.structural};
-  color: ${({theme}) => theme.color.text};
-`;
-
-export const Subtitle = styled(H3)`
-  margin: 0;
-`;
+import { P } from '../../../styles/Global.styled';
 
 export const DataList = styled.div`
   display: flex;
   flex-direction: column;
-  max-height: calc(90vh - 100px);
+  max-height: calc(90vh - 230px);
   flex-grow: 1;
   gap: 15px;
   padding: 30px;

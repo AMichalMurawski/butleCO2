@@ -1,11 +1,8 @@
 import * as Yup from 'yup';
 import {
   CheckboxValue,
-  ClientInfoWraper,
   DataList,
   SubmitButtonConteiner,
-  Subtitle,
-  SubtitleWraper,
   TextareaValue,
   TextValue,
 } from './ClientForm.styled';
@@ -14,7 +11,7 @@ import { theme } from '../../../styles/theme';
 import { Formik, Form } from 'formik';
 import { initialAddress } from '../../../context/Order/initialValues';
 import { addressLabels, addressTypes, weekTimeLabels } from '../../../context/Order/orderKeyof';
-import { AddressProps, DayOfWeek, DayProps } from '../../../context/Order/orderProps';
+import { AddressProps, DayOfWeek, DayProps, FieldType } from '../../../context/Order/orderProps';
 import Input from '../InputField/InputField';
 
 const isFieldRequired = (schema: Yup.ObjectSchema<any>, path: string): boolean => {
@@ -75,16 +72,14 @@ const typeComponentMap = {
 } as const;
 
 interface ModalClientProps<T> {
-  title: string;
   labels: Record<keyof T, string>;
-  types: Record<keyof T, keyof typeof typeComponentMap>;
+  types: Record<keyof T, FieldType>;
   initialValues: T;
   validationSchema: Yup.ObjectSchema<any>;
   onSubmit: (values: T) => void;
 }
 
 const ClientForm = <T extends Record<string, any>>({
-  title,
   labels,
   types,
   initialValues,
@@ -114,13 +109,9 @@ const ClientForm = <T extends Record<string, any>>({
       validateOnBlur={true}
       validateOnChange={false}
     >
-      {({ values }) => {
+      {() => {
         return (
           <Form>
-            <ClientInfoWraper>
-              <SubtitleWraper>
-                <Subtitle>{title}</Subtitle>
-              </SubtitleWraper>
               <DataList>
                 {Object.keys(initialValues).map(key => {
                   const name = String(key as keyof T);
@@ -159,7 +150,6 @@ const ClientForm = <T extends Record<string, any>>({
                   />
                 </SubmitButtonConteiner>
               </DataList>
-            </ClientInfoWraper>
           </Form>
         );
       }}

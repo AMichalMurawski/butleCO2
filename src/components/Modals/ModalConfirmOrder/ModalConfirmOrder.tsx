@@ -1,7 +1,6 @@
 import React from 'react';
 import { useOrder } from '../../../context/Order/OrderContext';
 import {
-  ConfirmOrderWraper,
   InvoiceWraper,
   SegmentWraper,
   Subtitle,
@@ -9,7 +8,6 @@ import {
   TextTitle,
   TextValue,
   Title,
-  TitleWraper,
 } from './ModalConfirmOrder.styled';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
 
@@ -17,10 +15,6 @@ const ModalConfirmOrder: React.FC = () => {
   const { order } = useOrder();
 
   return (
-    <ConfirmOrderWraper>
-      <TitleWraper>
-        <Title>Twoje zamówienie:</Title>
-      </TitleWraper>
       <InvoiceWraper>
         <SegmentWraper>
           <Title>Klient:</Title>
@@ -129,7 +123,6 @@ const ModalConfirmOrder: React.FC = () => {
           </TextLine>
         </SegmentWraper>
       </InvoiceWraper>
-    </ConfirmOrderWraper>
   );
 };
 

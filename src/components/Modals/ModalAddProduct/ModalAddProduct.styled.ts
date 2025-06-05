@@ -6,15 +6,6 @@ export const AddProductWraper = styled.div`
     display: flex;
     flex-direction: column;
 `
-export const TitleWraper = styled.div`
-    padding: 30px;
-    background-color: ${({ theme }) => theme.color.structural};
-    color: ${({theme}) => theme.color.text};
-`
-
-export const Title = styled(H3)`
-    margin: 0;
-`
 
 export const TransactionToggle = styled.div`
     padding: 15px;

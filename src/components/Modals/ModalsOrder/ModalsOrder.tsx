@@ -10,11 +10,11 @@ const ModalsOrder: React.FC = () => {
 
   return (<>
     <ModalConteiner
+      title='Zamawiający:'
       visible={modals.client}
       onExit={() => modalState('client')}
     >
       <ClientForm
-        title="Zamawiający"
         labels={clientLabels}
         types={clientTypes}
         initialValues={order.client}
@@ -27,11 +27,11 @@ const ModalsOrder: React.FC = () => {
       />
     </ModalConteiner>
     <ModalConteiner
+      title="Faktura"
       visible={modals.company}
       onExit={() => modalState('company')}
     >
       <ClientForm
-        title="Faktura"
         labels={companyLabels}
         types={companyTypes}
         initialValues={order.company}
@@ -44,6 +44,7 @@ const ModalsOrder: React.FC = () => {
       />
     </ModalConteiner>
     <ModalConteiner
+      title='Wybierz produkt:'
       visible={modals.products}
       onExit={() => modalState('products')}
     >
@@ -56,6 +57,7 @@ const ModalsOrder: React.FC = () => {
       />
     </ModalConteiner>
     <ModalConteiner
+      title='Twoje zamówienie:'
       visible={modals.confirm}
       onExit={() => modalState('confirm')}
     >

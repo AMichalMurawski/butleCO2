@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { H3 } from '../../../styles/Global.styled';
 
 interface ModalWraperProps {
   $visible?: boolean;
@@ -42,7 +43,20 @@ export const ModalBox = styled.div<ModalBoxProps>`
   transform: translate(-50%, -50%);
   overflow-Y: hidden;
   transition: top ease-in-out 300ms;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
 `;
+
+export const TitleWraper = styled.div`
+    padding: 30px;
+    background-color: ${({ theme }) => theme.color.structural};
+    color: ${({theme}) => theme.color.text};
+`
+
+export const Title = styled(H3)`
+    margin: 0;
+`
 
 export const ExitButtonConteiner = styled.div`
   position: absolute;

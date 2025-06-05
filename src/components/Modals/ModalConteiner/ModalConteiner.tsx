@@ -1,13 +1,11 @@
 import React, { PropsWithChildren, useEffect } from 'react';
-import { ExitButtonConteiner, ModalBox, ModalWraper } from './ModalConteiner.styled';
+import { ExitButtonConteiner, ModalBox, ModalWraper, Title, TitleWraper } from './ModalConteiner.styled';
 import IconSvg from '../../Icons/IconSvg';
 
 interface ModalConteinerProps {
   width?: string;
-  height?: string;
-  color?: string;
-  backgroundColor?: string;
   visible: boolean;
+  title?: string;
   onExit?: () => void;
 }
 
@@ -15,7 +13,8 @@ const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
   children,
   visible,
   onExit,
-  width
+  width,
+  title,
 }) => {
 
   const handleClick = (e: any) => {
@@ -39,9 +38,14 @@ const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
   return (
     <ModalWraper $visible={visible} onClick={handleClick}>
       <ModalBox $width={width} $visible={visible}>
+        {title &&
+          (<TitleWraper>
+            <Title>{title}</Title>
+          </TitleWraper>)
+        }
         {children}
         <ExitButtonConteiner onClick={handleClick}>
-          <IconSvg name="cross" fill="red" onClick={handleClick}/>
+          <IconSvg name="cross" fill="red" onClick={handleClick} />
         </ExitButtonConteiner>
       </ModalBox>
     </ModalWraper>

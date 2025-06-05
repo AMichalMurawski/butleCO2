@@ -1,16 +1,6 @@
 import styled from "styled-components";
 import { H3, H4, P } from "../../../styles/Global.styled";
 
-export const ConfirmOrderWraper = styled.div`
-`
-
-export const TitleWraper = styled.div`
-    width: 100%;
-    padding: 15px;
-    background-color: ${({ theme }) => theme.color.main};
-    color: ${({theme}) => theme.color.text};
-`
-
 export const Title = styled(H3)`
     margin: 0;
 `
