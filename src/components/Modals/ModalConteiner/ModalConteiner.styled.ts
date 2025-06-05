@@ -33,30 +33,38 @@ interface ModalBoxProps {
 
 export const ModalBox = styled.div<ModalBoxProps>`
   position: absolute;
-  top: ${({$visible}) => $visible ? '50%' : '100vh'};
+  top: ${({ $visible }) => ($visible ? '50%' : '100vh')};
   left: 50%;
   width: ${({ $width }) => $width || 'min(600px, 75%)'};
   height: ${({ $height }) => $height || null};
   max-height: ${({ $maxHeight }) => $maxHeight || '90%'};
-  color: ${({$color, theme}) => $color ? $color : theme.color.structural};
-  background-color: ${({$backgroundColor, theme}) => $backgroundColor ? $backgroundColor : theme.color.text};
+  color: ${({ $color, theme }) => ($color ? $color : theme.color.structural)};
+  background-color: ${({ $backgroundColor, theme }) =>
+    $backgroundColor ? $backgroundColor : theme.color.text};
   transform: translate(-50%, -50%);
-  overflow-Y: hidden;
+  // overflow-y: hidden;
   transition: top ease-in-out 300ms;
-  height: 75vh;
+  max-height: 75vh;
   display: flex;
   flex-direction: column;
 `;
 
 export const TitleWraper = styled.div`
-    padding: 30px;
-    background-color: ${({ theme }) => theme.color.structural};
-    color: ${({theme}) => theme.color.text};
-`
+  padding: 30px;
+  background-color: ${({ theme }) => theme.color.structural};
+  color: ${({ theme }) => theme.color.text};
+`;
 
 export const Title = styled(H3)`
-    margin: 0;
-`
+  margin: 0;
+`;
+
+export const ContentsWraper = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+`;
 
 export const ExitButtonConteiner = styled.div`
   position: absolute;

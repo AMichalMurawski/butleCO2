@@ -4,7 +4,7 @@ import WeekList from './WeekList';
 import TextField from './TextField';
 import TextareaField from './TextareaField';
 import CheckboxField from './CheckboxField';
-import { emailMask, nameMask, nipMask, nrLetterMask, phoneMask, postalCodeMask } from '../ClientForm/masks';
+import { emailMask, nameMask, nipMask, nrLetterMask, phoneMask, postalCodeMask } from './masks';
 
 interface InputProps {
   label: string;
@@ -32,8 +32,8 @@ const Input: React.FC<InputProps> = ({ label, name, componentType }) => {
       return <TextField name={name} label={label} maskRegex={nrLetterMask} />;
     case 'postalCode':
       return <TextField name={name} label={label} maskRegex={postalCodeMask} />;
-      case 'nip':
-        return <TextField name={name} label={label} maskRegex={nipMask} />;
+    case 'nip':
+      return <TextField name={name} label={label} maskRegex={nipMask} />;
     default:
       return null;
   }

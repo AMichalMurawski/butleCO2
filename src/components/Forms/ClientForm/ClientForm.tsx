@@ -1,11 +1,5 @@
 import * as Yup from 'yup';
-import {
-  CheckboxValue,
-  DataList,
-  SubmitButtonConteiner,
-  TextareaValue,
-  TextValue,
-} from './ClientForm.styled';
+import { DataList, SubmitButtonConteiner } from './ClientForm.styled';
 import Button from '../../Button/Button';
 import { theme } from '../../../styles/theme';
 import { Formik, Form } from 'formik';
@@ -18,7 +12,7 @@ const isFieldRequired = (schema: Yup.ObjectSchema<any>, path: string): boolean =
   const parts = path.replace(/\[(\d+)\]/g, '.$1').split('.');
   let current: any = schema.describe();
 
-  let isRequired = false
+  let isRequired = false;
 
   for (const part of parts) {
     if (current.type === 'array' && current.innerType) {
@@ -37,8 +31,8 @@ const isFieldRequired = (schema: Yup.ObjectSchema<any>, path: string): boolean =
     }
   }
 
-  return isRequired
-} 
+  return isRequired;
+};
 
 const DaysOfWeekList: DayOfWeek[] = Object.keys(weekTimeLabels) as DayOfWeek[];
 
@@ -64,13 +58,6 @@ const expandDeliveryTime = (selectedDays: DayProps[]) => {
   });
 };
 
-const typeComponentMap = {
-  text: TextValue,
-  textarea: TextareaValue,
-  checkbox: CheckboxValue,
-  weekTime: TextValue,
-} as const;
-
 interface ModalClientProps<T> {
   labels: Record<keyof T, string>;
   types: Record<keyof T, FieldType>;
@@ -89,11 +76,13 @@ const ClientForm = <T extends Record<string, any>>({
   const initialDeliveryTime = initialValues.deliveryTime
     ? expandDeliveryTime(initialValues.deliveryTime)
     : [];
-  
-  const extendedInitialValues = !initialValues.deliveryTime ? initialValues : {
-    ...initialValues,
-    deliveryTime: initialDeliveryTime,
-  };
+
+  const extendedInitialValues = !initialValues.deliveryTime
+    ? initialValues
+    : {
+        ...initialValues,
+        deliveryTime: initialDeliveryTime,
+      };
 
   return (
     <Formik
@@ -107,8 +96,7 @@ const ClientForm = <T extends Record<string, any>>({
           return;
         }
 
-        const filteredDeliveryTime = values.deliveryTime
-          .filter((day: any) => day.enabled);
+        const filteredDeliveryTime = values.deliveryTime.filter((day: any) => day.enabled);
 
         onSubmit({ ...values, deliveryTime: filteredDeliveryTime });
       }}
@@ -118,46 +106,44 @@ const ClientForm = <T extends Record<string, any>>({
     >
       {() => {
         return (
-          <Form>
-              <DataList>
-                {Object.keys(initialValues).map(key => {
-                  const name = String(key as keyof T);
-                  const required = isFieldRequired(validationSchema, name);
-                  const label = required ? labels[name] : `${labels[name]} (opcjonalnie)`;
-                  const type = types[name];
+          <DataList>
+            {Object.keys(initialValues).map(key => {
+              const name = String(key as keyof T);
+              const required = isFieldRequired(validationSchema, name);
+              const label = required ? labels[name] : `${labels[name]} (opcjonalnie)`;
+              const type = types[name];
 
-                  if (key === 'address') {
-                    return Object.keys(initialAddress).map(key2 => {
-                      const name2 = key2 as keyof AddressProps;
-                      const required2 = isFieldRequired(validationSchema, `address.${name2}`);
-                      const label2 = required2 ? addressLabels[name2] : `${addressLabels[name2]} (opcjonalnie)`;
-                      const type2 = addressTypes[name2];
-
-                      return (
-                        <Input
-                          key={`address.${name2}`}
-                          name={`address.${name2}`}
-                          label={label2}
-                          componentType={type2}
-                        />
-                      );
-                    });
-                  }
+              if (key === 'address') {
+                return Object.keys(initialAddress).map(key2 => {
+                  const name2 = key2 as keyof AddressProps;
+                  const required2 = isFieldRequired(validationSchema, `address.${name2}`);
+                  const label2 = required2
+                    ? addressLabels[name2]
+                    : `${addressLabels[name2]} (opcjonalnie)`;
+                  const type2 = addressTypes[name2];
 
                   return (
-                    <Input key={`${name}`} name={`${name}`} label={label} componentType={type} />
+                    <Input
+                      key={`address.${name2}`}
+                      name={`address.${name2}`}
+                      label={label2}
+                      componentType={type2}
+                    />
                   );
-                })}
-                <SubmitButtonConteiner>
-                  <Button
-                    type="submit"
-                    text="Zatwierdź"
-                    color={theme.color.structural}
-                    background={theme.color.remarkable}
-                  />
-                </SubmitButtonConteiner>
-              </DataList>
-          </Form>
+                });
+              }
+
+              return <Input key={`${name}`} name={`${name}`} label={label} componentType={type} />;
+            })}
+            <SubmitButtonConteiner>
+              <Button
+                type="submit"
+                text="Zatwierdź"
+                color={theme.color.structural}
+                background={theme.color.remarkable}
+              />
+            </SubmitButtonConteiner>
+          </DataList>
         );
       }}
     </Formik>
