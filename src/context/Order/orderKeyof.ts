@@ -21,11 +21,11 @@ export const addressLabels: Record<keyof AddressProps, string> = {
 };
 
 export const addressTypes: Record<keyof AddressProps, FieldType> = {
-  street: 'text',
-  number: 'text',
-  local: 'text',
-  postalCode: 'postalcode',
-  city: 'text',
+  street: 'name',
+  number: 'nrLetter',
+  local: 'nrLetter',
+  postalCode: 'postalCode',
+  city: 'name',
 };
 
 // >>>>>> CLIENT <<<<<<
@@ -43,7 +43,7 @@ export const clientLabels: Record<keyof ClientProps, string> = {
 export const clientTypes: Record<keyof ClientProps, FieldType> = {
   name: 'text',
   phone: 'phone',
-  email: 'text',
+  email: 'email',
   address: 'text',
   deliveryTime: 'weekTime',
   message: 'textarea',
@@ -61,5 +61,5 @@ export const companyLabels: Record<keyof CompanyProps, string> = {
 export const companyTypes: Record<keyof CompanyProps, FieldType> = {
   name: 'text',
   address: 'text',
-  NIP: 'text',
+  NIP: 'nip',
 };

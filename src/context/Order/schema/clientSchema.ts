@@ -24,13 +24,15 @@ const deliveryTimeSchema = Yup.array()
   );
 
 export const clientSchema = Yup.object({
-    name: Yup.string().min(2, 'Min 2 znaki').required(requiredField),
-    address: addressSchema,
-    phone: Yup.string().matches(/^(\d{2}-\d{3}-\d{2}-\d{2}|\d{3}-\d{3}-\d{3})$/, 'Numer telefonu w formacie 00-000-00-00 lub 000-000-000').required(requiredField),
-    email: Yup.string().email('Niepoprawny adres email').required(requiredField),
-    message: Yup.string().max(150, 'Max 150 znaków').notRequired(),
-    invoice: Yup.boolean(),
-    deliveryTime: deliveryTimeSchema,
+  name: Yup.string().min(2, 'Min 2 znaki').required(requiredField),
+  address: addressSchema,
+  phone: Yup.string().matches(/^(\d{2}-\d{3}-\d{2}-\d{2}|\d{3}-\d{3}-\d{3})$/, 'Numer telefonu w formacie 00-000-00-00 lub 000-000-000').required(requiredField),
+  email: Yup.string()
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Niepoprawny adres email')
+    .required(requiredField),
+  message: Yup.string().max(150, 'Max 150 znaków').notRequired(),
+  invoice: Yup.boolean(),
+  deliveryTime: deliveryTimeSchema,
 });
 
 export const validateClientSchema = Yup.object().test(

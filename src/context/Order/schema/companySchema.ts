@@ -3,9 +3,12 @@ import { requiredField } from './utils';
 import { addressSchema, hasAddress } from './';
 
 export const companySchema = Yup.object({
-    name: Yup.string().min(2, 'Min 2 znaki').required(requiredField),
-    address: addressSchema,
-    NIP: Yup.string().matches(/^\d{10}$/, '10 cyfr').required(requiredField),
+  name: Yup.string().min(2, 'Min 2 znaki').required(requiredField),
+  address: addressSchema,
+  NIP: Yup.string().matches(/^\d{10}$/, '10 cyfr')
+    .transform(value => (value ? value.replace(/\D/g, '') : ''))
+    .matches(/^\d{10}$/, 'NIP musi mieć dokładnie 10 cyfr')
+    .required(requiredField),
 });
 
 export const companySchemaOptional = Yup.object({
@@ -37,7 +40,9 @@ export const validateCompanySchema = Yup.mixed().test(
 
       const hasName = typeof name === 'string' && name.length >= 2;
       const hasValidAddress = address && hasAddress(address); // użyj tej samej funkcji co dla client.address
-      const hasValidNIP = typeof NIP === 'string' && /^\d{10}$/.test(NIP);
+      const hasValidNIP =
+        typeof NIP === 'string' &&
+        /^\d{10}$/.test(NIP.replace(/\D/g, ''));
 
       return hasName && hasValidAddress && hasValidNIP;
     } else {
