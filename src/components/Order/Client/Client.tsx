@@ -74,6 +74,7 @@ const Client: React.FC<ModalClientProps<any>> = ({
           );
         }
 
+
         return (
           <DataWraper key={key}>
             <DataName $width={labelWidth}>{label}:</DataName>

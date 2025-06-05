@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { H3, P } from "../../../styles/Global.styled";
+import { P } from "../../../styles/Global.styled";
 
 export const AddProductWraper = styled.div`
-    height: 75vh;
+    height: auto;
     display: flex;
     flex-direction: column;
 `
@@ -21,9 +21,11 @@ export const ProductsList = styled.div`
     display: flex;
     flex-wrap: wrap;
     height: 100%;
+    max-height: calc(100% - 390px);
     gap: 30px;
     justify-content: center;
     overflow-y: scroll;
+    overflow-x: hidden;
 `
 
 export const ProductWraper = styled.div`

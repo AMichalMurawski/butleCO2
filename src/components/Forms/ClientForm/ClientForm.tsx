@@ -89,8 +89,8 @@ const ClientForm = <T extends Record<string, any>>({
   const initialDeliveryTime = initialValues.deliveryTime
     ? expandDeliveryTime(initialValues.deliveryTime)
     : [];
-
-  const extendedInitialValues = {
+  
+  const extendedInitialValues = !initialValues.deliveryTime ? initialValues : {
     ...initialValues,
     deliveryTime: initialDeliveryTime,
   };
@@ -100,6 +100,13 @@ const ClientForm = <T extends Record<string, any>>({
       initialValues={extendedInitialValues}
       validationSchema={validationSchema}
       onSubmit={values => {
+        console.log('values', values);
+
+        if (!values.deliveryTime) {
+          onSubmit(values);
+          return;
+        }
+
         const filteredDeliveryTime = values.deliveryTime
           .filter((day: any) => day.enabled);
 

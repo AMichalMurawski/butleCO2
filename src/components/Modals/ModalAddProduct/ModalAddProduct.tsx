@@ -22,7 +22,7 @@ const ModalAddProduct: React.FC<ModalAddProductProps> = ({ onSubmit }) => {
     const price = unitPrice;
 
     const product = { ...initialOrderProduct, ...value, ...{ transaction, unitPrice, price } }
-    console.log(product);
+    
     onSubmit(product);
   };
 

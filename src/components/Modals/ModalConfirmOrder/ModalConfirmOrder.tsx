@@ -93,10 +93,10 @@ const ModalConfirmOrder: React.FC = () => {
             );
           })}
           <Subtitle>zakup:</Subtitle>
-          {order.products.map(product => {
-            if (product.transaction !== true) return <></>;
+          {order.products.map((product, index) => {
+            if (product.transaction !== true) return null;
             return (
-              <TextLine>
+              <TextLine key={index}>
                 <TextTitle>
                   {product.type} - {product.weight ? `${product.weight} kg` : `${product.litr} l`}:
                 </TextTitle>
