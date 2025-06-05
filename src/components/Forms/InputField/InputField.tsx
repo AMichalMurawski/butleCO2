@@ -4,6 +4,8 @@ import WeekList from './WeekList';
 import TextField from './TextField';
 import TextareaField from './TextareaField';
 import CheckboxField from './CheckboxField';
+import PhoneField from './PhoneField';
+import PostalCodeField from './PostalCodeField';
 
 interface InputProps {
   label: string;
@@ -21,6 +23,10 @@ const Input: React.FC<InputProps> = ({ label, name, componentType }) => {
       return <CheckboxField name={name} label={label} />;
     case 'weekTime':
       return <WeekList name={name} label={label} />;
+    case 'phone':
+      return <PhoneField name={name} label={label} />;
+      case 'postalcode':
+        return <PostalCodeField name={name} label={label} />;
     default:
       return null;
   }

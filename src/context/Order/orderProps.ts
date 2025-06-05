@@ -1,4 +1,4 @@
-export type FieldType = 'text' | 'textarea' | 'checkbox' | 'weekTime';
+export type FieldType = 'text' | 'textarea' | 'checkbox' | 'weekTime' | 'phone' | 'postalcode';
 
 export interface AddressProps {
   street: string;
