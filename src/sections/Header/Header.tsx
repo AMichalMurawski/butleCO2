@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
 import Button from '../../components/Button/Button';
-import { useIdSection } from '../../providers/IdSectionProvider';
+import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const navbarList = [
   ['O firmie', '/#about'],

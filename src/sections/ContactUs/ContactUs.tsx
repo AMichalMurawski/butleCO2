@@ -12,7 +12,7 @@ import {
   WorkHours,
   WorkHoursConteiner,
 } from './ContactUs.styled';
-import ContactForm from '../../components/ContactForm/ContactForm';
+import { ContactForm } from '../../components';
 
 const ContactUs: React.FC = () => {
   return (

@@ -17,7 +17,6 @@ const Button: React.FC<ButtonProps> = ({
   active = false,
   color,
   background = 'transparent',
-  idSection = '',
   onClick,
   type = 'button',
 }) => {
@@ -29,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
       $background={background}
       $color={color || theme.color.text}
       onClick={onClick}
+      type={type}
     >
       {text}
     </ButtonWraper>

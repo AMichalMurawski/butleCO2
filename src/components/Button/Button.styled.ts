@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ButtonWraper {
-  $active: true | false;
+  $active: boolean;
   $color: string;
   $background: string
 }
