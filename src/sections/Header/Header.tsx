@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
-import { Button } from '../../components';
+import { Button, LogoIcon } from '../../components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const navbarList = [
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   return (
     <HeaderWraper>
       <HeaderBox>
-        <LogoWraper>Logo</LogoWraper>
+        <LogoWraper><LogoIcon dimension='100%'/></LogoWraper>
         <NavbarWraper>
           {navbarList.map(option => (
             <Button

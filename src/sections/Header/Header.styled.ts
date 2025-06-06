@@ -34,5 +34,6 @@ export const LogoWraper = styled.div`
   left: 30px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: blue;
+  width: 60px;
+  height: 60px;
 `;
