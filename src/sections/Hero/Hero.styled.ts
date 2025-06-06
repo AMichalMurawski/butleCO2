@@ -1,6 +1,5 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Section } from '../../styles/Global.styled';
-import heroImage from '/images/fk7rx5fk7rx5fk7r.jpg';
 
 export const HeroSection = styled(Section)`
   position: relative;
@@ -10,13 +9,66 @@ export const HeroSection = styled(Section)`
   padding-inline: 0;
 `;
 
-export const Image = styled.div`
+export const ImagesRollWraper = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
-  background-image: url(${heroImage});
+  overflow: hidden;
+`
+
+const generateRollAnimation = (count: number) => {
+  const step = 100 / count;
+  const stepWait = step * 0.9;
+  const stepMove = step * 0.1; 
+  const stepTranslate: number = 100 / (count + 1);
+  
+  let keyframeString = `0% { transform: translateX(0); }`;
+
+  let stepPercent: number = 0;
+  let stepX: number = 0
+
+  for (let i = 0; i < count; i++) {
+    stepPercent += stepWait;
+    keyframeString += `
+      ${stepPercent}% { transform: translateX(-${stepX}%); }
+    `;
+    
+    stepPercent += stepMove;
+    stepX += stepTranslate;
+    keyframeString += `
+      ${stepPercent}% { transform: translateX(-${stepX}%); }
+    `;
+  }
+
+  return keyframes`${keyframeString}`;
+};
+
+interface ImagesRollProps {
+  $imagesCount: number;
+};
+
+export const ImagesRoll = styled.div<ImagesRollProps>`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: ${({ $imagesCount }) => `${($imagesCount + 1) * 100}%`};
+  display: flex;
+  flex-direction: row;
+  animation: 20s ${({ $imagesCount }) => generateRollAnimation($imagesCount)} linear infinite;
+`;
+
+interface ImageBgProps {
+  $url: string;
+};
+
+export const ImageBg = styled.div<ImageBgProps>`
+  width: 100%;
+  height: 100%;
+  background-image: url(${({ $url }) => $url || ''});
   background-size: cover;
   background-position: center;
-  filter: brightness(50%);
+  filter: brightness(60%);
 `;
 
 export const Sentence = styled.div`
