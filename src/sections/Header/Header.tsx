@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
-import Button from '../../components/Button/Button';
+import { Button } from '../../components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const navbarList = [

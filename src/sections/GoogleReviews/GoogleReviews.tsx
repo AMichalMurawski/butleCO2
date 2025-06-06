@@ -6,9 +6,7 @@ const GoogleReviews: React.FC = () => {
         const script = document.createElement("script");
         script.src = "https://static.elfsight.com/platform/platform.js";
         script.async = true;
-        script.onload = () => {
-        // Skrypt został załadowany
-        };
+        script.onload = () => {};
         document.body.appendChild(script);
     })
 

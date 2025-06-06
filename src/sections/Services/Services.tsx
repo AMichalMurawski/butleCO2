@@ -9,7 +9,7 @@ import {
   ServiceWraper,
   Title,
 } from './Services.styled';
-import Button from '../../components/Button/Button';
+import { Button } from '../../components';
 import { theme } from '../../styles/theme';
 
 const servList = [

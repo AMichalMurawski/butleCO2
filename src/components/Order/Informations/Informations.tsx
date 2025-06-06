@@ -1,27 +1,24 @@
 import React from 'react';
-import { Informations, InformationsWraper, Reference } from './Informations.styled';
+import { InformationsValue, InformationsWraper, Reference } from './Informations.styled';
 
-const OrderForm: React.FC = () => {
-  const handleSubmit = () => {
-    window.alert('Zamówienie złożone');
-  };
+const Informations: React.FC = () => {
 
   return (
     <InformationsWraper>
       <Reference>
-        <Informations $reference={1}>
+        <InformationsValue $reference={1}>
           Całkowity koszt zamówienia zawiera w sobie opłatę przewozową w wysokości 20 zł.<br />Minimalna wartość zamówienia wynosi 100 zł + opłata przewozowa.
-        </Informations>
+        </InformationsValue>
       </Reference>
-      <Informations>
+      <InformationsValue>
         Do ceny mogą być doliczone koszta za dostawę poza rejonem, jak również rabaty dla stałych
         klientów lub dużych zamówień.
-      </Informations>
-      <Informations>
+      </InformationsValue>
+      <InformationsValue>
         Ostateczna cena zostanie przesłana drogą mailową wraz z potwierdzeniem zamówienia.
-      </Informations>
+      </InformationsValue>
     </InformationsWraper>
   );
 };
 
-export default OrderForm;
+export default Informations;

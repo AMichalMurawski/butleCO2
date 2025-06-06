@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { P } from '../../../styles/Global.styled';
 
 interface DataWraperProps {
   $flexDirection?: 'column' | 'row' | 'column-reverse' | 'row-reverse';

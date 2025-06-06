@@ -10,7 +10,7 @@ import {
   ValueConteiner,
 } from './InputField.styled';
 import { ErrorMessage, useField, useFormikContext } from 'formik';
-import IconSvg from '../../Icons/IconSvg';
+import { IconSvg } from '../../';
 import { useTheme } from 'styled-components';
 
 interface CheckboxFieldProps {

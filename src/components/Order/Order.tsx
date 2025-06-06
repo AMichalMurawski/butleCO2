@@ -1,13 +1,14 @@
 import React from 'react';
 import { ClientInvoiceWraper, InvoiceWraper, SubmitButtonWraper } from './Order.styled';
 import { clientLabels, companyLabels } from '../../context/Order/orderKeyof';
-import { theme } from '../../styles/theme';
 import { Client, Header, Informations, ProductsList } from './';
 import { Button, } from '../';
 import { useOrder } from '../../context/Order/OrderContext';
+import { useTheme } from 'styled-components';
 
 const Order: React.FC = () => {
   const { order, confirmOrder, modalState } = useOrder();
+  const theme = useTheme();
 
   return (
     <InvoiceWraper>

@@ -12,8 +12,7 @@ import {
   TextBlock,
   Title,
 } from './About.styled';
-import IconSvg from '../../components/Icons/IconSvg';
-import Button from '../../components/Button/Button';
+import { Button, IconSvg } from '../../components';
 import { useTheme } from 'styled-components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 

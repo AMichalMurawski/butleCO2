@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, useField, useFormikContext } from 'formik';
+import { useField } from 'formik';
 import { Label, TimeInput } from './InputField.styled';
 
 interface TimeFieldProps {

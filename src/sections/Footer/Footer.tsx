@@ -1,6 +1,5 @@
 import React from 'react';
 import { DataBox, DataWraper, FooterConteiner, FooterWraper, Link, PrivacyPolicy, Subtitle, Text } from './Footer.styled';
-import { P } from '../../styles/Global.styled';
 
 const Footer: React.FC = () => {
   return <FooterWraper>
