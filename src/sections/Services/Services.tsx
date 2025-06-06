@@ -22,7 +22,7 @@ const servList = [
   [
     '/images/k9h6djkr9gd5nie5.jpg',
     'Butle do saturatorów wody',
-    'Oferujemy wymianę lub napełnianie butli do saturatorów wody - ciesz się świeżą wodą gazowaną w domu lub biurze!',
+    'Oferujemy wymianę lub napełnianie butli do saturatorów wody - ciesz się świeżą wodą gazowaną w domu lub biurze! U nas 20 zł za wymianę butli 425g i program lojalnościowy co dziesiąta wymiana butli gratis.',
     'Sprawdź asortyment',
   ],
   [
