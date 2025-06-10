@@ -9,6 +9,7 @@ export const HeaderWraper = styled.header`
   display: flex;
   justify-content: center;
   z-index: 10;
+  background-color: #1f2a38aa;
 `;
 
 export const HeaderBox = styled.div`
@@ -21,7 +22,6 @@ export const HeaderBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1f2a38aa;
 `;
 
 export const NavbarWraper = styled.nav`
