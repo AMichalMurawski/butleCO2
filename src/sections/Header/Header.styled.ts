@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { P } from '../../styles/Global.styled';
 
 export const HeaderWraper = styled.header`
   position: fixed;
@@ -11,12 +12,14 @@ export const HeaderWraper = styled.header`
 `;
 
 export const HeaderBox = styled.div`
+  height: 120px;
   position: relative;
-  padding: 30px;
+  padding: 25px;
   max-width: 1280px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: #1f2a38aa;
 `;
 
 export const NavbarWraper = styled.nav`
@@ -25,15 +28,41 @@ export const NavbarWraper = styled.nav`
   display: flex;
   flex-direction: row;
   gap: 30px;
-  background-color: #1f2a38aa;
   border-radius: 100px;
 `;
 
 export const LogoWraper = styled.div`
-  position: absolute;
-  left: 30px;
-  top: 50%;
-  transform: translateY(-50%);
   width: 60px;
   height: 60px;
+`;
+
+export const ContactsWraper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+`;
+
+export const Link = styled.a`
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+`;
+
+export const IconWraper = styled.div`
+  width: 16px;
+  height: 16px;
+  translate: 0 -3px;
+`;
+
+export const LinkText = styled(P)`
+  &:hover {
+    text-shadow: 0 0 5px cyan;
+    border-bottom: 1px solid cyan;
+    cursor: pointer;
+  }
 `;
