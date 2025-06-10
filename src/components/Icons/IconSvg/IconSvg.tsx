@@ -22,8 +22,7 @@ const IconSvg: React.FC<IconProps> = ({ name, size = '100%', fill, onClick }) =>
       $fill={fill || theme.color.hightlight}
       onClick={onClick}
     >
-      <use xlinkHref={`/icons.svg#icon-${name}`} 
-      onClick={onClick}/>
+      <use xlinkHref={`/icons.svg#icon-${name}`} onClick={onClick} />
     </Svg>
   );
 };
