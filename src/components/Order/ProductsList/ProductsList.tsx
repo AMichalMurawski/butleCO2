@@ -16,10 +16,10 @@ import {
   TableHeaderCell,
   TableRow,
 } from './ProductsList.styled';
-import IconSvg from '../../Icons/IconSvg';
-import { theme } from '../../../styles/theme';
+import { IconSvg } from '../../';
 import { useOrder } from '../../../context/Order/OrderContext';
 import AmountCounter from './AmountCounter';
+import { useTheme } from 'styled-components';
 
 const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
 
@@ -29,6 +29,7 @@ interface FormProductsProps {
 
 const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
   const { deleteProduct, order, productAmountChange } = useOrder();  
+  const theme = useTheme();
 
   const handleAmountChange = (newAmount: number, index: number) => {
     const products = [...order.products];

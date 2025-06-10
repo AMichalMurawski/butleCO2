@@ -9,7 +9,7 @@ import {
   Title,
   WhyChooseUsSection,
 } from './WhyChooseUs.styled';
-import IconSvg from '../../components/Icons/IconSvg';
+import { IconSvg } from '../../components';
 import { theme } from '../../styles/theme';
 
 const whyWeList = [

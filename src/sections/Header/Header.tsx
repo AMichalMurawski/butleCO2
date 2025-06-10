@@ -1,6 +1,15 @@
 import React from 'react';
-import { HeaderBox, HeaderWraper, LogoWraper, NavbarWraper } from './Header.styled';
-import Button from '../../components/Button/Button';
+import {
+  ContactsWraper,
+  HeaderBox,
+  HeaderWraper,
+  IconWraper,
+  Link,
+  LinkText,
+  LogoWraper,
+  NavbarWraper,
+} from './Header.styled';
+import { Button, IconSvg, LogoIcon } from '../../components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const navbarList = [
@@ -18,7 +27,9 @@ const Header: React.FC = () => {
   return (
     <HeaderWraper>
       <HeaderBox>
-        <LogoWraper>Logo</LogoWraper>
+        <LogoWraper onClick={() => scrollToSection('/#hero')}>
+          <LogoIcon dimension="100%" />
+        </LogoWraper>
         <NavbarWraper>
           {navbarList.map(option => (
             <Button
@@ -31,6 +42,20 @@ const Header: React.FC = () => {
             />
           ))}
         </NavbarWraper>
+        <ContactsWraper>
+          <Link href="tel:(+48)500612755">
+            <IconWraper>
+              <IconSvg name="phone" />
+            </IconWraper>
+            <LinkText>(+48) 500 612 755</LinkText>
+          </Link>
+          <Link href="mailto:biuro@butleco2.pl">
+            <IconWraper>
+              <IconSvg name="mail" />
+            </IconWraper>
+            <LinkText>biuro@butleco2.pl</LinkText>
+          </Link>
+        </ContactsWraper>
       </HeaderBox>
     </HeaderWraper>
   );

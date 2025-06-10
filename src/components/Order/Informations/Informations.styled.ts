@@ -13,7 +13,7 @@ interface InformationsProps {
   $reference?: number;
 }
 
-export const Informations = styled(P) <InformationsProps>`
+export const InformationsValue = styled(P) <InformationsProps>`
   position: relative;
   padding-left: ${({$reference}) => $reference ? `${$reference * 6 + 5}px` : 0 };
   &:not(:first-of-type) {

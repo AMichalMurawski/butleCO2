@@ -10,7 +10,7 @@ import {
 import IconEdit from './IconEdit';
 import { clientAddress } from './clientAddress';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
-import { DayOfWeek, DayProps } from '../../../context/Order/orderProps';
+import { DayProps } from '../../../context/Order/orderProps';
 
 interface ModalClientProps<T> {
   title: string;

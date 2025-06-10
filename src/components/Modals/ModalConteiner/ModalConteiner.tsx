@@ -7,7 +7,7 @@ import {
   Title,
   TitleWraper,
 } from './ModalConteiner.styled';
-import IconSvg from '../../Icons/IconSvg';
+import { IconSvg } from '../../';
 
 interface ModalConteinerProps {
   width?: string;

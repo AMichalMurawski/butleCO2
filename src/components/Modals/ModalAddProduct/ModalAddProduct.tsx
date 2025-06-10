@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { OrderProductProps, ProductProps } from '../../../context/Order/orderProps';
 import { productsList } from './productsList';
-import IconSvg from '../../Icons/IconSvg';
+import { Button, IconSvg } from '../../';
 import {
   Description,
   DescriptionWraper,
@@ -13,7 +13,6 @@ import {
 import { useTheme } from 'styled-components';
 import { useOrder } from '../../../context/Order/OrderContext';
 import { initialOrderProduct } from '../../../context/Order/initialValues';
-import Button from '../../Button/Button';
 
 interface ModalAddProductProps {
   onSubmit: (values: OrderProductProps) => void;

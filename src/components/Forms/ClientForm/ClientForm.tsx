@@ -1,12 +1,12 @@
 import * as Yup from 'yup';
 import { DataList, SubmitButtonConteiner } from './ClientForm.styled';
-import Button from '../../Button/Button';
-import { theme } from '../../../styles/theme';
-import { Formik, Form } from 'formik';
+import { Button } from '../../';
+import { Formik } from 'formik';
 import { initialAddress } from '../../../context/Order/initialValues';
 import { addressLabels, addressTypes, weekTimeLabels } from '../../../context/Order/orderKeyof';
 import { AddressProps, DayOfWeek, DayProps, FieldType } from '../../../context/Order/orderProps';
 import Input from '../InputField/InputField';
+import { useTheme } from 'styled-components';
 
 const isFieldRequired = (schema: Yup.ObjectSchema<any>, path: string): boolean => {
   const parts = path.replace(/\[(\d+)\]/g, '.$1').split('.');
@@ -73,6 +73,7 @@ const ClientForm = <T extends Record<string, any>>({
   onSubmit,
   validationSchema,
 }: ModalClientProps<T>) => {
+  const theme = useTheme();
   const initialDeliveryTime = initialValues.deliveryTime
     ? expandDeliveryTime(initialValues.deliveryTime)
     : [];
