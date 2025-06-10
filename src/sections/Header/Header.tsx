@@ -27,7 +27,7 @@ const Header: React.FC = () => {
   return (
     <HeaderWraper>
       <HeaderBox>
-        <LogoWraper>
+        <LogoWraper onClick={() => scrollToSection('/#hero')}>
           <LogoIcon dimension="100%" />
         </LogoWraper>
         <NavbarWraper>

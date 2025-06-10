@@ -31,9 +31,13 @@ export const NavbarWraper = styled.nav`
   border-radius: 100px;
 `;
 
-export const LogoWraper = styled.div`
+export const LogoWraper = styled.button`
   width: 60px;
   height: 60px;
+  background-color: transparent;
+  border: none;
+  border-radius: 1000px;
+  cursor: pointer;
 `;
 
 export const ContactsWraper = styled.div`
@@ -51,18 +55,19 @@ export const Link = styled.a`
   align-items: center;
   color: inherit;
   text-decoration: none;
-`;
 
-export const IconWraper = styled.div`
-  width: 16px;
-  height: 16px;
-  translate: 0 -3px;
-`;
-
-export const LinkText = styled(P)`
-  &:hover {
+  &:hover p {
     text-shadow: 0 0 5px cyan;
     border-bottom: 1px solid cyan;
     cursor: pointer;
   }
 `;
+
+export const IconWraper = styled.div`
+  width: 24px;
+  height: 24px;
+  translate: 0 -3px;
+  border-radius: 1000px;
+`;
+
+export const LinkText = styled(P)``;
