@@ -13,12 +13,14 @@ export const HeaderWraper = styled.header`
 
 export const HeaderBox = styled.div`
   height: 120px;
+  width: 100%;
   position: relative;
-  padding: 25px;
+  padding-inline: 25px;
   max-width: 1280px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #1f2a38aa;
 `;
 
