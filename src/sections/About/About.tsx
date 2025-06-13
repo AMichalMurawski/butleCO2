@@ -15,15 +15,7 @@ import {
 import { Button, IconSvg } from '../../components';
 import { useTheme } from 'styled-components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
-
-const advantagesIcons = [
-  ['clock', 'Szybka Dostawa'],
-  ['stats-dots', 'Duże Doświadczenie'],
-  ['coin-dollar', 'Niska Cena'],
-  ['user-check', 'Godne Zaufanie'],
-  ['bubbles', 'Wykwalifikowana Obsługa'],
-  ['checkmark', 'Pewne Bezpieczeństwo'],
-];
+import { advantages } from '../../utils';
 
 const About: React.FC = () => {
   const theme = useTheme();
@@ -49,7 +41,7 @@ const About: React.FC = () => {
       </TextBlock>
       <ContentBlock>
         <AdvantagesList>
-          {advantagesIcons.map(advantage => (
+          {advantages.map(advantage => (
             <Advanatage key={advantage[1]}>
               <IconWraper>
                 <IconSvg name={advantage[0]} />
