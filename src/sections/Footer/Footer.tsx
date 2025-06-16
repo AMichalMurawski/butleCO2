@@ -13,8 +13,11 @@ import {
   Text,
 } from './Footer.styled';
 import { IconSvg } from '../../components';
+import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const Footer: React.FC = () => {
+  const { scrollToSection } = useIdSection();
+
   return (
     <FooterWraper>
       <FooterConteiner>
@@ -51,16 +54,16 @@ const Footer: React.FC = () => {
           <DataBox>
             <Subtitle>Polityka i regulamin:</Subtitle>
             <Text>
-              <Link>Polityka prywatności</Link>
+              <Link href="/privacy-policy">Polityka prywatności</Link>
             </Text>
             <Text>
-              <Link>Regulamin</Link>
+              <Link href="/terms-of-service">Regulamin</Link>
             </Text>
             <Text>
-              <Link>Zasady ochrony danych</Link>
+              <Link href="data-protection-policy">Zasady ochrony danych</Link>
             </Text>
             <Text>
-              <Link>FAQ</Link>
+              <Link href="faq">FAQ</Link>
             </Text>
           </DataBox>
         </DataWraper>
