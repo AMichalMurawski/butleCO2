@@ -50,6 +50,7 @@ export const ContactsWraper = styled.div`
 `;
 
 export const Link = styled.a`
+  position: relative;
   width: max-content;
   display: flex;
   flex-direction: row;
@@ -60,16 +61,29 @@ export const Link = styled.a`
 
   &:hover p {
     text-shadow: 0 0 5px cyan;
-    border-bottom: 1px solid cyan;
+    // border-bottom: 1px solid cyan;
     cursor: pointer;
+
+    &::before {
+      border-bottom: 1px solid cyan;
+    }
   }
 `;
 
 export const IconWraper = styled.div`
-  width: 24px;
-  height: 24px;
-  translate: 0 -3px;
+  width: 16px;
+  height: 16px;
+  translate: 0 -2px;
   border-radius: 1000px;
 `;
 
-export const LinkText = styled(P)``;
+export const LinkText = styled(P)`
+  position: relative;
+
+  &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+`;
