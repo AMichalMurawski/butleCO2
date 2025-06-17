@@ -9,7 +9,7 @@ import {
   PrivacyPolicy,
 } from './Footer.styled';
 import { IconSvg } from '../../components';
-import { H4, IconLink, Link, P } from '../../styles/Global.styled';
+import { H4, Link, P } from '../../styles/Global.styled';
 
 const Footer: React.FC = () => {
   return (
@@ -33,16 +33,12 @@ const Footer: React.FC = () => {
             </P>
             <P>Śledź nas:</P>
             <MediaBox>
-              <IconLink href="http://facebook.com">
-                <IconWraper>
-                  <IconSvg name="facebook" />
-                </IconWraper>
-              </IconLink>
-              <IconLink href="http://instagram.com">
-                <IconWraper>
-                  <IconSvg name="instagram" />
-                </IconWraper>
-              </IconLink>
+              <IconWraper href="http://facebook.com">
+                <IconSvg name="facebook" />
+              </IconWraper>
+              <IconWraper href="http://instagram.com">
+                <IconSvg name="instagram" />
+              </IconWraper>
             </MediaBox>
           </DataBox>
           <DataBox>
@@ -62,9 +58,13 @@ const Footer: React.FC = () => {
           </DataBox>
         </DataWraper>
         <PrivacyPolicy>
-          <P>© 2025 ButleCO2.pl - Twój partner w dostawach CO2.</P>
-          <P>Wszystkie prawa zastrzeżone.</P>
-          <P>Projekt i realizacja strony: Michał Murawski</P>
+          <DataBox>
+            <P $textAlign="left">© 2025 ButleCO2.pl - Twój partner w dostawach CO2.</P>
+            <P $textAlign="left">Wszystkie prawa zastrzeżone.</P>
+          </DataBox>
+          <DataBox>
+            <P $textAlign="right">Projekt i realizacja strony: Michał Murawski</P>
+          </DataBox>
         </PrivacyPolicy>
       </FooterConteiner>
     </FooterWraper>

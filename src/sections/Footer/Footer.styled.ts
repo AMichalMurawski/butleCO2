@@ -1,24 +1,15 @@
 import styled from 'styled-components';
+import { IconLink } from '../../styles/Global.styled';
 
 export const FooterWraper = styled.footer`
   margin-top: auto;
-  background-color: ${({ theme }) => theme.color.structural};
+  background-color: ${({ theme }) => theme.color.structuralTrans};
 `;
 
 export const FooterConteiner = styled.div`
   max-width: 1280px;
   margin-inline: auto;
   padding: 30px;
-`;
-
-export const PrivacyPolicy = styled.div`
-  margin-top: 30px;
-
-  & * {
-    font-style: italic;
-    font-size: 14px;
-    text-align: right;
-  }
 `;
 
 export const DataWraper = styled.div`
@@ -39,7 +30,7 @@ export const MediaBox = styled.div`
   gap: 10px;
 `;
 
-export const IconWraper = styled.div`
+export const IconWraper = styled(IconLink)`
   box-sizing: border-box;
   width: 24px;
   height: 24px;
@@ -58,5 +49,20 @@ export const IconWraper = styled.div`
     & svg {
       fill: ${({ theme }) => theme.color.structural};
     }
+  }
+`;
+
+export const PrivacyPolicy = styled.div`
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & * {
+    color: ${({ theme }) => theme.color.textTrans};
+    width: max-content;
+    margin-top: auto;
+    font-style: italic;
+    font-size: 14px;
   }
 `;
