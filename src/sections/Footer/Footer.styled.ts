@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H3, H4, P } from '../../styles/Global.styled';
+import { H4, P } from '../../styles/Global.styled';
 
 export const FooterWraper = styled.footer`
   margin-top: auto;
@@ -38,17 +38,38 @@ export const DataBox = styled.div`
 
 export const Subtitle = styled(H4)``;
 
-export const Text = styled(P)``;
+export const Text = styled(P)`
+  & a {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 0;
+      height: 100%;
+      border-bottom: 1px solid cyan;
+      transform: translate(-50%, 0);
+      transition: width 300ms ease;
+    }
+
+    &:hover {
+      text-shadow: 0 0 5px cyan;
+      cursor: pointer;
+
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+`;
 
 export const Link = styled.a`
+  position: relative;
   color: inherit;
   text-decoration: none;
+  transition: text-shadow 300ms ease;
 
-  &:hover {
-    text-shadow: 0 0 5px cyan;
-    border-bottom: 1px solid cyan;
-    cursor: pointer;
-  }
+  
 `;
 
 export const MediaBox = styled.div`
@@ -64,7 +85,7 @@ export const IconWraper = styled.div`
   height: 24px;
   border-radius: 1000px;
   padding: 4px;
-  transition: background-color; 300ms ease;
+  transition: background-color 300ms ease;
 
   & svg {
     translate: 0 -2px;

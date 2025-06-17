@@ -18,7 +18,6 @@ const navbarList = [
   ['Kontakt', '/#contactUs'],
   ['Oferta', '/#services'],
   ['Zamówienia', '/orders'],
-  ['Template', '/template'],
 ];
 
 const Header: React.FC = () => {

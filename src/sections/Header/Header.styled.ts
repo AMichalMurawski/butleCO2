@@ -58,14 +58,14 @@ export const Link = styled.a`
   align-items: center;
   color: inherit;
   text-decoration: none;
+  transition: text-shadow 300ms ease;
 
   &:hover p {
     text-shadow: 0 0 5px cyan;
-    // border-bottom: 1px solid cyan;
     cursor: pointer;
 
     &::before {
-      border-bottom: 1px solid cyan;
+      width: 100%;
     }
   }
 `;
@@ -83,7 +83,12 @@ export const LinkText = styled(P)`
   &::before {
       content: '';
       position: absolute;
-      width: 100%;
+      left: 50%;
+      top: 0;
+      width: 0;
       height: 100%;
+      border-bottom: 1px solid cyan;
+      transform: translate(-50%, 0);
+      transition: width 300ms ease;
     }
 `;

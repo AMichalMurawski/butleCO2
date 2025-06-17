@@ -13,11 +13,8 @@ import {
   Text,
 } from './Footer.styled';
 import { IconSvg } from '../../components';
-import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const Footer: React.FC = () => {
-  const { scrollToSection } = useIdSection();
-
   return (
     <FooterWraper>
       <FooterConteiner>
