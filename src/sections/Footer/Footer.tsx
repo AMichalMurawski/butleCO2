@@ -4,15 +4,12 @@ import {
   DataWraper,
   FooterConteiner,
   FooterWraper,
-  IconLink,
   IconWraper,
-  Link,
   MediaBox,
   PrivacyPolicy,
-  Subtitle,
-  Text,
 } from './Footer.styled';
 import { IconSvg } from '../../components';
+import { H4, IconLink, Link, P } from '../../styles/Global.styled';
 
 const Footer: React.FC = () => {
   return (
@@ -20,21 +17,21 @@ const Footer: React.FC = () => {
       <FooterConteiner>
         <DataWraper>
           <DataBox>
-            <Subtitle>Dane firmy:</Subtitle>
-            <Text>ButleCO2.PL Artur Rembek</Text>
-            <Text>ul. Poprawna 105A</Text>
-            <Text>03-984 Warszawa</Text>
-            <Text>NIP: 9522030252</Text>
+            <H4>Dane firmy:</H4>
+            <P>ButleCO2.PL Artur Rembek</P>
+            <P>ul. Poprawna 105A</P>
+            <P>03-984 Warszawa</P>
+            <P>NIP: 9522030252</P>
           </DataBox>
           <DataBox>
-            <Subtitle>Kontakt:</Subtitle>
-            <Text>
+            <H4>Kontakt:</H4>
+            <P>
               Telefon: <Link href="tel:(+48)500612755">500-612-755</Link>
-            </Text>
-            <Text>
+            </P>
+            <P>
               Email: <Link href="mailto:biuro@butleco2.pl">biuro@butleco2.pl</Link>
-            </Text>
-            <Text>Śledź nas:</Text>
+            </P>
+            <P>Śledź nas:</P>
             <MediaBox>
               <IconLink href="http://facebook.com">
                 <IconWraper>
@@ -49,25 +46,25 @@ const Footer: React.FC = () => {
             </MediaBox>
           </DataBox>
           <DataBox>
-            <Subtitle>Polityka i regulamin:</Subtitle>
-            <Text>
+            <H4>Polityka i regulamin:</H4>
+            <P>
               <Link href="/privacy-policy">Polityka prywatności</Link>
-            </Text>
-            <Text>
+            </P>
+            <P>
               <Link href="/terms-of-service">Regulamin</Link>
-            </Text>
-            <Text>
+            </P>
+            <P>
               <Link href="data-protection-policy">Zasady ochrony danych</Link>
-            </Text>
-            <Text>
+            </P>
+            <P>
               <Link href="faq">FAQ</Link>
-            </Text>
+            </P>
           </DataBox>
         </DataWraper>
         <PrivacyPolicy>
-          <Text>© 2025 ButleCO2.pl - Twój partner w dostawach CO2.</Text>
-          <Text>Wszystkie prawa zastrzeżone.</Text>
-          <Text>Projekt i realizacja strony: Michał Murawski</Text>
+          <P>© 2025 ButleCO2.pl - Twój partner w dostawach CO2.</P>
+          <P>Wszystkie prawa zastrzeżone.</P>
+          <P>Projekt i realizacja strony: Michał Murawski</P>
         </PrivacyPolicy>
       </FooterConteiner>
     </FooterWraper>

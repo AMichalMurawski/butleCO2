@@ -44,13 +44,6 @@ export const Advanatage = styled.div`
   gap: 15px;
 `;
 
-export const AdvantageDescription = styled(P)``;
-
-export const IconWraper = styled.div`
-  width: 36px;
-  height: 36px;
-`;
-
 export const ButtonsWraper = styled.div`
   display: flex;
   flex-direction: row;
