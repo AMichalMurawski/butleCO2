@@ -4,20 +4,39 @@ import { H2, H3, P, Section } from '../../styles/Global.styled';
 export const LegalDocumentWraper = styled(Section)`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
   max-width: 800px;
   margin-inline: auto;
 `;
 
 export const Title = styled(H2)``;
 
+interface DocumentSectionProps {
+  $hideSection: boolean;
+}
+
+export const DocumentSection = styled.div<DocumentSectionProps>`
+  padding: 30px;
+  cursor: ${({$hideSection}) => $hideSection ? 'pointer' : null};
+
+  &:nth-child(even) {
+    background-color: ${({theme}) => theme.color.structuralTrans};
+  }
+`
+
 export const Subtitle = styled(H3)`
   margin-bottom: 15px;
 
   &:not(:first-of-type) {
-    margin-top: 30px;
+    // margin-top: 30px;
   }
 `;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`
 
 export const Paragraph = styled(P)`
   text-align: justify;
