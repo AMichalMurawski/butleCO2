@@ -3,14 +3,18 @@ import { H2, P, Section } from '../../styles/Global.styled';
 
 export const AboutSection = styled(Section)`
   display: flex;
-  flex-wrap: wrap;
   gap: 30px;
 `;
 
-export const TextBlock = styled.div`
+interface ContentBlockProps {
+  $gap?: string;
+}
+
+export const ContentBlock = styled.div<ContentBlockProps>`
   flex-basis: calc((100% - 30px) / 2);
   display: flex;
   flex-direction: column;
+  gap: ${({ $gap }) => $gap || null};
 `;
 
 export const Title = styled(H2)`
@@ -19,19 +23,10 @@ export const Title = styled(H2)`
   }
 `;
 
-export const Description = styled(P)``;
-
-export const ContentBlock = styled.div`
-  flex-basis: calc((100% - 30px) / 2);
-  display: flex;
-  flex-direction: column;
-  gap: 90px;
-`;
-
 export const AdvantagesList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 60px 30px;
+  gap: 45px 30px;
   max-height: min-content;
 `;
 
@@ -50,6 +45,7 @@ export const ButtonsWraper = styled.div`
   justify-content: space-around;
   width: 100%;
 `;
+
 export const ButtonWraper = styled.div`
   display: flex;
   flex-direction: column;

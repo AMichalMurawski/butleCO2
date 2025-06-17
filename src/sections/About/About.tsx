@@ -6,7 +6,6 @@ import {
   ButtonsWraper,
   ButtonWraper,
   ContentBlock,
-  TextBlock,
   Title,
 } from './About.styled';
 import { Button, IconSvg } from '../../components';
@@ -21,7 +20,7 @@ const About: React.FC = () => {
 
   return (
     <AboutSection id="about">
-      <TextBlock>
+      <ContentBlock>
         <Title>Poznaj ButleCO2.pl - Ekspertów od CO2 w Warszawie</Title>
         <P>
           Od ponad 15 lat dostarczamy butle z dwutlenkiem węgla na terenie Warszawy i okolic. Nasza
@@ -36,12 +35,12 @@ const About: React.FC = () => {
           wody, przemysłu, biur i domu - wszystko z dostawą pod Twoje drzwi na terenie Warszawy i
           okolic.
         </P>
-      </TextBlock>
-      <ContentBlock>
+      </ContentBlock>
+      <ContentBlock $gap="90px">
         <AdvantagesList>
           {advantages.map(advantage => (
             <Advanatage key={advantage[1]}>
-              <IconSvg name={advantage[0]} size='36px'/>
+              <IconSvg name={advantage[0]} size="36px" />
               <P $bold>{advantage[1]}</P>
             </Advanatage>
           ))}
