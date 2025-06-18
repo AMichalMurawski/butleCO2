@@ -6,10 +6,8 @@ import {
   Item,
   LegalDocumentWraper,
   List,
-  Paragraph,
-  Subtitle,
-  Title,
 } from './LegalDocument.styled';
+import { H2, H3, P } from '../../styles/Global.styled';
 
 interface LegalDocumentProps {
   documentData: DocumentProps;
@@ -30,7 +28,7 @@ const LegalDocument: React.FC<LegalDocumentProps> = ({ documentData }) => {
     return section.map((data:any, i2: number) => {
       switch (data[0]) {
         case DocumentTextType.Paragraph:
-          return <Paragraph key={`s${i1}-c${i2}`}>{data[1]}</Paragraph>
+          return <P $textAlign='justify' $textIndent='25px' key={`s${i1}-c${i2}`}>{data[1]}</P>
         case DocumentTextType.List:
           return <List key={`s${i1}-c${i2}`}>
             {data[1].map((li: string, i3: number) => (
@@ -48,7 +46,7 @@ const LegalDocument: React.FC<LegalDocumentProps> = ({ documentData }) => {
       const isVisible = hideSection ? !!visibleSections[i1] : true;
 
       return <DocumentSection key={`s${i1}`} $hideSection={hideSection} onClick={hideSection ? () => toggleSection(i1) : undefined}>
-        {content.subtitle && <Subtitle>{content.subtitle}</Subtitle>}
+        {content.subtitle && <H3>{content.subtitle}</H3>}
         {isVisible ? <Content>{handleSection(content.section, i1)}</Content> : <Content>...</Content>}
       </DocumentSection>
     })
@@ -56,7 +54,7 @@ const LegalDocument: React.FC<LegalDocumentProps> = ({ documentData }) => {
 
   return (
     <LegalDocumentWraper>
-      <Title>{documentData.title}</Title>
+      <H2>{documentData.title}</H2>
       {handleContent(documentData.contents, documentData.hideSection)}
     </LegalDocumentWraper>
   );

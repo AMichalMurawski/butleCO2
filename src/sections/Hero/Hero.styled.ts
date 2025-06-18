@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { Section } from '../../styles/Global.styled';
+import { ImageBg, Section } from '../../styles/Global.styled';
 
 export const HeroSection = styled(Section)`
   position: relative;
@@ -55,19 +55,10 @@ export const ImagesRoll = styled.div<ImagesRollProps>`
   width: ${({ $imagesCount }) => `${($imagesCount + 1) * 100}%`};
   display: flex;
   flex-direction: row;
-  animation: 20s ${({ $imagesCount }) => generateRollAnimation($imagesCount)} linear infinite;
+  animation: ${({$imagesCount}) => `${$imagesCount * 5}s`} ${({ $imagesCount }) => generateRollAnimation($imagesCount)} linear infinite;
 `;
 
-interface ImageBgProps {
-  $url: string;
-};
-
-export const ImageBg = styled.div<ImageBgProps>`
-  width: 100%;
-  height: 100%;
-  background-image: url(${({ $url }) => $url || ''});
-  background-size: cover;
-  background-position: center;
+export const Image = styled(ImageBg)`
   filter: brightness(60%);
 `;
 
@@ -79,13 +70,4 @@ export const Sentence = styled.div`
   color: ${({ theme }) => theme.color.hightlight};
   text-shadow: 0 0 10px black;
   width: 80%;
-`;
-
-export const Title = styled.h1`
-  font-size: 48px;
-  margin-bottom: 30px;
-`;
-
-export const Subtitle = styled.h2`
-  font-size: 36px;
 `;

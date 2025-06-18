@@ -1,36 +1,32 @@
 import React from 'react';
 import {
-  AdvantageContent,
   AdvantageWraper,
   AdvantagesList,
-  Description,
-  IconWraper,
-  Subtitle,
-  Title,
-  WhyChooseUsSection,
+  ContentWraper,
 } from './WhyChooseUs.styled';
 import { IconSvg } from '../../components';
 import { theme } from '../../styles/theme';
 import { advantages } from '../../utils';
+import { H2, H3, P, Section } from '../../styles/Global.styled';
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <WhyChooseUsSection id="whyChooseUs">
-      <Title>Dlaczego ButleCO2.pl to Twój najlepszy wybór?</Title>
+    <Section id="whyChooseUs">
+      <H2>Dlaczego ButleCO2.pl to Twój najlepszy wybór?</H2>
       <AdvantagesList>
         {advantages.map((advantage, index) => (
           <AdvantageWraper key={advantage[1]} $direction={index % 2 == 0 ? 'left' : 'right'}>
-            <IconWraper>
-              <IconSvg name={advantage[0]} size="90px" fill={theme.color.hightlight} />
-            </IconWraper>
-            <AdvantageContent>
-              <Subtitle>{advantage[1]}</Subtitle>
-              <Description>{advantage[2]}</Description>
-            </AdvantageContent>
+            <ContentWraper>
+              <IconSvg name={advantage[0]} size='90px' fill={theme.color.hightlight} />
+            </ContentWraper>
+            <ContentWraper>
+              <H3>{advantage[1]}</H3>
+              <P>{advantage[2]}</P>
+            </ContentWraper>
           </AdvantageWraper>
         ))}
       </AdvantagesList>
-    </WhyChooseUsSection>
+    </Section>
   );
 };
 

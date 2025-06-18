@@ -1,9 +1,14 @@
 import styled, { css } from 'styled-components';
 
 type TextAlignProps = 'left' | 'center' | 'right' | 'justify' | 'inherit';
-interface TextProps {
+type TextProps = {
   $bold?: boolean;
   $textAlign?: TextAlignProps;
+  $fontSize?: string;
+}
+
+type ParagraphProps = TextProps & {
+  $textIndent?: string;
 }
 
 const boldStyles = (bold?: boolean) => css`
@@ -13,6 +18,14 @@ const boldStyles = (bold?: boolean) => css`
 const textAlignStyle = (textAlign?: TextAlignProps) => css`
   text-align: ${textAlign || 'inherit'};
 `;
+
+const fontStyle = (size?: string) => css`
+  font-size: ${size};
+`
+
+const textIndentStyle = (textIndent?: string) => css`
+  text-indent: ${textIndent || null};
+`
 
 export const Section = styled.section`
   position: relative;
@@ -32,36 +45,45 @@ export const Section = styled.section`
   }
 `;
 
+export const H1 = styled.h2<TextProps>`
+  ${({ $bold }) => boldStyles($bold || true)};
+  ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
+  ${({$fontSize}) => fontStyle($fontSize || '48px')};
+  margin-bottom: 30px;
+`;
+
 export const H2 = styled.h2<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  font-size: 24px;
+  ${({$fontSize}) => fontStyle($fontSize || '24px')};
   margin-bottom: 30px;
 `;
 
 export const H3 = styled.h3<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  font-size: 20px;
+  ${({$fontSize}) => fontStyle($fontSize || '20px')};
   margin-bottom: 30px;
 `;
 
 export const H4 = styled.h4<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  font-size: 16px;
+  ${({$fontSize}) => fontStyle($fontSize || '16px')};
   margin-bottom: 20px;
 `;
 
-export const P = styled.p<TextProps>`
-  ${({ $bold }) => boldStyles($bold || false)};
+export const P = styled.p<ParagraphProps>`
+  ${({ $bold }) => boldStyles($bold)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'inherit')};
-  font-size: 14px;
+  ${({ $fontSize }) => fontStyle($fontSize || '14px')};
+  ${({$textIndent}) => textIndentStyle($textIndent)};
   width: 100%;
 `;
 
 export const Link = styled.a<TextProps>`
-  ${({ $bold }) => boldStyles($bold || false)};
+  ${({ $bold }) => boldStyles($bold)};
+  ${({$fontSize}) => fontStyle($fontSize || 'inherit')};
   position: relative;
   color: inherit;
   text-decoration: none;
@@ -102,3 +124,15 @@ export const IconLink = styled.a<TextProps>`
     cursor: pointer;
   }
 `;
+
+interface ImageBgProps {
+  $url: string;
+};
+
+export const ImageBg = styled.div<ImageBgProps>`
+  width: 100%;
+  height: 100%;
+  background-image: url(${({ $url }) => $url || ''});
+  background-size: cover;
+  background-position: center;
+`

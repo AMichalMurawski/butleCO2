@@ -9,8 +9,6 @@ export const LegalDocumentWraper = styled(Section)`
   margin-inline: auto;
 `;
 
-export const Title = styled(H2)``;
-
 interface DocumentSectionProps {
   $hideSection: boolean;
 }
@@ -24,24 +22,11 @@ export const DocumentSection = styled.div<DocumentSectionProps>`
   }
 `
 
-export const Subtitle = styled(H3)`
-  margin-bottom: 15px;
-
-  &:not(:first-of-type) {
-    // margin-top: 30px;
-  }
-`;
-
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
 `
-
-export const Paragraph = styled(P)`
-  text-align: justify;
-  text-indent: 25px;
-`;
 
 export const List = styled.ul`
   padding-left: 50px;

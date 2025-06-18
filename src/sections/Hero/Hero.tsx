@@ -1,13 +1,12 @@
 import React from 'react';
 import {
   HeroSection,
-  ImageBg,
+  Image,
   ImagesRoll,
   ImagesRollWraper,
   Sentence,
-  Subtitle,
-  Title,
 } from './Hero.styled';
+import { H1, H2 } from '../../styles/Global.styled';
 
 const images: string[] = [
   '/images/kdo3ud733dh3j48f.jpg',
@@ -21,18 +20,18 @@ const Hero: React.FC = () => {
       <ImagesRollWraper>
         <ImagesRoll $imagesCount={images.length}>
           {[...images, images[0]].map((image: string, i: number) => (
-            <ImageBg key={i} $url={image} />
+            <Image key={i} $url={image} />
           ))}
         </ImagesRoll>
       </ImagesRollWraper>
       <Sentence>
-        <Title>ButleCO2.pl</Title>
-        <Subtitle>
-          Twój niezawodny dostawca <i>gazów technicznych</i>
-        </Subtitle>
-        <Subtitle>
-          i <i>butli z dwutlenkiem węgla</i> w Warszawie i okolicach.
-        </Subtitle>
+        <H1>ButleCO2.pl</H1>
+        <H2 $fontSize='36px'>
+          Twój niezawodny dostawca gazów technicznych
+        </H2>
+        <H2 $fontSize='36px'>
+          i butli z dwutlenkiem węgla w Warszawie i okolicach.
+        </H2>
       </Sentence>
     </HeroSection>
   );
