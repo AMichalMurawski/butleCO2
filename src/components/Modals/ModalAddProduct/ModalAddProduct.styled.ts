@@ -24,11 +24,12 @@ export const ProductsList = styled.div`
 
 export const ProductWraper = styled.div`
     position: relative;
-    width: 120px;
+    width: 110px;
     height: 180px;
     display: flex:
     justify-content: center;
     align-items: center;
+    color: ${({ theme }) => theme.color.text};
     cursor: pointer;
     
     &:hover svg {
@@ -37,9 +38,7 @@ export const ProductWraper = styled.div`
 `;
 
 export const IconSvgWraper = styled.div`
-  width: 100%;
-  height: 100%;
-  translate: -30px;
+  translate: -35px;
 `;
 
 export const DescriptionWraper = styled.div`
@@ -50,8 +49,4 @@ export const DescriptionWraper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-`;
-
-export const Description = styled(P)`
-  color: ${({ theme }) => theme.color.text};
 `;

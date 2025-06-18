@@ -1,16 +1,18 @@
 import React from 'react';
 import {
-  Subtitle,
   DataWraper,
   DataName,
   DataValue,
   ClientWraper,
   DataValueBox,
+  EditIconWraper,
 } from './Client.styled';
-import IconEdit from './IconEdit';
 import { clientAddress } from './clientAddress';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
 import { DayProps } from '../../../context/Order/orderProps';
+import { H3 } from '../../../styles/Global.styled';
+import IconSvg from '../../Icons/IconSvg/IconSvg';
+import { useTheme } from 'styled-components';
 
 interface ModalClientProps<T> {
   title: string;
@@ -29,6 +31,8 @@ const Client: React.FC<ModalClientProps<any>> = ({
   autoMargin = 'right',
   labelWidth,
 }) => {
+  const theme = useTheme();
+  
   const deliveryArray = () => {
     if (!initialValues.deliveryTime || !Array.isArray(initialValues.deliveryTime)) {
       return [];
@@ -47,8 +51,10 @@ const Client: React.FC<ModalClientProps<any>> = ({
 
   return (
     <ClientWraper $autoMargin={autoMargin} onClick={onClick}>
-      <IconEdit />
-      <Subtitle>{title}:</Subtitle>
+      <EditIconWraper>
+        <IconSvg name="pencil" size="20px" fill={theme.color.structural} />
+      </EditIconWraper>
+      <H3>{title}:</H3>
       {Object.keys(initialValues).map(key => {
         const label = labels[key as keyof typeof labels];
         let value = initialValues[key as keyof typeof initialValues];

@@ -4,10 +4,10 @@ import {
   ExitButtonConteiner,
   ModalBox,
   ModalWraper,
-  Title,
   TitleWraper,
 } from './ModalConteiner.styled';
 import { IconSvg } from '../../';
+import { H3 } from '../../../styles/Global.styled';
 
 interface ModalConteinerProps {
   width?: string;
@@ -46,12 +46,12 @@ const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
       <ModalBox $width={width} $visible={visible}>
         {title && (
           <TitleWraper>
-            <Title>{title}</Title>
+            <H3>{title}</H3>
           </TitleWraper>
         )}
         <ContentsWraper>{children}</ContentsWraper>
         <ExitButtonConteiner onClick={handleClick}>
-          <IconSvg name="cross" fill="red" onClick={handleClick} />
+          <IconSvg name="cross" size='15px' fill="red" onClick={handleClick} />
         </ExitButtonConteiner>
       </ModalBox>
     </ModalWraper>

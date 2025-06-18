@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonWraper } from './Button.styled';
+import { ButtonElement } from './Button.styled';
 import { useTheme } from 'styled-components';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -7,7 +7,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   active?: true | false;
   color?: string;
   background?: string;
-  idSection?: string;
   onClick?: any;
   type?: 'button' | 'submit';
 }
@@ -23,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   const theme = useTheme();
 
   return (
-    <ButtonWraper
+    <ButtonElement
       $active={active}
       $background={background}
       $color={color || theme.color.text}
@@ -31,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
     >
       {text}
-    </ButtonWraper>
+    </ButtonElement>
   );
 };
 

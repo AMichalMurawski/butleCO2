@@ -7,7 +7,7 @@ const Informations: React.FC = () => {
     <InformationsWraper>
       <Reference>
         <InformationsValue $reference={1}>
-          Całkowity koszt zamówienia zawiera w sobie opłatę przewozową w wysokości 20 zł.<br />Minimalna wartość zamówienia wynosi 100 zł + opłata przewozowa.
+          Minimalna wartość zamówienia wynosi 100 zł + opłata przewozowa.
         </InformationsValue>
       </Reference>
       <InformationsValue>

@@ -31,7 +31,7 @@ const AmountCounter: React.FC<AmountCounterProps> = ({
 
     return (
         <AmountWrapper>
-            <AmountButton onClick={handleDecrease}>−</AmountButton>
+            <AmountButton onClick={handleDecrease}>-</AmountButton>
             <AmountInput
                 type="number"
                 value={value.toString()}

@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-interface ButtonWraper {
+interface ButtonElementProps {
   $active: boolean;
   $color: string;
   $background: string
 }
 
-export const ButtonWraper = styled.button<ButtonWraper>`
+export const ButtonElement = styled.button<ButtonElementProps>`
   padding: 15px;
   color: ${({ $active, $color, theme }) => ($active ? theme.color.hightlight : $color)};
   background-color: ${({ $background }) => $background};

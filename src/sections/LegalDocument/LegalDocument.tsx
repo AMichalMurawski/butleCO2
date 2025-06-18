@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DocumentProps, DocumentTextType } from '../../utils/documentProps';
+import { DocumentProps, DocumentTextType } from '../../utils/legalDocuments/documentProps';
 import {
   Content,
   DocumentSection,

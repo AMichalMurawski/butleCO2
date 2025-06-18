@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { OrderProductProps, ProductProps } from '../../../context/Order/orderProps';
-import { productsList } from './productsList';
+import { productsList } from '../../../utils';
 import { Button, IconSvg } from '../../';
 import {
-  Description,
   DescriptionWraper,
   IconSvgWraper,
   ProductsList,
@@ -13,6 +12,7 @@ import {
 import { useTheme } from 'styled-components';
 import { useOrder } from '../../../context/Order/OrderContext';
 import { initialOrderProduct } from '../../../context/Order/initialValues';
+import { P } from '../../../styles/Global.styled';
 
 interface ModalAddProductProps {
   onSubmit: (values: OrderProductProps) => void;
@@ -68,12 +68,12 @@ const ModalAddProduct: React.FC<ModalAddProductProps> = ({ onSubmit }) => {
                 <IconSvg name="gas-cylinder" size="180px" fill={theme.color.structuralTrans} />
               </IconSvgWraper>
               <DescriptionWraper>
-                <Description>{product.type}</Description>
-                <Description>
+                <P>{product.type}</P>
+                <P>
                   {product.weight ? product.weight + ' kg' : ''}
                   {product.litr ? product.litr + ' l' : ''}
-                </Description>
-                <Description>{product.unitPrice} PLN</Description>
+                </P>
+                <P>{product.unitPrice} PLN</P>
               </DescriptionWraper>
             </ProductWraper>
           );
