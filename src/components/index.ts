@@ -1,8 +1,8 @@
 export { default as Button } from './Button/Button';
 export { default as ClientForm } from './Forms/ClientForm/ClientForm';
 export { default as ContactForm } from './Forms/ContactForm/ContactForm';
-export { IconSvg } from './Icons';
-export { LogoIcon } from './Icons';
+export { default as IconSvg } from './Icons/IconSvg/IconSvg';
+export { default as LogoIcon } from './Icons/LogoIcon/LogoIcon';
 export { default as ModalAddProduct } from './Modals/ModalAddProduct/ModalAddProduct';
 export { default as ModalConfirmOrder } from './Modals/ModalConfirmOrder/ModalConfirmOrder';
 export { default as ModalConteiner } from './Modals/ModalConteiner/ModalConteiner';

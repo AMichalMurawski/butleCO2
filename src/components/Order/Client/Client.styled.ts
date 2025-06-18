@@ -17,10 +17,10 @@ export const ClientWraper = styled.div<ClientWraperProps>`
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-`;
 
-export const Subtitle = styled(H3)`
-  margin-bottom: 15px;
+  & h3 {
+    margin-bottom: 15px;
+  }
 `;
 
 export const DataWraper = styled.div`
@@ -52,7 +52,7 @@ export const DataValue = styled(P)`
   width: 100%;
   font-style: italic;
   color: ${({ theme }) => theme.color.main};
-  border-bottom: 2px dotted black;
+  border-bottom: 2px dotted ${({ theme }) => theme.color.main};
   whiteSpace: 'pre-line';
 `;
 
@@ -72,11 +72,6 @@ export const EditIconWraper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  // background-color: ${({ theme }) => theme.color.remarkable};
-  // border: 3px solid ${({ theme }) => theme.color.structural};
   cursor: pointer;
 
   & svg {
@@ -84,7 +79,6 @@ export const EditIconWraper = styled.div`
   }
 
   ${ClientWraper}:hover & {
-    // scale: 1.1;
     animation: ${write} 2s ease-in infinite;
   }
 `;

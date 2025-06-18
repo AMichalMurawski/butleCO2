@@ -83,6 +83,8 @@ export const InvoiceAddress = styled.div`
   gap: 0;
   width: 100%;
   height: 100%;
+  color: ${({ theme }) => theme.color.structural};
+  text-align: left;
   z-index: 1;
 
   &::before {
@@ -96,12 +98,4 @@ export const InvoiceAddress = styled.div`
     clip-path: polygon(90px 0%, 100% 0%, 100% 100%, 0 100%);
     z-index: -1;
   }
-`;
-
-export const AddressWraper = styled.div`
-  text-align: left;
-`;
-
-export const Address = styled(P)`
-  color: ${({ theme }) => theme.color.structural};
 `;

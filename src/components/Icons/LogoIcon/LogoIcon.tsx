@@ -12,14 +12,14 @@ const LogoIcon: React.FC<LogoIconProps> = ({ dimension }) => {
         {rotations.map((rotation: number, index: number) =>
             <MoleculeWraper key={index} $rotation={rotation}>
                 <Molecule>
-                    <CarbonAtom />
                     <OxygenAtom $side='left' />
-                    <OxygenAtom $side='right' />
                     <Bond $side='left' />
+                    <CarbonAtom />
                     <Bond $side='right' />
+                    <OxygenAtom $side='right' />
                 </Molecule>
             </MoleculeWraper>)}
     </LogoWraper>
-}
+};
 
 export default LogoIcon

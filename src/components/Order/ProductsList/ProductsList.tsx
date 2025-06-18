@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  CellContent,
   IconAdd,
   IconWraper,
   ProductsListWraper,
@@ -20,6 +19,7 @@ import { IconSvg } from '../../';
 import { useOrder } from '../../../context/Order/OrderContext';
 import AmountCounter from './AmountCounter';
 import { useTheme } from 'styled-components';
+import { P } from '../../../styles/Global.styled';
 
 const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
 
@@ -52,7 +52,7 @@ const FormProducts: React.FC<FormProductsProps> = ({ addProduct }) => {
           <TableRow>
             {tableTitles.map((title, i) => (
               <TableHeaderCell key={i}>
-                <CellContent>{title}</CellContent>
+                <P>{title}</P>
               </TableHeaderCell>
             ))}
             <TableHeaderCell></TableHeaderCell>

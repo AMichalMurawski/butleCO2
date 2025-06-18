@@ -53,10 +53,10 @@ export const TitleWraper = styled.div`
   padding: 30px;
   background-color: ${({ theme }) => theme.color.structural};
   color: ${({ theme }) => theme.color.text};
-`;
 
-export const Title = styled(H3)`
-  margin: 0;
+  & *{
+    margin: 0;
+  }
 `;
 
 export const ContentsWraper = styled.div`
@@ -70,8 +70,6 @@ export const ExitButtonConteiner = styled.div`
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 15px;
-  height: 15px;
   cursor: pointer;
   z-index: 10;
 

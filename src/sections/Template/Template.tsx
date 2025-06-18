@@ -1,13 +1,9 @@
 import React from 'react';
 import {
-  Description,
-  FormWraper,
-  FormTemplate,
   Image,
   TemplateSection,
-  TemplateWraper,
-  Title,
 } from './Template.styled';
+import { H3 } from '../../styles/Global.styled';
 
 const templates = [
   ['/images/order-template-01.webp', 'Template 01'],
@@ -21,42 +17,14 @@ const templates = [
 
 const Templates: React.FC = () => {
   return (
-    <TemplateSection id="orders">
-      <FormTemplate>
-        <FormWraper>
-          <Title>Zamawiający:</Title>
-          <Description>imię i nazwisko / nazwa firmy *</Description>
-          <Description>adres dostawy *</Description>
-          <Description>telefon</Description>
-          <Description>email *</Description>
-          <Description>dodatkowe informacje odnośnie dostawy</Description>
-          <Description>faktura VAT (check button)</Description>
-        </FormWraper>
-        <FormWraper>
-          <Title>Dane firmy:</Title>
-          <Description>nazwa firmy *</Description>
-          <Description>ulica *</Description>
-          <Description>nr *</Description>
-          <Description>lokal *</Description>
-          <Description>kod pocztowy *</Description>
-          <Description>miasto *</Description>
-          <Description>NIP *</Description>
-        </FormWraper>
-        <FormWraper>
-          <Title>Zamówienie:</Title>
-          <Description>rodzaj butli</Description>
-          <Description>ilość</Description>
-          <Description>cena jednostkowa (liczone automatycznie)</Description>
-          <Description>koszt (liczone automatycznie)</Description>
-        </FormWraper>
-      </FormTemplate>
+    <>
       {templates.map(template => (
-        <TemplateWraper>
-          <Title>{template[1]}</Title>
+        <TemplateSection>
+          <H3>{template[1]}</H3>
           <Image src={template[0]} />
-        </TemplateWraper>
+        </TemplateSection>
       ))}
-    </TemplateSection>
+    </>
   );
 };
 

@@ -34,8 +34,6 @@ const OrderContext = createContext<OrderContextProps | undefined>(undefined);
 export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [order, setOrder] = useState<OrderProps>(initialValues);
   const [modals, setModals] = useState<Record<OrderKeys, boolean>>(initialModals);
-
-  console.log('order.company', order.company);
   
   const modalState = (modal: OrderKeys) => {
     setModals(prev => ({ ...prev, [modal]: !prev[modal] }));

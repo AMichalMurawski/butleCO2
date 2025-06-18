@@ -31,12 +31,3 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-section {
-  max-width: 1280px;
-}

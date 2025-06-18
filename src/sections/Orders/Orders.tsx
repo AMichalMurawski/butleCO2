@@ -1,12 +1,12 @@
 import React from 'react';
-import { OrderSection } from './Orders.styled';
 import { Order } from '../../components';
+import { Section } from '../../styles/Global.styled';
 
 const Orders: React.FC = () => {
   return (
-    <OrderSection id="orders">
+    <Section id="orders">
       <Order />
-    </OrderSection>
+    </Section>
   );
 };
 

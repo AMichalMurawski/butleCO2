@@ -1,4 +1,4 @@
-import { ProductProps } from '../../../context/Order/orderProps';
+import { ProductProps } from '../context/Order/orderProps';
 
 export const productsList: ProductProps[] = [
   {

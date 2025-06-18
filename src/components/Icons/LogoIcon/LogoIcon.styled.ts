@@ -8,12 +8,6 @@ export const LogoWraper = styled.div<LogoWraperProps>`
   position: relative;
   width: ${({ $dimension }) => $dimension};
   height: ${({ $dimension }) => $dimension};
-  rotate: 0deg;
-
-  transition: rotate cubic-bezier(0, -0.5, 1, -0.5) 500ms;
-  &:hover {
-    rotate: 360deg;
-  }
 `;
 
 interface MoleculeWraperProps {

@@ -1,16 +1,13 @@
 import React from 'react';
 import {
-  ServiceDescription,
   ServiceImage,
   ServicePanel,
   ServicesList,
-  ServicesSection,
-  ServiceTitle,
   ServiceWraper,
-  Title,
 } from './Services.styled';
 import { Button } from '../../components';
 import { theme } from '../../styles/theme';
+import { H2, H3, P, Section } from '../../styles/Global.styled';
 
 const servList = [
   [
@@ -53,21 +50,21 @@ const servList = [
 
 const Services: React.FC = () => {
   return (
-    <ServicesSection id="services">
-      <Title>Nasza oferta - Butle CO2 i usługi dopasowane do Twoich potrzeb</Title>
+    <Section id="services">
+      <H2>Nasza oferta - Butle CO2 i usługi dopasowane do Twoich potrzeb</H2>
       <ServicesList>
         {servList.map(serv => (
           <ServiceWraper key={serv[1]}>
-            <ServiceImage $image={serv[0]} />
+            <ServiceImage $url={serv[0]} />
             <ServicePanel>
-              <ServiceTitle>{serv[1]}</ServiceTitle>
-              <ServiceDescription>{serv[2]}</ServiceDescription>
+              <H3>{serv[1]}</H3>
+              <P>{serv[2]}</P>
               <Button text={serv[3]} background={theme.color.remarkable} color={theme.color.main} />
             </ServicePanel>
           </ServiceWraper>
         ))}
       </ServicesList>
-    </ServicesSection>
+    </Section>
   );
 };
 

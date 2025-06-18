@@ -3,14 +3,13 @@ import {
   ContactsWraper,
   HeaderBox,
   HeaderWraper,
-  IconWraper,
-  Link,
-  LinkText,
+  LinkWraper,
   LogoWraper,
   NavbarWraper,
 } from './Header.styled';
 import { Button, IconSvg, LogoIcon } from '../../components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
+import { P } from '../../styles/Global.styled';
 
 const navbarList = [
   ['O firmie', '/#about'],
@@ -27,7 +26,7 @@ const Header: React.FC = () => {
     <HeaderWraper>
       <HeaderBox>
         <LogoWraper onClick={() => scrollToSection('/#hero')}>
-          <LogoIcon dimension="100%" />
+          <LogoIcon dimension="60px" />
         </LogoWraper>
         <NavbarWraper>
           {navbarList.map(option => (
@@ -42,18 +41,14 @@ const Header: React.FC = () => {
           ))}
         </NavbarWraper>
         <ContactsWraper>
-          <Link href="tel:(+48)500612755">
-            <IconWraper>
-              <IconSvg name="phone" />
-            </IconWraper>
-            <LinkText>(+48) 500 612 755</LinkText>
-          </Link>
-          <Link href="mailto:biuro@butleco2.pl">
-            <IconWraper>
-              <IconSvg name="mail" />
-            </IconWraper>
-            <LinkText>biuro@butleco2.pl</LinkText>
-          </Link>
+          <LinkWraper href="tel:(+48)500612755">
+            <IconSvg name="phone" size='16px' />
+            <P>(+48) 500 612 755</P>
+          </LinkWraper>
+          <LinkWraper href="mailto:biuro@butleco2.pl">
+            <IconSvg name="mail" size='16px' />
+            <P>biuro@butleco2.pl</P>
+          </LinkWraper>
         </ContactsWraper>
       </HeaderBox>
     </HeaderWraper>

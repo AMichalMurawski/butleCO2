@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { P } from '../../../styles/Global.styled';
 
 // >>>>>> Table <<<<<<
 
@@ -14,9 +13,7 @@ export const ProductsTable = styled.table`
   text-aling: left;
 `;
 
-export const TableColGroup = styled.colgroup`
-
-`
+export const TableColGroup = styled.colgroup``
 
 export const TableColumn = styled.col`
   &:nth-of-type(1) {
@@ -135,11 +132,6 @@ export const TableFooterCell = styled.td<TableFooterCellProps>`
   }
 `;
 
-export const CellContent = styled(P)`
-  color: inherit;
-  z-index: 1;
-`;
-
 // >>>>>> Body <<<<<<
 
 export const TableBody = styled.tbody``;
@@ -202,6 +194,7 @@ export const IconWraper = styled.div<IconWraperProps>`
   width: 15px;
   height: 15px;
   border-radius: 15px;
+  transform-origin: center;
 
   ${TableBodyCell}:hover & {
     scale: 1.2;
@@ -209,7 +202,8 @@ export const IconWraper = styled.div<IconWraperProps>`
 `;
 
 export const IconAdd = styled(IconWraper)`
-  transform-origin: center; transform: rotate(45deg);
+  transform-origin: center;
+  transform: translate(4px, -2px) rotate(45deg);
 
   ${TableBodyRow}:hover & {
     scale: 1.2;

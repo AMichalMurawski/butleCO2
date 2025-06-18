@@ -1,5 +1,6 @@
 export { advantages } from './advantages';
-export { dataProtectionPolicy } from './dataProtectionPolicy';
-export { faq } from './faq';
-export { privacyPolicy } from './privacyPolicy';
-export { termsOfService } from './termsOfService';
+export { dataProtectionPolicy } from './legalDocuments/dataProtectionPolicy';
+export { faq } from './legalDocuments/faq';
+export { privacyPolicy } from './legalDocuments/privacyPolicy';
+export { productsList } from './productsList';
+export { termsOfService } from './legalDocuments/termsOfService';

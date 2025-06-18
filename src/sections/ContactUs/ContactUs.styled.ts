@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H2, P, Section } from '../../styles/Global.styled';
+import { Section } from '../../styles/Global.styled';
 
 export const ContactSection = styled(Section)`
   display: flex;
@@ -7,52 +7,32 @@ export const ContactSection = styled(Section)`
   gap: 30px;
 `;
 
-export const Title = styled(H2)``;
-
 export const ContactsWraper = styled.div`
+  width: 100%;
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: calc(40% - 15px) calc(60% - 15px);
   grid-template-rows: repeat(3, auto);
   gap: 30px;
 `;
 
-export const AddressWraper = styled.address`
-  grid-column: 1;
-  grid-row: 1;
+interface GridWraperProps {
+  $gridColumn: number | string;
+  $gridRow: number | string;
+  $marginLeft?: string;
+}
+
+export const GridWraper = styled.div<GridWraperProps>`
+  grid-column: ${({ $gridColumn }) => $gridColumn};
+  grid-row: ${({ $gridRow }) => $gridRow};
+`;
+
+export const InfoWraper = styled(GridWraper)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
   font: inherit;
-`;
-
-export const Address = styled(P)``;
-
-export const AddressLink = styled.a`
-  color: inherit;
-  text-decoration: none;
-  font-weight: bold;
-`;
-
-export const WorkHoursConteiner = styled.div`
-  grid-column: 1;
-  grid-row: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
-`;
-
-export const WorkHours = styled(P)``;
-
-export const FormWraper = styled.div`
-  grid-column: 2;
-  grid-row: 1 / 3;
-`;
-
-export const MapWraper = styled.div`
-  grid-column: 1 / 3;
-  grid-row: 3;
+  text-align: left;
 `;
 
 export const Iframe = styled.iframe`

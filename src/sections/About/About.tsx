@@ -2,20 +2,17 @@ import React from 'react';
 import {
   AboutSection,
   Advanatage,
-  AdvantageDescription,
   AdvantagesList,
   ButtonsWraper,
   ButtonWraper,
   ContentBlock,
-  Description,
-  IconWraper,
-  TextBlock,
   Title,
 } from './About.styled';
 import { Button, IconSvg } from '../../components';
 import { useTheme } from 'styled-components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 import { advantages } from '../../utils';
+import { P } from '../../styles/Global.styled';
 
 const About: React.FC = () => {
   const theme = useTheme();
@@ -23,57 +20,47 @@ const About: React.FC = () => {
 
   return (
     <AboutSection id="about">
-      <TextBlock>
+      <ContentBlock>
         <Title>Poznaj ButleCO2.pl - Ekspertów od CO2 w Warszawie</Title>
-        <Description>
+        <P>
           Od ponad 15 lat dostarczamy butle z dwutlenkiem węgla na terenie Warszawy i okolic. Nasza
           firma powstała z pasji do wspierania lokalnych biznesów - od restauracji, biur i kawiarni
           po warsztaty przemysłowe i hobbystów akwarystyki. Stawiamy na niezawodność, elastyczność i
           pełne zadowolenie klienta, co potwierdza stale rosnąca liczba naszych partnerów. Nasz cel?
           Dostarczać gaz tam, gdzie jest potrzebny - szybko i bez zbędnych formalności.
-        </Description>
+        </P>
         <Title>Gaz na czas</Title>
-        <Description>
+        <P>
           Specjalizujemy się w dostarczaniu butli z CO2 dla gastronomii, akwarystyki, saturatorów
-          wody, przemysłu, biur i domu – wszystko z dostawą pod Twoje drzwi na terenie Warszawy i
+          wody, przemysłu, biur i domu - wszystko z dostawą pod Twoje drzwi na terenie Warszawy i
           okolic.
-        </Description>
-      </TextBlock>
-      <ContentBlock>
+        </P>
+      </ContentBlock>
+      <ContentBlock $gap="90px">
         <AdvantagesList>
           {advantages.map(advantage => (
             <Advanatage key={advantage[1]}>
-              <IconWraper>
-                <IconSvg name={advantage[0]} />
-              </IconWraper>
-              <AdvantageDescription>{advantage[1]}</AdvantageDescription>
+              <IconSvg name={advantage[0]} size="36px" />
+              <P $bold>{advantage[1]}</P>
             </Advanatage>
           ))}
         </AdvantagesList>
         <ButtonsWraper>
           <ButtonWraper>
-            <Description>
-              <b>Masz pytanie?</b>
-            </Description>
+            <P $bold>Masz pytanie?</P>
             <Button
-              type="button"
               text="Skontaktuj się z nami"
               background={theme.color.remarkable}
               color={theme.color.structural}
-              idSection="contactUs"
               onClick={() => scrollToSection('/#contactUs')}
             />
           </ButtonWraper>
           <ButtonWraper>
-            <Description>
-              <b>Potrzebujesz butli?</b>
-            </Description>
+            <P $bold>Potrzebujesz butli?</P>
             <Button
-              type="button"
               text="Złóż zamówienie"
               background={theme.color.remarkable}
               color={theme.color.structural}
-              idSection="orders"
               onClick={() => scrollToSection('/orders')}
             />
           </ButtonWraper>
