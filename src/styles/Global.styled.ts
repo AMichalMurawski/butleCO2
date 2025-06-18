@@ -32,7 +32,6 @@ export const Section = styled.section`
   padding: 60px 30px;
   max-width: 1280px;
   width: 100%;
-  scroll-margin-top: 120px;
 
   &:not(:first-of-type)::before {
     content: '';

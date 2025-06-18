@@ -16,7 +16,7 @@ const navbarList = [
   ['Dlaczego My?', '/#whyChooseUs'],
   ['Kontakt', '/#contactUs'],
   ['Oferta', '/#services'],
-  ['Zamówienia', '/orders'],
+  ['Zamówienia', '/orders#orders'],
 ];
 
 const Header: React.FC = () => {
@@ -34,7 +34,6 @@ const Header: React.FC = () => {
               key={option[1]}
               type="button"
               text={option[0]}
-              idSection={option[1]}
               active={activeIdSection === option[1]}
               onClick={() => scrollToSection(option[1])}
             />

@@ -26,7 +26,7 @@ export const advantages = [
     ],
     [
       'certain-security',
-      'Pewne Bezpieczeństwo',
+      'Certyfikowane Gazy',
       'Posiadamy certyfikaty potwierdzające, że nasz CO2 jest przeznaczony do celów spożywczych.',
     ],
   ];

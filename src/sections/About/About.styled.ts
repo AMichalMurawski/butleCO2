@@ -30,13 +30,14 @@ export const AdvantagesList = styled.div`
   max-height: min-content;
 `;
 
-export const Advanatage = styled.div`
+export const Advantage = styled.div`
   flex-basis: calc((100% - 2 * 30px) / 3);
   max-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  cursor: pointer;
 `;
 
 export const ButtonsWraper = styled.div`

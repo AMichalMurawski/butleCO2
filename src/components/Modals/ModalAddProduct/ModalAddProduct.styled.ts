@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { P } from '../../../styles/Global.styled';
 
 export const TransactionToggle = styled.div`
   padding: 15px;

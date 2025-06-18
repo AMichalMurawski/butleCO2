@@ -92,7 +92,7 @@ export const InvoiceAddress = styled.div`
     position: absolute;
     top: 0%;
     left: -30px;
-    width: calc(100% + 30px);
+    width: calc(100% + 35px);
     height: 100%;
     background-color: ${({ theme }) => theme.color.remarkable};
     clip-path: polygon(90px 0%, 100% 0%, 100% 100%, 0 100%);

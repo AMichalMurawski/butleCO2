@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   AboutSection,
-  Advanatage,
+  Advantage,
   AdvantagesList,
   ButtonsWraper,
   ButtonWraper,
@@ -39,10 +39,10 @@ const About: React.FC = () => {
       <ContentBlock $gap="90px">
         <AdvantagesList>
           {advantages.map(advantage => (
-            <Advanatage key={advantage[1]}>
+            <Advantage key={advantage[1]} onClick={() => scrollToSection(`/#whyChooseUs${advantage[0].replace(/-/g, '')}`)}>
               <IconSvg name={advantage[0]} size="36px" />
               <P $bold>{advantage[1]}</P>
-            </Advanatage>
+            </Advantage>
           ))}
         </AdvantagesList>
         <ButtonsWraper>
