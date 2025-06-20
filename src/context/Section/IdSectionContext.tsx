@@ -27,15 +27,22 @@ export const IdSectionProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   };
 
   useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
+    const currentUrl = location.pathname + location.hash;
+    const onReload = () => setActiveIdSection(currentUrl);
+
+    window.addEventListener('load', onReload);
+
+    const id = location.hash.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
+
+    setActiveIdSection(currentUrl)
+
+    return () => window.removeEventListener('load', onReload);
   }, [location]);
 
   return (
