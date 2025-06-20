@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
 type TextAlignProps = 'left' | 'center' | 'right' | 'justify' | 'inherit';
 type TextProps = {
@@ -19,13 +19,40 @@ const textAlignStyle = (textAlign?: TextAlignProps) => css`
   text-align: ${textAlign || 'inherit'};
 `;
 
-const fontStyle = (size?: string) => css`
+const fontStyle = (size?: string, family?: 'main' | 'heading') => css`
   font-size: ${size};
+  ${({ theme }) => family === 'heading' ? theme.fonts.heading : theme.fonts.main};
 `
 
 const textIndentStyle = (textIndent?: string) => css`
   text-indent: ${textIndent || null};
 `
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    ${({ theme }) => theme.fonts.main};
+    color: ${({ theme }) => theme.color.text};
+    background-color: ${({ theme }) => theme.color.main};
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${({ theme }) => theme.fonts.heading};
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  [id] {
+    scroll-margin-top: 120px;
+  }
+`;
 
 export const Section = styled.section`
   position: relative;
@@ -47,28 +74,28 @@ export const Section = styled.section`
 export const H1 = styled.h2<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({$fontSize}) => fontStyle($fontSize || '48px')};
+  ${({$fontSize}) => fontStyle($fontSize || '48px', 'heading')};
   margin-bottom: 30px;
 `;
 
 export const H2 = styled.h2<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({$fontSize}) => fontStyle($fontSize || '24px')};
+  ${({$fontSize}) => fontStyle($fontSize || '24px', 'heading')};
   margin-bottom: 30px;
 `;
 
 export const H3 = styled.h3<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({$fontSize}) => fontStyle($fontSize || '20px')};
+  ${({$fontSize}) => fontStyle($fontSize || '20px', 'heading')};
   margin-bottom: 30px;
 `;
 
 export const H4 = styled.h4<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({$fontSize}) => fontStyle($fontSize || '16px')};
+  ${({$fontSize}) => fontStyle($fontSize || '16px', 'heading')};
   margin-bottom: 20px;
 `;
 
@@ -95,7 +122,7 @@ export const Link = styled.a<TextProps>`
     top: 0;
     width: 0;
     height: 100%;
-    border-bottom: 1px solid cyan;
+    border-bottom: 1px solid ${({theme}) => theme.color.hightlight};
     transform: translate(-50%, 0);
     transition: width 300ms ease;
   }

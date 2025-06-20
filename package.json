@@ -10,6 +10,16 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@fontsource/crimson-text": "^5.2.6",
+    "@fontsource/lora": "^5.2.6",
+    "@fontsource/merriweather": "^5.2.9",
+    "@fontsource/montserrat": "^5.2.6",
+    "@fontsource/open-sans": "^5.2.6",
+    "@fontsource/poppins": "^5.2.6",
+    "@fontsource/pt-serif": "^5.2.6",
+    "@fontsource/roboto": "^5.2.6",
+    "@fontsource/roboto-slab": "^5.2.6",
+    "@fontsource/work-sans": "^5.2.6",
     "formik": "^2.4.6",
     "imask": "^7.6.1",
     "react": "^19.0.0",
