@@ -4,27 +4,7 @@ import { ButtonWraper, FormWraper } from './ContactForm.styled';
 import { Button } from '../../';
 import { theme } from '../../../styles/theme';
 import Input from '../InputField/InputField';
-import * as Yup from 'yup';
-
-const requiredField = 'Pole wymagane';
-
-export const contactUsSchema = Yup.object({
-    name: Yup.string().min(2, 'Min 2 znaki').required(requiredField),
-    email: Yup.string().email('Niepoprawny adres email').required(requiredField),
-    message: Yup.string().max(150, 'Max 150 znaków').required(requiredField),
-});
-
-interface FormValues {
-  name: string;
-  email: string;
-  message: string;
-}
-
-const initialValues: FormValues = {
-  name: '',
-  email: '',
-  message: '',
-};
+import { contactUsSchema, FormValues, initialValues, inputData } from './contactFormData';
 
 const ContactForm: React.FC = () => {
   const handleSubmit = (values: FormValues) => {
@@ -49,10 +29,10 @@ const ContactForm: React.FC = () => {
 
         return (
         <Form>
-          <FormWraper>
-            <Input name='name' label='Imię i nazwisko / Nazwa firmy' componentType={'text'} />
-            <Input name='email' label='E-mail' componentType={'text'} />
-            <Input name='message' label='Zadaj nam pytanie' componentType={'textarea'} />
+            <FormWraper>
+              {inputData.map((data, index) => 
+                <Input key={index} name={data.name} label={data.label} componentType={data.componentType} />
+              )}
             <ButtonWraper $disabled={!isValid}>
               <Button
                 type="submit"
