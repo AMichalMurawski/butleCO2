@@ -6,6 +6,7 @@ import {
   ButtonsWraper,
   ButtonWraper,
   ContentBlock,
+  IconWraper,
   Title,
 } from './About.styled';
 import { Button, IconSvg } from '../../components';
@@ -40,7 +41,9 @@ const About: React.FC = () => {
         <AdvantagesList>
           {advantages.map(advantage => (
             <Advantage key={advantage[1]} onClick={() => scrollToSection(`/#whyChooseUs${advantage[0].replace(/-/g, '')}`)}>
-              <IconSvg name={advantage[0]} size="36px" />
+              <IconWraper>
+                <IconSvg name={advantage[0]} size="36px" />
+                </IconWraper>
               <P $bold>{advantage[1]}</P>
             </Advantage>
           ))}
