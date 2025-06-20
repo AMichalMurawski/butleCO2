@@ -1,4 +1,4 @@
-import { DataList, SubmitButtonConteiner } from './ClientForm.styled';
+import { ButtonWraper, DataList } from './ClientForm.styled';
 import { Button } from '../../';
 import { Formik } from 'formik';
 import { initialAddress } from '../../../context/Order/initialValues';
@@ -31,7 +31,7 @@ const ClientForm = <T extends Record<string, any>>({
     <Formik
       initialValues={extendedInitialValues}
       validationSchema={validationSchema}
-      onSubmit={values => {
+      onSubmit={(values) => {
         console.log('values', values);
 
         if (!values.deliveryTime) {
@@ -47,7 +47,7 @@ const ClientForm = <T extends Record<string, any>>({
       validateOnBlur={true}
       validateOnChange={false}
     >
-      {() => {
+      {({isValid}) => {
         return (
           <DataList>
             {Object.keys(initialValues).map(key => {
@@ -78,14 +78,14 @@ const ClientForm = <T extends Record<string, any>>({
 
               return <Input key={`${name}`} name={`${name}`} label={label} componentType={type} />;
             })}
-            <SubmitButtonConteiner>
+            <ButtonWraper $disabled={!isValid}>
               <Button
                 type="submit"
                 text="Zatwierdź"
-                color={theme.color.structural}
-                background={theme.color.remarkable}
+                color={!isValid ? theme.color.remarkable : theme.color.structural}
+                background={!isValid ? theme.color.structuralTrans : theme.color.remarkable}
               />
-            </SubmitButtonConteiner>
+            </ButtonWraper>
           </DataList>
         );
       }}

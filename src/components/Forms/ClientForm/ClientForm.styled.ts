@@ -31,7 +31,12 @@ export const DataValue = styled.input`
   }
 `;
 
-export const SubmitButtonConteiner = styled.div`
+interface ButtonWraperProps {
+  $disabled: boolean;
+}
+
+export const ButtonWraper = styled.div<ButtonWraperProps>`
   margin-top: 30px;
   margin-left: auto;
+  pointer-events: ${({ $disabled }) => ($disabled ? 'none' : '')};
 `;
