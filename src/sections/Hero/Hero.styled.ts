@@ -14,25 +14,25 @@ export const ImagesRollWraper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-`
+`;
 
 const generateRollAnimation = (count: number) => {
   const step = 100 / count;
   const stepWait = step * 0.9;
-  const stepMove = step * 0.1; 
+  const stepMove = step * 0.1;
   const stepTranslate: number = 100 / (count + 1);
-  
+
   let keyframeString = `0% { transform: translateX(0); }`;
 
   let stepPercent: number = 0;
-  let stepX: number = 0
+  let stepX: number = 0;
 
   for (let i = 0; i < count; i++) {
     stepPercent += stepWait;
     keyframeString += `
       ${stepPercent}% { transform: translateX(-${stepX}%); }
     `;
-    
+
     stepPercent += stepMove;
     stepX += stepTranslate;
     keyframeString += `
@@ -45,7 +45,7 @@ const generateRollAnimation = (count: number) => {
 
 interface ImagesRollProps {
   $imagesCount: number;
-};
+}
 
 export const ImagesRoll = styled.div<ImagesRollProps>`
   position: absolute;
@@ -55,11 +55,12 @@ export const ImagesRoll = styled.div<ImagesRollProps>`
   width: ${({ $imagesCount }) => `${($imagesCount + 1) * 100}%`};
   display: flex;
   flex-direction: row;
-  animation: ${({$imagesCount}) => `${$imagesCount * 5}s`} ${({ $imagesCount }) => generateRollAnimation($imagesCount)} linear infinite;
+  animation: ${({ $imagesCount }) => `${$imagesCount * 5}s`}
+    ${({ $imagesCount }) => generateRollAnimation($imagesCount)} linear infinite;
 `;
 
 export const Image = styled(ImageBg)`
-  filter: brightness(60%);
+  filter: brightness(50%);
 `;
 
 export const Sentence = styled.div`

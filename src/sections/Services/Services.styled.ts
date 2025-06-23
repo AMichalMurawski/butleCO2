@@ -18,7 +18,7 @@ export const ServiceWraper = styled.div`
   text-shadow: 0 0 10px black;
   overflow: hidden;
 
-  &:hover div{
+  &:hover div {
     transform: translateY(0%);
     padding: 60px;
   }
@@ -40,10 +40,12 @@ export const ServicePanel = styled.div`
   align-items: center;
   justify-content: space-between;
   transform: translateY(80%);
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: transform ease-out 300ms, padding ease-out 300ms;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition:
+    transform ease-out 300ms,
+    padding ease-out 300ms;
 
   & * {
     margin: 0;
   }
-`
+`;

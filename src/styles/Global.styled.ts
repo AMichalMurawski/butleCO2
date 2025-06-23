@@ -5,11 +5,11 @@ type TextProps = {
   $bold?: boolean;
   $textAlign?: TextAlignProps;
   $fontSize?: string;
-}
+};
 
 type ParagraphProps = TextProps & {
   $textIndent?: string;
-}
+};
 
 const boldStyles = (bold?: boolean) => css`
   font-weight: ${bold ? '700' : '400'};
@@ -21,12 +21,12 @@ const textAlignStyle = (textAlign?: TextAlignProps) => css`
 
 const fontStyle = (size?: string, family?: 'main' | 'heading') => css`
   font-size: ${size};
-  ${({ theme }) => family === 'heading' ? theme.fonts.heading : theme.fonts.main};
-`
+  ${({ theme }) => (family === 'heading' ? theme.fonts.heading : theme.fonts.main)};
+`;
 
 const textIndentStyle = (textIndent?: string) => css`
   text-indent: ${textIndent || null};
-`
+`;
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -74,28 +74,28 @@ export const Section = styled.section`
 export const H1 = styled.h2<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({$fontSize}) => fontStyle($fontSize || '48px', 'heading')};
+  ${({ $fontSize }) => fontStyle($fontSize || '56px', 'heading')};
   margin-bottom: 30px;
 `;
 
 export const H2 = styled.h2<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({$fontSize}) => fontStyle($fontSize || '24px', 'heading')};
+  ${({ $fontSize }) => fontStyle($fontSize || '30px', 'heading')};
   margin-bottom: 30px;
 `;
 
 export const H3 = styled.h3<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({$fontSize}) => fontStyle($fontSize || '20px', 'heading')};
+  ${({ $fontSize }) => fontStyle($fontSize || '24px', 'heading')};
   margin-bottom: 30px;
 `;
 
 export const H4 = styled.h4<TextProps>`
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({$fontSize}) => fontStyle($fontSize || '16px', 'heading')};
+  ${({ $fontSize }) => fontStyle($fontSize || '16px', 'heading')};
   margin-bottom: 20px;
 `;
 
@@ -103,13 +103,13 @@ export const P = styled.p<ParagraphProps>`
   ${({ $bold }) => boldStyles($bold)};
   ${({ $textAlign }) => textAlignStyle($textAlign || 'inherit')};
   ${({ $fontSize }) => fontStyle($fontSize || '14px')};
-  ${({$textIndent}) => textIndentStyle($textIndent)};
+  ${({ $textIndent }) => textIndentStyle($textIndent)};
   width: 100%;
 `;
 
 export const Link = styled.a<TextProps>`
   ${({ $bold }) => boldStyles($bold)};
-  ${({$fontSize}) => fontStyle($fontSize || 'inherit')};
+  ${({ $fontSize }) => fontStyle($fontSize || 'inherit')};
   position: relative;
   color: inherit;
   text-decoration: none;
@@ -122,7 +122,7 @@ export const Link = styled.a<TextProps>`
     top: 0;
     width: 0;
     height: 100%;
-    border-bottom: 1px solid ${({theme}) => theme.color.hightlight};
+    border-bottom: 1px solid ${({ theme }) => theme.color.hightlight};
     transform: translate(-50%, 0);
     transition: width 300ms ease;
   }
@@ -153,7 +153,7 @@ export const IconLink = styled.a<TextProps>`
 
 interface ImageBgProps {
   $url: string;
-};
+}
 
 export const ImageBg = styled.div<ImageBgProps>`
   width: 100%;
@@ -161,4 +161,4 @@ export const ImageBg = styled.div<ImageBgProps>`
   background-image: url(${({ $url }) => $url || ''});
   background-size: cover;
   background-position: center;
-`
+`;
