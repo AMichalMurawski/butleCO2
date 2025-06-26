@@ -8,3 +8,4 @@ export { default as ModalConfirmOrder } from './Modals/ModalConfirmOrder/ModalCo
 export { default as ModalConteiner } from './Modals/ModalConteiner/ModalConteiner';
 export { default as ModalsOrder } from './Modals/ModalsOrder/ModalsOrder';
 export { default as Order } from './Order/Order';
+export { default as Toast } from './Toast/Toast';

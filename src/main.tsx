@@ -46,6 +46,7 @@ import '@fontsource/work-sans/700.css';
 // Crimson Text
 import '@fontsource/crimson-text/400.css';
 import '@fontsource/crimson-text/700.css';
+import { ToastProvider } from './context/Toast/ToastContext';
 
 
 const rootElement = document.getElementById('root') as HTMLElement;
@@ -55,7 +56,9 @@ createRoot(rootElement).render(
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <IdSectionProvider>
-          <App />
+          <ToastProvider>
+            <App />
+          </ToastProvider>
         </IdSectionProvider>
       </BrowserRouter>
     </ThemeProvider>
