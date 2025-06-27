@@ -10,7 +10,7 @@ export const ServicesList = styled.div`
 export const ServiceWraper = styled.div`
   position: relative;
   flex-basis: 100%;
-  height: 600px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,7 +25,6 @@ export const ServiceWraper = styled.div`
 
   ${({ theme }) => theme.media.d} {
     flex-basis: calc((100% - 30px) / 2);
-    height: 400px;
   }
 `;
 
