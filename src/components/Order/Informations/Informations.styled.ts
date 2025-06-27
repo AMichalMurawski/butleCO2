@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { P } from '../../../styles';
 
 export const InformationsWraper = styled.div`
-  padding: 30px 60px;
+  padding: 2rem 4rem;
   text-align: left;
   font-style: italic;
   color: ${({ theme }) => theme.color.text};
@@ -29,5 +29,5 @@ export const InformationsValue = styled(P) <InformationsProps>`
 `;
 
 export const Reference = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 `

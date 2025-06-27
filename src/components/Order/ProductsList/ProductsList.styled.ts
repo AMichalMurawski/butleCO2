@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const ProductsListWraper = styled.div`
   width: 100%;
-  padding-inline: 60px;
+  padding-inline: 3rem;
 `;
 
 export const ProductsTable = styled.table`
@@ -17,15 +17,15 @@ export const TableColGroup = styled.colgroup``
 
 export const TableColumn = styled.col`
   &:nth-of-type(1) {
-    width: 60px;
+    width: 3rem;
   }
 
   &:nth-of-type(4) {
-    width: 115px;
+    width: 7rem;
   }
 
   &:last-of-type {
-    width: 50px;
+    width: 3rem;
   }
 `
 
@@ -51,8 +51,8 @@ export const TableRow = styled.tr``;
 export const TableHeaderCell = styled.th`
   position: relative;
   z-index: 1;
-  padding: 15px;
-  border-bottom: 5px solid ${({ theme }) => theme.color.text};
+  padding: 0.9rem;
+  border-bottom: 0.25rem solid ${({ theme }) => theme.color.text};
 
   &::before,
   &::after {
@@ -60,7 +60,7 @@ export const TableHeaderCell = styled.th`
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(100% + 15px);
+    width: calc(100% + 1rem);
     height: 100%;
     z-index: -1;
   }
@@ -92,29 +92,29 @@ export const TableHeaderCell = styled.th`
 
   &:last-of-type {
     &::before {
-      width: calc(100% + 30px);
-      clip-path: polygon(30% 0, calc(100% - 30px) 0, calc(100% - 30px) 100%, 30% 100%);
+      width: calc(100% + 2rem);
+      clip-path: polygon(30% 0, calc(100% - 2rem) 0, calc(100% - 2rem) 100%, 30% 100%);
     }
   }
 
   &:not(:last-of-type) {
     &::before {
-      clip-path: polygon(30% 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 30% 100%);
+      clip-path: polygon(30% 0, calc(100% - 2rem) 0, 100% 50%, calc(100% - 2rem) 100%, 30% 100%);
     }
   }
 
   &:first-of-type {
     &::after {
-      clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%);
+      clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
     }
   }
 
   &:not(:first-of-type) {
     &::after {
-      left: -10px;
-      clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%, 30px 50%);
+      left: -0.6rem;
+      clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%, 2rem 50%);
     }
-    border-left: 5px solid ${({ theme }) => theme.color.text};
+    border-left: 0.35rem solid ${({ theme }) => theme.color.text};
   }
 
 `;
@@ -124,7 +124,7 @@ interface TableFooterCellProps {
 }
 
 export const TableFooterCell = styled.td<TableFooterCellProps>`
-  padding: 15px;
+  padding: 0.75rem;
   font-weight: ${({ $sum }) => ($sum ? '700' : null)};
 
   &:nth-child(1) {
@@ -137,7 +137,7 @@ export const TableFooterCell = styled.td<TableFooterCellProps>`
 export const TableBody = styled.tbody``;
 
 export const TableBodyRow = styled.tr`
-  height: 60px;
+  height: 3rem;
   &:nth-child(even) {
     color: ${({ theme }) => theme.color.main};
     background-color: ${({ theme }) => theme.color.remarkable};
@@ -150,16 +150,17 @@ interface TableBodyCellProps {
   
 export const TableBodyCell = styled.td<TableBodyCellProps>`
   position: relative;
-  padding: 15px;
+  padding: 1rem;
+  font-size: 0.85rem;
 
   &:first-of-type {
     color: ${({ theme }) => theme.color.text};
     background-color: ${({ theme }) => theme.color.structural};
-    border-bottom: 5px solid ${({ theme }) => theme.color.text};
+    border-bottom: 0.25rem solid ${({ theme }) => theme.color.text};
   }
 
   &:not(:first-of-type) {
-    border-bottom: 5px solid ${({ theme }) => theme.color.structural};
+    border-bottom: 0.25rem solid ${({ theme }) => theme.color.structural};
   }
 
   &:hover:has(svg) {
@@ -174,12 +175,11 @@ export const TableBodyCell = styled.td<TableBodyCellProps>`
     // content: 'wymiana';
     content: ${({ $transaction }) => $transaction ? 'Zakup' : 'Wymiana'};
     position: absolute;
-    right: 0;
-    bottom: -5px;
+    right: 0.5rem;
+    bottom: 0;
     color: black;
-    // background-color: red;
     z-index: 100;
-    scale: 0.8;
+    font-size: 0.8em;
   };
 `;
 
@@ -191,9 +191,9 @@ interface IconWraperProps {
 
 export const IconWraper = styled.div<IconWraperProps>`
   margin-inline: auto;
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
   transform-origin: center;
 
   ${TableBodyCell}:hover & {
@@ -203,7 +203,7 @@ export const IconWraper = styled.div<IconWraperProps>`
 
 export const IconAdd = styled(IconWraper)`
   transform-origin: center;
-  transform: translate(4px, -2px) rotate(45deg);
+  transform: rotate(45deg);
 
   ${TableBodyRow}:hover & {
     scale: 1.2;

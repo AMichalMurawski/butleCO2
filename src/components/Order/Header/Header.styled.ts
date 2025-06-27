@@ -3,7 +3,7 @@ import { H2, P } from '../../../styles';
 
 export const HeaderWraper = styled.div`
   display: flex;
-  height: 150px;
+  height: 8.5rem;
   width: 100%;
   overflow: hidden;
 `;
@@ -16,7 +16,7 @@ export const HeaderTitle = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 2;
-  padding: 15px 60px;
+  padding: 1rem 4rem;
   width: 100%;
   z-index: 0;
 
@@ -26,29 +26,29 @@ export const HeaderTitle = styled.div`
     position: absolute;
     top: 0%;
     left: 0%;
-    width: calc(100% + 30px);
+    width: calc(100% + 2rem);
     height: 100%;
     background-color: ${({ theme }) => theme.color.remarkable};
   }
 
   &::before {
     clip-path: polygon(
-      calc(100% - 90px) 0%,
+      calc(100% - 5rem) 0%,
       100% 0,
-      calc(100% - 90px) 100%,
-      calc(100% - 180px) 100%
+      calc(100% - 5rem) 100%,
+      calc(100% - 10rem) 100%
     );
   }
 
   &::after {
-    clip-path: polygon(0% 100%, 0 70%, calc(100% - 90px) 70%, calc(100% - 90px) 100%);
+    clip-path: polygon(0% 100%, 0 70%, calc(100% - 5rem) 70%, calc(100% - 5rem) 100%);
   }
 `;
 
 export const Title = styled(H2)`
   position: absolute;
-  top: 50px;
-  left: 60px;
+  top: 2.75rem;
+  left: 4rem;
   text-align: left;
   color: ${({ theme }) => theme.color.text};
 
@@ -66,8 +66,8 @@ export const Title = styled(H2)`
 
 export const OrderNumber = styled(P)`
   position: absolute;
-  left: 120px;
-  bottom: 10px;
+  left: 6.5rem;
+  bottom: 0.5rem;
   translate: -50%;
   color: ${({ theme }) => theme.color.structural};
   z-index: 1;
@@ -90,12 +90,12 @@ export const InvoiceAddress = styled.div`
   &::before {
     content: '';
     position: absolute;
-    top: 0%;
-    left: -30px;
-    width: calc(100% + 35px);
+    top: 0;
+    left: -1rem;
+    width: calc(100% + 2rem);
     height: 100%;
     background-color: ${({ theme }) => theme.color.remarkable};
-    clip-path: polygon(90px 0%, 100% 0%, 100% 100%, 0 100%);
+    clip-path: polygon(5rem 0%, 100% 0%, 100% 100%, 0 100%);
     z-index: -1;
   }
 `;

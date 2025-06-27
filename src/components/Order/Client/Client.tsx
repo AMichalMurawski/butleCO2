@@ -52,7 +52,7 @@ const Client: React.FC<ModalClientProps<any>> = ({
   return (
     <ClientWraper $autoMargin={autoMargin} onClick={onClick}>
       <EditIconWraper>
-        <IconSvg name="pencil" size="20px" fill={theme.color.structural} />
+        <IconSvg name="pencil" size="1.1rem" fill={theme.color.structural} />
       </EditIconWraper>
       <H3>{title}:</H3>
       {Object.keys(initialValues).map(key => {

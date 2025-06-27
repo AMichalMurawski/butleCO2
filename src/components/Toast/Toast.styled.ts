@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ToastType } from "../../context/Toast/ToastContext";
 
 export const ToastWraper = styled.div`
     position: fixed;
@@ -9,7 +8,7 @@ export const ToastWraper = styled.div`
     height: fit-context;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.25rem;
     z-index: 999;
 `
 
@@ -18,16 +17,16 @@ interface ToastMessageProps {
 }
 
 export const ToastMessage = styled.div<ToastMessageProps>`
-    width: 360px;
-    padding: 5px 15px;
+    width: 20rem;
+    padding: 0.3rem 1rem;
     height: fit-context;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 0.5rem;
     align-items: center;
     color: black;
     background-color: ${({ theme }) => theme.color.text};
-    border: 5px solid ${({ $color }) => $color};
-    border-radius: 3000px;
+    border: 0.3rem solid ${({ $color }) => $color};
+    border-radius: 2rem;
 `
 
