@@ -2,21 +2,21 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
-  // html {
-  //   font-size: 12px;
+  html {
+    font-size: 12px;
   
-  //   ${({ theme }) => theme.media.t} {
-  //     font-size: 14px;
-  //   }
+    ${({ theme }) => theme.media.t} {
+      font-size: 14px;
+    }
 
-  //   ${({ theme }) => theme.media.d} {
-  //     font-size: 16px;
-  //   }
+    ${({ theme }) => theme.media.d} {
+      font-size: 16px;
+    }
 
-  //   ${({ theme }) => theme.media.l} {
-  //     font-size: 18px;
-  //   }
-  // }
+    ${({ theme }) => theme.media.l} {
+      font-size: 18px;
+    }
+  }
 
   body {
     margin: 0;

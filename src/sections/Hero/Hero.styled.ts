@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { ImageBg, Section } from '../../styles/Global.styled';
+import { ImageBg, Section } from '../../styles';
 
 export const HeroSection = styled(Section)`
   position: relative;

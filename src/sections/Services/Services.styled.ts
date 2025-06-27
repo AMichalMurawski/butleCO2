@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ImageBg } from '../../styles/Global.styled';
+import { ImageBg } from '../../styles';
 
 export const ServicesList = styled.div`
   display: flex;

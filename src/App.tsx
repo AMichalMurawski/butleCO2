@@ -1,8 +1,12 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './layout/Layout';
-import { HomePage, LegalDocumentPage, OrdersPage } from './pages';
-import TemplatePage from './pages/TemplatePage/TemplatePage';
 import { DocumentType } from './pages/LegalDocumentPage/LegalDocumentPage';
+
+const HomePage = React.lazy(() => import('./pages/HomePage/HomePage'))
+const LegalDocumentPage = React.lazy(() => import('./pages/LegalDocumentPage/LegalDocumentPage'))
+const OrdersPage = React.lazy(() => import('./pages/OrdersPage/OrdersPage'))
+const TemplatePage = React.lazy(() => import('./pages/TemplatePage/TemplatePage'))
 
 const App = () => {
   return (

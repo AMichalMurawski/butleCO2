@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H2, H3, P, Section } from '../../styles/Global.styled';
+import { H2, H3, P, Section } from '../../styles';
 
 export const LegalDocumentWraper = styled(Section)`
   display: flex;

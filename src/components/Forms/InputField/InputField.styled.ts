@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Input, Label, P } from '../../../styles';
 
 interface DataWraperProps {
   $flexDirection?: 'column' | 'row' | 'column-reverse' | 'row-reverse';
@@ -9,15 +10,12 @@ export const DataWraper = styled.div<DataWraperProps>`
   width: 100%;
   display: flex;
   flex-direction: ${({$flexDirection}) => $flexDirection || 'column'};
-  gap: 2px;
   align-items: start;
 `;
 
-export const DataName = styled.label`
+export const DataName = styled(Label)`
   min-width: max-content;
-  padding-inline: 10px;
-  font-size: 0.75rem;
-  text-align: left;
+  padding-inline: 0.625rem;
   margin-right: auto;
 `;
 
@@ -27,16 +25,16 @@ interface ValueConteinerProps {
 
 export const ValueConteiner = styled.div<ValueConteinerProps>`
   position: relative;
-  width: ${({$width}) => $width || '100%' };
+  width: ${({ $width }) => $width || '100%' };
+  text-align: left;
 `;
 
-export const DataValue = styled.input`
+export const DataValue = styled(Input)`
   position: relative;
   width: 100%;
-  padding: 5px 10px;
-  text-align: left;
+  padding: 0.3rem 0.6rem;
   border: 1px solid ${({ theme }) => theme.color.structural};
-  border-radius: 10px;
+  border-radius: 1rem;
   outline: none;
   background-color: white;
 
@@ -60,11 +58,8 @@ export const TextareaValue = styled(DataValue).attrs({ as: 'textarea' })`
 `;
 
 export const CheckboxValueWraper = styled.label`
-  width: 25px;
-  height: 25px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  width: 1.5rem;
+  height: 1.5rem;
 `;
 
 export const CheckboxValue = styled(DataValue)`
@@ -73,16 +68,16 @@ export const CheckboxValue = styled(DataValue)`
 
 export const CheckboxHandleValue = styled.div<{ checked: boolean }>`
   position: relative;
-  width: 20px;
-  height: 20px;
-  background-color: ${({ theme, checked }) => (checked ? theme.color.accent : theme.color.danger)};
-  border: 1px solid ${({ theme }) => theme.color.structural};
-  border-radius: 4px;
-  transition: background-color ease-in-out 300ms;
+  width: 1.15rem;
+  height: 1.15rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: ${({ theme, checked }) => (checked ? theme.color.accent : theme.color.danger)};
+  border: 1px solid ${({ theme }) => theme.color.structural};
+  border-radius: 0.25rem;
   cursor: pointer;
+  ${({theme}) => theme.css.transition('background-color')}
 `;
 
 interface SvgWraperProps {
@@ -91,19 +86,19 @@ interface SvgWraperProps {
 
 export const SvgWraper = styled.div<SvgWraperProps>`
   position: absolute;
-  width: 13px;
-  height: 13px;
+  width: 0.75rem;
+  height: 0.75rem;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -12px);
+  transform: translate(-50%, -0.7rem);
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
-  transition: opacity ease-in-out 300ms;
+  ${({theme}) => theme.css.transition('opacity')}
 `;
 
-export const ErrorValue = styled.p`
+export const ErrorValue = styled(P)`
   position: absolute;
-  bottom: -13px;
-  left: 10px;
+  bottom: -0.9rem;
+  left: 0.75rem;
   width: 100%;
   color: ${({ theme }) => theme.color.danger};
   text-align: left;
@@ -114,29 +109,26 @@ export const ErrorValue = styled.p`
 export const WeekWraper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 15px 15px 0;
+  gap: 0.15rem;
+  padding: 0.25rem 0.85rem 0;
 `;
 
 export const DayWraper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.5rem;
 `;
 
 export const TimeWraper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 5px;
-  transform: translateY(-3px);
+  gap: 0.25rem;
+  transform: translateY(-0.25rem);
 `;
 
-export const TimeInput = styled.input`
-  width: 45px;
-  height: 20px;
+export const TimeInput = styled(Input)`
+  width: 2.5rem;
+  height: 1.2rem;
   text-align: center;
 `;
 
-export const Label = styled.label`
-  height: 20px;
-`;

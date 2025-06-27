@@ -9,7 +9,7 @@ import {
 } from './Header.styled';
 import { Button, IconSvg, LogoIcon } from '../../components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
-import { P } from '../../styles/Global.styled';
+import { P } from '../../styles';
 
 const navbarList = [
   ['O firmie', '/#about'],

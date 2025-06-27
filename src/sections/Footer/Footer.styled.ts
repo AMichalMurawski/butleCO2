@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IconLink } from '../../styles/Global.styled';
+import { IconLink } from '../../styles';
 
 export const FooterWraper = styled.footer`
   margin-top: auto;

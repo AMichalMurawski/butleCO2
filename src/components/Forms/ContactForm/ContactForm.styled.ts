@@ -5,7 +5,7 @@ export const FormWraper = styled.div`
   width: min(max(75%, 500px), 100%);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
   justify-items: start;
   align-items: start;
 `;

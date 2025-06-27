@@ -3,7 +3,7 @@ import {
   Image,
   TemplateSection,
 } from './Template.styled';
-import { H3 } from '../../styles/Global.styled';
+import { H3 } from '../../styles';
 
 const templates = [
   ['/images/order-template-01.webp', 'Template 01'],

@@ -7,7 +7,7 @@ import {
   LegalDocumentWraper,
   List,
 } from './LegalDocument.styled';
-import { H2, H3, P } from '../../styles/Global.styled';
+import { H2, H3, P } from '../../styles';
 
 interface LegalDocumentProps {
   documentData: DocumentProps;

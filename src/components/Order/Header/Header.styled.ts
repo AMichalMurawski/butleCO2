@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H2, P } from '../../../styles/Global.styled';
+import { H2, P } from '../../../styles';
 
 export const HeaderWraper = styled.div`
   display: flex;

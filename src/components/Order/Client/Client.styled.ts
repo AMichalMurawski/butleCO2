@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { H3, P } from '../../../styles/Global.styled';
+import { H3, P } from '../../../styles';
 
 interface ClientWraperProps {
   $autoMargin: 'left' | 'right';

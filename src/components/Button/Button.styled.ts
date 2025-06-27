@@ -7,14 +7,14 @@ interface ButtonElementProps {
 }
 
 export const ButtonElement = styled.button<ButtonElementProps>`
-  padding: 15px;
+  padding: 1rem;
   color: ${({ $active, $color, theme }) => ($active ? theme.color.hightlight : $color)};
   background-color: ${({ $background }) => $background};
   border-radius: 100px;
   border: none;
   cursor: pointer;
-  transition: scale 200ms;
   text-shadow: 0 0 15px ${({ $active, theme: { color } }) => ($active ? color.remarkable : 'null')};
+  ${({theme}) => theme.css.transition(['scale', 'box-shadow'])}
 
   &:hover {
     scale: 1.1;

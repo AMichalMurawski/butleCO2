@@ -7,7 +7,7 @@ import {
   TitleWraper,
 } from './ModalConteiner.styled';
 import { IconSvg } from '../../';
-import { H3 } from '../../../styles/Global.styled';
+import { H3 } from '../../../styles';
 
 interface ModalConteinerProps {
   width?: string;
@@ -51,7 +51,7 @@ const ModalConteiner: React.FC<PropsWithChildren<ModalConteinerProps>> = ({
         )}
         <ContentsWraper>{children}</ContentsWraper>
         <ExitButtonConteiner onClick={handleClick}>
-          <IconSvg name="cross" size='15px' fill="red" onClick={handleClick} />
+          <IconSvg name="cross" size='0.85rem' fill="red" onClick={handleClick} />
         </ExitButtonConteiner>
       </ModalBox>
     </ModalWraper>

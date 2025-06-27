@@ -2,7 +2,7 @@
 import React from 'react';
 import { ToastProps, useToast } from '../../context/Toast/ToastContext';
 import { ToastMessage, ToastWraper } from './Toast.styled';
-import { P } from '../../styles/Global.styled';
+import { P } from '../../styles';
 import IconSvg from '../Icons/IconSvg/IconSvg';
 import { useTheme } from 'styled-components';
 

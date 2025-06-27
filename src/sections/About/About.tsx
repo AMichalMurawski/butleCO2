@@ -13,7 +13,7 @@ import { Button, IconSvg } from '../../components';
 import { useTheme } from 'styled-components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 import { advantages } from '../../utils';
-import { P } from '../../styles/Global.styled';
+import { P } from '../../styles';
 
 const About: React.FC = () => {
   const theme = useTheme();

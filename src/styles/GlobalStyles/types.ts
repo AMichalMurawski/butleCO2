@@ -3,6 +3,7 @@ export type TextProps = {
   $bold?: boolean;
   $textAlign?: TextAlignProps;
   $fontSize?: string;
+  $fontStyle?: string;
 };
 
 export type ParagraphProps = TextProps & {

@@ -10,7 +10,7 @@ import {
 import { clientAddress } from './clientAddress';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
 import { DayProps } from '../../../context/Order/orderProps';
-import { H3 } from '../../../styles/Global.styled';
+import { H3 } from '../../../styles';
 import IconSvg from '../../Icons/IconSvg/IconSvg';
 import { useTheme } from 'styled-components';
 

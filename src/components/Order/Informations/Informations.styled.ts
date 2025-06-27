@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { P } from '../../../styles/Global.styled';
+import { P } from '../../../styles';
 
 export const InformationsWraper = styled.div`
   padding: 30px 60px;

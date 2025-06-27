@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H2, P, Section } from '../../styles/Global.styled';
+import { H2, P, Section } from '../../styles';
 
 export const AboutSection = styled(Section)`
   display: flex;

@@ -5,11 +5,10 @@ import {
   SegmentWraper,
   Subtitle,
   TextLine,
-  TextTitle,
-  TextValue,
   Title,
 } from './ModalConfirmOrder.styled';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
+import { P } from '../../../styles';
 
 const ModalConfirmOrder: React.FC = () => {
   const { order } = useOrder();
@@ -19,28 +18,28 @@ const ModalConfirmOrder: React.FC = () => {
         <SegmentWraper>
           <Title>Klient:</Title>
           <TextLine>
-            <TextTitle>Imię i Nazwisko / Nazwa firmy:</TextTitle>
-            <TextValue>{order.client.name}</TextValue>
+            <P $fontStyle='italic'>Imię i Nazwisko / Nazwa firmy:</P>
+            <P $bold>{order.client.name}</P>
           </TextLine>
           <TextLine>
-            <TextTitle>Telefon kontaktowy:</TextTitle>
-            <TextValue>{order.client.phone}</TextValue>
+            <P>Telefon kontaktowy:</P>
+            <P $bold>{order.client.phone}</P>
           </TextLine>
           <TextLine>
-            <TextTitle>Email:</TextTitle>
-            <TextValue>{order.client.email}</TextValue>
+            <P>Email:</P>
+            <P $bold>{order.client.email}</P>
           </TextLine>
           <TextLine>
-            <TextTitle>Address dostawy:</TextTitle>
-            <TextValue>
+            <P>Address dostawy:</P>
+            <P $bold>
               {order.client.address.street} {order.client.address.number}
               {order.client.address.local ? ` lok. ${order.client.address.local}` : null},{' '}
               {order.client.address.postalCode} {order.client.address.city}
-            </TextValue>
+            </P>
           </TextLine>
           <TextLine>
-            <TextTitle>Godziny dostawy:</TextTitle>
-            <TextValue>
+            <P>Godziny dostawy:</P>
+            <P $bold>
               {order.client.deliveryTime
                 .map(day => {
                   const startTime = `${day.time[0].hour.toString().padStart(2, '0')}:${day.time[0].minute.toString().padStart(2, '0')}`;
@@ -48,31 +47,31 @@ const ModalConfirmOrder: React.FC = () => {
                   return `${weekTimeLabels[day.day]} ${startTime} - ${endTime}`;
                 })
                 .join(' | ')}
-            </TextValue>
+            </P>
           </TextLine>
           <TextLine>
-            <TextTitle>Informacje do dostawy:</TextTitle>
-            <TextValue>{order.client.message}</TextValue>
+            <P>Informacje do dostawy:</P>
+            <P $bold>{order.client.message}</P>
           </TextLine>
         </SegmentWraper>
         {order.client.invoice && (
           <SegmentWraper>
             <Title>Faktura:</Title>
             <TextLine>
-              <TextTitle>Nazwa firmy:</TextTitle>
-              <TextValue>{order.company.name}</TextValue>
+              <P>Nazwa firmy:</P>
+              <P $bold>{order.company.name}</P>
             </TextLine>
             <TextLine>
-              <TextTitle>Adres:</TextTitle>
-              <TextValue>
+              <P>Adres:</P>
+              <P $bold>
                 {order.company.address.street} {order.company.address.number}
                 {order.company.address.local ? ` lok. ${order.company.address.local}` : null},{' '}
                 {order.company.address.postalCode} {order.company.address.city}
-              </TextValue>
+              </P>
             </TextLine>
             <TextLine>
-              <TextTitle>NIP:</TextTitle>
-              <TextValue>{order.company.NIP}</TextValue>
+              <P>NIP:</P>
+              <P $bold>{order.company.NIP}</P>
             </TextLine>
           </SegmentWraper>
         )}
@@ -83,12 +82,12 @@ const ModalConfirmOrder: React.FC = () => {
             if (product.transaction !== false) return <></>;
             return (
               <TextLine key={product.type + " " + product.weight + product.litr}>
-                <TextTitle>
+                <P>
                   {product.type} - {product.weight ? `${product.weight} kg` : `${product.litr} l`}:
-                </TextTitle>
-                <TextValue>
+                </P>
+                <P $bold>
                   {product.unitPrice}PLN x {product.amount}szt. = {product.price}PLN
-                </TextValue>
+                </P>
               </TextLine>
             );
           })}
@@ -97,12 +96,12 @@ const ModalConfirmOrder: React.FC = () => {
             if (product.transaction !== true) return null;
             return (
               <TextLine key={index}>
-                <TextTitle>
+                <P>
                   {product.type} - {product.weight ? `${product.weight} kg` : `${product.litr} l`}:
-                </TextTitle>
-                <TextValue>
+                </P>
+                <P $bold>
                   {product.unitPrice}PLN x {product.amount}szt. = {product.price}PLN
-                </TextValue>
+                </P>
               </TextLine>
             );
           })}
@@ -110,16 +109,16 @@ const ModalConfirmOrder: React.FC = () => {
         <SegmentWraper>
           <Title>Całkowity koszt zamówienia:</Title>
           <TextLine>
-            <TextTitle>Koszt butli:</TextTitle>
-            <TextValue>{order.summary.productsCost}PLN</TextValue>
+            <P>Koszt butli:</P>
+            <P $bold>{order.summary.productsCost}PLN</P>
           </TextLine>
           <TextLine>
-            <TextTitle>Koszt dostawy:</TextTitle>
-            <TextValue>{order.summary.deliveryCost}PLN</TextValue>
+            <P>Koszt dostawy:</P>
+            <P $bold>{order.summary.deliveryCost}PLN</P>
           </TextLine>
           <TextLine>
-            <TextTitle>Koszt zamówienia:</TextTitle>
-            <TextValue>{order.summary.summaryCost}PLN</TextValue>
+            <P>Koszt zamówienia:</P>
+            <P $bold>{order.summary.summaryCost}PLN</P>
           </TextLine>
         </SegmentWraper>
       </InvoiceWraper>

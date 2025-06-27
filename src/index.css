@@ -16,3 +16,35 @@
   margin: 0;
   padding: 0;
 }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://fonts.gstatic.com/s/montserrat/v20/JTUSjIg1_i6t8kCHKm45eXdcqg.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/montserrat/v20/JTUSjIg1_i6t8kCHKm46eWdcqg.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://fonts.gstatic.com/s/montserrat/v20/JTUSjIg1_i6t8kCHKm45eXdcqg.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/montserrat/v20/JTUSjIg1_i6t8kCHKm45eXdcqg.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: url('https://fonts.gstatic.com/s/crimsontext/v11/4XqGv3cJfBLqp0ER8j0pTwT_s0CVu-vrkRU.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/crimsontext/v11/4XqGv3cJfBLqp0ER8j0pTwT_s0CVu-vrkRU.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: url('https://fonts.gstatic.com/s/crimsontext/v11/4XqGv3cJfBLqp0ER8j0pTwT_s0CVu-vrkRU.woff2') format('woff2'),
+       url('https://fonts.gstatic.com/s/crimsontext/v11/4XqGv3cJfBLqp0ER8j0pTwT_s0CVu-vrkRU.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}

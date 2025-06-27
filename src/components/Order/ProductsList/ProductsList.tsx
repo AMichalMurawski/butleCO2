@@ -19,7 +19,7 @@ import { IconSvg } from '../../';
 import { useOrder } from '../../../context/Order/OrderContext';
 import AmountCounter from './AmountCounter';
 import { useTheme } from 'styled-components';
-import { P } from '../../../styles/Global.styled';
+import { P } from '../../../styles';
 
 const tableTitles = ['Poz.', 'Produkt', 'Koszt jedn.', 'Ilość', 'Koszt'];
 

@@ -9,9 +9,10 @@ export const textAlignStyle = (textAlign?: TextAlignProps) => css`
   text-align: ${textAlign || 'inherit'};
 `;
 
-export const fontStyle = (size?: string, family?: 'main' | 'heading') => css`
+export const fontStyle = (size?: string, family?: 'main' | 'heading', style?: string) => css`
   font-size: ${size};
   ${({ theme }) => (family === 'heading' ? theme.fonts.heading : theme.fonts.main)};
+  font-style: ${style || 'normal'};
 `;
 
 export const textIndentStyle = (textIndent?: string) => css`

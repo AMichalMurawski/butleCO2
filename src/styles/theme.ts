@@ -114,6 +114,19 @@ export const theme = {
     d: '@media screen and (min-width: 992px)',
     l: '@media screen and (min-width: 1240px)',
   },
+  css: {
+    transition: (elements: string | string[]): string => {
+      const trans = '300ms ease'
+
+      if (typeof elements === 'string') {
+        return `transition: ${elements} ${trans};`
+      }
+      
+      return `transition: ${elements.map(el => {
+        return `${el} ${trans}`
+      }).join(', ')};`
+    }
+  }
 };
 
 export type ThemeType = typeof theme;

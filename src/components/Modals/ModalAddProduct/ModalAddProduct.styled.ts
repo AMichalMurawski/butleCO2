@@ -5,17 +5,17 @@ export const TransactionToggle = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  gap: 1.5rem;
   justify-content: center;
 `;
 
 export const ProductsList = styled.div`
-  padding: 15px 5px;
+  padding: 0.75rem 0.75rem;
   display: flex;
   flex-wrap: wrap;
   height: auto;
   max-height: 100%;
-  gap: 30px;
+  gap: 1.5rem;
   justify-content: center;
   overflow-y: auto;
   overflow-x: hidden;
@@ -23,12 +23,13 @@ export const ProductsList = styled.div`
 
 export const ProductWraper = styled.div`
     position: relative;
-    width: 110px;
-    height: 180px;
+    width: 6rem;
+    height: 10rem;
     display: flex:
     justify-content: center;
     align-items: center;
     color: ${({ theme }) => theme.color.text};
+    overflow: hidden;
     cursor: pointer;
     
     &:hover svg {
@@ -37,7 +38,7 @@ export const ProductWraper = styled.div`
 `;
 
 export const IconSvgWraper = styled.div`
-  translate: -35px;
+  translate: -2rem;
 `;
 
 export const DescriptionWraper = styled.div`
@@ -47,5 +48,5 @@ export const DescriptionWraper = styled.div`
   transform: translate(-50%, -40%);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.5rem;
 `;

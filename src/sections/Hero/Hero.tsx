@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeroSection, Image, ImagesRoll, ImagesRollWraper, Sentence } from './Hero.styled';
-import { H1, H2 } from '../../styles/Global.styled';
+import { H1, H2 } from '../../styles';
 
 const images: string[] = [
   '/images/kdo3ud733dh3j48f.jpg',

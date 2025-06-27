@@ -7,7 +7,7 @@ import {
 import { IconSvg } from '../../components';
 import { theme } from '../../styles/theme';
 import { advantages } from '../../utils';
-import { H2, H3, P, Section } from '../../styles/Global.styled';
+import { H2, H3, P, Section } from '../../styles';
 
 const WhyChooseUs: React.FC = () => {
   return (

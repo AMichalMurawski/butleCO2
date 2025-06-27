@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from '../../styles/Global.styled';
+import { Link } from '../../styles';
 
 export const HeaderWraper = styled.header`
   position: fixed;

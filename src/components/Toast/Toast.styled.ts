@@ -3,9 +3,8 @@ import { ToastType } from "../../context/Toast/ToastContext";
 
 export const ToastWraper = styled.div`
     position: fixed;
-    top: 0;
-    right: 0;
-    padding: 60px;
+    top: 4rem;
+    right: 4rem;
     width: fit-context;
     height: fit-context;
     display: flex;

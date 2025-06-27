@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContactSection, ContactsWraper, GridWraper, Iframe, InfoWraper } from './ContactUs.styled';
 import { ContactForm } from '../../components';
-import { H2, Link, P } from '../../styles/Global.styled';
+import { H2, Link, P } from '../../styles';
 
 const ContactUs: React.FC = () => {
   return (

@@ -7,7 +7,7 @@ import {
 } from './Services.styled';
 import { Button } from '../../components';
 import { theme } from '../../styles/theme';
-import { H2, H3, P, Section } from '../../styles/Global.styled';
+import { H2, H3, P, Section } from '../../styles';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const servList = [

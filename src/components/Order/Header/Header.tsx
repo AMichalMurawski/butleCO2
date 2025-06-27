@@ -6,7 +6,7 @@ import {
   OrderNumber,
   Title,
 } from './Header.styled';
-import { P } from '../../../styles/Global.styled';
+import { P } from '../../../styles';
 
 const Header: React.FC = () => {
   return (

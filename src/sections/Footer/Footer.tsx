@@ -9,7 +9,7 @@ import {
   PrivacyPolicy,
 } from './Footer.styled';
 import { IconSvg } from '../../components';
-import { H4, Link, P } from '../../styles/Global.styled';
+import { H4, Link, P } from '../../styles';
 
 const Footer: React.FC = () => {
   return (

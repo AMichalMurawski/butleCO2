@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { H2, Section } from '../../styles/Global.styled';
+import { H2, Section } from '../../styles';
 
 const GoogleReviews: React.FC = () => {
   useEffect(() => {
