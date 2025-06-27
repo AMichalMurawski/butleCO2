@@ -9,8 +9,8 @@ export const ServicesList = styled.div`
 
 export const ServiceWraper = styled.div`
   position: relative;
-  flex-basis: calc((100% - 30px) / 2);
-  height: 400px;
+  flex-basis: 100%;
+  height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +20,12 @@ export const ServiceWraper = styled.div`
 
   &:hover div {
     transform: translateY(0%);
-    padding: 60px;
+    padding: 60px 45px;
+  }
+
+  ${({ theme }) => theme.media.d} {
+    flex-basis: calc((100% - 30px) / 2);
+    height: 400px;
   }
 `;
 
@@ -33,7 +38,7 @@ export const ServiceImage = styled(ImageBg)`
 
 export const ServicePanel = styled.div`
   height: 100%;
-  padding: 25px 60px;
+  padding: 25px 45px;
   display: flex;
   flex-direction: column;
   gap: 30px;

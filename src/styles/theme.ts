@@ -108,6 +108,12 @@ export const theme = {
       letter-spacing: 0.03em;
     `,
   },
+  media: {
+    m: '@media screen and (min-width: 480px)',
+    t: '@media screen and (min-width: 768px)',
+    d: '@media screen and (min-width: 992px)',
+    l: '@media screen and (min-width: 1240px)',
+  },
 };
 
 export type ThemeType = typeof theme;
