@@ -4,7 +4,9 @@ import { ImageBg, Section } from '../../styles';
 export const HeroSection = styled(Section)`
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 75vh;
+  min-height: 450px;
+  max-height: 600px;
   padding-top: 0;
   padding-inline: 0;
 `;

@@ -26,7 +26,7 @@ const Header: React.FC = () => {
     <HeaderWraper>
       <HeaderBox>
         <LogoWraper onClick={() => scrollToSection('/#hero')}>
-          <LogoIcon dimension="60px" />
+          <LogoIcon dimension="3.5rem" />
         </LogoWraper>
         <NavbarWraper>
           {navbarList.map(option => (
@@ -41,11 +41,11 @@ const Header: React.FC = () => {
         </NavbarWraper>
         <ContactsWraper>
           <LinkWraper href="tel:(+48)500612755">
-            <IconSvg name="phone" size='16px' />
+            <IconSvg name="phone" size='1rem' />
             <P>(+48) 500 612 755</P>
           </LinkWraper>
           <LinkWraper href="mailto:biuro@butleco2.pl">
-            <IconSvg name="mail" size='16px' />
+            <IconSvg name="mail" size='1rem' />
             <P>biuro@butleco2.pl</P>
           </LinkWraper>
         </ContactsWraper>

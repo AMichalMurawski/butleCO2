@@ -9,11 +9,11 @@ export const HeaderWraper = styled.header`
   display: flex;
   justify-content: center;
   z-index: 10;
-  background-color: #1f2a38aa;
+  background-color: ${({theme}) => theme.color.structuralTrans}
 `;
 
 export const HeaderBox = styled.div`
-  height: 120px;
+  height: 7rem;
   width: 100%;
   position: relative;
   padding-inline: 25px;
@@ -25,12 +25,12 @@ export const HeaderBox = styled.div`
 `;
 
 export const NavbarWraper = styled.nav`
-  padding: 15px 30px;
+  padding: 1rem 2rem;
   width: fit-content;
   display: flex;
   flex-direction: row;
-  gap: 30px;
-  border-radius: 100px;
+  gap: 1.5rem;
+  border-radius: 1000px;
 `;
 
 export const LogoWraper = styled.button`
@@ -52,7 +52,7 @@ export const LogoWraper = styled.button`
 export const ContactsWraper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.5rem;
   justify-content: center;
 `;
 
@@ -60,6 +60,6 @@ export const LinkWraper = styled(Link)`
   width: max-content;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.5rem;
   align-items: center;
 `;

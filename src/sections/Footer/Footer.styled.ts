@@ -15,32 +15,32 @@ export const FooterConteiner = styled.div`
 export const DataWraper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 2rem;
   text-align: left;
 `;
 
 export const DataBox = styled.div`
-  flex-basis: calc((100% - 2 * 30px) / 3);
+  flex-basis: calc((100% - 2 * 2rem) / 3);
 `;
 
 export const MediaBox = styled.div`
-  margin-top: 5px;
+  margin-top: 0.35rem;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.5rem;
 `;
 
 export const IconWraper = styled(IconLink)`
   box-sizing: border-box;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 1000px;
-  padding: 4px;
-  transition: background-color 300ms ease;
+  padding: 0.25rem;
+  ${({theme}) => theme.css.transition('background-color')}
 
   & svg {
-    translate: 0 -2px;
-    transition: fill 300ms ease;
+    translate: 0 -0.125rem;
+    ${({theme}) => theme.css.transition('fill')}
   }
 
   &:hover {
@@ -53,7 +53,7 @@ export const IconWraper = styled(IconLink)`
 `;
 
 export const PrivacyPolicy = styled.div`
-  margin-top: 30px;
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -63,6 +63,6 @@ export const PrivacyPolicy = styled.div`
     width: max-content;
     margin-top: auto;
     font-style: italic;
-    font-size: 14px;
+    font-size: 0.75rem;
   }
 `;

@@ -13,13 +13,13 @@ interface AdvantagesWraperProps {
 
 export const AdvantageWraper = styled.div<AdvantagesWraperProps>`
   position: relative;
-  padding: 60px;
+  padding: 3.5rem;
   width: 100%;
   align-self: ${({ $direction }) => ($direction === 'left' ? 'end' : 'start')};
   display: flex;
   flex-direction: ${({ $direction }) => ($direction === 'left' ? 'row' : 'row-reverse')};
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
 
   &::after {
     content: '';

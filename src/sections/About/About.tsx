@@ -37,12 +37,12 @@ const About: React.FC = () => {
           okolic.
         </P>
       </ContentBlock>
-      <ContentBlock $gap="90px">
+      <ContentBlock $gap="6rem">
         <AdvantagesList>
           {advantages.map(advantage => (
             <Advantage key={advantage[1]} onClick={() => scrollToSection(`/#whyChooseUs${advantage[0].replace(/-/g, '')}`)}>
               <IconWraper>
-                <IconSvg name={advantage[0]} size="36px" />
+                <IconSvg name={advantage[0]} size="2rem" />
                 </IconWraper>
               <P $bold>{advantage[1]}</P>
             </Advantage>

@@ -4,15 +4,15 @@ import { Section } from '../../styles';
 export const ContactSection = styled(Section)`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 2rem;
 `;
 
 export const ContactsWraper = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: calc(40% - 15px) calc(60% - 15px);
+  grid-template-columns: calc(40% - 1rem) calc(60% - 1rem);
   grid-template-rows: repeat(3, auto);
-  gap: 30px;
+  gap: 2rem;
 `;
 
 interface GridWraperProps {
@@ -30,12 +30,13 @@ export const InfoWraper = styled(GridWraper)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 15px;
+  gap: 1rem;
   font: inherit;
   text-align: left;
 `;
 
 export const Iframe = styled.iframe`
   width: 100%;
-  height: 600px;
+  height: 50vw;
+  max-height: 650px;
 `;
