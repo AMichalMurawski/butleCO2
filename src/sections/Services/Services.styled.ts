@@ -53,9 +53,10 @@ export const ServicePanel = styled.div`
 `;
 
 export const HeadingWraper = styled.div`
-  height: 3rem;
+  height: calc(20% - 3rem);
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0;
