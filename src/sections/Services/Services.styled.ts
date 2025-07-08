@@ -19,7 +19,7 @@ export const ServiceWraper = styled.div`
   color: ${({ theme }) => theme.color.hightlight};
   overflow: hidden;
 
-  &:hover div {
+  &:hover > div {
     transform: translateY(0%);
     padding: 3.5rem 3rem;
   }
@@ -45,9 +45,19 @@ export const ServicePanel = styled.div`
   justify-content: space-between;
   transform: translateY(80%);
   background-color: rgba(0, 0, 0, 0.7);
-  ${({theme}) => theme.css.transition(['transform', 'padding'])}
+  ${({ theme }) => theme.css.transition(['transform', 'padding'])}
 
   & * {
     margin: 0;
   }
+`;
+
+export const HeadingWraper = styled.div`
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 `;

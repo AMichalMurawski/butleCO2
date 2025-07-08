@@ -9,7 +9,7 @@ export const HeaderWraper = styled.header`
   display: flex;
   justify-content: center;
   z-index: 10;
-  background-color: ${({theme}) => theme.color.structuralTrans}
+  background-color: ${({ theme }) => theme.color.structuralTrans};
 `;
 
 export const HeaderBox = styled.div`
@@ -39,7 +39,7 @@ export const LogoWraper = styled.button`
   border-radius: 1000px;
   cursor: pointer;
 
-  & > div{
+  & > div {
     rotate: 0deg;
 
     transition: rotate cubic-bezier(0, -0.5, 1, -0.5) 500ms;

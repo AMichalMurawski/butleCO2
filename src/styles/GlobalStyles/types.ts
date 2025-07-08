@@ -4,6 +4,7 @@ export type TextProps = {
   $textAlign?: TextAlignProps;
   $fontSize?: string;
   $fontStyle?: string;
+  $textWrap?: string;
 };
 
 export type ParagraphProps = TextProps & {

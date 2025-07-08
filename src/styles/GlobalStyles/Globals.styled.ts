@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -28,12 +28,12 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
     letter-spacing: 0.04em;
     color: ${({ theme }) => theme.color.text};
-    background-color: ${({theme}) => theme.color.main};
+    background-color: ${({ theme }) => theme.color.main};
   }
 
   ${({ theme }) => theme.media.t} {
     [id] {
-      scroll-margin-top: 120px;
+      scroll-margin-top: 7rem;
     }
   }
 `;
