@@ -8,31 +8,33 @@ interface ModalNavbarProps {
     onClick: () => void;
 }
 
-const ModalNavbar: React.FC<ModalNavbarProps> = ({ visible = false, onClick }) => {
-    const theme = useTheme();
+const ModalNavbar: React.FC<ModalNavbarProps> = ({ visible, onClick }) => {
+  const theme = useTheme();
 
-    useEffect(() => {
-        if (visible) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-        }
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
     
-        return () => {
-          document.body.style.overflow = '';
-        };
-    }, [visible]);
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [visible]);
     
-    return <NavbarWraper $visible={visible}>
-        <IconWraper>
-            <IconSvg name='cross' size="100%" fill={theme.color.text} onClick={onClick}/>
+  return (
+    <NavbarWraper $visible={visible || false}>
+      <IconWraper onClick={onClick} >
+        <IconSvg name='cross' size="100%" fill={theme.color.text} onClick={onClick} />
       </IconWraper>
       <ScaleConteiner>
-        <LogoIcon dimension="3rem"/>
-        <Navbar flexDirection='column' alignItems="start" buttonClick={onClick}/>
+        <LogoIcon dimension="3rem" />
+        <Navbar flexDirection='column' alignItems="start" buttonClick={onClick} />
         <Contacts />
       </ScaleConteiner>
     </NavbarWraper>
-}
+  );
+};
 
 export default ModalNavbar

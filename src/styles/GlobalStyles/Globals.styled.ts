@@ -21,7 +21,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     min-width: 320px;
-    min-height: 100vh;
+    min-height: 100lvh;
+    width: 100%;
     overflow-x: hidden;
     ${({ theme }) => theme.fonts.main};
     font-weight: 400;

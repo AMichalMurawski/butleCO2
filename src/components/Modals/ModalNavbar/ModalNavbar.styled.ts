@@ -31,6 +31,7 @@ export const IconWraper = styled.div`
     top: 2.5rem;
     right: 2rem;
     cursor: pointer;
+    z-index: 10;
     ${({ theme }) => theme.css.transition('scale')}
     
     &:hover {

@@ -9,18 +9,35 @@ export const FooterWraper = styled.footer`
 export const FooterConteiner = styled.div`
   max-width: 1280px;
   margin-inline: auto;
-  padding: 30px;
+  padding: 2rem;
 `;
 
 export const DataWraper = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 2rem;
   text-align: left;
+
+  ${({ theme }) => theme.media.m} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 export const DataBox = styled.div`
-  flex-basis: calc((100% - 2 * 2rem) / 3);
+  width: fit-content;
+
+  ${({ theme }) => theme.media.m} {
+    flex-basis: calc((100% - 2rem) / 2);
+  }
+
+  ${({theme}) => theme.media.t} {
+    flex-basis: calc((100% - 2 * 2rem) / 3);
+  }
+  
+  & * {
+    text-align: left;
+  }
 `;
 
 export const MediaBox = styled.div`
@@ -55,14 +72,23 @@ export const IconWraper = styled(IconLink)`
 export const PrivacyPolicy = styled.div`
   margin-top: 2rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
 
-  & * {
+  & div {
+    margin-top: auto;
+    min-width: 350px;
+  }
+
+  & p {
     color: ${({ theme }) => theme.color.textTrans};
     width: max-content;
-    margin-top: auto;
     font-style: italic;
     font-size: 0.75rem;
+  }
+
+  & > div:nth-child(2) {
+    margin-left: auto;
+    min-width: 18rem;
   }
 `;
