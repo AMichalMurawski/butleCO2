@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from '../../styles';
 
 export const HeaderWraper = styled.header`
   position: fixed;
@@ -24,15 +23,6 @@ export const HeaderBox = styled.div`
   align-items: center;
 `;
 
-export const NavbarWraper = styled.nav`
-  padding: 1rem 2rem;
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  border-radius: 1000px;
-`;
-
 export const LogoWraper = styled.button`
   background-color: transparent;
   border: none;
@@ -49,17 +39,33 @@ export const LogoWraper = styled.button`
   }
 `;
 
-export const ContactsWraper = styled.div`
+export const NavbarConteiner = styled.div`
+  display: none;
+
+  ${({ theme }) => theme.media.d} {
+    display: block;
+  }
+`
+
+export const HamburgerWraper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  justify-content: center;
-`;
+  justify-content: space-between;
+  width: 2.5rem;
+  height: 2rem;
+  cursor: pointer;
+  ${({ theme }) => theme.css.transition('scale')}
+  
+  &:hover{
+    scale: 1.2;
+  }
 
-export const LinkWraper = styled(Link)`
-  width: max-content;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  align-items: center;
-`;
+  ${({ theme }) => theme.media.d} {
+    display: none;
+  }
+` 
+
+export const HamburgerLine = styled.div`
+  width: 100%;
+  border: 1px solid ${({ theme }) => theme.color.text};
+`

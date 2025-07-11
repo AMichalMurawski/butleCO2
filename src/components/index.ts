@@ -1,11 +1,14 @@
 export { default as Button } from './Button/Button';
 export { default as ClientForm } from './Forms/ClientForm/ClientForm';
 export { default as ContactForm } from './Forms/ContactForm/ContactForm';
+export { default as Contacts } from './Contacts/Contacts';
 export { default as IconSvg } from './Icons/IconSvg/IconSvg';
 export { default as LogoIcon } from './Icons/LogoIcon/LogoIcon';
 export { default as ModalAddProduct } from './Modals/ModalAddProduct/ModalAddProduct';
 export { default as ModalConfirmOrder } from './Modals/ModalConfirmOrder/ModalConfirmOrder';
 export { default as ModalConteiner } from './Modals/ModalConteiner/ModalConteiner';
+export { default as ModalNavbar } from './Modals/ModalNavbar/ModalNavbar';
 export { default as ModalsOrder } from './Modals/ModalsOrder/ModalsOrder';
+export { default as Navbar } from './Navbar/Navbar';
 export { default as Order } from './Order/Order';
 export { default as Toast } from './Toast/Toast';
