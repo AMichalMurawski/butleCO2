@@ -31,10 +31,8 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.color.text};
     background-color: ${({ theme }) => theme.color.main};
   }
-
-  ${({ theme }) => theme.media.t} {
-    [id] {
-      scroll-margin-top: 7rem;
-    }
+  
+  [id] {
+    scroll-margin-top: 7rem;
   }
 `;
