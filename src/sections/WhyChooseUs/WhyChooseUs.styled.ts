@@ -13,7 +13,7 @@ interface AdvantagesWraperProps {
 
 export const AdvantageWraper = styled.div<AdvantagesWraperProps>`
   position: relative;
-  padding: 3.5rem;
+  padding: 2rem 0;
   width: 100%;
   align-self: ${({ $direction }) => ($direction === 'left' ? 'end' : 'start')};
   display: flex;
@@ -34,7 +34,15 @@ export const AdvantageWraper = styled.div<AdvantagesWraperProps>`
   &:nth-child(odd)::after {
     background-color: ${({ $direction, theme }) =>
       $direction === 'left' ? theme.color.structural : 'null'};
-    }
+  }
+
+  ${({ theme }) => theme.media.t} {
+    padding: 3.5rem 1rem;
+  }
+
+  ${({ theme }) => theme.media.d} {
+    padding: 3.5rem;
+  }
 `;
 
 export const ContentWraper = styled.div`
