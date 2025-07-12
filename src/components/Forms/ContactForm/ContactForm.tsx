@@ -5,6 +5,7 @@ import { Button } from '../../';
 import { theme } from '../../../styles/theme';
 import Input from '../InputField/InputField';
 import { contactUsSchema, FormValues, initialValues, inputData } from './contactFormData';
+import { H3, H4 } from '../../../styles';
 
 const ContactForm: React.FC = () => {
   const handleSubmit = (values: FormValues) => {
@@ -25,25 +26,27 @@ const ContactForm: React.FC = () => {
       validateOnChange={true}>
       {({ isValid, values }) => {
         
-        useEffect(() => {}, [values])
+        useEffect(() => { }, [values])
 
         return (
-        <Form>
+          <Form>
+            <H4>Napisz do nas:</H4>
             <FormWraper>
-              {inputData.map((data, index) => 
+              {inputData.map((data, index) =>
                 <Input key={index} name={data.name} label={data.label} componentType={data.componentType} />
               )}
-            <ButtonWraper $disabled={!isValid}>
-              <Button
-                type="submit"
-                text="Wyślij zapytanie"
-                background={!isValid ? theme.color.structural : theme.color.remarkable}
-                color={!isValid ? theme.color.remarkable : theme.color.structural}
-              />
-            </ButtonWraper>
-          </FormWraper>
-        </Form>
-      )}}
+              <ButtonWraper $disabled={!isValid}>
+                <Button
+                  type="submit"
+                  text="Wyślij zapytanie"
+                  background={!isValid ? theme.color.structural : theme.color.remarkable}
+                  color={!isValid ? theme.color.remarkable : theme.color.structural}
+                />
+              </ButtonWraper>
+            </FormWraper>
+          </Form>
+        )
+      }}
     </Formik>
   );
 };
