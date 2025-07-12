@@ -3,18 +3,18 @@ import { H2, Section } from '../../styles';
 
 export const AboutSection = styled(Section)`
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 6rem 2rem;
 `;
 
-interface ContentBlockProps {
-  $gap?: string;
-}
-
-export const ContentBlock = styled.div<ContentBlockProps>`
-  flex-basis: calc((100% - 2rem) / 2);
+export const AboutBlock = styled.div`
   display: flex;
   flex-direction: column;
-  gap: ${({ $gap }) => $gap || null};
+  flex-basis: 100%;
+
+  ${({theme}) => theme.media.d} {
+    flex-basis: calc((100% - 2rem) / 2);
+  }
 `;
 
 export const Title = styled(H2)`
@@ -23,16 +23,36 @@ export const Title = styled(H2)`
   }
 `;
 
+export const AdvantageBlock = styled.div`
+  display: none;
+
+  ${({theme}) => theme.media.t} {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  ${({theme}) => theme.media.d} {
+    flex-basis: calc((100% - 2rem) / 2);
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+`
+
 export const AdvantagesList = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem 2rem;
+  justify-content: center;
   max-height: min-content;
 `;
 
 export const Advantage = styled.div`
   position: relative;
   flex-basis: calc((100% - 2 * 2rem) / 3);
+  max-width: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +99,8 @@ export const IconWraper = styled.div`
 export const ButtonsWraper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  gap: 4rem;
+  justify-content: center;
   width: 100%;
 `;
 

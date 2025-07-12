@@ -1,11 +1,12 @@
 import React from 'react';
 import {
+  AboutBlock,
   AboutSection,
   Advantage,
+  AdvantageBlock,
   AdvantagesList,
   ButtonsWraper,
   ButtonWraper,
-  ContentBlock,
   IconWraper,
   Title,
 } from './About.styled';
@@ -21,7 +22,7 @@ const About: React.FC = () => {
 
   return (
     <AboutSection id="about">
-      <ContentBlock>
+      <AboutBlock>
         <Title>Poznaj ButleCO2.pl - Ekspertów od CO2 w Warszawie</Title>
         <P>
           Od ponad 15 lat dostarczamy butle z dwutlenkiem węgla na terenie Warszawy i okolic. Nasza
@@ -36,8 +37,8 @@ const About: React.FC = () => {
           wody, przemysłu, biur i domu - wszystko z dostawą pod Twoje drzwi na terenie Warszawy i
           okolic.
         </P>
-      </ContentBlock>
-      <ContentBlock $gap="6rem">
+      </AboutBlock>
+      <AdvantageBlock>
         <AdvantagesList>
           {advantages.map(advantage => (
             <Advantage key={advantage[1]} onClick={() => scrollToSection(`/#whyChooseUs${advantage[0].replace(/-/g, '')}`)}>
@@ -68,7 +69,7 @@ const About: React.FC = () => {
             />
           </ButtonWraper>
         </ButtonsWraper>
-      </ContentBlock>
+      </AdvantageBlock>
     </AboutSection>
   );
 };
