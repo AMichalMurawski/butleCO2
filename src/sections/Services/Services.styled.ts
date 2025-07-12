@@ -11,7 +11,7 @@ export const ServicesList = styled.div`
 export const ServiceWraper = styled.div`
   position: relative;
   flex-basis: 100%;
-  height: 400px;
+  height: 25rem;
   max-width: 600px;
   display: flex;
   flex-direction: column;
