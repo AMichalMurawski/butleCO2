@@ -10,7 +10,7 @@ export const NavbarWraper = styled.div<NavbarWraperProps>`
     right: ${({ $visible }) => $visible ? 0 : '-105%'};
     width: 100%;
     height: 100%;
-    padding: 8rem 4rem;
+    padding: 4rem 4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -40,10 +40,8 @@ export const IconWraper = styled.div`
 `
 
 export const ScaleConteiner = styled.div`
-    translate: 25%;
-    height: 75%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    scale: 1.5;
+    justify-content: space-between;
 `
