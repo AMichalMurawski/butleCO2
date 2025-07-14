@@ -24,15 +24,22 @@ export const DataWraper = styled.div`
   }
 `;
 
-export const DataBox = styled.div`
-  width: fit-content;
+interface DataBoxProps {
+  $order?: [number, number, number];
+}
 
+export const DataBox = styled.div<DataBoxProps>`
+  width: fit-content;
+  order: ${({ $order }) => $order?.[0] || 0};
+  
   ${({ theme }) => theme.media.m} {
     flex-basis: calc((100% - 2rem) / 2);
+    order: ${({$order}) => $order?.[1] || 0};
   }
 
   ${({theme}) => theme.media.t} {
     flex-basis: calc((100% - 2 * 2rem) / 3);
+    order: ${({$order}) => $order?.[2] || 0};
   }
   
   & * {
