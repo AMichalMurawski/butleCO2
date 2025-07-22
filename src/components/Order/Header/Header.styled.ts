@@ -4,7 +4,7 @@ import { H2, P } from '../../../styles';
 export const HeaderWraper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 12rem;
+  height: 10em;
   width: 100%;
   overflow: hidden;
 
@@ -16,14 +16,13 @@ export const HeaderWraper = styled.div`
 
 export const HeaderTitle = styled.div`
   position: relative;
-  flex: 0 0 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 2;
   padding: 1rem 4rem 0;
-  width: 100%;
+  width: 120%;
   z-index: 0;
 
   ${({theme}) => theme.media.t} {
@@ -56,14 +55,17 @@ export const HeaderTitle = styled.div`
 export const Title = styled(H2)`
   position: relative;
   text-align: left;
+  align-self: start;
   color: ${({ theme }) => theme.color.text};
+  padding: 0;
+  margin-bottom: 0;
 
   &::before {
     content: '';
     position: absolute;
     top: -0.5rem;
     left: -600px;
-    width: 1200px;
+    width: max(200vw, 1200px);
     height: 600%;
     background-color: ${({ theme }) => theme.color.structural};
     z-index: -1;
@@ -97,10 +99,10 @@ export const InvoiceAddress = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   gap: 0;
+  padding-inline: 4rem;
   width: 100%;
-  height: 100%;
   color: ${({ theme }) => theme.color.text};
   text-align: left;
   z-index: 1;

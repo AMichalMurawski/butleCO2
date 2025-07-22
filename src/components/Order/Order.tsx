@@ -19,7 +19,7 @@ const Order: React.FC = () => {
         initialValues={order.client}
         onClick={() => modalState('client')}
         autoMargin="right"
-        labelWidth="200px"
+        labelWidth="12.5rem"
       />
       <ClientInvoiceWraper $isInvoice={order.client.invoice}>
         <Client
@@ -28,7 +28,7 @@ const Order: React.FC = () => {
           initialValues={order.company}
           onClick={() => modalState('company')}
           autoMargin="left"
-          labelWidth="100px"
+          labelWidth="6.25rem"
         />
       </ClientInvoiceWraper>
       <ProductsList addProduct={() => modalState('products')} />
