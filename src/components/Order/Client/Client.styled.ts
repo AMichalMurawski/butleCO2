@@ -9,24 +9,29 @@ export const ClientWraper = styled.div<ClientWraperProps>`
   position: relative;
   margin-inline: 4rem;
   ${({ $autoMargin }) => ($autoMargin === 'right' ? 'margin-right' : 'margin-left')}: auto;
-  min-width: 50%;
-  max-width: 75%;
   width: fit-content;
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 1rem;
   cursor: pointer;
 
   & h3 {
     margin-bottom: 15px;
   }
+
+  ${({ theme }) => theme.media.t} {
+    gap: 0.35rem;
+  }
 `;
 
 export const DataWraper = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  flex-direction: column;
+
+  ${({ theme }) => theme.media.t} {
+    flex-direction: row;
+  }
 `;
 
 interface DataNameProps {
@@ -40,7 +45,6 @@ export const DataName = styled(P)<DataNameProps>`
 `;
 
 export const DataValueBox = styled.div`
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -49,12 +53,14 @@ export const DataValueBox = styled.div`
 
 export const DataValue = styled(P)`
   display: inline-block;
-  width: 100%;
+  height: 1.2rem;
+  width: 20rem;
   align-self: end;
   font-style: italic;
   color: ${({ theme }) => theme.color.main};
   border-bottom: 2px dotted ${({ theme }) => theme.color.main};
   whiteSpace: 'pre-line';
+  margin-left: 1rem;
 `;
 
 const write = keyframes`
