@@ -16,12 +16,10 @@ const Header: React.FC = () => {
         <OrderNumber></OrderNumber>
       </HeaderTitle>
       <InvoiceAddress>
-        <div>
           <P>ButleCO2.PL Artur Rembek</P>
           <P>ul. Poprawna 105A</P>
           <P>03-984 Warszawa</P>
           <P>NIP: 9522030252</P>
-        </div>
       </InvoiceAddress>
     </HeaderWraper>
   );

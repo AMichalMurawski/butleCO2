@@ -95,14 +95,14 @@ export const OrderNumber = styled(P)`
 
 export const InvoiceAddress = styled.div`
   position: relative;
-  flex-basis: 50%;
+  flex-basis: 40rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: end;
+  justify-content: start;
+  align-self: end;
   gap: 0;
   padding-inline: 4rem;
-  width: 100%;
+  width: max-content;
   color: ${({ theme }) => theme.color.text};
   text-align: left;
   z-index: 1;
@@ -110,7 +110,9 @@ export const InvoiceAddress = styled.div`
 
   ${({ theme }) => theme.media.t} {
     color: ${({ theme }) => theme.color.structural};
-  translate: 0 0;
+    height: 100%;
+    justify-content: center;
+    translate: 0 0;
   
     &::before {
       content: '';
