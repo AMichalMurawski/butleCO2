@@ -54,13 +54,25 @@ export const DataValueBox = styled.div`
 export const DataValue = styled(P)`
   display: inline-block;
   height: 1.2rem;
-  width: 18rem;
+  width: 15rem;
   align-self: end;
   font-style: italic;
   color: ${({ theme }) => theme.color.main};
   border-bottom: 2px dotted ${({ theme }) => theme.color.main};
   whiteSpace: 'pre-line';
   margin-left: 1rem;
+
+  ${({ theme }) => theme.media.m} {
+    width: 18rem;
+  }
+    
+  ${({ theme }) => theme.media.t} {
+    width: 22rem;
+  }
+    
+  ${({ theme }) => theme.media.d} {
+    width: 26rem;
+  }
 `;
 
 const write = keyframes`

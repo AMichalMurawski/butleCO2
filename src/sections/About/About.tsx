@@ -43,9 +43,9 @@ const About: React.FC = () => {
           {advantages.map(advantage => (
             <Advantage key={advantage[1]} onClick={() => scrollToSection(`/#whyChooseUs${advantage[0].replace(/-/g, '')}`)}>
               <IconWraper>
-                <IconSvg name={advantage[0]} size="2rem" />
+                <IconSvg name={advantage[0]} size="2.5rem" />
                 </IconWraper>
-              <P $bold>{advantage[1]}</P>
+              <P $bold $fontSize='0.75rem'>{advantage[1]}</P>
             </Advantage>
           ))}
         </AdvantagesList>

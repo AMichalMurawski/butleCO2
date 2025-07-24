@@ -15,9 +15,8 @@ export const AdvantageWraper = styled.div<AdvantagesWraperProps>`
   position: relative;
   padding: 2rem 0;
   width: 100%;
-  align-self: ${({ $direction }) => ($direction === 'left' ? 'end' : 'start')};
   display: flex;
-  flex-direction: ${({ $direction }) => ($direction === 'left' ? 'row' : 'row-reverse')};
+  flex-direction: column;
   align-items: center;
   gap: 2rem;
 
@@ -37,6 +36,8 @@ export const AdvantageWraper = styled.div<AdvantagesWraperProps>`
   }
 
   ${({ theme }) => theme.media.t} {
+    align-self: ${({ $direction }) => ($direction === 'left' ? 'end' : 'start')};
+    flex-direction: ${({ $direction }) => ($direction === 'left' ? 'row' : 'row-reverse')};
     padding: 3.5rem 1rem;
   }
 
@@ -47,4 +48,5 @@ export const AdvantageWraper = styled.div<AdvantagesWraperProps>`
 
 export const ContentWraper = styled.div`
   flex: 1;
+  max-width: 24rem;
 `

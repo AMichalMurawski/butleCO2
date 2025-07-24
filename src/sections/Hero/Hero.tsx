@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
       </ImagesRollWraper>
       <Sentence>
         <H1>ButleCO2.pl</H1>
-        <H2 $fontSize="2.25rem">
+        <H2>
           Twój niezawodny dostawca gazów technicznych i butli z dwutlenkiem węgla w Warszawie i
           okolicach.
         </H2>

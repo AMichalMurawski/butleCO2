@@ -16,7 +16,7 @@ export const ButtonElement = styled.button<ButtonElementProps>`
   text-shadow: ${({ $active, $color, theme: { color } }) =>
     $active ? `0 0 5px ${color.text}` : `0 0 1px ${$color}`};
   ${({ theme }) => theme.css.transition(['scale', 'box-shadow'])}
-  font-size: 1rem;
+  font-size: 0.9rem;
   family: ${({ theme }) => theme.fonts.main};
 
   &:hover {

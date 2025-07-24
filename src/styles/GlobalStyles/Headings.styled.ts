@@ -4,7 +4,7 @@ import { TextProps } from './types';
 
 export const H1 = styled.h2<TextProps>`
   ${({ $textAlign }) => textAlignStyle($textAlign || 'center')};
-  ${({ $fontSize }) => fontStyle($fontSize || '3.5rem', 'heading')};
+  ${({ $fontSize }) => fontStyle($fontSize || '3rem', 'heading')};
   ${({ $bold }) => boldStyles($bold || true)};
   ${({ $textWrap }) => textWrapStyle($textWrap)};
   margin-bottom: 2rem;

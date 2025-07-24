@@ -10,7 +10,7 @@ import {
 
 export const P = styled.p<ParagraphProps>`
   ${({ $textAlign }) => textAlignStyle($textAlign || 'inherit')};
-  ${({ $fontSize, $fontStyle }) => fontStyle($fontSize || '0.75rem', 'main', $fontStyle)};
+  ${({ $fontSize, $fontStyle }) => fontStyle($fontSize || '0.9rem', 'main', $fontStyle)};
   ${({ $bold }) => boldStyles($bold)};
   ${({ $textIndent }) => textIndentStyle($textIndent)};
   ${({ $textWrap }) => textWrapStyle($textWrap)};

@@ -84,9 +84,10 @@ export const Advantage = styled.div`
 
 export const IconWraper = styled.div`
   position: relative;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 1000px;
+  font-size: 0.75rem;
 
   & svg{
     position: absolute;
