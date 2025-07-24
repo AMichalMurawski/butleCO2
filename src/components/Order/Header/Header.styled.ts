@@ -21,7 +21,7 @@ export const HeaderTitle = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 2;
-  padding: 1rem 4rem 0;
+  padding: 1rem 1rem 0;
   width: 120%;
   z-index: 0;
 
@@ -33,7 +33,7 @@ export const HeaderTitle = styled.div`
       top: 0%;
       left: 0%;
       width: calc(100% + 2rem);
-      height: 100%;
+      height: 105%;
       background-color: ${({ theme }) => theme.color.remarkable};
     }
 
@@ -101,7 +101,7 @@ export const InvoiceAddress = styled.div`
   justify-content: start;
   align-self: end;
   gap: 0;
-  padding-inline: 4rem;
+  padding-inline: 1rem;
   width: max-content;
   color: ${({ theme }) => theme.color.text};
   text-align: left;
@@ -111,6 +111,7 @@ export const InvoiceAddress = styled.div`
   ${({ theme }) => theme.media.t} {
     color: ${({ theme }) => theme.color.structural};
     height: 100%;
+    padding-inline: 4rem;
     justify-content: center;
     translate: 0 0;
   
@@ -120,7 +121,7 @@ export const InvoiceAddress = styled.div`
       top: 0;
       left: -1rem;
       width: calc(100% + 2rem);
-      height: 100%;
+      height: 105%;
       background-color: ${({ theme }) => theme.color.remarkable};
       clip-path: polygon(5rem 0%, 100% 0%, 100% 100%, 0 100%);
       z-index: -1;

@@ -7,8 +7,7 @@ interface ClientWraperProps {
 
 export const ClientWraper = styled.div<ClientWraperProps>`
   position: relative;
-  margin-inline: 4rem;
-  ${({ $autoMargin }) => ($autoMargin === 'right' ? 'margin-right' : 'margin-left')}: auto;
+  margin: ${({ $autoMargin }) => ($autoMargin === 'right' ? '0 auto 0 1rem' : '0 1rem 0 auto')};
   width: fit-content;
   text-align: left;
   display: flex;
@@ -21,6 +20,7 @@ export const ClientWraper = styled.div<ClientWraperProps>`
   }
 
   ${({ theme }) => theme.media.t} {
+  margin: ${({ $autoMargin }) => ($autoMargin === 'right' ? '0 auto 0 3rem' : '0 3rem 0 auto')};
     gap: 0.35rem;
   }
 `;
@@ -54,7 +54,7 @@ export const DataValueBox = styled.div`
 export const DataValue = styled(P)`
   display: inline-block;
   height: 1.2rem;
-  width: 20rem;
+  width: 18rem;
   align-self: end;
   font-style: italic;
   color: ${({ theme }) => theme.color.main};
