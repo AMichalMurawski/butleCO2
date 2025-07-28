@@ -5,8 +5,8 @@ export const DataList = styled(Form)`
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding: 30px;
+  gap: 1.2rem;
+  padding: 2rem;
   color: ${({ theme }) => theme.color.structural};
   background-color: ${({ theme }) => theme.color.text};
   overflow-y: auto;
@@ -15,7 +15,7 @@ export const DataList = styled(Form)`
 export const DataValue = styled.input`
   position: relative;
   width: 100%;
-  padding: 2px 7px;
+  padding: 0.125rem 0.45rem;
   text-align: left;
   border: none;
   outline: none;
@@ -36,7 +36,7 @@ interface ButtonWraperProps {
 }
 
 export const ButtonWraper = styled.div<ButtonWraperProps>`
-  margin-top: 30px;
+  margin-top: 2rem;
   margin-left: auto;
   pointer-events: ${({ $disabled }) => ($disabled ? 'none' : '')};
 `;

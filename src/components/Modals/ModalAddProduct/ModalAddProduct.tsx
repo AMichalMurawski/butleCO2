@@ -12,7 +12,7 @@ import {
 import { useTheme } from 'styled-components';
 import { useOrder } from '../../../context/Order/OrderContext';
 import { initialOrderProduct } from '../../../context/Order/initialValues';
-import { P } from '../../../styles/Global.styled';
+import { P } from '../../../styles';
 
 interface ModalAddProductProps {
   onSubmit: (values: OrderProductProps) => void;
@@ -65,7 +65,7 @@ const ModalAddProduct: React.FC<ModalAddProductProps> = ({ onSubmit }) => {
           return (
             <ProductWraper key={type} onClick={() => handleClick(product)}>
               <IconSvgWraper>
-                <IconSvg name="gas-cylinder" size="180px" fill={theme.color.structuralTrans} />
+                <IconSvg name="gas-cylinder" size="10rem" fill={theme.color.structuralTrans} />
               </IconSvgWraper>
               <DescriptionWraper>
                 <P>{product.type}</P>

@@ -7,7 +7,7 @@ import {
 import { IconSvg } from '../../components';
 import { theme } from '../../styles/theme';
 import { advantages } from '../../utils';
-import { H2, H3, P, Section } from '../../styles/Global.styled';
+import { H2, H3, P, Section } from '../../styles';
 
 const WhyChooseUs: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const WhyChooseUs: React.FC = () => {
         {advantages.map((advantage, index) => (
           <AdvantageWraper key={advantage[1]} id={`whyChooseUs${advantage[0].replace(/-/g, '')}`} $direction={index % 2 == 0 ? 'left' : 'right'}>
             <ContentWraper>
-              <IconSvg name={advantage[0]} size='90px' fill={theme.color.hightlight} />
+              <IconSvg name={advantage[0]} size='5.5rem' fill={theme.color.hightlight} />
             </ContentWraper>
             <ContentWraper>
               <H3>{advantage[1]}</H3>

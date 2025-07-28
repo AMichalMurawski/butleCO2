@@ -7,7 +7,7 @@ import {
   LegalDocumentWraper,
   List,
 } from './LegalDocument.styled';
-import { H2, H3, P } from '../../styles/Global.styled';
+import { H2, H3, P } from '../../styles';
 
 interface LegalDocumentProps {
   documentData: DocumentProps;
@@ -28,7 +28,7 @@ const LegalDocument: React.FC<LegalDocumentProps> = ({ documentData }) => {
     return section.map((data:any, i2: number) => {
       switch (data[0]) {
         case DocumentTextType.Paragraph:
-          return <P $textAlign='justify' $textIndent='25px' key={`s${i1}-c${i2}`}>{data[1]}</P>
+          return <P $textAlign='justify' $textIndent='1.5rem' key={`s${i1}-c${i2}`}>{data[1]}</P>
         case DocumentTextType.List:
           return <List key={`s${i1}-c${i2}`}>
             {data[1].map((li: string, i3: number) => (

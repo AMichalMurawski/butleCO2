@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  HeadingWraper,
   ServiceImage,
   ServicePanel,
   ServicesList,
@@ -7,7 +8,7 @@ import {
 } from './Services.styled';
 import { Button } from '../../components';
 import { theme } from '../../styles/theme';
-import { H2, H3, P, Section } from '../../styles/Global.styled';
+import { H2, H3, P, Section } from '../../styles';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 
 const servList = [
@@ -66,9 +67,16 @@ const Services: React.FC = () => {
           <ServiceWraper key={serv[1]}>
             <ServiceImage $url={serv[0]} />
             <ServicePanel>
-              <H3>{serv[1]}</H3>
+              <HeadingWraper>
+                <H3>{serv[1]}</H3>
+              </HeadingWraper>
               <P>{serv[2]}</P>
-              <Button text={serv[3]} background={theme.color.remarkable} color={theme.color.main} onClick={() => scrollToSection(serv[4])}/>
+              <Button
+                text={serv[3]}
+                background={theme.color.remarkable}
+                color={theme.color.main}
+                onClick={() => scrollToSection(serv[4])}
+              />
             </ServicePanel>
           </ServiceWraper>
         ))}

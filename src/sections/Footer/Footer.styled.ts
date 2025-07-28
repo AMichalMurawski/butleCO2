@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IconLink } from '../../styles/Global.styled';
+import { IconLink } from '../../styles';
 
 export const FooterWraper = styled.footer`
   margin-top: auto;
@@ -9,38 +9,62 @@ export const FooterWraper = styled.footer`
 export const FooterConteiner = styled.div`
   max-width: 1280px;
   margin-inline: auto;
-  padding: 30px;
+  padding: 2rem;
 `;
 
 export const DataWraper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+  flex-direction: column;
+  gap: 2rem;
   text-align: left;
+
+  ${({ theme }) => theme.media.m} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
-export const DataBox = styled.div`
-  flex-basis: calc((100% - 2 * 30px) / 3);
+interface DataBoxProps {
+  $order?: [number, number, number];
+}
+
+export const DataBox = styled.div<DataBoxProps>`
+  width: fit-content;
+  order: ${({ $order }) => $order?.[0] || 0};
+  
+  ${({ theme }) => theme.media.m} {
+    flex-basis: calc((100% - 2rem) / 2);
+    order: ${({$order}) => $order?.[1] || 0};
+  }
+
+  ${({theme}) => theme.media.t} {
+    flex-basis: calc((100% - 2 * 2rem) / 3);
+    order: ${({$order}) => $order?.[2] || 0};
+  }
+  
+  & * {
+    text-align: left;
+  }
 `;
 
 export const MediaBox = styled.div`
-  margin-top: 5px;
+  margin-top: 0.35rem;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.5rem;
 `;
 
 export const IconWraper = styled(IconLink)`
   box-sizing: border-box;
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 1000px;
-  padding: 4px;
-  transition: background-color 300ms ease;
+  padding: 0.25rem;
+  ${({theme}) => theme.css.transition('background-color')}
 
   & svg {
-    translate: 0 -2px;
-    transition: fill 300ms ease;
+    translate: 0 -0.125rem;
+    ${({theme}) => theme.css.transition('fill')}
   }
 
   &:hover {
@@ -53,16 +77,25 @@ export const IconWraper = styled(IconLink)`
 `;
 
 export const PrivacyPolicy = styled.div`
-  margin-top: 30px;
+  margin-top: 2rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
 
-  & * {
+  & div {
+    margin-top: auto;
+    min-width: 350px;
+  }
+
+  & p {
     color: ${({ theme }) => theme.color.textTrans};
     width: max-content;
-    margin-top: auto;
     font-style: italic;
-    font-size: 14px;
+    font-size: 0.75rem;
+  }
+
+  & > div:nth-child(2) {
+    margin-left: auto;
+    min-width: 18rem;
   }
 `;

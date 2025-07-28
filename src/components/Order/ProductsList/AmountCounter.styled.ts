@@ -13,9 +13,9 @@ export const AmountButton = styled.button`
   background-color: ${({theme}) => theme.color.structuralTrans};
   color: ${({theme}) => theme.color.text};
   border: none;
-  width: 25px;
-  height: 25px;
-  font-size: 18px;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
 
   &:hover {
@@ -24,7 +24,7 @@ export const AmountButton = styled.button`
 `;
 
 export const AmountInput = styled.input`
-  width: 30px;
+  width: 2rem;
   text-align: center;
   border: none;
   outline: none;

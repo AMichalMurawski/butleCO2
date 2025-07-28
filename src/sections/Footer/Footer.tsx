@@ -9,21 +9,21 @@ import {
   PrivacyPolicy,
 } from './Footer.styled';
 import { IconSvg } from '../../components';
-import { H4, Link, P } from '../../styles/Global.styled';
+import { H4, Link, P } from '../../styles';
 
 const Footer: React.FC = () => {
   return (
     <FooterWraper>
       <FooterConteiner>
         <DataWraper>
-          <DataBox>
+          <DataBox $order={[1, 1, 1]}>
             <H4>Dane firmy:</H4>
             <P>ButleCO2.PL Artur Rembek</P>
             <P>ul. Poprawna 105A</P>
             <P>03-984 Warszawa</P>
             <P>NIP: 9522030252</P>
           </DataBox>
-          <DataBox>
+          <DataBox $order={[2, 3, 2]}>
             <H4>Kontakt:</H4>
             <P>
               Telefon: <Link href="tel:(+48)500612755">500-612-755</Link>
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
               </IconWraper>
             </MediaBox>
           </DataBox>
-          <DataBox>
+          <DataBox $order={[3, 2, 3]}>
             <H4>Polityka i regulamin:</H4>
             <P>
               <Link href="/privacy-policy">Polityka prywatności</Link>

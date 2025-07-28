@@ -1,6 +1,6 @@
 import React from 'react';
 import { useField } from 'formik';
-import { Label, TimeInput } from './InputField.styled';
+import { TimeInput } from './InputField.styled';
 
 interface TimeFieldProps {
   name: string;
@@ -32,7 +32,7 @@ const TimeField: React.FC<TimeFieldProps> = ({ name, index, timeType }) => {
   const displayValue = field.value?.toString().padStart(2, '0') ?? '00';
 
   return (
-    <Label>
+    <label>
       <TimeInput
         {...field}
         type="number"
@@ -41,7 +41,7 @@ const TimeField: React.FC<TimeFieldProps> = ({ name, index, timeType }) => {
         value={displayValue}
         onChange={handleChange}
       />
-    </Label>
+    </label>
   );
 };
 

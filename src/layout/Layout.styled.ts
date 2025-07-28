@@ -8,7 +8,7 @@ export const LayoutWrapper = styled.div`
 `;
 
 export const Main = styled.main`
-  margin-top: 120px;
+  margin-top: 7rem;
   margin-inline: auto;
   padding: 0;
   max-width: 1280px;

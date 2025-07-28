@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeroSection, Image, ImagesRoll, ImagesRollWraper, Sentence } from './Hero.styled';
-import { H1, H2 } from '../../styles/Global.styled';
+import { H1, H2 } from '../../styles';
 
 const images: string[] = [
   '/images/kdo3ud733dh3j48f.jpg',
@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
       </ImagesRollWraper>
       <Sentence>
         <H1>ButleCO2.pl</H1>
-        <H2 $fontSize="36px">
+        <H2>
           Twój niezawodny dostawca gazów technicznych i butli z dwutlenkiem węgla w Warszawie i
           okolicach.
         </H2>

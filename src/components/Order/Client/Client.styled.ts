@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { H3, P } from '../../../styles/Global.styled';
+import { P } from '../../../styles';
 
 interface ClientWraperProps {
   $autoMargin: 'left' | 'right';
@@ -7,26 +7,31 @@ interface ClientWraperProps {
 
 export const ClientWraper = styled.div<ClientWraperProps>`
   position: relative;
-  margin-inline: 60px;
-  ${({ $autoMargin }) => ($autoMargin === 'right' ? 'margin-right' : 'margin-left')}: auto;
-  min-width: 50%;
-  max-width: 75%;
+  margin: ${({ $autoMargin }) => ($autoMargin === 'right' ? '0 auto 0 1rem' : '0 1rem 0 auto')};
   width: fit-content;
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 1rem;
   cursor: pointer;
 
   & h3 {
     margin-bottom: 15px;
   }
+
+  ${({ theme }) => theme.media.t} {
+  margin: ${({ $autoMargin }) => ($autoMargin === 'right' ? '0 auto 0 3rem' : '0 3rem 0 auto')};
+    gap: 0.35rem;
+  }
 `;
 
 export const DataWraper = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 15px;
+  flex-direction: column;
+
+  ${({ theme }) => theme.media.t} {
+    flex-direction: row;
+  }
 `;
 
 interface DataNameProps {
@@ -40,20 +45,30 @@ export const DataName = styled(P)<DataNameProps>`
 `;
 
 export const DataValueBox = styled.div`
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.35rem;
 `;
 
 export const DataValue = styled(P)`
   display: inline-block;
-  width: 100%;
+  height: 1.2rem;
+  width: 18rem;
+  align-self: end;
   font-style: italic;
   color: ${({ theme }) => theme.color.main};
   border-bottom: 2px dotted ${({ theme }) => theme.color.main};
   whiteSpace: 'pre-line';
+  margin-left: 1rem;
+
+  ${({ theme }) => theme.media.m} {
+    width: 24rem;
+  }
+    
+  ${({ theme }) => theme.media.d} {
+    width: 28rem;
+  }
 `;
 
 const write = keyframes`

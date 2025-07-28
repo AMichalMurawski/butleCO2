@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from '../../styles/Global.styled';
 
 export const HeaderWraper = styled.header`
   position: fixed;
@@ -9,11 +8,11 @@ export const HeaderWraper = styled.header`
   display: flex;
   justify-content: center;
   z-index: 10;
-  background-color: #1f2a38aa;
+  background-color: ${({ theme }) => theme.color.structuralTrans};
 `;
 
 export const HeaderBox = styled.div`
-  height: 120px;
+  height: 7rem;
   width: 100%;
   position: relative;
   padding-inline: 25px;
@@ -24,22 +23,13 @@ export const HeaderBox = styled.div`
   align-items: center;
 `;
 
-export const NavbarWraper = styled.nav`
-  padding: 15px 30px;
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  border-radius: 100px;
-`;
-
 export const LogoWraper = styled.button`
   background-color: transparent;
   border: none;
   border-radius: 1000px;
   cursor: pointer;
 
-  & > div{
+  & > div {
     rotate: 0deg;
 
     transition: rotate cubic-bezier(0, -0.5, 1, -0.5) 500ms;
@@ -49,17 +39,33 @@ export const LogoWraper = styled.button`
   }
 `;
 
-export const ContactsWraper = styled.div`
+export const NavbarConteiner = styled.div`
+  display: none;
+
+  ${({ theme }) => theme.media.d} {
+    display: block;
+  }
+`
+
+export const HamburgerWraper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-`;
+  justify-content: space-between;
+  width: 2.5rem;
+  height: 2rem;
+  cursor: pointer;
+  ${({ theme }) => theme.css.transition('scale')}
+  
+  &:hover{
+    scale: 1.2;
+  }
 
-export const LinkWraper = styled(Link)`
-  width: max-content;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-`;
+  ${({ theme }) => theme.media.d} {
+    display: none;
+  }
+` 
+
+export const HamburgerLine = styled.div`
+  width: 100%;
+  border: 1px solid ${({ theme }) => theme.color.text};
+`

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { H3 } from '../../../styles/Global.styled';
 
 interface ModalWraperProps {
   $visible?: boolean;
@@ -17,9 +16,7 @@ export const ModalWraper = styled.div<ModalWraperProps>`
   visibility: ${({ $visible }) => ($visible ? 'visible' : 'hidden')};
   opacity: ${({ $visible }) => ($visible ? '1' : '0')};
 
-  transition:
-    visibility ease-in-out 300ms,
-    opacity ease-in-out 300ms;
+  ${({theme}) => theme.css.transition(['visibility', 'opacity'])}
 `;
 
 interface ModalBoxProps {
@@ -35,7 +32,7 @@ export const ModalBox = styled.div<ModalBoxProps>`
   position: absolute;
   top: ${({ $visible }) => ($visible ? '50%' : '100vh')};
   left: 50%;
-  width: ${({ $width }) => $width || 'min(600px, 75%)'};
+  width: ${({ $width }) => $width || 'min(35rem, 75%)'};
   height: ${({ $height }) => $height || null};
   max-height: ${({ $maxHeight }) => $maxHeight || '90%'};
   color: ${({ $color, theme }) => ($color ? $color : theme.color.structural)};
@@ -50,7 +47,7 @@ export const ModalBox = styled.div<ModalBoxProps>`
 `;
 
 export const TitleWraper = styled.div`
-  padding: 30px;
+  padding: 1.5rem;
   background-color: ${({ theme }) => theme.color.structural};
   color: ${({ theme }) => theme.color.text};
 
@@ -68,8 +65,8 @@ export const ContentsWraper = styled.div`
 
 export const ExitButtonConteiner = styled.div`
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 0.75rem;
+  right: 0.75rem;
   cursor: pointer;
   z-index: 10;
 

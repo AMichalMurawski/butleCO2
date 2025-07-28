@@ -1,10 +1,10 @@
 import styled, { keyframes } from 'styled-components';
-import { ImageBg, Section } from '../../styles/Global.styled';
+import { ImageBg, Section } from '../../styles';
 
 export const HeroSection = styled(Section)`
   position: relative;
   width: 100%;
-  height: 600px;
+  height: clamp(35rem, 75vh, 40rem);
   padding-top: 0;
   padding-inline: 0;
 `;

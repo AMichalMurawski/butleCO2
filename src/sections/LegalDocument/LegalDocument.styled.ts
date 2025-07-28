@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { H2, H3, P, Section } from '../../styles/Global.styled';
+import { Section } from '../../styles';
 
 export const LegalDocumentWraper = styled(Section)`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 2rem;
   max-width: 800px;
   margin-inline: auto;
 `;
@@ -14,7 +14,7 @@ interface DocumentSectionProps {
 }
 
 export const DocumentSection = styled.div<DocumentSectionProps>`
-  padding: 30px;
+  padding: 2rem;
   cursor: ${({$hideSection}) => $hideSection ? 'pointer' : null};
 
   &:nth-child(even) {
@@ -25,18 +25,18 @@ export const DocumentSection = styled.div<DocumentSectionProps>`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
 `
 
 export const List = styled.ul`
-  padding-left: 50px;
+  padding-left: 2.75rem;
   text-align: left;
-  font-size: 14px;
+  font-size: 0.75rem;
 `;
 
 export const Item = styled.li`
   &:not(:last-of-type) {
-    margin-bottom: 15px;
+    margin-bottom: 0.75rem;
   }
 
   &::marker {

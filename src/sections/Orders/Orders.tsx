@@ -1,6 +1,6 @@
 import React from 'react';
 import { Order } from '../../components';
-import { Section } from '../../styles/Global.styled';
+import { Section } from '../../styles';
 
 const Orders: React.FC = () => {
   return (

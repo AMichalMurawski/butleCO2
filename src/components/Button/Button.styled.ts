@@ -3,18 +3,21 @@ import styled from 'styled-components';
 interface ButtonElementProps {
   $active: boolean;
   $color: string;
-  $background: string
+  $background: string;
 }
 
 export const ButtonElement = styled.button<ButtonElementProps>`
-  padding: 15px;
+  padding: 1rem;
   color: ${({ $active, $color, theme }) => ($active ? theme.color.hightlight : $color)};
   background-color: ${({ $background }) => $background};
   border-radius: 100px;
   border: none;
   cursor: pointer;
-  transition: scale 200ms;
-  text-shadow: 0 0 15px ${({ $active, theme: { color } }) => ($active ? color.remarkable : 'null')};
+  text-shadow: ${({ $active, $color, theme: { color } }) =>
+    $active ? `0 0 5px ${color.text}` : `0 0 1px ${$color}`};
+  ${({ theme }) => theme.css.transition(['scale', 'box-shadow'])}
+  font-size: 0.9rem;
+  family: ${({ theme }) => theme.fonts.main};
 
   &:hover {
     scale: 1.1;

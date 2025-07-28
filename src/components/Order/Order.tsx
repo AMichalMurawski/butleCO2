@@ -1,7 +1,7 @@
 import React from 'react';
 import { ClientInvoiceWraper, InvoiceWraper, SubmitButtonWraper } from './Order.styled';
 import { clientLabels, companyLabels } from '../../context/Order/orderKeyof';
-import { Client, Header, Informations, ProductsList } from './';
+import { Client, FormProducts, Header, Informations, ProductsList } from './';
 import { Button, } from '../';
 import { useOrder } from '../../context/Order/OrderContext';
 import { useTheme } from 'styled-components';
@@ -19,7 +19,7 @@ const Order: React.FC = () => {
         initialValues={order.client}
         onClick={() => modalState('client')}
         autoMargin="right"
-        labelWidth="200px"
+        labelWidth="15rem"
       />
       <ClientInvoiceWraper $isInvoice={order.client.invoice}>
         <Client
@@ -28,10 +28,10 @@ const Order: React.FC = () => {
           initialValues={order.company}
           onClick={() => modalState('company')}
           autoMargin="left"
-          labelWidth="100px"
+          labelWidth="6.25rem"
         />
       </ClientInvoiceWraper>
-      <ProductsList addProduct={() => modalState('products')} />
+      <ProductsList />
       <SubmitButtonWraper>
         <Button
           type="button"

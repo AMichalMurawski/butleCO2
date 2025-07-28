@@ -10,7 +10,7 @@ import {
 import { clientAddress } from './clientAddress';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
 import { DayProps } from '../../../context/Order/orderProps';
-import { H3 } from '../../../styles/Global.styled';
+import { H3 } from '../../../styles';
 import IconSvg from '../../Icons/IconSvg/IconSvg';
 import { useTheme } from 'styled-components';
 
@@ -52,7 +52,7 @@ const Client: React.FC<ModalClientProps<any>> = ({
   return (
     <ClientWraper $autoMargin={autoMargin} onClick={onClick}>
       <EditIconWraper>
-        <IconSvg name="pencil" size="20px" fill={theme.color.structural} />
+        <IconSvg name="pencil" size="1.1rem" fill={theme.color.structural} />
       </EditIconWraper>
       <H3>{title}:</H3>
       {Object.keys(initialValues).map(key => {

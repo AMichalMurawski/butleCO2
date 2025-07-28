@@ -1,12 +1,16 @@
 import styled from 'styled-components';
-import { P } from '../../../styles/Global.styled';
+import { P } from '../../../styles';
 
 export const InformationsWraper = styled.div`
-  padding: 30px 60px;
+  padding: 2rem 1rem;
   text-align: left;
   font-style: italic;
   color: ${({ theme }) => theme.color.text};
   background-color: ${({ theme }) => theme.color.structural};
+
+  ${({ theme }) => theme.media.t} {
+    padding: 2rem 4rem;
+  }
 `;
 
 interface InformationsProps {
@@ -29,5 +33,5 @@ export const InformationsValue = styled(P) <InformationsProps>`
 `;
 
 export const Reference = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 `

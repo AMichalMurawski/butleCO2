@@ -1,11 +1,12 @@
 import React from 'react';
 import {
+  AboutBlock,
   AboutSection,
   Advantage,
+  AdvantageBlock,
   AdvantagesList,
   ButtonsWraper,
   ButtonWraper,
-  ContentBlock,
   IconWraper,
   Title,
 } from './About.styled';
@@ -13,7 +14,7 @@ import { Button, IconSvg } from '../../components';
 import { useTheme } from 'styled-components';
 import { useIdSection } from '../../context/Section/IdSectionContext';
 import { advantages } from '../../utils';
-import { P } from '../../styles/Global.styled';
+import { P } from '../../styles';
 
 const About: React.FC = () => {
   const theme = useTheme();
@@ -21,7 +22,7 @@ const About: React.FC = () => {
 
   return (
     <AboutSection id="about">
-      <ContentBlock>
+      <AboutBlock>
         <Title>Poznaj ButleCO2.pl - Ekspertów od CO2 w Warszawie</Title>
         <P>
           Od ponad 15 lat dostarczamy butle z dwutlenkiem węgla na terenie Warszawy i okolic. Nasza
@@ -36,15 +37,15 @@ const About: React.FC = () => {
           wody, przemysłu, biur i domu - wszystko z dostawą pod Twoje drzwi na terenie Warszawy i
           okolic.
         </P>
-      </ContentBlock>
-      <ContentBlock $gap="90px">
+      </AboutBlock>
+      <AdvantageBlock>
         <AdvantagesList>
           {advantages.map(advantage => (
             <Advantage key={advantage[1]} onClick={() => scrollToSection(`/#whyChooseUs${advantage[0].replace(/-/g, '')}`)}>
               <IconWraper>
-                <IconSvg name={advantage[0]} size="36px" />
+                <IconSvg name={advantage[0]} size="2.5rem" />
                 </IconWraper>
-              <P $bold>{advantage[1]}</P>
+              <P $bold $fontSize='0.75rem'>{advantage[1]}</P>
             </Advantage>
           ))}
         </AdvantagesList>
@@ -68,7 +69,7 @@ const About: React.FC = () => {
             />
           </ButtonWraper>
         </ButtonsWraper>
-      </ContentBlock>
+      </AdvantageBlock>
     </AboutSection>
   );
 };

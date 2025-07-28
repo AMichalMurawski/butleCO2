@@ -1,26 +1,31 @@
 import styled from 'styled-components';
-import { ImageBg } from '../../styles/Global.styled';
+import { ImageBg } from '../../styles';
 
 export const ServicesList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 2rem;
+  justify-content: center;
 `;
 
 export const ServiceWraper = styled.div`
   position: relative;
-  flex-basis: calc((100% - 30px) / 2);
-  height: 400px;
+  flex-basis: 100%;
+  height: 25rem;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: ${({ theme }) => theme.color.hightlight};
-  text-shadow: 0 0 10px black;
   overflow: hidden;
 
-  &:hover div {
+  &:hover > div {
     transform: translateY(0%);
-    padding: 60px;
+    padding: 3.5rem 3rem;
+  }
+
+  ${({ theme }) => theme.media.d} {
+    flex-basis: calc((100% - 2rem) / 2);
   }
 `;
 
@@ -33,19 +38,27 @@ export const ServiceImage = styled(ImageBg)`
 
 export const ServicePanel = styled.div`
   height: 100%;
-  padding: 25px 60px;
+  padding: 2rem 3rem;
   display: flex;
   flex-direction: column;
-  gap: 30px;
   align-items: center;
   justify-content: space-between;
   transform: translateY(80%);
   background-color: rgba(0, 0, 0, 0.7);
-  transition:
-    transform ease-out 300ms,
-    padding ease-out 300ms;
+  ${({ theme }) => theme.css.transition(['transform', 'padding'])}
 
   & * {
     margin: 0;
   }
+`;
+
+export const HeadingWraper = styled.div`
+  height: calc(20% - 3rem);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 `;
