@@ -16,8 +16,8 @@ export const theme = {
     textTrans: '#F4F0EBaa',
     warning: '#E9AE3C',
     warningTrans: '#E9AE3Caa',
-    danger: '#E57373',
-    dangerTrans: '#E57373aa',
+    danger: '#F04040',
+    dangerTrans: '#F04040aa',
   },
   fonts: {
     // Montserrat

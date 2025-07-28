@@ -34,7 +34,7 @@ export const HeaderTitle = styled.div`
       left: 0%;
       width: calc(100% + 2rem);
       height: 105%;
-      background-color: ${({ theme }) => theme.color.remarkable};
+      background-color: ${({ theme }) => theme.color.hightlight};
     }
 
     &::before {
@@ -122,7 +122,7 @@ export const InvoiceAddress = styled.div`
       left: -1rem;
       width: calc(100% + 2rem);
       height: 105%;
-      background-color: ${({ theme }) => theme.color.remarkable};
+      background-color: ${({ theme }) => theme.color.hightlight};
       clip-path: polygon(5rem 0%, 100% 0%, 100% 100%, 0 100%);
       z-index: -1;
     }
