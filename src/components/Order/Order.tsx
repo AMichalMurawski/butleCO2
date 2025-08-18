@@ -1,8 +1,8 @@
 import React from 'react';
 import { ClientInvoiceWraper, InvoiceWraper, SubmitButtonWraper } from './Order.styled';
 import { clientLabels, companyLabels } from '../../context/Order/orderKeyof';
-import { Client, FormProducts, Header, Informations, ProductsList } from './';
-import { Button, } from '../';
+import { Client, Header, Informations, ProductsList } from './';
+import { Button } from '../';
 import { useOrder } from '../../context/Order/OrderContext';
 import { useTheme } from 'styled-components';
 

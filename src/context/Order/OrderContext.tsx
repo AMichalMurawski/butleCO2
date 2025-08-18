@@ -2,12 +2,16 @@ import React, { createContext, useContext, useState, PropsWithChildren } from 'r
 import { initialValues } from './initialValues';
 import { OrderProductProps, OrderProps } from './orderProps';
 import { orderSchema } from './schema';
+import { useToast } from '../Toast/ToastContext';
 
 const customTypeOrder = ['CO2', 'Argon', 'Argon + CO2', 'Azot', 'Azot + CO2', 'Propan'];
 
 type OrderKeys = keyof OrderProps | 'confirm';
 
-type updateInvoiceProps = <K extends 'client' | 'company'>(section: K, value: OrderProps[K]) => void;
+type updateInvoiceProps = <K extends 'client' | 'company'>(
+  section: K,
+  value: OrderProps[K]
+) => void;
 
 interface OrderContextProps {
   addProduct: (product: OrderProductProps) => void;
@@ -34,27 +38,30 @@ const OrderContext = createContext<OrderContextProps | undefined>(undefined);
 export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [order, setOrder] = useState<OrderProps>(initialValues);
   const [modals, setModals] = useState<Record<OrderKeys, boolean>>(initialModals);
-  
+  const { addToast } = useToast();
+
   const modalState = (modal: OrderKeys) => {
     setModals(prev => ({ ...prev, [modal]: !prev[modal] }));
   };
 
   const updateInvoice: updateInvoiceProps = (section, value) => {
     setOrder(prev => ({ ...prev, [section]: value }));
-  }
+  };
 
   const addProduct = (product: OrderProductProps) => {
-    const isExist = order.products.some(p =>
-      p.type === product.type &&
-      p.weight === product.weight &&
-      p.litr === product.litr &&
-      p.transaction === product.transaction
+    const isExist = order.products.some(
+      p =>
+        p.type === product.type &&
+        p.weight === product.weight &&
+        p.litr === product.litr &&
+        p.transaction === product.transaction
     );
 
-    if (isExist) return
-    
+    if (isExist) return;
+
     const products = [...order.products, product];
-    const sortedProducts = products.slice()
+    const sortedProducts = products
+      .slice()
       .sort((a, b) => {
         const aValue = a.weight ?? a.litr ?? 0;
         const bValue = b.weight ?? b.litr ?? 0;
@@ -67,57 +74,65 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
       })
       .sort((a, b) => Number(a.transaction) - Number(b.transaction));
 
-    changeProductsList(sortedProducts)
-  }
+    changeProductsList(sortedProducts);
+  };
 
   const productAmountChange = (index: number, amount: number) => {
     const products = [...order.products];
     products[index].amount = amount;
     products[index].price = amount * products[index].unitPrice;
-    
+
     changeProductsList(products);
-  }
+  };
 
   const deleteProduct = (index: number) => {
     const products = [...order.products];
     products.splice(index, 1);
 
-    changeProductsList(products)
-  }
+    changeProductsList(products);
+  };
 
   const changeProductsList = (products: OrderProductProps[]) => {
-    let productsCost = products.reduce((sum, prod) => sum = sum + prod.price, 0);
+    let productsCost = products.reduce((sum, prod) => (sum = sum + prod.price), 0);
     if (productsCost < 100) productsCost = 100;
     const summaryCost = productsCost + order.summary.deliveryCost;
     const summary = { ...order.summary, productsCost, summaryCost };
-    
+
     setOrder(prev => ({ ...prev, products, summary }));
-  }
+  };
 
   const confirmOrder = async () => {
-    
     try {
       await orderSchema.validate(order, { abortEarly: false });
       modalState('confirm');
-    } catch ( err: any ) {
+    } catch (err: any) {
       if (err.inner) {
-        const errors = err.inner.map((e: any) => `${e.path}: ${e.message}`);
-        window.alert(`Walidacja nie powiodła się: ${errors}`);
-        console.warn('Walidacja nie powiodła się:', errors);
+        err.inner.forEach((error: any) => addToast(error.message, 'error'));
       } else {
         window.alert(`Błąd walidacji: ${err.message}`);
         console.warn('Błąd walidacji:', err.message);
       }
     }
-
-  }
+  };
 
   const submitOrder = () => {
     window.alert('Zamówienie wysłane');
   };
 
   return (
-    <OrderContext.Provider value={{ addProduct, deleteProduct, modals, modalState, order, productAmountChange, confirmOrder, submitOrder, updateInvoice, }}>
+    <OrderContext.Provider
+      value={{
+        addProduct,
+        deleteProduct,
+        modals,
+        modalState,
+        order,
+        productAmountChange,
+        confirmOrder,
+        submitOrder,
+        updateInvoice,
+      }}
+    >
       {children}
     </OrderContext.Provider>
   );
