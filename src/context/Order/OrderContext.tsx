@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, PropsWithChildren } from 'react';
-import { initialValues } from './initialValues';
+import { initialOrderProduct, initialValues } from './initialValues';
 import { OrderProductProps, OrderProps } from './orderProps';
 import { orderSchema } from './schema';
 import { useToast } from '../Toast/ToastContext';
@@ -104,7 +104,10 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const confirmOrder = async () => {
     try {
       await orderSchema.validate(order, { abortEarly: false });
-      modalState('confirm');
+      addToast('Twoje zamówienie zostało wysłane', 'success');
+      localStorage.setItem('clientData', JSON.stringify(order.client));
+      localStorage.setItem('companyData', JSON.stringify(order.company));
+      setOrder(initialValues);
     } catch (err: any) {
       if (err.inner) {
         err.inner.forEach((error: any) => addToast(error.message, 'error'));

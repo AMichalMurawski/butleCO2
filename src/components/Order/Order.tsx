@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ClientInvoiceWraper, InvoiceWraper, SubmitButtonWraper } from './Order.styled';
 import { clientLabels, companyLabels } from '../../context/Order/orderKeyof';
 import { Client, Header, Informations, ProductsList } from './';
@@ -7,8 +7,20 @@ import { useOrder } from '../../context/Order/OrderContext';
 import { useTheme } from 'styled-components';
 
 const Order: React.FC = () => {
-  const { order, confirmOrder, modalState } = useOrder();
+  const { order, confirmOrder, modalState, updateInvoice } = useOrder();
   const theme = useTheme();
+
+  const [localOrder] = useState(() => {
+    const clientData = localStorage.getItem('clientData');
+    if (!!clientData) {
+      updateInvoice('client', JSON.parse(clientData));
+    }
+
+    const companyData = localStorage.getItem('companyData');
+    if (!!companyData) {
+      updateInvoice('company', JSON.parse(companyData));
+    }
+  });
 
   return (
     <InvoiceWraper>
