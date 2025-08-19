@@ -31,17 +31,17 @@ interface DataBoxProps {
 export const DataBox = styled.div<DataBoxProps>`
   width: fit-content;
   order: ${({ $order }) => $order?.[0] || 0};
-  
+
   ${({ theme }) => theme.media.m} {
     flex-basis: calc((100% - 2rem) / 2);
-    order: ${({$order}) => $order?.[1] || 0};
+    order: ${({ $order }) => $order?.[1] || 0};
   }
 
-  ${({theme}) => theme.media.t} {
+  ${({ theme }) => theme.media.t} {
     flex-basis: calc((100% - 2 * 2rem) / 3);
-    order: ${({$order}) => $order?.[2] || 0};
+    order: ${({ $order }) => $order?.[2] || 0};
   }
-  
+
   & * {
     text-align: left;
   }
@@ -54,17 +54,20 @@ export const MediaBox = styled.div`
   gap: 0.5rem;
 `;
 
-export const IconWraper = styled(IconLink)`
+export const IconWraper = styled(IconLink).attrs({
+  target: '_blank',
+  rel: 'noopener noreferrer',
+})`
   box-sizing: border-box;
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 1000px;
   padding: 0.25rem;
-  ${({theme}) => theme.css.transition('background-color')}
+  ${({ theme }) => theme.css.transition('background-color')}
 
   & svg {
     translate: 0 -0.125rem;
-    ${({theme}) => theme.css.transition('fill')}
+    ${({ theme }) => theme.css.transition('fill')}
   }
 
   &:hover {

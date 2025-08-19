@@ -1,3 +1,4 @@
+import { Config } from '../Config/types';
 import {
   AddressProps,
   ClientProps,
@@ -69,20 +70,22 @@ export const initialOrderProduct: OrderProductProps = {
 
 // >>>>>> Order <<<<<<
 
-export const initialSummary: SummaryProps = {
-  productsCost: 100,
-  deliveryCost: 20,
-  discount: 0,
-  summaryCost: 0,
+export const initialSummary = (config: Config): SummaryProps => {
+  return {
+    productsCost: config.minCost,
+    deliveryCost: config.deliveryCost,
+    discount: 0,
+    summaryCost: config.minCost + config.deliveryCost,
+  };
 };
-
-initialSummary.summaryCost = initialSummary.productsCost + initialSummary.deliveryCost;
 
 // >>>>>> Form <<<<<<
 
-export const initialValues: OrderProps = {
-  client: initialClient,
-  company: initialCompany,
-  products: [],
-  summary: initialSummary,
+export const initialValues = (config: Config): OrderProps => {
+  return {
+    client: initialClient,
+    company: initialCompany,
+    products: [],
+    summary: initialSummary(config),
+  };
 };

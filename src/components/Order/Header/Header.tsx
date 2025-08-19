@@ -1,14 +1,11 @@
 import React from 'react';
-import {
-  HeaderTitle,
-  HeaderWraper,
-  InvoiceAddress,
-  OrderNumber,
-  Title,
-} from './Header.styled';
+import { HeaderTitle, HeaderWraper, InvoiceAddress, OrderNumber, Title } from './Header.styled';
 import { P } from '../../../styles';
+import { useConfig } from '../../../context/Config/ConfigContext';
 
 const Header: React.FC = () => {
+  const config = useConfig();
+
   return (
     <HeaderWraper>
       <HeaderTitle>
@@ -16,10 +13,14 @@ const Header: React.FC = () => {
         <OrderNumber></OrderNumber>
       </HeaderTitle>
       <InvoiceAddress>
-          <P>ButleCO2.PL Artur Rembek</P>
-          <P>ul. Poprawna 105A</P>
-          <P>03-984 Warszawa</P>
-          <P>NIP: 9522030252</P>
+        <P>{config.name}</P>
+        <P>
+          ul. {config.street} {config.nr}
+        </P>
+        <P>
+          {config.postalCode} {config.city}
+        </P>
+        <P>NIP: {config.NIP}</P>
       </InvoiceAddress>
     </HeaderWraper>
   );

@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useState, PropsWithChildren } from 'react';
-import { initialOrderProduct, initialValues } from './initialValues';
+import { initialValues } from './initialValues';
 import { OrderProductProps, OrderProps } from './orderProps';
 import { orderSchema } from './schema';
 import { useToast } from '../Toast/ToastContext';
+import { useConfig } from '../Config/ConfigContext';
 
 const customTypeOrder = ['CO2', 'Argon', 'Argon + CO2', 'Azot', 'Azot + CO2', 'Propan'];
 
@@ -36,7 +37,8 @@ const initialModals: Record<OrderKeys, boolean> = {
 const OrderContext = createContext<OrderContextProps | undefined>(undefined);
 
 export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [order, setOrder] = useState<OrderProps>(initialValues);
+  const config = useConfig();
+  const [order, setOrder] = useState<OrderProps>(initialValues(config));
   const [modals, setModals] = useState<Record<OrderKeys, boolean>>(initialModals);
   const { addToast } = useToast();
 
@@ -107,7 +109,7 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
       addToast('Twoje zamówienie zostało wysłane', 'success');
       localStorage.setItem('clientData', JSON.stringify(order.client));
       localStorage.setItem('companyData', JSON.stringify(order.company));
-      setOrder(initialValues);
+      setOrder(initialValues(config));
     } catch (err: any) {
       if (err.inner) {
         err.inner.forEach((error: any) => addToast(error.message, 'error'));

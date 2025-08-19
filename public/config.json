@@ -1,0 +1,15 @@
+{
+    "name": "ButleCO2.PL Artur Rembek",
+    "street": "Poprawna",
+    "nr": "105A",
+    "postalCode": "03-984",
+    "city": "Warszawa",
+    "NIP": "9522030252",
+    "phone": [["(+48)500612755", "(+48) 500 612 755"]],
+    "email": "biuro@butleco2.pl",
+    "openHours": ["Pn-Pt 10:00-17:00", "Sb 10:00-14:00"],
+    "facebookURL": "http://facebook.com",
+    "instagramURL": "http://instagram.com",
+    "minCost": 100,
+    "deliveryCost": 20
+}

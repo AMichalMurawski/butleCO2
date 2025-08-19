@@ -15,19 +15,22 @@ import '@fontsource/montserrat/700.css';
 import '@fontsource/crimson-text/400.css';
 import '@fontsource/crimson-text/700.css';
 import { ToastProvider } from './context/Toast/ToastContext';
+import { ConfigProvider } from './context/Config/ConfigContext';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 
 createRoot(rootElement).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <IdSectionProvider>
-          <ToastProvider>
-            <App />
-          </ToastProvider>
-        </IdSectionProvider>
-      </BrowserRouter>
-    </ThemeProvider>
+    <ConfigProvider>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <IdSectionProvider>
+            <ToastProvider>
+              <App />
+            </ToastProvider>
+          </IdSectionProvider>
+        </BrowserRouter>
+      </ThemeProvider>
+    </ConfigProvider>
   </StrictMode>
 );

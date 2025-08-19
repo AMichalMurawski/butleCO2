@@ -10,33 +10,40 @@ import {
 } from './Footer.styled';
 import { IconSvg } from '../../components';
 import { H4, Link, P } from '../../styles';
+import { useConfig } from '../../context/Config/ConfigContext';
 
 const Footer: React.FC = () => {
+  const config = useConfig();
+
   return (
     <FooterWraper>
       <FooterConteiner>
         <DataWraper>
           <DataBox $order={[1, 1, 1]}>
             <H4>Dane firmy:</H4>
-            <P>ButleCO2.PL Artur Rembek</P>
-            <P>ul. Poprawna 105A</P>
-            <P>03-984 Warszawa</P>
-            <P>NIP: 9522030252</P>
+            <P>{config.name}</P>
+            <P>
+              ul. {config.street} {config.nr}
+            </P>
+            <P>
+              {config.postalCode} {config.city}
+            </P>
+            <P>NIP: {config.NIP}</P>
           </DataBox>
           <DataBox $order={[2, 3, 2]}>
             <H4>Kontakt:</H4>
             <P>
-              Telefon: <Link href="tel:(+48)500612755">500-612-755</Link>
+              Telefon: <Link href={`tel:${config.phone[0][0]}`}>{config.phone[0][1]}</Link>
             </P>
             <P>
-              Email: <Link href="mailto:biuro@butleco2.pl">biuro@butleco2.pl</Link>
+              Email: <Link href={`mailto:${config.email}`}>{config.email}</Link>
             </P>
             <P>Śledź nas:</P>
             <MediaBox>
-              <IconWraper href="http://facebook.com">
+              <IconWraper href={config.facebookURL}>
                 <IconSvg name="facebook" />
               </IconWraper>
-              <IconWraper href="http://instagram.com">
+              <IconWraper href={config.instagramURL}>
                 <IconSvg name="instagram" />
               </IconWraper>
             </MediaBox>

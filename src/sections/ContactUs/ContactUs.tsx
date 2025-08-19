@@ -1,19 +1,29 @@
 import React from 'react';
-import { ContactSection, ContactsWraper, GridWraper, Iframe, InfoBox, InfoWraper } from './ContactUs.styled';
+import {
+  ContactSection,
+  ContactsWraper,
+  GridWraper,
+  Iframe,
+  InfoBox,
+  InfoWraper,
+} from './ContactUs.styled';
 import { ContactForm } from '../../components';
 import { H2, Link, P } from '../../styles';
+import { useConfig } from '../../context/Config/ConfigContext';
 
 const ContactUs: React.FC = () => {
+  const config = useConfig();
+
   return (
     <ContactSection id="contactUs">
       <H2>Masz pytania? Skontaktuj się z nami już dziś!</H2>
       <ContactsWraper>
-        <InfoWraper as="address" $gridColumn={[1,1]} $gridRow={[1,1]}>
+        <InfoWraper as="address" $gridColumn={[1, 1]} $gridRow={[1, 1]}>
           <InfoBox>
             <P>
               Zadzwoń:{' '}
-              <Link href="tel:+48500612755" $bold>
-                500-612-755
+              <Link href={`tel:${config.phone[0][0]}`} $bold>
+                {config.phone[0][1]}
               </Link>{' '}
             </P>
             <P $textAlign="right">odbieramy od poniedziałku do soboty</P>
@@ -21,8 +31,8 @@ const ContactUs: React.FC = () => {
           <InfoBox>
             <P>
               Napisz:{' '}
-              <Link href="mailto:biuro@butleco2.pl" $bold>
-                biuro@butleco2.pl
+              <Link href={`mailto:${config.email}`} $bold>
+                {config.email}
               </Link>{' '}
             </P>
             <P $textAlign="right">odpowiadamy w ciągu 24 godzin</P>
@@ -30,29 +40,28 @@ const ContactUs: React.FC = () => {
           <InfoBox>
             <P>Odwiedź nas:</P>
             <P $bold $textAlign="center">
-              ul. Poprawna 105A,
+              ul. {config.street} {config.nr},
             </P>
             <P $bold $textAlign="center">
-              03-984 Warszawa
+              {config.postalCode} {config.city}
             </P>
           </InfoBox>
         </InfoWraper>
-        <InfoWraper $gridColumn={[1,1]} $gridRow={[2,2]}>
+        <InfoWraper $gridColumn={[1, 1]} $gridRow={[2, 2]}>
           <InfoBox>
             <P>Jesteśmy dla Ciebie:</P>
-            <P $bold $textAlign="center">
-              Pn-Pt 10:00-17:00
-            </P>
-            <P $bold $textAlign="center">
-              Sb 10:00-14:00
-            </P>
+            {config.openHours.map(hours => (
+              <P $bold $textAlign="center">
+                {hours}
+              </P>
+            ))}
           </InfoBox>
           <InfoBox>
             <P>W pilnych sprawach dzwoń poza godzinami.</P>
             <P>Jeśli nie odbieramy - napisz SMS - postaramy się pomóc!</P>
           </InfoBox>
         </InfoWraper>
-        <GridWraper $gridColumn={[1, 2]} $gridRow={[3,'1 / 3']}>
+        <GridWraper $gridColumn={[1, 2]} $gridRow={[3, '1 / 3']}>
           <ContactForm />
         </GridWraper>
         <GridWraper $gridColumn={[1, '1 / 3']} $gridRow={[4, 3]}>
