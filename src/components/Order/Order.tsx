@@ -10,18 +10,6 @@ const Order: React.FC = () => {
   const { order, confirmOrder, modalState, updateInvoice } = useOrder();
   const theme = useTheme();
 
-  const [localOrder] = useState(() => {
-    const clientData = localStorage.getItem('clientData');
-    if (!!clientData) {
-      updateInvoice('client', JSON.parse(clientData));
-    }
-
-    const companyData = localStorage.getItem('companyData');
-    if (!!companyData) {
-      updateInvoice('company', JSON.parse(companyData));
-    }
-  });
-
   return (
     <InvoiceWraper>
       <Header />

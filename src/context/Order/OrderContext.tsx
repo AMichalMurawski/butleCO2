@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, PropsWithChildren } from 'react';
+import React, { createContext, useContext, useState, PropsWithChildren, useEffect } from 'react';
 import { initialValues } from './initialValues';
 import { OrderProductProps, OrderProps } from './orderProps';
 import { orderSchema } from './schema';
@@ -41,6 +41,20 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [order, setOrder] = useState<OrderProps>(initialValues(config));
   const [modals, setModals] = useState<Record<OrderKeys, boolean>>(initialModals);
   const { addToast } = useToast();
+
+  useEffect(() => {
+    setOrder(initialValues(config));
+
+    const clientData = localStorage.getItem('clientData');
+    if (!!clientData) {
+      updateInvoice('client', JSON.parse(clientData));
+    }
+
+    const companyData = localStorage.getItem('companyData');
+    if (!!companyData) {
+      updateInvoice('company', JSON.parse(companyData));
+    }
+  }, [config]);
 
   const modalState = (modal: OrderKeys) => {
     setModals(prev => ({ ...prev, [modal]: !prev[modal] }));
@@ -96,7 +110,8 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
   const changeProductsList = (products: OrderProductProps[]) => {
     let productsCost = products.reduce((sum, prod) => (sum = sum + prod.price), 0);
-    if (productsCost < 100) productsCost = 100;
+    if (productsCost < config.minCost) productsCost = config.minCost;
+    console.log(order.summary.deliveryCost);
     const summaryCost = productsCost + order.summary.deliveryCost;
     const summary = { ...order.summary, productsCost, summaryCost };
 
