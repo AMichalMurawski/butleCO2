@@ -6,35 +6,44 @@ import { theme } from '../../../styles/theme';
 import Input from '../InputField/InputField';
 import { contactUsSchema, FormValues, initialValues, inputData } from './contactFormData';
 import { H3, H4 } from '../../../styles';
+import { useToast } from '../../../context/Toast/ToastContext';
 
 const ContactForm: React.FC = () => {
+  const { addToast } = useToast();
+
   const handleSubmit = (values: FormValues) => {
-    window.alert(JSON.stringify(values, null, " "));
+    //
   };
-  
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={contactUsSchema}
       onSubmit={(values, { resetForm, validateForm }) => {
         handleSubmit(values);
+        addToast('Twoje zapytanie zostało wysłane', 'success');
         resetForm();
         validateForm(initialValues);
       }}
       validateOnMount={true}
       validateOnBlur={true}
-      validateOnChange={true}>
+      validateOnChange={true}
+    >
       {({ isValid, values }) => {
-        
-        useEffect(() => { }, [values])
+        useEffect(() => {}, [values]);
 
         return (
           <Form>
             <H4>Napisz do nas:</H4>
             <FormWraper>
-              {inputData.map((data, index) =>
-                <Input key={index} name={data.name} label={data.label} componentType={data.componentType} />
-              )}
+              {inputData.map((data, index) => (
+                <Input
+                  key={index}
+                  name={data.name}
+                  label={data.label}
+                  componentType={data.componentType}
+                />
+              ))}
               <ButtonWraper $disabled={!isValid}>
                 <Button
                   type="submit"
@@ -45,7 +54,7 @@ const ContactForm: React.FC = () => {
               </ButtonWraper>
             </FormWraper>
           </Form>
-        )
+        );
       }}
     </Formik>
   );
