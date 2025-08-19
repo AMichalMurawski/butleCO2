@@ -5,3 +5,7 @@
 ## Input:
 
     - change stylization for TimeField
+
+## SEO:
+
+    - check and improve
