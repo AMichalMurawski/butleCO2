@@ -109,11 +109,22 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   };
 
   const changeProductsList = (products: OrderProductProps[]) => {
+    console.log(order.products[0]);
+    if (!products[0]) {
+      setOrder(prev => ({
+        ...prev,
+        products,
+        summary: { deliveryCost: 0, discount: 0, productsCost: 0, summaryCost: 0 },
+      }));
+      return;
+    }
+
     let productsCost = products.reduce((sum, prod) => (sum = sum + prod.price), 0);
+    const deliveryCost = config.deliveryCost;
     if (productsCost < config.minCost) productsCost = config.minCost;
-    console.log(order.summary.deliveryCost);
-    const summaryCost = productsCost + order.summary.deliveryCost;
-    const summary = { ...order.summary, productsCost, summaryCost };
+
+    const summaryCost = productsCost + deliveryCost;
+    const summary = { ...order.summary, productsCost, deliveryCost, summaryCost };
 
     setOrder(prev => ({ ...prev, products, summary }));
   };

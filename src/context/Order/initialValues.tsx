@@ -86,6 +86,6 @@ export const initialValues = (config: Config): OrderProps => {
     client: initialClient,
     company: initialCompany,
     products: [],
-    summary: initialSummary(config),
+    summary: initialSummary({ ...config, minCost: 0, deliveryCost: 0 }),
   };
 };
