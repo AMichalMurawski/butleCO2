@@ -50,8 +50,8 @@ const ContactUs: React.FC = () => {
         <InfoWraper $gridColumn={[1, 1]} $gridRow={[2, 2]}>
           <InfoBox>
             <P>Jesteśmy dla Ciebie:</P>
-            {config.openHours.map(hours => (
-              <P $bold $textAlign="center">
+            {config.openHours.map((hours, index) => (
+              <P key={index} $bold $textAlign="center">
                 {hours}
               </P>
             ))}

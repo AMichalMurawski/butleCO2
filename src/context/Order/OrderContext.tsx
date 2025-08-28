@@ -4,6 +4,7 @@ import { OrderProductProps, OrderProps } from './orderProps';
 import { orderSchema } from './schema';
 import { useToast } from '../Toast/ToastContext';
 import { useConfig } from '../Config/ConfigContext';
+import { sendEmail } from '../../utils/sendEmail';
 
 const customTypeOrder = ['CO2', 'Argon', 'Argon + CO2', 'Azot', 'Azot + CO2', 'Propan'];
 
@@ -132,9 +133,33 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const confirmOrder = async () => {
     try {
       await orderSchema.validate(order, { abortEarly: false });
+
+      const response = await sendEmail({
+        userName: order.client.name,
+        userEmail: order.client.email,
+        message: `
+          Zamawiający: ${order.client.name}
+          Email: ${order.client.email}
+
+          Produkt: ${order.products[0].type} ${order.products[0].weight || order.products[0].litr}
+          Wymiana / zakup: ${order.products[0].transaction}
+          Cena: ${order.products[0].unitPrice}
+          Ilość: ${order.products[0].amount}
+          Koszt: ${order.products[0].price}
+        `,
+        formType: 'order',
+      });
+
+      if (!response.success) {
+        addToast('Nie udało się wysłać zamówienia', 'error');
+        return;
+      }
+
       addToast('Twoje zamówienie zostało wysłane', 'success');
+
       localStorage.setItem('clientData', JSON.stringify(order.client));
       localStorage.setItem('companyData', JSON.stringify(order.company));
+
       setOrder(initialValues(config));
     } catch (err: any) {
       if (err.inner) {
