@@ -5,6 +5,7 @@ import { orderSchema } from './schema';
 import { useToast } from '../Toast/ToastContext';
 import { useConfig } from '../Config/ConfigContext';
 import { sendEmail } from '../../utils/sendEmail';
+import { weekTimeLabels } from './orderKeyof';
 
 const customTypeOrder = ['CO2', 'Argon', 'Argon + CO2', 'Azot', 'Azot + CO2', 'Propan'];
 
@@ -130,6 +131,57 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
     setOrder(prev => ({ ...prev, products, summary }));
   };
 
+  const formatOrderMessage = (order: OrderProps): string => {
+    const { client, company, products, summary } = order;
+
+    const twoDigit = (value: number) => value.toString().padStart(2, '0');
+
+    const clientMessage = `
+      Zamawiający:
+      ${client.name}
+      ${client.email}
+      ${client.phone}
+
+      Dostawa:
+      ${client.address.street} ${client.address.number}${client.address.local ? ` lok. ${client.address.local}` : ''}, ${client.address.postalCode} ${client.address.city}
+      ${client.deliveryTime.map(time => `${weekTimeLabels[time.day]} ${twoDigit(time.time[0].hour)}:${twoDigit(time.time[0].minute)}-${twoDigit(time.time[1].hour)}:${twoDigit(time.time[1].minute)}`).join(', ')}
+
+      Wiadomość od zamawiającego:
+      ${client.message.trim()}
+    `;
+
+    const companyMessage = `
+      FAKTURA:
+      ${company.name}
+      ${company.address.street} ${company.address.number}${company.address.local ? ` lok. ${company.address.local}` : ''}, ${company.address.postalCode} ${company.address.city}
+      NIP: ${company.NIP}
+    `;
+
+    const productsMessage = products
+      .map(
+        product =>
+          `${product.type} ${product.weight || product.litr} (${product.transaction ? 'zakup' : 'wymiana'}) - ${product.unitPrice.toFixed(2)}PLN x ${product.amount}szt. = ${product.price.toFixed(2)}PLN`
+      )
+      .join('\n');
+
+    const summaryMessage = `
+      Koszt butli: ${summary.productsCost.toFixed(2)}PLN
+      Koszt dostawy: ${summary.deliveryCost.toFixed(2)}PLN
+      Całkowity koszt: ${summary.summaryCost.toFixed(2)}PLN  ⚠️
+    `;
+
+    return `
+      ${clientMessage}
+      ${client.invoice ? companyMessage : ''}
+      ${productsMessage}
+      ${summaryMessage}
+
+      ⚠️ Ostateczny koszt zamówienia zostanie wysłany w emailu potwierdzającym zamówienie.
+      ⚠️ Minimalny koszt zamówenia wynosi ${(config.minCost + config.deliveryCost).toFixed(2)}PLN.
+      ⚠️ Do ceny mogą być doliczone koszta za dostawę poza rejonem, jak również rabaty dla stałych klientów lub dużych zamówień.
+    `;
+  };
+
   const confirmOrder = async () => {
     try {
       await orderSchema.validate(order, { abortEarly: false });
@@ -137,16 +189,7 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
       const response = await sendEmail({
         userName: order.client.name,
         userEmail: order.client.email,
-        message: `
-          Zamawiający: ${order.client.name}
-          Email: ${order.client.email}
-
-          Produkt: ${order.products[0].type} ${order.products[0].weight || order.products[0].litr}
-          Wymiana / zakup: ${order.products[0].transaction}
-          Cena: ${order.products[0].unitPrice}
-          Ilość: ${order.products[0].amount}
-          Koszt: ${order.products[0].price}
-        `,
+        message: formatOrderMessage(order),
         formType: 'order',
       });
 
