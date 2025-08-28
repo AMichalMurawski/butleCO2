@@ -5,25 +5,38 @@ import { Button } from '../../';
 import { theme } from '../../../styles/theme';
 import Input from '../InputField/InputField';
 import { contactUsSchema, FormValues, initialValues, inputData } from './contactFormData';
-import { H3, H4 } from '../../../styles';
+import { H4 } from '../../../styles';
 import { useToast } from '../../../context/Toast/ToastContext';
+import { sendEmail } from '../../../utils/sendEmail';
 
 const ContactForm: React.FC = () => {
   const { addToast } = useToast();
-
-  const handleSubmit = (values: FormValues) => {
-    //
-  };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={contactUsSchema}
-      onSubmit={(values, { resetForm, validateForm }) => {
-        handleSubmit(values);
-        addToast('Twoje zapytanie zostało wysłane', 'success');
-        resetForm();
-        validateForm(initialValues);
+      onSubmit={async (values, { resetForm, validateForm }) => {
+        try {
+          const response = await sendEmail({
+            userName: values.name,
+            userEmail: values.email,
+            message: values.message,
+            formType: 'contact',
+          });
+
+          if (!response.success) {
+            addToast('Nie udało się wysłać wiadomości', 'error');
+            return;
+          }
+
+          addToast('Twoje zapytanie zostało wysłane', 'success');
+          resetForm();
+          validateForm(initialValues);
+        } catch (err: any) {
+          console.error('Błąd wysyłki maila:', err);
+          addToast('Wystąpił błąd przy wysyłaniu wiadomości', 'error');
+        }
       }}
       validateOnMount={true}
       validateOnBlur={true}
