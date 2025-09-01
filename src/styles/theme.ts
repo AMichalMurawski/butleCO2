@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 export const theme = {
-  color0: {
+  color: {
     main: '#121212',
     mainTrans: '#121212aa',
     structural: '#1F2A38',
@@ -16,10 +16,10 @@ export const theme = {
     textTrans: '#F4F0EBaa',
     warning: '#E9AE3C',
     warningTrans: '#E9AE3Caa',
-    danger: '#F04040',
-    dangerTrans: '#F04040aa',
+    danger: '#FF5A5A',
+    dangerTrans: '#FF5A5Aaa',
   },
-  color: {
+  color1: {
     main: 'rgba(18, 18, 18, 1)',
     mainTrans: 'rgba(18, 18, 18, 0.67)',
     structural: 'rgba(31, 42, 56, 1)',
