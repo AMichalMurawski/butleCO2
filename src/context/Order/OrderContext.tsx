@@ -144,7 +144,7 @@ export const OrderProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
       Dostawa:
       ${client.address.street} ${client.address.number}${client.address.local ? ` lok. ${client.address.local}` : ''}, ${client.address.postalCode} ${client.address.city}
-      ${client.deliveryTime.map(time => `${weekTimeLabels[time.day]} ${twoDigit(time.time[0].hour)}:${twoDigit(time.time[0].minute)}-${twoDigit(time.time[1].hour)}:${twoDigit(time.time[1].minute)}`).join(', ')}
+      ${client.deliveryTime.map(d => `${weekTimeLabels[d.day]} ${d.time[0]} - ${d.time[1]}`).join(', ')}
 
       Wiadomość od zamawiającego:
       ${client.message.trim()}

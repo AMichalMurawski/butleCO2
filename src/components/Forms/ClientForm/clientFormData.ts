@@ -2,7 +2,6 @@ import * as Yup from 'yup';
 import { DayOfWeek, DayProps, FieldType } from '../../../context/Order/orderProps';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
 
-
 export const isFieldRequired = (schema: Yup.ObjectSchema<any>, path: string): boolean => {
   const parts = path.replace(/\[(\d+)\]/g, '.$1').split('.');
   let current: any = schema.describe();
@@ -38,17 +37,13 @@ export const expandDeliveryTime = (selectedDays: DayProps[]) => {
     if (found) {
       return {
         ...found,
-        enabled: true,
       };
     }
 
     return {
       day,
       enabled: false,
-      time: [
-        { hour: 9, minute: 0 },
-        { hour: 17, minute: 0 },
-      ],
+      time: ['09:00', '17:00'],
     };
   });
 };

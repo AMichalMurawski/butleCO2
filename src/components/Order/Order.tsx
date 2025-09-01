@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ClientInvoiceWraper, InvoiceWraper, SubmitButtonWraper } from './Order.styled';
 import { clientLabels, companyLabels } from '../../context/Order/orderKeyof';
 import { Client, Header, Informations, ProductsList } from './';

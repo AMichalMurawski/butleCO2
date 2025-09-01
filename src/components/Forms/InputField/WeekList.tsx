@@ -1,5 +1,12 @@
 import React from 'react';
-import { DataName, DataWraper, DayWraper, ErrorValue, TimeWraper, WeekWraper } from './InputField.styled';
+import {
+  DataName,
+  DataWraper,
+  DayWraper,
+  ErrorValue,
+  TimeWraper,
+  WeekWraper,
+} from './InputField.styled';
 import { ErrorMessage, useFormikContext } from 'formik';
 import { weekTimeLabels } from '../../../context/Order/orderKeyof';
 import CheckboxField from './CheckboxField';
@@ -14,10 +21,7 @@ interface WeekListProps {
 const defaultDayProps = (day: DayOfWeek): DayProps => ({
   day,
   enabled: false,
-  time: [
-    { hour: 9, minute: 0 },
-    { hour: 17, minute: 0 },
-  ],
+  time: ['09:00', '17:00'],
 });
 
 const WeekList: React.FC<WeekListProps> = ({ name, label }) => {
@@ -28,10 +32,7 @@ const WeekList: React.FC<WeekListProps> = ({ name, label }) => {
   const daysOfWeek = Object.keys(weekTimeLabels) as DayOfWeek[];
 
   const weekData: DayProps[] = daysOfWeek.map(day => {
-    let found: DayProps | undefined = defaultDayProps(day);
-    if (selectedDays) {
-      found = selectedDays.find(d => d.day === day);
-    }
+    const found = selectedDays.find(d => d.day === day);
     return found ?? defaultDayProps(day);
   });
 
@@ -52,13 +53,9 @@ const WeekList: React.FC<WeekListProps> = ({ name, label }) => {
                 valueWidth="auto"
               />
               <TimeWraper>
-                <TimeField name={`${name}[${index}]time`} index={0} timeType="hour" />
-                :
-                <TimeField name={`${name}[${index}]time`} index={0} timeType="minute" />
+                <TimeField name={`${name}[${index}].time`} index={0} />
                 {' - '}
-                <TimeField name={`${name}[${index}]time`} index={1} timeType="hour" />
-                :
-                <TimeField name={`${name}[${index}]time`} index={1} timeType="minute" />
+                <TimeField name={`${name}[${index}].time`} index={1} />
               </TimeWraper>
             </DayWraper>
           );

@@ -32,21 +32,19 @@ const Client: React.FC<ModalClientProps<any>> = ({
   labelWidth,
 }) => {
   const theme = useTheme();
-  
+
   const deliveryArray = () => {
     if (!initialValues.deliveryTime || !Array.isArray(initialValues.deliveryTime)) {
       return [];
     }
 
-    const delivery: string[] = initialValues.deliveryTime.map((day: DayProps) => {
-      const time = (pos: number) =>
-        `${day.time[pos].hour.toString().padStart(2, '0')}:${day.time[pos].minute.toString().padStart(2, '0')}`;
-      const label = `${weekTimeLabels[day.day]} ${time(0)} - ${time(1)}`;
-
-      return label;
-    }, []);
-
-    return delivery;
+    return initialValues.deliveryTime
+      .filter((day: DayProps) => day.enabled)
+      .map((day: DayProps) => {
+        const [from, to] = day.time;
+        const label = `${weekTimeLabels[day.day]} ${from} - ${to}`;
+        return label;
+      });
   };
 
   return (
@@ -69,7 +67,7 @@ const Client: React.FC<ModalClientProps<any>> = ({
               <DataName $width={labelWidth}>{label}:</DataName>
               {deliveryArray().length ? (
                 <DataValueBox>
-                  {deliveryArray().map((day: string, index) => (
+                  {deliveryArray().map((day: string, index: number) => (
                     <DataValue key={index}>{day}</DataValue>
                   ))}
                 </DataValueBox>
@@ -79,7 +77,6 @@ const Client: React.FC<ModalClientProps<any>> = ({
             </DataWraper>
           );
         }
-
 
         return (
           <DataWraper key={key}>

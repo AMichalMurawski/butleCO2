@@ -31,9 +31,7 @@ const ClientForm = <T extends Record<string, any>>({
     <Formik
       initialValues={extendedInitialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        console.log('values', values);
-
+      onSubmit={values => {
         if (!values.deliveryTime) {
           onSubmit(values);
           return;
@@ -47,7 +45,7 @@ const ClientForm = <T extends Record<string, any>>({
       validateOnBlur={true}
       validateOnChange={false}
     >
-      {({isValid}) => {
+      {({ isValid }) => {
         return (
           <DataList>
             {Object.keys(initialValues).map(key => {
