@@ -20,7 +20,7 @@ export const ClientWraper = styled.div<ClientWraperProps>`
   }
 
   ${({ theme }) => theme.media.t} {
-  margin: ${({ $autoMargin }) => ($autoMargin === 'right' ? '0 auto 0 3rem' : '0 3rem 0 auto')};
+    margin: ${({ $autoMargin }) => ($autoMargin === 'right' ? '0 auto 0 3rem' : '0 3rem 0 auto')};
     gap: 0.35rem;
   }
 `;
@@ -53,19 +53,27 @@ export const DataValueBox = styled.div`
 
 export const DataValue = styled(P)`
   display: inline-block;
-  height: 1.2rem;
+  margin-left: 1rem;
+  min-height: 1.6rem;
   width: 18rem;
   align-self: end;
   font-style: italic;
+  whitespace: 'pre-wrap';
+  line-height: 1.6em;
   color: ${({ theme }) => theme.color.main};
-  border-bottom: 2px dotted ${({ theme }) => theme.color.main};
-  whiteSpace: 'pre-line';
-  margin-left: 1rem;
+  background-image: repeating-radial-gradient(
+    circle,
+    ${({ theme }) => theme.color.main} 0 0.06rem,
+    transparent 0.06rem 100%
+  );
+  background-size: 0.4em 1.6em; /* 6px co ile powtarza się kropka w poziomie, 1.2em wysokość linii */
+  background-repeat: repeat;
+  background-position: 0 2.2em;
 
   ${({ theme }) => theme.media.m} {
     width: 24rem;
   }
-    
+
   ${({ theme }) => theme.media.d} {
     width: 28rem;
   }

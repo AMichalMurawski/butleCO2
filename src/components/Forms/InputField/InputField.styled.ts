@@ -9,7 +9,7 @@ export const DataWraper = styled.div<DataWraperProps>`
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction: ${({$flexDirection}) => $flexDirection || 'column'};
+  flex-direction: ${({ $flexDirection }) => $flexDirection || 'column'};
   align-items: start;
 `;
 
@@ -20,12 +20,12 @@ export const DataName = styled(Label)`
 `;
 
 interface ValueConteinerProps {
-  $width?: string
+  $width?: string;
 }
 
 export const ValueConteiner = styled.div<ValueConteinerProps>`
   position: relative;
-  width: ${({ $width }) => $width || '100%' };
+  width: ${({ $width }) => $width || '100%'};
   text-align: left;
 `;
 
@@ -77,7 +77,7 @@ export const CheckboxHandleValue = styled.div<{ checked: boolean }>`
   border: 1px solid ${({ theme }) => theme.color.structural};
   border-radius: 0.25rem;
   cursor: pointer;
-  ${({theme}) => theme.css.transition('background-color')}
+  ${({ theme }) => theme.css.transition('background-color')}
 `;
 
 interface SvgWraperProps {
@@ -92,7 +92,7 @@ export const SvgWraper = styled.div<SvgWraperProps>`
   top: 50%;
   transform: translate(-50%, -0.7rem);
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
-  ${({theme}) => theme.css.transition('opacity')}
+  ${({ theme }) => theme.css.transition('opacity')}
 `;
 
 export const ErrorValue = styled(P)`
@@ -123,12 +123,11 @@ export const TimeWraper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 0.25rem;
-  transform: translateY(-0.25rem);
+  transform: translateY(-0.35rem);
 `;
 
 export const TimeInput = styled(Input)`
-  width: 2.5rem;
+  width: 5rem;
   height: 1.2rem;
   text-align: center;
 `;
-

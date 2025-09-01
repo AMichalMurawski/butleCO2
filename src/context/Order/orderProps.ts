@@ -1,4 +1,14 @@
-export type FieldType = 'text' | 'textarea' | 'checkbox' | 'weekTime' | 'phone' | 'postalCode' | 'name' | 'nrLetter' | 'email' | 'nip';
+export type FieldType =
+  | 'text'
+  | 'textarea'
+  | 'checkbox'
+  | 'weekTime'
+  | 'phone'
+  | 'postalCode'
+  | 'name'
+  | 'nrLetter'
+  | 'email'
+  | 'nip';
 
 export interface AddressProps {
   street: string;
@@ -9,11 +19,6 @@ export interface AddressProps {
 }
 
 // >>>>>> CLIENT <<<<<<
-
-export type TimeProps = {
-  hour: number;
-  minute: number;
-};
 
 export type DayOfWeek =
   | 'monday'
@@ -27,7 +32,7 @@ export type DayOfWeek =
 export interface DayProps {
   day: DayOfWeek;
   enabled: boolean;
-  time: [TimeProps, TimeProps];
+  time: [string, string];
 }
 
 export interface ClientProps {
@@ -51,7 +56,7 @@ export interface CompanyProps {
 // >>>>>> PRODUCT <<<<<<
 
 export const gasTypes = ['CO2', 'Propan', 'Azot', 'Azot + CO2', 'Argon', 'Argon + CO2'] as const;
-export type GasType = typeof gasTypes[number];
+export type GasType = (typeof gasTypes)[number];
 
 export interface BaseProductProps {
   type: GasType | '';
@@ -73,7 +78,6 @@ export type ProductProps = RequireAtLeastOneProductProps<
   } & BaseProductProps,
   'weight' | 'litr'
 >;
-
 
 export type OrderProductProps = ProductProps & {
   transaction: boolean;

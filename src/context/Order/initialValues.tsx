@@ -3,11 +3,11 @@ import {
   AddressProps,
   ClientProps,
   CompanyProps,
+  DayOfWeek,
   DayProps,
   OrderProductProps,
   OrderProps,
   SummaryProps,
-  TimeProps,
 } from './orderProps';
 
 // >>>>>> ADDRESS <<<<<<
@@ -22,28 +22,34 @@ export const initialAddress: AddressProps = {
 
 // >>>>>> CLIENT <<<<<<
 
-const initialTimeStart: TimeProps = {
-  hour: 10,
-  minute: 0,
-};
-
-const initialTimeEnd: TimeProps = {
-  hour: 18,
-  minute: 0,
-};
+const daysOfWeek: DayOfWeek[] = [
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+  'sunday',
+];
 
 export const initialDay: DayProps = {
   day: 'monday',
   enabled: false,
-  time: [initialTimeStart, initialTimeEnd],
+  time: ['09:00', '17:00'],
 };
+
+export const initialDeliveryTime: DayProps[] = daysOfWeek.map(day => ({
+  day,
+  enabled: false,
+  time: ['09:00', '17:00'],
+}));
 
 export const initialClient: ClientProps = {
   name: '',
   phone: '',
   email: '',
   address: initialAddress,
-  deliveryTime: [],
+  deliveryTime: initialDeliveryTime,
   message: '',
   invoice: false,
 };
