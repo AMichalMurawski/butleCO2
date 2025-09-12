@@ -12,4 +12,5 @@ export type Config = {
   instagramURL: string;
   minCost: number;
   deliveryCost: number;
+  createdByUrl: string;
 };

@@ -40,10 +40,10 @@ const Footer: React.FC = () => {
             </P>
             <P>Śledź nas:</P>
             <MediaBox>
-              <IconWraper href={config.facebookURL}>
+              <IconWraper href={config.facebookURL} aria-label='Facebook'>
                 <IconSvg name="facebook" />
               </IconWraper>
-              <IconWraper href={config.instagramURL}>
+              <IconWraper href={config.instagramURL} aria-label='Instagram'>
                 <IconSvg name="instagram" />
               </IconWraper>
             </MediaBox>
@@ -51,13 +51,13 @@ const Footer: React.FC = () => {
           <DataBox $order={[3, 2, 3]}>
             <H4>Polityka i regulamin:</H4>
             <P>
-              <Link href="/privacy-policy">Polityka prywatności</Link>
+              <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
             </P>
             <P>
-              <Link href="/terms-of-service">Regulamin</Link>
+              <Link href="/regulamin">Regulamin</Link>
             </P>
             <P>
-              <Link href="data-protection-policy">Zasady ochrony danych</Link>
+              <Link href="zasady-ochrony-danych-osobowych">Zasady ochrony danych</Link>
             </P>
             <P>
               <Link href="faq">FAQ</Link>
@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
             <P $textAlign="left">Wszystkie prawa zastrzeżone.</P>
           </DataBox>
           <DataBox>
-            <P $textAlign="right">Projekt i realizacja strony: Michał Murawski</P>
+            <P $textAlign="right">Projekt i realizacja strony: <Link href={config.createdByUrl}>Michał Murawski</Link></P>
           </DataBox>
         </PrivacyPolicy>
       </FooterConteiner>

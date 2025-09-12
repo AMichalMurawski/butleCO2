@@ -15,12 +15,13 @@ export const FooterConteiner = styled.div`
 export const DataWraper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   text-align: left;
 
   ${({ theme }) => theme.media.m} {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 2rem;
   }
 `;
 
@@ -31,6 +32,9 @@ interface DataBoxProps {
 export const DataBox = styled.div<DataBoxProps>`
   width: fit-content;
   order: ${({ $order }) => $order?.[0] || 0};
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
 
   ${({ theme }) => theme.media.m} {
     flex-basis: calc((100% - 2rem) / 2);

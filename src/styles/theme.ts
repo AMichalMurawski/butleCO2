@@ -19,42 +19,6 @@ export const theme = {
     danger: '#FF5A5A',
     dangerTrans: '#FF5A5Aaa',
   },
-  color1: {
-    main: 'rgba(18, 18, 18, 1)',
-    mainTrans: 'rgba(18, 18, 18, 0.67)',
-    structural: 'rgba(31, 42, 56, 1)',
-    structuralTrans: 'rgba(31, 42, 56, 0.67)',
-    remarkable: 'rgb(232, 163, 58)',
-    remarkableTrans: 'rgba(232, 163, 58, 0.67)',
-    hightlight: 'rgb(232, 163, 58)',
-    hightlightTrans: 'rgba(232, 163, 58, 0.67)',
-    accent: 'rgba(107, 203, 156, 1)', //positive
-    accentTrans: 'rgba(107, 203, 156, 0.67)',
-    text: 'rgba(244, 240, 235, 1)',
-    textTrans: 'rgba(244, 240, 235, 0.67)',
-    warning: 'rgba(233, 174, 60, 1)',
-    warningTrans: 'rgba(233, 174, 60, 0.67)',
-    danger: 'rgba(240, 64, 64, 1)',
-    dangerTrans: 'rgba(240, 64, 64, 0.67)',
-  },
-  color2: {
-    main: 'rgba(18, 18, 18, 1)',
-    mainTrans: 'rgba(18, 18, 18, 0.67)',
-    structural: 'rgba(31, 42, 56, 1)',
-    structuralTrans: 'rgba(31, 42, 56, 0.67)',
-    remarkable: 'rgb(31, 228, 218)',
-    remarkableTrans: 'rgba(31, 228, 218, 0.67)',
-    hightlight: 'rgb(31, 228, 218)',
-    hightlightTrans: 'rgba(31, 228, 218, 0.67)',
-    accent: 'rgba(107, 203, 156, 1)', //positive
-    accentTrans: 'rgba(107, 203, 156, 0.67)',
-    text: 'rgba(244, 240, 235, 1)',
-    textTrans: 'rgba(244, 240, 235, 0.67)',
-    warning: 'rgba(233, 174, 60, 1)',
-    warningTrans: 'rgba(233, 174, 60, 0.67)',
-    danger: 'rgba(240, 64, 64, 1)',
-    dangerTrans: 'rgba(240, 64, 64, 0.67)',
-  },
   fonts: {
     // Montserrat
     main: css`

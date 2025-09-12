@@ -5,37 +5,80 @@ export const dataProtectionPolicy: DocumentProps = {
   hideSection: false,
   contents: [
     {
-      subtitle: 'Rozdział 1',
-      section: [[
-        DocumentTextType.Paragraph,
-        'Zorema flintor veskura dalmin trevoxa luneth kambrio selvanta dorque lynestra pravion exlura mentok glaiven surtoqu neldrix havanta prionex dravula mistelorn cafenque orliva brantu zevron halidor vextana mirsola centauryx plenfora duxtrel orbina telfarum vindexa rovelin muskata fernix.',
-      ],
-      [
-        DocumentTextType.Paragraph,
-        'Velmora trensik aldovar lunetra bromquis delvian forynta xeradin molquar enstriva polnix garulet syfora drimaxis quolenta rivanor kestura vandelith oprexa flarion mentuza drovalin sylenque broxtar helenquix jarnova clymetor wistane vorgellin nuresta flamirex trequion zolmera vastilune oxirade premnix calidora venquast orilume drestalyn marquiva zenfort.',
-      ],]
+      subtitle: '1. Wstęp',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '1.1. Niniejszy dokument określa zasady ochrony danych osobowych użytkowników strony internetowej [Nazwa Twojej strony] (dalej: „Strona”) zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO).',
+        ],
+      ]
     },
     {
-      subtitle: 'Rozdział 2',
-      section: [[
-        DocumentTextType.Paragraph,
-        'Florexa vindelun trosmir kalentha orvian dexura lumethar velsori danquix tromelar syvena glarnix uvelora mestanir drovaxa lenquir solfena trivarn.',
-      ],
-      [
-        DocumentTextType.Paragraph,
-        'Zanthera quivelon drovasik emloria ventrax solinque harvenix pladura ometris xalendro mirquast fenlira trovenix gladoria sermeth orquinal vastirel junthero calmiren vextruna orlidax flamirel norestin duvaleth krenovia sylmetha oxandor prelunia.',
-      ],
-      [
-        DocumentTextType.Paragraph,
-        'Lunetra visquor dramelin selvora trandix velmorin ophelax zurmian caldorin flextora norveth jamirion exulta prenivar dalmexis orlenth quavira sintorel brometha velquix toravel emnaris jundora xalpherin.',
-      ],]
+      subtitle: '2. Administrator danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '2.1. Administratorem danych osobowych jest ButleCo2.pl Artur Rembek, ul. Poprawna 105A, 03-984 Warszawa, NIP: 9522030252. Kontakt: biuro@butleco2.pl.',
+        ],
+      ]
     },
     {
-      subtitle: 'Rozdział 3',
-      section: [[
-        DocumentTextType.Paragraph,
-        'Vesquor mandrelix torvian plenodra xalmen quivara draltex orvina jentrax solmira trenvik dalvora exlenth pronixar velsira camdrel ontrava brenquix sulmora fenvix jaltran mordexa quervan lynthor pelsira draventa kormix televara sumdrel onvixa prelta.',
-      ],]
+      subtitle: '3. Zasady przetwarzania danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '3.1. Dane osobowe są przetwarzane w sposób zgodny z prawem, rzetelny i przejrzysty.',
+        ],
+        [
+          DocumentTextType.Paragraph,
+          '3.2. Dane są zbierane w konkretnych, wyraźnych i prawnie uzasadnionych celach.',
+        ],
+        [
+          DocumentTextType.Paragraph,
+          '3.3. Przetwarzanie danych jest ograniczone do minimum niezbędnego do realizacji celów.',
+        ],
+      ]
+    },
+    {
+      subtitle: '4. Bezpieczeństwo danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '4.1. Administrator stosuje odpowiednie środki techniczne i organizacyjne, aby zapewnić bezpieczeństwo danych (np. szyfrowanie, ograniczenie dostępu).',
+        ],
+        [
+          DocumentTextType.Paragraph,
+          '4.2. W przypadku naruszenia ochrony danych Administrator poinformuje użytkowników oraz organ nadzorczy zgodnie z RODO.',
+        ],
+      ]
+    },
+    {
+      subtitle: '5. Prawa użytkowników',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '5.1. Użytkownik ma prawo do:',
+        ],
+        [
+          DocumentTextType.List,
+          [
+            'dostępu do danych',
+            'sprostowania, usunięcia lub ograniczenia przetwarzania',
+            'wniesienia sprzeciwu wobec przetwarzania',
+            'przenoszenia danych',
+            'wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych'
+          ],
+        ],
+      ]
+    },
+    {
+      subtitle: '6. Kontakt z Inspektorem Ochrony Danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '6.1. W sprawach związanych z ochroną danych prosimy o kontakt pod adresem: biuro@butleco2.pl.',
+        ],
+      ]
     },
   ]
 };

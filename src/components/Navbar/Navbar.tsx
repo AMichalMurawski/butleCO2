@@ -4,11 +4,11 @@ import { useIdSection } from "../../context/Section/IdSectionContext";
 import { NavbarWraper } from "./Navbar.styled";
 
 const navbarList = [
-    ['O firmie', '/#about'],
-    ['Dlaczego My?', '/#whyChooseUs'],
-    ['Kontakt', '/#contactUs'],
-    ['Oferta', '/#services'],
-    ['Zamówienia', '/orders#orders'],
+    ['O firmie', '/#oFirmie'],
+    ['Dlaczego My?', '/#dlaczegoMy'],
+    ['Kontakt', '/#kontakt'],
+    ['Oferta', '/#oferta'],
+    ['Zamówienia', '/zamowienia#zamowienia'],
 ];
   
 interface NavbarProps {

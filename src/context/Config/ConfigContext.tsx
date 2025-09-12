@@ -15,6 +15,7 @@ const initialConfig: Config = {
   instagramURL: '',
   minCost: 0,
   deliveryCost: 0,
+  createdByUrl: '',
 };
 const ConfigContext = createContext<Config>(initialConfig);
 

@@ -10,4 +10,16 @@ export default defineConfig({
       plugins: [autoprefixer],
     },
   },
+  build: {
+    minify: 'esbuild', // szybsza i mniejsza minifikacja
+    sourcemap: false,
+    chunkSizeWarningLimit: 1000, // monitoruj wielkość
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+        },
+      },
+    },
+  },
 });

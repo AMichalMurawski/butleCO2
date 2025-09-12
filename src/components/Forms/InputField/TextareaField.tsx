@@ -25,9 +25,9 @@ const TextareaField: React.FC<TextareaFieldProps> = ({
 
   return (
     <DataWraper>
-      <DataName>{label}:</DataName>
+      <DataName htmlFor={name}>{label}:</DataName>
       <ValueConteiner>
-        <TextareaValue {...field} maxLength={maxLength} rows={rows} />
+        <TextareaValue {...field} id={name} maxLength={maxLength} rows={rows} />
         <ErrorMessage component={ErrorValue} name={String(name)} />
       </ValueConteiner>
     </DataWraper>

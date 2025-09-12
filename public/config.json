@@ -11,5 +11,6 @@
     "facebookURL": "http://facebook.com",
     "instagramURL": "http://instagram.com",
     "minCost": 100,
-    "deliveryCost": 20
+    "deliveryCost": 20,
+    "createdByUrl": ""
 }

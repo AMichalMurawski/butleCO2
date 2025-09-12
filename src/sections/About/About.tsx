@@ -21,7 +21,7 @@ const About: React.FC = () => {
   const { scrollToSection } = useIdSection();
 
   return (
-    <AboutSection id="about">
+    <AboutSection id="oFirmie">
       <AboutBlock>
         <Title>Poznaj ButleCO2.pl - Ekspertów od CO2 w Warszawie</Title>
         <P>
@@ -41,7 +41,7 @@ const About: React.FC = () => {
       <AdvantageBlock>
         <AdvantagesList>
           {advantages.map(advantage => (
-            <Advantage key={advantage[1]} onClick={() => scrollToSection(`/#whyChooseUs${advantage[0].replace(/-/g, '')}`)}>
+            <Advantage key={advantage[1]} onClick={() => scrollToSection(`/#dlaczegoMy-${advantage[3]}`)}>
               <IconWraper>
                 <IconSvg name={advantage[0]} size="2.5rem" />
                 </IconWraper>

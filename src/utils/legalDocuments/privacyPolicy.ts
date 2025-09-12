@@ -1,41 +1,116 @@
 import { DocumentProps, DocumentTextType } from './documentProps';
 
 export const privacyPolicy: DocumentProps = {
-  title: 'Zasady ochrony danych',
+  title: 'Polityka prywatności',
   hideSection: false,
   contents: [
     {
-      subtitle: 'Rozdział 1',
-      section: [[
-        DocumentTextType.Paragraph,
-        'Zorema flintor veskura dalmin trevoxa luneth kambrio selvanta dorque lynestra pravion exlura mentok glaiven surtoqu neldrix havanta prionex dravula mistelorn cafenque orliva brantu zevron halidor vextana mirsola centauryx plenfora duxtrel orbina telfarum vindexa rovelin muskata fernix.',
-      ],
-      [
-        DocumentTextType.Paragraph,
-        'Velmora trensik aldovar lunetra bromquis delvian forynta xeradin molquar enstriva polnix garulet syfora drimaxis quolenta rivanor kestura vandelith oprexa flarion mentuza drovalin sylenque broxtar helenquix jarnova clymetor wistane vorgellin nuresta flamirex trequion zolmera vastilune oxirade premnix calidora venquast orilume drestalyn marquiva zenfort.',
-      ],]
+      subtitle: '1. Informacje ogólne',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '1.1. Niniejsza Polityka prywatności określa zasady przetwarzania i ochrony danych osobowych użytkowników strony internetowej butleco2.pl, dalej zwaną „Stroną” zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO).',
+        ],
+        [
+          DocumentTextType.Paragraph,
+          '1.2. Administratorem danych osobowych jest ButleCO2.PL Artur Rembek, ul. Poprawna 105A, 03-984 Warszawa, NIP: 9522030252, kontakt: biuro@butleco2.pl.'
+        ]
+      ]
     },
     {
-      subtitle: 'Rozdział 2',
-      section: [[
-        DocumentTextType.Paragraph,
-        'Florexa vindelun trosmir kalentha orvian dexura lumethar velsori danquix tromelar syvena glarnix uvelora mestanir drovaxa lenquir solfena trivarn.',
-      ],
-      [
-        DocumentTextType.Paragraph,
-        'Zanthera quivelon drovasik emloria ventrax solinque harvenix pladura ometris xalendro mirquast fenlira trovenix gladoria sermeth orquinal vastirel junthero calmiren vextruna orlidax flamirel norestin duvaleth krenovia sylmetha oxandor prelunia.',
-      ],
-      [
-        DocumentTextType.Paragraph,
-        'Lunetra visquor dramelin selvora trandix velmorin ophelax zurmian caldorin flextora norveth jamirion exulta prenivar dalmexis orlenth quavira sintorel brometha velquix toravel emnaris jundora xalpherin.',
-      ],]
+      subtitle: '2. Cel i podstawa prawna przetwarzania danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '2.1. Dane osobowe użytkowników są przetwarzane w celu:',
+        ],
+        [
+          DocumentTextType.List,
+          [
+            'świadczenia usług dostępnych na Stronie (podstawa prawna: art. 6 ust. 1 lit. b RODO)',
+            'realizacji obowiązków prawnych ciążących na Administratorze (podstawa prawna: art. 6 ust. 1 lit. c RODO)',
+            'marketingu usług własnych Administratora, o ile użytkownik wyraził na to zgodę (podstawa prawna: art. 6 ust. 1 lit. a RODO)'
+          ]
+        ]
+      ]
     },
     {
-      subtitle: 'Rozdział 3',
-      section: [[
-        DocumentTextType.Paragraph,
-        'Vesquor mandrelix torvian plenodra xalmen quivara draltex orvina jentrax solmira trenvik dalvora exlenth pronixar velsira camdrel ontrava brenquix sulmora fenvix jaltran mordexa quervan lynthor pelsira draventa kormix televara sumdrel onvixa prelta.',
-      ],]
+      subtitle: '3. Rodzaje zbieranych danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '3.1. Strona zbiera następujące dane osobowe:'
+        ],
+        [
+          DocumentTextType.List,
+          [
+            'imię i nazwisko',
+            'adres e-mail',
+            'dane miejsca dostawy',
+            'dane firmy potrzebne do wystawienia faktury'
+          ]
+        ]
+      ]
+    },
+    {
+      subtitle: '4. Bezpieczeństwo danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '4.1. Administrator stosuje odpowiednie środki techniczne i organizacyjne, aby zapewnić bezpieczeństwo danych (np. ograniczenie dostępu).',
+        ],
+        [
+          DocumentTextType.Paragraph,
+          '4.2. W przypadku naruszenia ochrony danych Administrator poinformuje użytkowników oraz organ nadzorczy zgodnie z RODO.',
+        ],
+      ]
+    },
+    {
+      subtitle: '5. Okres przechowywania danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '5.1. Dane osobowe są przechowywane przez okres niezbędny do realizacji celów, dla których zostały zebrane, lub przez okres wynikający z przepisów prawa.'
+        ]
+      ]
+    },
+    {
+      subtitle: '5. Prawa użytkownika',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '5.1 Użytkownik ma prawo do:',
+        ],
+        [
+          DocumentTextType.List,
+          [
+            'dostępu do danych osobowych',
+            'ich sprostowania, usunięcia lub ograniczenia przetwarzania',
+            'wniesienia sprzeciwu wobec przetwarzania',
+            'przenoszenia danych',
+            'cofnięcia zgody na przetwarzanie danych w dowolnym momencie',
+            'wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych'
+          ],
+        ],
+      ]
+    },
+    {
+      subtitle: '6. Udostępnianie danych',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          '6.1. Dane osobowe mogą być przekazywane podmiotom współpracującym z Administratorem (np. dostawcom usług hostingowych, narzędzi analitycznych) wyłącznie w zakresie niezbędnym do realizacji usług.'
+        ]
+      ]
+    },
+    {
+      subtitle: '6. Kontakt',
+      section: [
+        [
+          DocumentTextType.Paragraph,
+          'W sprawach związanych z ochroną danych osobowych prosimy o kontakt pod adresem: biuro@butleco2.pl.',
+        ],
+      ]
     },
   ]
 };

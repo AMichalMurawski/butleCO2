@@ -3,9 +3,9 @@ import { HeroSection, Image, ImagesRoll, ImagesRollWraper, Sentence } from './He
 import { H1, H2 } from '../../styles';
 
 const images: string[] = [
-  '/images/kdo3ud733dh3j48f.jpg',
-  '/images/od8d22jstd9fj3bda.jpg',
-  '/images/sofh4dff933kaif93jd.jpg',
+  '/images/pracownik-napełniający-butle-gazem.webp',
+  '/images/pracownik-kontrolujący-zabezpieczenia-butli.webp',
+  '/images/pracownik-sprawdzający-szczelność-butli.webp',
 ];
 
 const Hero: React.FC = () => {

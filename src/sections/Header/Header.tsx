@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({onClick}) => {
     <>
       <HeaderWraper>
         <HeaderBox>
-          <LogoWraper onClick={() => scrollToSection('/#hero')} type='button'>
+          <LogoWraper onClick={() => scrollToSection('/#hero')} type='button' aria-label='logo'>
             <LogoIcon dimension="3.5rem" />
           </LogoWraper>
           <NavbarConteiner>

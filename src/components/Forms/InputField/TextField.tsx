@@ -22,9 +22,9 @@ const TextField: React.FC<TextFieldProps> = ({ name, label, maskRegex }) => {
 
   return (
     <DataWraper>
-      <DataName>{label}:</DataName>
+      <DataName htmlFor={name}>{label}:</DataName>
       <ValueConteiner>
-        <TextValue {...field} type="text" onChange={handleChange} />
+        <TextValue id={name} {...field} type="text" onChange={handleChange} />
         <ErrorMessage component={ErrorValue} name={String(name)} />
       </ValueConteiner>
     </DataWraper>

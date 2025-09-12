@@ -4,7 +4,7 @@ import { Section } from '../../styles';
 
 const Orders: React.FC = () => {
   return (
-    <Section id="orders">
+    <Section id="zamowienia">
       <Order />
     </Section>
   );

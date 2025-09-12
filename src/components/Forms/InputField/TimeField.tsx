@@ -16,8 +16,9 @@ const TimeField: React.FC<TimeFieldProps> = ({ name, index }) => {
   };
 
   return (
-    <label>
+    <label htmlFor={name}>
       <TimeInput
+        id={name}
         {...field}
         type="time"
         step={60}

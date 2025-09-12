@@ -15,7 +15,7 @@ const ContactUs: React.FC = () => {
   const config = useConfig();
 
   return (
-    <ContactSection id="contactUs">
+    <ContactSection id="kontakt">
       <H2>Masz pytania? Skontaktuj się z nami już dziś!</H2>
       <ContactsWraper>
         <InfoWraper as="address" $gridColumn={[1, 1]} $gridRow={[1, 1]}>

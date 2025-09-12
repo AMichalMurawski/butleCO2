@@ -11,11 +11,11 @@ import { H2, H3, P, Section } from '../../styles';
 
 const WhyChooseUs: React.FC = () => {
   return (
-    <Section id="whyChooseUs">
+    <Section id="dlaczegoMy">
       <H2>Dlaczego ButleCO2.pl to Twój najlepszy wybór?</H2>
       <AdvantagesList>
         {advantages.map((advantage, index) => (
-          <AdvantageWraper key={advantage[1]} id={`whyChooseUs${advantage[0].replace(/-/g, '')}`} $direction={index % 2 == 0 ? 'left' : 'right'}>
+          <AdvantageWraper key={advantage[1]} id={`dlaczegoMy-${advantage[3]}`} $direction={index % 2 == 0 ? 'left' : 'right'}>
             <ContentWraper>
               <IconSvg name={advantage[0]} size='5.5rem' fill={theme.color.hightlight} />
             </ContentWraper>
