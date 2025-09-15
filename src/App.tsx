@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './layout/Layout';
 import { DocumentType } from './pages/LegalDocumentPage/LegalDocumentPage';
 
-const HomePage = React.lazy(() => import('./pages/HomePage/HomePage'))
-const LegalDocumentPage = React.lazy(() => import('./pages/LegalDocumentPage/LegalDocumentPage'))
-const OrdersPage = React.lazy(() => import('./pages/OrdersPage/OrdersPage'))
+const HomePage = React.lazy(() => import('./pages/HomePage/HomePage'));
+const LegalDocumentPage = React.lazy(() => import('./pages/LegalDocumentPage/LegalDocumentPage'));
+const OrdersPage = React.lazy(() => import('./pages/OrdersPage/OrdersPage'));
 
 const App = () => {
   return (
@@ -26,6 +26,7 @@ const App = () => {
           element={<LegalDocumentPage document={DocumentType.DataProtectionPolicy} />}
         />
         <Route path="faq" element={<LegalDocumentPage document={DocumentType.FAQ} />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );
