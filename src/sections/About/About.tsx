@@ -56,7 +56,7 @@ const About: React.FC = () => {
               text="Skontaktuj się z nami"
               background={theme.color.remarkable}
               color={theme.color.structural}
-              onClick={() => scrollToSection('/#contactUs')}
+              onClick={() => scrollToSection('/#kontakt')}
             />
           </ButtonWraper>
           <ButtonWraper>
@@ -65,7 +65,7 @@ const About: React.FC = () => {
               text="Złóż zamówienie"
               background={theme.color.remarkable}
               color={theme.color.structural}
-              onClick={() => scrollToSection('/orders')}
+              onClick={() => scrollToSection('/zamowienia#zamowienia')}
             />
           </ButtonWraper>
         </ButtonsWraper>
