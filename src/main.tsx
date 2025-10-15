@@ -5,7 +5,7 @@ import App from './App.js';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import { IdSectionProvider } from './context/Section/IdSectionContext';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 // Montserrat
 import '@fontsource/montserrat/400.css';
@@ -23,13 +23,13 @@ createRoot(rootElement).render(
   <StrictMode>
     <ConfigProvider>
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
+        <HashRouter>
           <IdSectionProvider>
             <ToastProvider>
               <App />
             </ToastProvider>
           </IdSectionProvider>
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </ConfigProvider>
   </StrictMode>
